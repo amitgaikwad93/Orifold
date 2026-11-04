@@ -38,4 +38,8 @@ The contact-policy review for the restricted numerical pilot is recorded in [OPT
 
 The combined suite now has 28 cases: 16 geometry cases, 10 optimizer cases, and 2 saved-pilot audit cases. Checks include parameter bounds and length preservation, deterministic seeds, equal search budgets, analytical width rejection, explicit budget exhaustion, strict versus 1% fit, a narrow-box solution, and revalidation of all 80 stored strict-fit optimizer designs and their withheld witnesses.
 
-Both 100-request comparisons completed. See [PILOT_RESULTS.md](PILOT_RESULTS.md) for measured outcomes and reproduction commands. No network training has run.
+Both 100-request comparisons completed. See [PILOT_RESULTS.md](PILOT_RESULTS.md) for measured outcomes and reproduction commands. That numerical pilot preceded the learning experiment recorded below.
+
+## Phase 3 learning experiment
+
+The current suites contain 31 Node cases and 5 Python test methods. Added checks cover neural initialization budgets, artifact/checkpoint provenance, re-evaluation of saved network outcomes, 40 cross-language geometry fixtures, invalid geometry inputs, decoder parity and numerical gradient checks, checkpoint reload, and disjoint dataset splits. CPU training and held-out evaluation completed; see LEARNING.md for the intentionally preserved poor network performance. Figures were generated from saved records and visually reviewed.

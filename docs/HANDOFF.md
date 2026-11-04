@@ -1,82 +1,96 @@
 # Orifold handoff — read this first
 
-Snapshot: 2026-11-04, after the 100-request pilot and the user's zero-thickness scope clarification. This handoff update changes documentation only. Its next implementation task is phase 3 below.
+Snapshot: 2026-11-04, after the first small CPU learning experiment. **The model is trained, but the standalone performance target was missed.** Read LEARNING.md before interpreting the checkpoint as a working design generator.
 
 ## Repository and branch
 
 - Repository: https://github.com/amitgaikwad93/Orifold
-- Working branch: `codex/phase-1-accordion` (name predates the phase-2 work).
+- Working branch: `codex/phase-1-accordion` (historical name now includes phases 1–3).
 - Draft PR: https://github.com/amitgaikwad93/Orifold/pull/1
-- Last implementation commit before this handoff: `317feaea6715808a85e3945767aba01e70b18e24`. This is a reference, not a ref to reset to.
-- At this snapshot, the PR is open and unmerged; `main` does **not** contain this implementation. Inspect current remote state before resuming. If unmerged, work from the PR branch. If merged, use the current default branch and normal development workflow.
+- Prior handoff commit: `47753468ca46173584859a4fd1a1dcbe207237db`; the learning changes are subsequent. Inspect the current remote head rather than resetting to this historical commit.
+- At this snapshot, the PR is open and unmerged. `main` does not contain the implementation. Check remote state before choosing the next working branch.
 
-The previous environment held source under `/workspace/Orifold`, retrieved and published through the GitHub connector because shell git networking failed. That directory was not a normal git clone. Do not assume a new environment has those files, git metadata, dependencies, or processes. Prefer a normal clone when available; otherwise use the connected GitHub tools. Do not overwrite remote changes based only on this snapshot.
+The prior environment held files in `/workspace/Orifold` without a normal git clone; GitHub tools published the changes because shell git networking failed. CPU PyTorch was installed in a project venv. Do not assume a fresh environment has these files, dependencies, git metadata, or processes. Prefer a normal clone when available and preserve unrelated remote/local changes.
 
-## What is settled
+## Scope and user expectations
 
-Read [DECISIONS.md](DECISIONS.md). Core scope: learn inverse design of **zero-thickness rigid-panel origami**, starting with a finite four-panel accordion. Target box dimensions are upper bounds; this is packing, not exact shape synthesis. Thickness adaptation and hardware are excluded until the user explicitly reopens them.
+Read AGENTS.md, DECISIONS.md and PLAN.md. Generate **zero-thickness rigid flat-panel designs only**, currently a fixed four-panel accordion. Target box dimensions are separate upper bounds for packing; this is not exact shape synthesis or scalar volume minimization. Thickness adaptation, hardware, trimming and axis offsets remain excluded until the user explicitly reopens them.
 
-The user wants autonomous progress within that scope and an explanation of what each implementation contributes to the learning objective. No user answer or extra paper measurement is currently required.
+The user wants actual progress within agreed scope, not repeated offers to continue. There is no pending user answer. Additional physical measurements are not required to proceed with idealized learning experiments. Explain outcomes candidly, including failed models.
 
-## What exists
+## Completed work
 
 | Component | Location | Status |
 | --- | --- | --- |
-| Geometry reference and sampled contact checking | `src/accordion.js` | Implemented |
-| Bounded differential-evolution optimizer | `src/optimizer.js` | Implemented; strict fit by default |
-| Pilot request generation | `src/pilot-requests.js` | Implemented; witness designs withheld from solvers |
-| Solve and benchmark commands | `scripts/solve.js`, `scripts/pilot.js` | Working |
-| Interactive examples | `demo/index.html`, `demo/accordion.html` | Browser checked |
-| Tests | `tests/` | 28 cases passed locally; implementation commit's GitHub CI passed |
-| Frozen benchmark evidence | `results/pilot-2026-11-04-*.json` | Strict and 1% runs retained |
-| Python geometry/training code | Not yet present | Next phase |
-| Training dataset/splits/checkpoints | Not yet present | No network has been trained |
-| FOLD export | Not yet present | Planned after meaningful model evaluation |
+| Node geometry and sampled contacts | `src/accordion.js` | Reference evaluator |
+| Numerical optimizer | `src/optimizer.js` | Strict default; optional neural initialization added |
+| Original numerical pilot | `results/pilot-2026-11-04-*.json` | Immutable 100-request reports |
+| Python geometry port | `learning/geometry.py` | Parity checked against Node |
+| Learning data generation | `scripts/generate-learning-data.js` | 1,000 labeled requests plus 100 impossible diagnostics |
+| MLP and training | `learning/model.py`, `learning/train.py` | 17,926 parameters; CPU trained from scratch |
+| Prediction and held-out evaluation | `learning/predict.py`, `scripts/evaluate-learning.js` | Frozen test comparison complete |
+| Dataset, checkpoint, metrics and curves | `experiments/learning-v1/` | Versioned, checksummed evidence |
+| Tests | `tests/` | 31 Node cases; 5 Python test methods |
+| FOLD export | Not implemented | Still planned, not claimed complete |
 
-Strict pilot: 80/80 evaluator-feasible requests solved by the optimizer, 72/80 by random search, 40/80 by an equal-panel flat stack. All methods rejected 20 impossible-width requests. Optimizer median 133.89 ms, mean 142.50 ms, P95 190.01 ms. Entire strict comparison took 23.43 seconds on the recorded CPU. This is not model performance or a guarantee on new requests. See [PILOT_RESULTS.md](PILOT_RESULTS.md).
+## Measured result — preserve without spin
 
-## First actions in a new chat
+Dataset: 700 training, 150 validation, 150 test requests, balanced wide versus narrow/tall boxes. Independent seeds and normalized fingerprints prevent overlap with the earlier pilot and across splits. All optimizer labels passed strict fit and 721 sampled states. Impossible-width examples have no design labels.
 
-1. Inspect current branch/PR and working changes, then read AGENTS.md, DECISIONS.md, PLAN.md and OPTIMIZATION.md. Do not reread the large Gemini transcript unless needed for historical context.
-2. Run `npm test` to verify the restored implementation. Run the single-request example if checking the command interface; reproducing the entire pilot is optional unless something changed.
-3. Inspect Python and dependencies. In the last environment Python 3.12, NumPy and SciPy existed, but PyTorch was absent. This is an observation, not a reproducible dependency specification. Create an isolated environment and record dependencies for phase 3.
-4. Start the next phase below. Do not ask the user to approve the already agreed move to a small CPU learning experiment. Report a concrete access or dependency blocker if one exists.
+The network uses two 128-unit tanh hidden layers, six sigmoid outputs, a bounded length-preserving decoder, and supervised imitation MSE over normalized panels/angles. Selected epoch 68 by validation loss only; stopped at epoch 148. No test tuning occurred. CPU data generation took 133.52 s, training loop 1.62 s, and six-method test comparison 55.63 s. No GPU or additional paid compute was provisioned.
 
-## Next executable milestone — first small learning experiment
+| Method | Strict success / 150 | <=1% overflow success / 150 |
+| --- | --- | --- |
+| Network only | **0** | **3** |
+| Equal-panel stack | 75 | 75 |
+| Random search, 984 candidates | 134 | 134 |
+| Full optimizer, 984 candidates | 150 | 150 |
+| Short optimizer, 264 candidates | 138 | 138 |
+| Network-initialized short optimizer, 264 candidates | 140 | 142 |
 
-The following is an implementation recommendation consistent with the agreed plan; record any justified adjustment.
+Raw network inference median was about 0.030 ms, but fast invalid output is not a useful speedup. All network failures were fit failures; no sampled contacts were blocked. Median worst-axis overflow was 33.84%. The paired hybrid improvement is 6 wins versus 4 losses: insufficient to establish a reliable benefit from learning. Do not claim the 95% learned-model target was met or compare these 150 requests directly to the different original 100-request pilot.
 
-1. **Create a reproducible Python training scaffold.** Keep the Node evaluator as the reference. Add shared analytical and difficult fixtures and a parity harness before trusting any Python geometry/validation port. Compare coordinates, bounds, contact classification and strict fit, including full stacks, partial stacks and crossing cases. Do not weaken rules just to improve scores.
-2. **Freeze a small dataset specification.** A reasonable first budget is about 1,000 new feasible requests, with a fixed train/validation/test split such as 700/150/150 and recorded independent seeds. Group related/scaled requests together. Keep the 100 pilot cases out of the held-out test set. Record generation ranges, solver budgets and failures. Include impossible-width cases in a separate evaluation set; do not assign them fabricated design labels.
-3. **Generate strict-validated labels using the existing solver.** Save request IDs, dimensions, designs, solver settings, success/failure status and provenance. Recheck labels with the reference evaluator. Preserve multiple-solution ambiguity in interpretation: coordinate imitation error alone does not measure geometric quality.
-4. **Train a small MLP from random initialization on CPU.** Normalize dimensions, preserve panel length sums/positivity by construction, and bound angle magnitudes. Start within approximately 10k–100k parameters; record actual architecture, seeds, optimizer settings, stopping criteria and wall time. Use validation only for choices; evaluate the frozen test split once the experiment is fixed.
-5. **Measure utility.** Report strict and <=1% per-axis fit, sampled-contact failures, runtime, and failure examples for network-only predictions. Compare against the numerical optimizer and simple baselines on the same test requests. Add network-initialized optimization if useful, recording how that initialization is encoded and the search budget. Target >=95% is an aspiration, not permission to hide failures or adjust test data.
-6. **Save a reviewable result.** Checkpoint, configuration, split manifest, curves, evaluation summary and reproduction commands. Update this handoff and the PR. If the learned model underperforms, report it and diagnose rather than silently moving to a larger model or a new folding family.
+Likely issue to investigate: averaging valid optimizer choices under imitation loss does not preserve nonlinear box-fit constraints. This is a hypothesis, not a proved sole cause. The first loss has no direct box-fit term and its checkpoint selection does not measure geometric acceptance.
 
-## Commands
+## First actions in a fresh session
 
-From the repository root, Node 18+ is sufficient for the current implementation; no npm package installation is required:
+1. Inspect remote PR/branch and local worktree. Read AGENTS.md, DECISIONS.md, LEARNING.md, and the relevant code. Preserve v1 artifacts.
+2. Restore a Python environment using the CPU installation commands in LEARNING.md. Recorded versions: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5. Inspect actual availability rather than assuming it.
+3. Run `npm test` and `.venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v`. Do not rerun completed dataset generation/training merely to establish current state; saved evidence is available.
+4. Continue the next experiment below within the zero-thickness scope. No GPU or user approval is required for routine CPU work; billable provisioning still requires explicit approval.
+
+## Next executable milestone — improve the objective, not model size
+
+This is a proposed v2 experiment, not implemented or already running:
+
+1. Add a differentiable PyTorch endpoint geometry/bounding-box function for this fixed hinge family. Test it against Node/Python geometry over fixed fixtures, random configurations, and gradients away from max/min kinks. Keep the existing non-differentiable contact validator independent.
+2. Predeclare a v2 configuration in a new directory. Keep the small architecture initially. Add a normalized endpoint-overflow loss alongside imitation; develop loss weights and checkpoint selection using **training and validation only**. Report both loss and geometric acceptance on validation. Investigate label ambiguity using training data rather than attributing all failure to architecture size.
+3. Preserve the v1 dataset/checkpoint/results. Its test outcomes are now known, so do not present repeated tuning against them as an untouched test. Freeze a fresh, independent test cohort and seeds for the next final comparison; group scaled/related requests to avoid leakage.
+4. Select a final checkpoint without looking at the new test results, then compare network-only, cold optimizer, and paired network-initialized optimizer with matched budgets and the same reference checks. Record strict and 1% fit separately, collisions, failures, latency, and paired wins/losses.
+5. If performance still misses the target, preserve that result and diagnose. Do not silently loosen geometry, add thickness, enlarge the model, or jump to arbitrary crease graphs. Update this handoff and the PR with the actual outcome.
+
+The longer-term path remains Miura-ori or other zero-thickness rigid-foldable families after the learning/evaluation pipeline is understood. FOLD export is still outstanding.
+
+## Commands and artifacts
+
+See LEARNING.md for clean setup and full reproduction into a fresh directory. Useful commands from the repository root:
 
 ```sh
 npm test
+.venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v
 npm run solve -- examples/narrow-box.json
-npm run pilot -- artifacts/pilot-strict.json 0
+.venv/bin/python -m learning.predict --request examples/narrow-box.json
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/demo/accordion.html` for the four-panel viewer. `artifacts/` is ignored; frozen reports in `results/` are versioned. These commands do not start model training.
+The last prediction command returns a proposal, not certified fit. The demo at `/demo/accordion.html` is still a geometry viewer, not a trained-model UI.
 
-## Known limits and traps
+`experiments/learning-v1/config.json` and `manifest.json` freeze settings/splits. `dataset.jsonl.gz` contains standard compressed JSON Lines; `run/checkpoint.pt` contains the selected model; `run/history.csv`, training/evaluation summaries, frozen predictions, and compressed per-request evaluations preserve evidence. Load the checkpoint with `weights_only=True`. Source commands refuse to overwrite completed artifacts; use new directories for deliberate repetitions. `artifacts/` is ignored exploratory output.
 
-- Search checks 31 motion states, then up to eight candidates at 721 states. Sampling is not a continuous-motion proof. The prescribed schedule is not a one-actuator mechanism.
-- The endpoint box need not enclose the trajectory. Width cannot contract in the accordion family. Do not call packing a target-shape match.
-- The exact 180° stack-contact exception is idealized and discontinuous. No layer-order proof exists. The contact review permits only a restricted numerical experiment.
-- Equal-panel folding already solves half the deliberately balanced pilot. 60/80 optimized designs have at least one inactive hinge. Do not equate this task with discovery of complex crease networks.
-- The original 1% pilot solved 80/80 within tolerance but only 43 outputs fit strictly. The strict rerun solved 80/80 strictly. Do not mix the reports or their metrics.
-- The $50 figure is not permission to spend. CPU suffices to begin; training runtime remains unmeasured.
+## Limits, live jobs, blockers
 
-## Running work and blockers
+No persisted dataset, training, evaluation, server or automation job is running at this handoff; all experiment processes finished. Verify current runtime state when resuming. There is no pending user decision.
 
-No persisted training, solver, server, or automation job is running at this handoff; previous benchmark processes finished. Verify actual runtime state when resuming. There is no pending user decision. Broader physical observations are optional and are not a prerequisite for zero-thickness model training. Thickness adaptation is excluded, not a backlog item.
+The original sampled geometry limitations still apply: zero thickness, no continuous collision proof or layer-order validation, no enclosure-motion or single-actuator proof. Width cannot contract in the accordion family. The exact flat-stack endpoint exception is not a general origami guarantee. A loss decrease is not geometric success; a solver failure is not proven infeasibility.
 
-Before ending the next substantive session, update this document with the new state and next task. A final message alone is not durable project memory.
+Before ending the next substantive session, update this document, decisions and roadmap. A final chat reply alone is not durable project memory.

@@ -42,8 +42,14 @@ Later scope can include Miura-ori or other zero-thickness rigid-foldable familie
 
 The user supplied an accordion photo and reported a 5 × 10 cm closed footprint, agreeing with the reference example. Dimensions are user-reported, not measured from the photo. The photo is in the earlier chat, not the repository; VALIDATION.md contains the sufficient observation record. This is a limited check, not general physical validation. Further material/thickness measurements are not required to continue the agreed project.
 
-The original $50 and 2–4 part-time weeks were planning estimates, not a spending authorization or a runtime measurement. The strict pilot measured 142.50 ms mean per feasible optimizer request; 10,000 comparable solves extrapolate to about 24 sequential CPU-minutes. Network training cost is not measured. Use local CPU first; no additional paid compute resource has been provisioned.
+The original $50 and 2–4 part-time weeks were planning estimates, not a spending authorization or a runtime measurement. The strict pilot measured 142.50 ms mean per feasible optimizer request; 10,000 comparable solves extrapolate to about 24 sequential CPU-minutes. The first training loop subsequently measured 1.62 seconds; see LEARNING.md. Use local CPU first; no additional paid compute resource has been provisioned.
 
 ## D08 — collaboration and persistence (explicit preference)
 
 The user wants the agent to carry out agreed next steps rather than repeatedly end with offers to continue. They asked for repository-based continuity across chats. Record current state and next actions, distinguish completed jobs from planned work, and do not require the user to repeat already settled goals or scope. Nothing is currently waiting on a user answer.
+
+## D09 — preserve the failed first learning baseline (measured outcome)
+
+The first 17,926-parameter supervised MLP was trained from scratch on 700 requests, selected on 150 validation requests, then evaluated once on 150 test requests. It passed 0 strictly and 3 within 1%. The full optimizer passed 150; short optimization passed 138, versus 140 when initialized with the network. Do not present this as a successful standalone generator or a reliable demonstrated neural advantage.
+
+The v1 dataset, checkpoint, curves, and test results remain immutable evidence. Next recommendation: develop a differentiable endpoint-fit term and geometry-based validation metrics before enlarging the network, with a fresh predeclared test cohort. The existing hard contact evaluator remains independent. This is a proposed next experiment, not an already implemented fix.

@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "train": {
+      "requests": 700,
+      "labels": 700,
+      "budgetExhausted": 0,
+      "analyticallyInfeasible": 0
+    },
+    "validation": {
+      "requests": 150,
+      "labels": 150,
+      "budgetExhausted": 0,
+      "analyticallyInfeasible": 0
+    },
+    "test": {
+      "requests": 150,
+      "labels": 150,
+      "budgetExhausted": 0,
+      "analyticallyInfeasible": 0
+    },
+    "diagnostic-impossible": {
+      "requests": 100,
+      "labels": 0,
+      "budgetExhausted": 0,
+      "analyticallyInfeasible": 100
+    }
+  },
+  "elapsedSeconds": 133.518542248,
+  "uncompressedSha256": "1633841dee6736bb01a28ba7b5938c69a7978a38d08127f07cc13f559d6f025d",
+  "compressedSha256": "a02e153c3f815333f799905266195d4098ade08d1c74167825b7206fafa8324d",
+  "configSha256": "1fedb56b2ad7fb0b3523e01e12a8b69150a6de4131aad19a87f214f5d303080a",
+  "node": "v24.22.1",
+  "totalRequests": 1100,
+  "overlapWithPilot": 0
+}

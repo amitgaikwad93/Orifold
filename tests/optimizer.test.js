@@ -59,6 +59,15 @@ test('random-search comparison receives the same evaluation budget', () => {
   assert.equal(b.quality.accepted, true);
 });
 
+test('optional neural initialization preserves candidate budget and records its parameters', () => {
+  const initialParameters = [.25, 1/3, .5, 1, 1, 1];
+  const cold = search(compact, quick), warm = search(compact, { ...quick, initialParameters });
+  assert.equal(warm.evaluations, cold.evaluations);
+  assert.deepEqual(warm.config.initialParameters, initialParameters);
+  assert.equal(warm.quality.strictPass, true);
+  assert.throws(() => search(compact, { ...quick, initialParameters: [1, 2] }));
+});
+
 test('1% acceptance is reported separately from strict numerical fit', () => {
   const design = { panelLengths: [5, 5, 5, 5], width: 10, angles: [180, 180, 180] };
   const result = assess(design, [4.98, 10, 1], { steps: 180 });

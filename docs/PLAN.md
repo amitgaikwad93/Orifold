@@ -49,22 +49,23 @@ Contact is conservative: ordinary adjacent hinge contact is allowed; other touch
 - [x] Run 100 reproducible requests on recorded hardware; retain settings, designs, timings, quality, and failures.
 - [x] Include 80 witness-validated requests and 20 analytically impossible width requests. Optimizer failure alone is not proof of infeasibility.
 - [x] Compare against an equal-panel flat stack and random search with a matched search budget.
-- [x] Run both 1% and strict-fit comparisons; use strict-validated labels for future training. No bulk dataset or model training has run yet.
+- [x] Run both 1% and strict-fit comparisons; use strict-validated labels for future training. The subsequent learning experiment is recorded in LEARNING.md.
 
 Results: strict differential evolution solved 80/80 feasible pilot requests; random search 72/80; equal-panel stack 40/80. All methods rejected 20 impossible-width requests. Solver mean was 142.50 ms and median 133.89 ms per feasible request on the recorded CPU. See PILOT_RESULTS.md for distributions, limitations, and raw reports.
 
-### Phase 3 — first trained neural model
+### Phase 3 — first trained neural model (experiment complete; performance target missed)
 
-- Start with a small MLP, approximately 10k–100k parameters, initialized from scratch. Architecture size is a hypothesis, not the definition of capability.
-- Use Python/PyTorch for training. Port the geometry with shared analytic fixtures and parity checks before relying on a Python evaluator. The current JavaScript reference keeps the geometry and browser preview identical.
-- Normalize dimensions; encode positive panel widths summing to the given length and bounded angles.
-- Begin with optimizer-produced supervised examples. Judge predictions by geometry, since multiple designs may solve one request.
-- Save dataset generation settings, seeds, split definitions, model settings, checkpoints, and training curves.
-- Keep families of related/scaled examples together when splitting data to avoid leakage. Include boundary and out-of-range evaluation separately.
+- [x] Train a 17,926-parameter MLP from scratch on CPU; 700 training and 150 validation examples, with checkpoint selection by validation only.
+- [x] Add Python/PyTorch training and an independent geometry port; verify parity on 8 named and 32 random fixtures. Official acceptance still uses the Node reference.
+- [x] Normalize dimensions using training statistics and enforce positive, length-preserving panel widths and bounded angles by construction.
+- [x] Generate 1,000 strict-validated labels and evaluate 150 frozen test requests geometrically. Network-only results: 0/150 strict, 3/150 at 1%; do not call the model usable.
+- [x] Save the dataset, split manifest, configuration, seeds, checkpoint, curves, and complete comparison records under experiments/learning-v1.
+- [x] Check normalized request uniqueness across splits and the old pilot. Keep 100 impossible-width diagnostics separate; rejections are analytical, not learned. Broader out-of-distribution evaluation remains future work.
 
-### Phase 4 — measure contribution and export
+### Phase 4 — improve learning and export (comparison started; export pending)
 
-- Compare network-only proposals, direct optimization, and network-initialized optimization on the same held-out requests and hardware.
+- [x] Compare all methods on 150 held-out requests: full optimizer 150/150 strict, short optimizer 138/150, network-initialized short optimizer 140/150. The paired hybrid gain is only 6 wins versus 4 losses, not an established reliable benefit.
+- [ ] Next: add a parity-tested differentiable endpoint-fit loss, develop using training/validation only, and freeze a fresh test cohort/configuration for the next experiment. Preserve v1 unchanged; do not increase model size blindly.
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.
 - Report strict numerical fit as well as tolerance-based success; the current evaluator uses only numerical tolerance (not the 1% learning target).
@@ -76,11 +77,11 @@ Investigate Miura-ori or another zero-thickness rigid-foldable family that contr
 
 ## Time and compute budget
 
-Original planning envelope: 2–4 weeks part-time at roughly 5–10 hours/week, with a proposed maximum of $50 for compute experiments. These were initial estimates, not commitments or authorization to spend. The software geometry and optimizer pilot are now implemented and the CPU solver is benchmarked; training effort and runtime remain uncertain.
+Original planning envelope: 2–4 weeks part-time at roughly 5–10 hours/week, with a proposed maximum of $50 for compute experiments. These were initial estimates, not commitments or authorization to spend. The software geometry and optimizer pilot are now implemented and the CPU solver is benchmarked; the first learning experiment has also been measured; future iterations remain uncertain.
 
-Use local CPU first. A small MLP may train in minutes to tens of minutes, but this is unmeasured. Paid GPU time is not necessary to begin. No additional paid compute resource has been provisioned.
+Use local CPU first. The first small MLP training loop took 1.62 seconds; dataset generation took 133.52 seconds and test comparison 55.63 seconds. Setup/import overhead is separate. Paid GPU time is not necessary to begin. No additional paid compute resource has been provisioned.
 
-The original unmeasured scenarios were 14–167 CPU-hours for 10,000 solves. The completed restricted pilot measured 142.50 ms/solve: approximately 24 sequential CPU-minutes for 10,000 comparable solves, or 2.4 minutes for 1,000, before other dataset work. This is an extrapolation and does not cover richer geometry. Training runtime remains unmeasured. Reserve paid compute for measured bottlenecks, with explicit approval before provisioning billable resources.
+The original unmeasured scenarios were 14–167 CPU-hours for 10,000 solves. The completed restricted pilot measured 142.50 ms/solve: approximately 24 sequential CPU-minutes for 10,000 comparable solves, or 2.4 minutes for 1,000, before other dataset work. This is an extrapolation and does not cover richer geometry. The first training-loop runtime is now measured at 1.62 seconds; this does not forecast richer models. Reserve paid compute for measured bottlenecks, with explicit approval before provisioning billable resources.
 
 ## Decision gate
 

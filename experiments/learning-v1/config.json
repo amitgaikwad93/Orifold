@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "name": "accordion-supervised-v1",
+  "datasetSeed": 271828,
+  "splitSeed": 314159,
+  "solverSeedBase": 700000,
+  "trainingSeed": 161803,
+  "splitCounts": {"train": 700, "validation": 150, "test": 150},
+  "diagnosticImpossibleCount": 100,
+  "solver": {"population": 24, "generations": 40, "searchSteps": 30, "validationSteps": 720, "fitTolerance": 0},
+  "model": {"inputSize": 4, "hiddenSizes": [128, 128], "outputSize": 6, "activation": "tanh", "outputActivation": "sigmoid"},
+  "training": {"maxEpochs": 600, "patience": 80, "batchSize": 64, "learningRate": 0.001, "weightDecay": 0.0001, "threads": 1, "loss": "mean squared error on four normalized panel lengths and three normalized angles", "selection": "lowest validation imitation loss; test unused until checkpoint frozen"},
+  "evaluation": {"fitTolerance": 0.01, "validationSteps": 720, "shortSearchGenerations": 10, "seedBase": 900000, "singleQueryTimingRepeats": 10},
+  "scope": "zero thickness, rigid panels, four-panel parallel-hinge accordion; sampled motion only"
+}

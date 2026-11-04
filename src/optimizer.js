@@ -67,6 +67,8 @@ function settings(options) {
       !Number.isInteger(config.validationSteps) || config.validationSteps < config.searchSteps || config.validationSteps > 10000 ||
       !Number.isFinite(config.fitTolerance) || config.fitTolerance < 0 || config.fitTolerance > .01 ||
       !Number.isInteger(config.seed)) throw Error('Invalid optimizer settings.');
+  if (config.initialParameters !== undefined && (!Array.isArray(config.initialParameters) || config.initialParameters.length !== 6 ||
+      !config.initialParameters.every(x => Number.isFinite(x) && x >= 0 && x <= 1))) throw Error('Invalid initial parameters.');
   return config;
 }
 
@@ -115,7 +117,13 @@ function search(request, options = {}, method = 'differential-evolution') {
     }
     return candidate;
   }
-  const initial = index => index < canonicalParameters.length ? [...canonicalParameters[index]] : Array.from({ length: 6 }, rng);
+  const initial = index => {
+    if (index < canonicalParameters.length) return [...canonicalParameters[index]];
+    const random = Array.from({ length: 6 }, rng);
+    // Consume the same random draws and replace only the fourth population member.
+    // Canonical seeds and candidate budget stay identical for paired comparisons.
+    return index === canonicalParameters.length && config.initialParameters !== undefined ? [...config.initialParameters] : random;
+  };
   if (method === 'equal-panels') {
     score(canonicalParameters[0]);
   } else if (method === 'random-search') {

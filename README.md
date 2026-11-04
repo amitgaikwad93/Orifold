@@ -12,19 +12,20 @@ Scope: **zero-thickness rigid flat-panel designs only**. No thickness adaptation
 
 ## Current stage
 
-Phases 1–2: forward geometry, a conventional inverse-design solver, and a completed 100-request CPU pilot. The four-panel evaluator computes rigid-panel motion, final-box fit, and sampled contacts. The optimizer proposes crease positions and hinge angles for a target box. No trained neural model exists yet.
+Phases 1–3: geometry, numerical optimization, and the first CPU-trained neural model are implemented. The first network is not yet a usable standalone generator: it passed 0/150 strict-fit test requests and 3/150 with a 1% allowance. The full optimizer passed 150/150 on the same held-out requests. The failed learning baseline, dataset, checkpoint, and comparisons are preserved for the next experiment.
 
 - [Project plan, capability contract, milestones, and budget](docs/PLAN.md)
 - [Geometry equations, contact policy, and limitations](docs/GEOMETRY.md)
 - [Validation results and user-reported paper comparison](docs/VALIDATION.md)
 - [Optimizer design and contact-policy review](docs/OPTIMIZATION.md)
 - [Measured pilot results and compute estimate](docs/PILOT_RESULTS.md)
+- [First trained model: results, failure analysis, and reproduction](docs/LEARNING.md)
 - [Four-panel accordion experiment](demo/accordion.html)
 - [Original one-hinge experiment](demo/index.html)
 
 ## Run locally
 
-No npm dependencies or build step are required. With Python 3 installed, run from the repository root:
+The Node geometry/solver needs no npm dependencies or build step. Python training dependencies are documented in [LEARNING.md](docs/LEARNING.md). With Python 3 installed, run from the repository root:
 
 ```sh
 python3 -m http.server 8000
@@ -56,5 +57,5 @@ The numerical optimizer solved 80/80 witness-validated pilot requests with stric
 
 The evaluator uses rigid, zero-thickness panels and a prescribed simultaneous hinge motion. Passing means the final configuration fits and no prohibited contacts were detected at the sampled states. It does not certify continuous collision-free motion, layer order, material strength, thickness, or single-actuator deployment. The target box constrains the endpoint, not the whole motion.
 
-The user-reported closed paper footprint matches the 5 × 10 cm prediction. The contact-policy review and numerical pilot are recorded; next is a small training dataset with independent splits and strict-validated labels. Broader physical validation remains pending. The original Gemini discussion is preserved in `Initial idea conversation.md` as historical context; the project plan records the corrected engineering scope.
+The user-reported closed paper footprint matches the 5 × 10 cm prediction. The contact-policy review and numerical pilot are recorded; the first supervised model is trained and evaluated. Next is a constraint-aware learning experiment guided by training/validation results, with a fresh frozen test cohort. Broader physical validation remains pending. The original Gemini discussion is preserved in `Initial idea conversation.md` as historical context; the project plan records the corrected engineering scope.
 
