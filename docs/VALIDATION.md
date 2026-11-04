@@ -24,8 +24,12 @@ Checked in local Chromium with Playwright, using a temporary localhost server:
 
 To repeat manually, serve the repository with `python3 -m http.server 8000`, open `/demo/accordion.html`, and follow the checks above. Screenshots are development artifacts and are not part of the source tree.
 
-## Pending physical comparison
+## Physical footprint comparison — user reported
 
-Use a 20 × 10 cm rectangle, mark parallel creases at 5, 10, and 15 cm, and alternate mountain/valley folds. Compare the flat sheet (20 × 10), a held 90° configuration (approximately 10 × 10 × 10), and the fully folded footprint (approximately 5 × 10). Real thickness makes the stack height nonzero. Photograph or record the measurements and material before marking this check complete.
+The user supplied a photograph of an alternating accordion fold and reported: "yes it's closed width and length is 5 x 10 cm". This follows the requested exercise using a 20 × 10 cm sheet with creases at 5, 10, and 15 cm. The closed footprint agrees with the reference model's 5 × 10 cm prediction.
 
-This comparison is pending; no physical fold or material measurement has been performed by the agent. Before using this evaluator to label a training dataset, review the conservative contact rules and the implications of finite motion sampling.
+Evidence: user-provided image `image-1793800030183.jpg` in the project conversation, plus the user's measurement report. The photo shows the partially open accordion, not a measured closed stack; dimensions are attributed to the user, not inferred from the image. The photo has not been copied into the repository.
+
+The basic closed-footprint comparison is complete. Material type/thickness, measurement uncertainty, stack height, the 90° intermediate bounding box, and motion smoothness were not reported. No independent physical measurement was performed by the agent. This observation supports this example's footprint; it does not validate arbitrary designs, layer order, or the simulator's prescribed hinge trajectory.
+
+Before using this evaluator to label a training dataset, review the conservative contact rules and the implications of finite motion sampling.
