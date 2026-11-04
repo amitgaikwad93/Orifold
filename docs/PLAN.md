@@ -23,7 +23,7 @@ The progress variable prescribes a coordinated trajectory; it does not establish
 
 ## Milestones and completion criteria
 
-### Phase 1 — trusted forward geometry (in progress)
+### Phase 1 — forward geometry implemented; broader physical validation open
 
 - [x] One-hinge reference demo and rigid-distance tests.
 - [x] Compose a chain of parallel hinges and evaluate four-panel designs.
@@ -34,18 +34,20 @@ The progress variable prescribes a coordinated trajectory; it does not establish
 - [x] Add automated analytic examples and an interactive accordion view.
 - [x] Compare a paper accordion’s closed footprint: user reports 5 × 10 cm, matching the prediction; evidence and limits are recorded in VALIDATION.md.
 - [ ] Compare an intermediate configuration and record material thickness/stack height before claiming broader physical validation.
-- [ ] Review whether this contact policy is suitable for optimization before treating outputs as dataset labels.
+- [x] Review contact policy for the restricted numerical pilot; decision and limits recorded in OPTIMIZATION.md. No broader physical certification is implied.
 
 Contact is conservative: ordinary adjacent hinge contact is allowed; other touch/overlap is blocked, except contact at the exactly fully folded, ideal flat-stack endpoint. That exception does not validate layer order or finite-thickness packing. Sampling may miss events between samples. Passing these checks means passing this evaluator, not a manufacturing guarantee.
 
-### Phase 2 — inverse-design baseline and budgeting pilot
+### Phase 2 — inverse-design baseline and budgeting pilot (complete for this scope)
 
-- Define panel minimum widths, target aspect-ratio ranges, fit tolerance, and the objective before collecting training data.
-- Search crease positions and hinge angles using conventional numerical optimization. Preserve total sheet length by construction.
-- Run 100 reproducible requests on recorded hardware. Record wall time, iterations, solution quality, collision failures, and solver failures.
-- Include known-feasible requests derived from evaluated designs, plus analytically impossible width requests. Optimizer failure alone is not proof of infeasibility.
-- Compare the selected design against simple equal-panel and random-search baselines.
-- Use measured cost per request to budget the larger dataset. No bulk generation before this pilot.
+- [x] Define a 5% minimum panel length, target generation ranges, strict default fit, and secondary squared-rotation objective.
+- [x] Search crease positions and hinge angles using bounded differential evolution. Preserve total sheet length by construction.
+- [x] Run 100 reproducible requests on recorded hardware; retain settings, designs, timings, quality, and failures.
+- [x] Include 80 witness-validated requests and 20 analytically impossible width requests. Optimizer failure alone is not proof of infeasibility.
+- [x] Compare against an equal-panel flat stack and random search with a matched search budget.
+- [x] Run both 1% and strict-fit comparisons; use strict-validated labels for future training. No bulk dataset or model training has run yet.
+
+Results: strict differential evolution solved 80/80 feasible pilot requests; random search 72/80; equal-panel stack 40/80. All methods rejected 20 impossible-width requests. Solver mean was 142.50 ms and median 133.89 ms per feasible request on the recorded CPU. See PILOT_RESULTS.md for distributions, limitations, and raw reports.
 
 ### Phase 3 — first trained neural model
 
@@ -72,9 +74,9 @@ Investigate Miura-ori or another family that contracts in two directions, then t
 
 Initial planning envelope: 2–4 weeks part-time at roughly 5–10 hours/week, with a proposed maximum of $50 for compute experiments. First phase geometry/validation may take 1–2 weeks of that allocation; optimization/pilot work takes several sessions; first training/evaluation about another week, with overlap and uncertainty. Hardware is not yet benchmarked. The overall estimate is tentative and may need revision after phase 2.
 
-Use local CPU first. A small MLP may train in minutes to tens of minutes, but this is unmeasured. Paid GPU time is not necessary to begin. No cloud spend or paid service is initiated by this plan.
+Use local CPU first. A small MLP may train in minutes to tens of minutes, but this is unmeasured. Paid GPU time is not necessary to begin. No additional paid compute resource has been provisioned.
 
-Dataset creation is likely to dominate compute: 10,000 solves at 5 seconds each is about 14 sequential CPU-hours; at 60 seconds each, about 167 hours. Measure 100 requests first. Reserve any paid compute for measured bottlenecks, with explicit approval before provisioning billable resources.
+The original unmeasured scenarios were 14–167 CPU-hours for 10,000 solves. The completed restricted pilot measured 142.50 ms/solve: approximately 24 sequential CPU-minutes for 10,000 comparable solves, or 2.4 minutes for 1,000, before other dataset work. This is an extrapolation and does not cover richer geometry. Training runtime remains unmeasured. Reserve paid compute for measured bottlenecks, with explicit approval before provisioning billable resources.
 
 ## Decision gate
 

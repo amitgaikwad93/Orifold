@@ -32,4 +32,10 @@ Evidence: user-provided image `image-1793800030183.jpg` in the project conversat
 
 The basic closed-footprint comparison is complete. Material type/thickness, measurement uncertainty, stack height, the 90° intermediate bounding box, and motion smoothness were not reported. No independent physical measurement was performed by the agent. This observation supports this example's footprint; it does not validate arbitrary designs, layer order, or the simulator's prescribed hinge trajectory.
 
-Before using this evaluator to label a training dataset, review the conservative contact rules and the implications of finite motion sampling.
+The contact-policy review for the restricted numerical pilot is recorded in [OPTIMIZATION.md](OPTIMIZATION.md). Its sampling and physical limitations remain in effect.
+
+## Phase 2 numerical solver and recorded results
+
+The combined suite now has 28 cases: 16 geometry cases, 10 optimizer cases, and 2 saved-pilot audit cases. Checks include parameter bounds and length preservation, deterministic seeds, equal search budgets, analytical width rejection, explicit budget exhaustion, strict versus 1% fit, a narrow-box solution, and revalidation of all 80 stored strict-fit optimizer designs and their withheld witnesses.
+
+Both 100-request comparisons completed. See [PILOT_RESULTS.md](PILOT_RESULTS.md) for measured outcomes and reproduction commands. No network training has run.
