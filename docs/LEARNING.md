@@ -1,5 +1,7 @@
 # First learning experiment: completed, performance target not met
 
+> **Audit note (added 2026-11-04, after the run).** A later check found the training labels inconsistent: re-solving with another seed usually gives a different valid design. The failure analysis below was written before that check and misses its main cause. See [DECISIONS.md D10](DECISIONS.md). The measured results here are unchanged.
+
 Orifold now has a neural network trained from random initialization, a frozen dataset/split manifest, a saved checkpoint, and held-out evaluation. **This first network is not a usable standalone design generator:** it passed 0/150 strict-fit requests and only 3/150 with a 1% per-axis allowance. The conventional optimizer remains the reliable method in this experiment.
 
 ## What was built and checked
@@ -37,11 +39,11 @@ All 100 impossible-width diagnostics are rejected by the explicit width invarian
 
 The network's 150 proposals had no blocked contacts at the sampled states, but 147 exceeded at least one box dimension by more than 1%. Median worst-axis overflow was **33.84%**. For one wide-box example, a permitted height of 7.70 cm became 15.61 cm; for one narrow example, a permitted length of 9.54 cm became 12.01 cm. The output bounds guarantee legal parameter ranges, not target fit.
 
-The loss improved while the design acceptance remained poor. Squared imitation error rewards averages of different valid design choices; such averages need not satisfy nonlinear geometric constraints. This is a plausible contributor, not a proved sole cause. The first training run has no direct penalty for exceeding the requested box and no geometric validation criterion for checkpoint selection. These are concrete limitations to investigate before increasing model size.
+The loss improved while the design acceptance remained poor. *Post-run audit:* the labels themselves are inconsistent (D10), which makes averaging the expected outcome rather than one possible contributor. Original analysis: squared imitation error rewards averages of different valid design choices; such averages need not satisfy nonlinear geometric constraints. This is a plausible contributor, not a proved sole cause. The first training run has no direct penalty for exceeding the requested box and no geometric validation criterion for checkpoint selection. These are concrete limitations to investigate before increasing model size.
 
 ![Training and validation curves](../experiments/learning-v1/run/learning-curves.svg)
 
-Keep this failed baseline intact. The next proposed experiment should add a parity-tested differentiable endpoint-fit term and use training/validation geometry metrics to guide development. Hard contact checks must remain independent. Predeclare the next configuration and a fresh held-out cohort, rather than tuning to these revealed test results. More complex architectures, more data, or a different folding family are not yet justified by this result.
+Keep this failed baseline intact. The next step is to agree an experiment specification before any new training (DECISIONS.md D11). Hard contact checks must remain independent. Predeclare the next configuration and a fresh held-out cohort, rather than tuning to these revealed test results. More complex architectures, more data, or a different folding family are not yet justified by this result.
 
 ## Time, environment and artifacts
 

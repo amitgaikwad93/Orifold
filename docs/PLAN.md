@@ -62,10 +62,12 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - [x] Save the dataset, split manifest, configuration, seeds, checkpoint, curves, and complete comparison records under experiments/learning-v1.
 - [x] Check normalized request uniqueness across splits and the old pilot. Keep 100 impossible-width diagnostics separate; rejections are analytical, not learned. Broader out-of-distribution evaluation remains future work.
 
-### Phase 4 — improve learning and export (comparison started; export pending)
+### Phase 4 — experiment setup, visualisation and export (in discussion)
 
 - [x] Compare all methods on 150 held-out requests: full optimizer 150/150 strict, short optimizer 138/150, network-initialized short optimizer 140/150. The paired hybrid gain is only 6 wins versus 4 losses, not an established reliable benefit.
-- [ ] Next: add a parity-tested differentiable endpoint-fit loss, develop using training/validation only, and freeze a fresh test cohort/configuration for the next experiment. Preserve v1 unchanged; do not increase model size blindly.
+- [x] Audit v1 labels: inconsistent across seeds (DECISIONS.md D10). v1 validated the pipeline, not the approach.
+- [ ] Next: agree an experiment specification (DECISIONS.md D11) covering validity layers, quality objective, request distribution, dataset acceptance checks, success target and baselines. Map the accordion request space as first evidence. Only then build a new dataset or train. Preserve v1 unchanged; do not increase model size blindly.
+- [ ] Choose and set up a visualisation route for datasets and outcomes (DECISIONS.md open question 2).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.
 - Report strict numerical fit as well as tolerance-based success; the current evaluator uses only numerical tolerance (not the 1% learning target).

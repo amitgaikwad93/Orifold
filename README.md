@@ -6,14 +6,16 @@ An experimental project to train small neural models from scratch for mechanical
 
 Start with [AGENTS.md](AGENTS.md), then [the current handoff](docs/HANDOFF.md) and [project decisions](docs/DECISIONS.md). The handoff records completed work, verification, runtime status, and concrete next steps. Update it after each substantive session.
 
-At the last handoff, the implementation is on `codex/phase-1-accordion` in [draft PR #1](https://github.com/amitgaikwad93/Orifold/pull/1), not yet on `main`. Check current PR status before choosing a branch.
+Implementation is not yet on `main`; see the handoff for the current branch and PR.
 
 Scope: **zero-thickness rigid flat-panel designs only**. No thickness adaptation or hardware until the user explicitly reopens that scope. Target-box dimensions are separate upper bounds for packing, with a limited panel budget; scalar volume minimization is not the objective.
 
 ## Current stage
 
-Phases 1–3: geometry, numerical optimization, and the first CPU-trained neural model are implemented. The first network is not yet a usable standalone generator: it passed 0/150 strict-fit test requests and 3/150 with a 1% allowance. The full optimizer passed 150/150 on the same held-out requests. The failed learning baseline, dataset, checkpoint, and comparisons are preserved for the next experiment.
+Phases 1–3: geometry, numerical optimization, and the first CPU-trained neural model are implemented. The first network is not a usable generator (0/150 strict, 3/150 within 1%; the optimizer passed 150/150). A later audit showed its training labels were inconsistent, so that experiment tested the pipeline rather than the approach. The current stage is designing the experimental setup: validity, objectives, dataset criteria and success targets (DECISIONS.md D10–D11).
 
+- [What a passing result means: limitations](docs/LIMITATIONS.md)
+- [Plain-language glossary](docs/GLOSSARY.md)
 - [Project plan, capability contract, milestones, and budget](docs/PLAN.md)
 - [Geometry equations, contact policy, and limitations](docs/GEOMETRY.md)
 - [Validation results and user-reported paper comparison](docs/VALIDATION.md)
@@ -55,7 +57,4 @@ The numerical optimizer solved 80/80 witness-validated pilot requests with stric
 
 ## What a passing result means
 
-The evaluator uses rigid, zero-thickness panels and a prescribed simultaneous hinge motion. Passing means the final configuration fits and no prohibited contacts were detected at the sampled states. It does not certify continuous collision-free motion, layer order, material strength, thickness, or single-actuator deployment. The target box constrains the endpoint, not the whole motion.
-
-The user-reported closed paper footprint matches the 5 × 10 cm prediction. The contact-policy review and numerical pilot are recorded; the first supervised model is trained and evaluated. Next is a constraint-aware learning experiment guided by training/validation results, with a fresh frozen test cohort. Broader physical validation remains pending. The original Gemini discussion is preserved in `Initial idea conversation.md` as historical context; the project plan records the corrected engineering scope.
-
+Passing means the final shape fits the box and no prohibited contacts were found at sampled motion states, for rigid zero-thickness panels. It is not a physical or manufacturing guarantee; see [LIMITATIONS.md](docs/LIMITATIONS.md). The original Gemini discussion is preserved in `Initial idea conversation.md` as historical context only.

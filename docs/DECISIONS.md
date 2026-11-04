@@ -52,4 +52,38 @@ The user wants the agent to carry out agreed next steps rather than repeatedly e
 
 The first 17,926-parameter supervised MLP was trained from scratch on 700 requests, selected on 150 validation requests, then evaluated once on 150 test requests. It passed 0 strictly and 3 within 1%. The full optimizer passed 150; short optimization passed 138, versus 140 when initialized with the network. Do not present this as a successful standalone generator or a reliable demonstrated neural advantage.
 
-The v1 dataset, checkpoint, curves, and test results remain immutable evidence. Next recommendation: develop a differentiable endpoint-fit term and geometry-based validation metrics before enlarging the network, with a fresh predeclared test cohort. The existing hard contact evaluator remains independent. This is a proposed next experiment, not an already implemented fix.
+The v1 dataset, checkpoint, curves, and test results remain immutable evidence. A later audit (D10) found the training labels inconsistent, so this result says little about whether learning can work; it mainly validated the tooling. The earlier "add a differentiable fit term" recommendation is superseded by D11.
+
+## D10 — v1 dataset is not a valid test of the approach (measured, 2026-11-04)
+
+Raised by the user ("it looks like 3 random folds on a rectangular surface") and confirmed by audit:
+
+- Target boxes were derived from random witness folds plus 1–4% slack, not from packing needs. The narrow/tall half uses a fixed template (bend one end ~90°); its boxes are ~93% of sheet length tall, and most labels are a single fold.
+- Labels hug the box boundary (median tightest-axis slack 1.25%) because the tie-break minimises rotation until a limit is hit. Only 13/1,000 labels are compact flat stacks; about 70% leave a hinge unused.
+- Re-solving 40 training requests with another seed gave a substantially different design 90% of the time (median RMS parameter difference 0.345) and found lower rotation than the stored label in 24/40. Evidence: `results/label-consistency-audit-2026-11-04.json`, script `scripts/audit-label-consistency.js`.
+
+Conclusion: every label passes the evaluator, but the labels are close to arbitrary picks from a large set of valid designs, so supervised imitation had no consistent target. v1 validated the pipeline (geometry parity, splits, evaluation, reproducibility), not the approach. Keep v1 as a record; do not reuse its dataset for the next experiment.
+
+## D11 — current stage: design the experimental setup first (user direction; discussion ongoing)
+
+The user's view, agreed by the agent: at this early stage the project is about designing the overall setup, independent of training or dataset scale. That covers the target result of each experiment, objective criteria for creating datasets, and a definition of what a valid origami design is.
+
+Agent recommendations recorded for discussion (not yet decided):
+
+- Define validity in layers, independent of the fold family: hard validity (rigid, connected, no self-intersection); task satisfaction (fits the box, with an explicit margin); quality ranking (a tie-break that picks a clear winner); explicitly out of scope (LIMITATIONS.md).
+- Add dataset acceptance checks that work at any scale: label consistency across seeds, coverage of the request space, requests sampled independently of solutions, validity checked independently of the label producer.
+- Write one experiment-specification template that every experiment fills in.
+- First evidence for the accordion: map the whole request space (box length and height relative to sheet length; width only decides feasibility) on a grid.
+- Candidate next learning approaches: a nearest-neighbour baseline, and training on a geometric loss without labels.
+
+The user said this discussion is not finished. Do not start v2 training before the specification is agreed.
+
+## D12 — communication and visuals (explicit user preference)
+
+The user is not an ML engineer and is learning through this project. Explain what the agent is doing in plain language, introduce concepts as they arise (docs/GLOSSARY.md), and present trade-offs between choices. Visual presentation of datasets and outcomes is strongly preferred. Rules are in AGENTS.md, "Communicating with the user".
+
+## Open questions (unresolved; do not treat as decided)
+
+1. **Function and aesthetics.** The user says function and aesthetics matter alongside validity. How to measure them is open. Agent proposal (2026-11-04): functional metrics computed from geometry (compaction ratio, fill of the target box, margin to collisions, number of active creases, smoothness of the motion), and aesthetics captured first as user preference judgements (pairwise "which do you prefer" comparisons of rendered folds), later possibly approximated by simple geometric proxies (regularity, symmetry, panel-length ratios).
+2. **Visualisation setup** on the user's PC. Options recommended 2026-11-04: an improved browser viewer in this repo, FOLD export to an existing origami simulator, a static report gallery of rendered folds, or a notebook. No choice made yet.
+3. **Experiment specification content** (D11): validity layers, quality objective, request distribution, success target.
