@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orifold · Four-panel accordion</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="accordion.css">
+</head>
+<body><main>
+  <header><span class="eyebrow">ORIFOLD / PHASE 1 · FORWARD GEOMETRY</span>
+    <h1>From one hinge to a folding chain.</h1>
+    <p>Choose a four-panel design. Inspect how it moves, whether it fits, and where panels meet.</p>
+    <a href="index.html">Revisit the one-hinge experiment →</a>
+  </header>
+  <div class="layout">
+    <section class="controls" aria-label="Accordion design controls">
+      <h2>Define the design</h2>
+      <p class="hint">Panel lengths add up to the unfolded sheet length. All dimensions are in cm.</p>
+      <div class="input-grid">
+        <div><label for="panel-0">Panel 1</label><input id="panel-0" type="number" min="0.1" max="1000" step="0.1" value="5" required></div>
+        <div><label for="panel-1">Panel 2</label><input id="panel-1" type="number" min="0.1" max="1000" step="0.1" value="5" required></div>
+        <div><label for="panel-2">Panel 3</label><input id="panel-2" type="number" min="0.1" max="1000" step="0.1" value="5" required></div>
+        <div><label for="panel-3">Panel 4</label><input id="panel-3" type="number" min="0.1" max="1000" step="0.1" value="5" required></div>
+      </div>
+      <label for="sheet-width">Sheet width</label><input id="sheet-width" type="number" min="0.1" max="1000" step="0.1" value="10" required>
+      <h3>Final hinge angles</h3>
+      <label for="hinge-0">Hinge 1 · + <output id="hinge-value-0">180°</output></label><input id="hinge-0" type="range" min="0" max="180" value="180">
+      <label for="hinge-1">Hinge 2 · − <output id="hinge-value-1">180°</output></label><input id="hinge-1" type="range" min="0" max="180" value="180">
+      <label for="hinge-2">Hinge 3 · + <output id="hinge-value-2">180°</output></label><input id="hinge-2" type="range" min="0" max="180" value="180">
+      <div class="presets"><button data-example="stack">Flat stack</button><button data-example="stairs">90° steps</button><button data-example="crossing">Crossing example</button></div>
+      <h3>Target storage box</h3>
+      <div class="input-grid three">
+        <div><label for="target-0">Length</label><input id="target-0" type="number" min="0.1" max="1000" step="0.1" value="6" required></div>
+        <div><label for="target-1">Width</label><input id="target-1" type="number" min="0.1" max="1000" step="0.1" value="10" required></div>
+        <div><label for="target-2">Height</label><input id="target-2" type="number" min="0.1" max="1000" step="0.1" value="1" required></div>
+      </div>
+      <p id="error" role="alert"></p>
+    </section>
+    <section class="scene" aria-label="Accordion visualization and evaluation">
+      <div class="scene-heading"><h2>Four rigid panels · three hinges</h2><span id="sheet-summary"></span></div>
+      <svg id="accordion-view" viewBox="0 0 760 420" role="img" aria-label="Oblique projection of the four-panel accordion"></svg>
+      <div class="legend"><span>Alternating panel colors</span><span>Dashed lines: hinges</span><span>Red outline: blocked contact now</span></div>
+      <div class="motion-controls">
+        <label for="motion">Motion progress <output id="motion-value">50%</output></label>
+        <input id="motion" type="range" min="0" max="100" step="1" value="50">
+        <div class="presets"><button id="play" class="primary" aria-pressed="false">Play motion</button><button id="endpoint">Show endpoint</button></div>
+        <p class="hint">All hinges advance together from flat to their final angles. This specifies a trajectory, not a single-actuator mechanism.</p>
+      </div>
+      <div class="metrics"><div><small>Current box · L × W × H</small><strong id="current-box"></strong></div><div><small>Material area</small><strong id="material-area"></strong></div></div>
+      <h3>Side profile · looking along the hinges</h3><svg id="accordion-profile" viewBox="0 0 760 200" role="img" aria-label="Side profile of all four panels"></svg>
+      <section class="evaluation" aria-label="Design evaluation">
+        <h2>Evaluate the whole design</h2>
+        <p><strong>Final box:</strong> <span id="final-box"></span></p>
+        <p id="fit-result" class="result" role="status"></p>
+        <p id="path-result" class="result" role="status"></p>
+        <p id="contact-detail" class="hint"></p>
+        <p class="hint">Final fit allows translation, with no rotation search. Motion is checked at 181 configurations. Events between samples may be missed.</p>
+      </section>
+    </section>
+  </div>
+  <section class="notes">
+    <div><h2>Why this evaluator comes first</h2><p>The future optimizer and neural network will propose designs like these. These calculations provide a reference for judging the proposals. This experiment evaluates your inputs; it does not yet search for a design or train a model.</p></div>
+    <div><h2>What “passes” means here</h2><p>Panels have zero thickness. Contact in a fully closed flat stack is allowed, but layer order is not validated. Other non-hinge contacts are blocked conservatively. Final box fit is separate from motion: we do not check whether the fold can happen inside that box.</p></div>
+  </section>
+  <footer>Next: validate with paper, review contact assumptions, then benchmark a conventional optimizer.</footer>
+</main><script src="../src/accordion.js"></script><script src="accordion-app.js"></script></body>
+</html>
