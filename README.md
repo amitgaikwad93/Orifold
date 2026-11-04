@@ -2,6 +2,14 @@
 
 An experimental project to train small neural models from scratch for mechanical origami inverse design: given a sheet and a target packing box, propose a folding structure and ultimately export a `.fold` file.
 
+## Continuing in a new chat
+
+Start with [AGENTS.md](AGENTS.md), then [the current handoff](docs/HANDOFF.md) and [project decisions](docs/DECISIONS.md). The handoff records completed work, verification, runtime status, and concrete next steps. Update it after each substantive session.
+
+At the last handoff, the implementation is on `codex/phase-1-accordion` in [draft PR #1](https://github.com/amitgaikwad93/Orifold/pull/1), not yet on `main`. Check current PR status before choosing a branch.
+
+Scope: **zero-thickness rigid flat-panel designs only**. No thickness adaptation or hardware until the user explicitly reopens that scope. Target-box dimensions are separate upper bounds for packing, with a limited panel budget; scalar volume minimization is not the objective.
+
 ## Current stage
 
 Phases 1–2: forward geometry, a conventional inverse-design solver, and a completed 100-request CPU pilot. The four-panel evaluator computes rigid-panel motion, final-box fit, and sampled contacts. The optimizer proposes crease positions and hinge angles for a target box. No trained neural model exists yet.

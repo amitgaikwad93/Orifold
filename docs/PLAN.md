@@ -6,6 +6,8 @@ Recorded 2026-11-04. This is the working plan agreed in discussion; estimates ar
 
 Train a small model from scratch that proposes mechanical folding designs given a sheet and packing requirements. Ultimately export useful designs as `.fold` files. Preserve this goal while testing progressively more capable geometry. The original Gemini conversation is historical context, not an authoritative specification: a fixed mathematical evaluator is not a GAN discriminator, local flat-foldability rules do not prove global rigid foldability, and low training loss does not certify a physical design.
 
+Current scope is zero-thickness rigid flat panels only. Thickness adaptation, hinge hardware, axis shifts, panel trimming for thickness, and continuously bending panels are excluded until the user explicitly changes that decision. See DECISIONS.md for rationale and HANDOFF.md for the next executable task.
+
 ## First AI capability contract
 
 | Item | Initial scope |
@@ -21,6 +23,8 @@ Train a small model from scratch that proposes mechanical folding designs given 
 
 The progress variable prescribes a coordinated trajectory; it does not establish a one-degree-of-freedom mechanism. Target boxes have fixed axes and permit translation of the final configuration, but no search over rotations. Final fit does not require the motion to remain inside that box. Accordion width cannot contract.
 
+Target length, width, and height are separate upper bounds for packing, not a scalar volume objective or an exact target shape. Material volume is zero; enclosing-box volume may be positive. Fully flat-folded height zero is allowed. Maintain a fixed panel/crease budget so unlimited subdivision cannot trivialize the task.
+
 ## Milestones and completion criteria
 
 ### Phase 1 — forward geometry implemented; broader physical validation open
@@ -33,7 +37,7 @@ The progress variable prescribes a coordinated trajectory; it does not establish
 - [x] Document terminal flat-stack contact and numerical tolerances explicitly.
 - [x] Add automated analytic examples and an interactive accordion view.
 - [x] Compare a paper accordion’s closed footprint: user reports 5 × 10 cm, matching the prediction; evidence and limits are recorded in VALIDATION.md.
-- [ ] Compare an intermediate configuration and record material thickness/stack height before claiming broader physical validation.
+- Optional: compare intermediate configurations as a geometric sanity check. Additional physical measurements are not a prerequisite for the zero-thickness learning experiment; material/thickness modeling is excluded.
 - [x] Review contact policy for the restricted numerical pilot; decision and limits recorded in OPTIMIZATION.md. No broader physical certification is implied.
 
 Contact is conservative: ordinary adjacent hinge contact is allowed; other touch/overlap is blocked, except contact at the exactly fully folded, ideal flat-stack endpoint. That exception does not validate layer order or finite-thickness packing. Sampling may miss events between samples. Passing these checks means passing this evaluator, not a manufacturing guarantee.
@@ -68,11 +72,11 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 
 ### Later research
 
-Investigate Miura-ori or another family that contracts in two directions, then thickness, deployment constraints, variable panel counts, and eventually variable crease connectivity. Re-budget each capability separately. Arbitrary crease generation is not included in the initial estimate.
+Investigate Miura-ori or another zero-thickness rigid-foldable family that contracts in two directions, then geometric deployment constraints, compatible unit combinations, variable panel counts, and eventually variable crease connectivity. Re-budget each capability separately. Arbitrary crease generation is not included in the initial estimate. Thickness adaptation is excluded until the user explicitly reopens it.
 
 ## Time and compute budget
 
-Initial planning envelope: 2–4 weeks part-time at roughly 5–10 hours/week, with a proposed maximum of $50 for compute experiments. First phase geometry/validation may take 1–2 weeks of that allocation; optimization/pilot work takes several sessions; first training/evaluation about another week, with overlap and uncertainty. Hardware is not yet benchmarked. The overall estimate is tentative and may need revision after phase 2.
+Original planning envelope: 2–4 weeks part-time at roughly 5–10 hours/week, with a proposed maximum of $50 for compute experiments. These were initial estimates, not commitments or authorization to spend. The software geometry and optimizer pilot are now implemented and the CPU solver is benchmarked; training effort and runtime remain uncertain.
 
 Use local CPU first. A small MLP may train in minutes to tens of minutes, but this is unmeasured. Paid GPU time is not necessary to begin. No additional paid compute resource has been provisioned.
 
