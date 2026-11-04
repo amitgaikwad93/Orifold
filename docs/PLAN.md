@@ -32,7 +32,8 @@ The progress variable prescribes a coordinated trajectory; it does not establish
 - [x] Evaluate a prescribed motion at configurable sample resolution; report final fit separately.
 - [x] Document terminal flat-stack contact and numerical tolerances explicitly.
 - [x] Add automated analytic examples and an interactive accordion view.
-- [ ] Physically compare at least one paper accordion with the predicted configurations.
+- [x] Compare a paper accordion’s closed footprint: user reports 5 × 10 cm, matching the prediction; evidence and limits are recorded in VALIDATION.md.
+- [ ] Compare an intermediate configuration and record material thickness/stack height before claiming broader physical validation.
 - [ ] Review whether this contact policy is suitable for optimization before treating outputs as dataset labels.
 
 Contact is conservative: ordinary adjacent hinge contact is allowed; other touch/overlap is blocked, except contact at the exactly fully folded, ideal flat-stack endpoint. That exception does not validate layer order or finite-thickness packing. Sampling may miss events between samples. Passing these checks means passing this evaluator, not a manufacturing guarantee.
