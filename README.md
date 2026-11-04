@@ -8,7 +8,7 @@ Phase 1: forward geometry and validation. The four-panel accordion evaluator com
 
 - [Project plan, capability contract, milestones, and budget](docs/PLAN.md)
 - [Geometry equations, contact policy, and limitations](docs/GEOMETRY.md)
-- [Validation results and pending paper comparison](docs/VALIDATION.md)
+- [Validation results and user-reported paper comparison](docs/VALIDATION.md)
 - [Four-panel accordion experiment](demo/accordion.html)
 - [Original one-hinge experiment](demo/index.html)
 
@@ -32,5 +32,5 @@ npm test
 
 The evaluator uses rigid, zero-thickness panels and a prescribed simultaneous hinge motion. Passing means the final configuration fits and no prohibited contacts were detected at the sampled states. It does not certify continuous collision-free motion, layer order, material strength, thickness, or single-actuator deployment. The target box constrains the endpoint, not the whole motion.
 
-Next: review the evaluator, physically check a paper accordion, and run a 100-request numerical-optimization pilot before generating training data. The original Gemini discussion is preserved in `Initial idea conversation.md` as historical context; the project plan records the corrected engineering scope.
+The user-reported closed paper footprint matches the 5 × 10 cm prediction. Next: review the evaluator’s contact assumptions and run a 100-request numerical-optimization pilot before generating training data. Broader physical validation remains pending. The original Gemini discussion is preserved in `Initial idea conversation.md` as historical context; the project plan records the corrected engineering scope.
 
