@@ -1,0 +1,39 @@
+{
+  "dataset": "experiments/learning-v2b/dataset.jsonl.gz",
+  "datasetSha256": "e40c80136a6c7e7134f4bc6791e5162c4fc4a0dcd666c6dc64858cf994afa27f",
+  "manifestSha256": "d93b66dd431dafea3443edccf05ed8844520e31406348f74249f83fc23ffe1e7",
+  "candidateCount": 253,
+  "selectionSeed": 20261105,
+  "modelSeed": 17,
+  "folds": 2,
+  "budget": 2,
+  "family": "symmetric-ends-one-angle+spread-refined",
+  "hidden": [
+    256,
+    256
+  ],
+  "epochs": 4000,
+  "threads": 1,
+  "batchSize": 32,
+  "schedule": [
+    {
+      "fromEpoch": 1,
+      "learningRate": 0.001
+    },
+    {
+      "fromEpoch": 2001,
+      "learningRate": 0.0001
+    }
+  ],
+  "positionWeight": 10,
+  "fitPenalty": 0,
+  "tighterPenalty": 0,
+  "checkpointSelection": "fixed final epoch; no early stopping",
+  "precisionGate": {
+    "vertexRmsOverL": 0.001,
+    "angleMaeDegrees": 0.1,
+    "all32Required": true
+  },
+  "evaluation": "721 states, 2% margin; standard deterministic placement search; no shape correction; report independent metrics and reference checker agreement",
+  "heldOutUse": "none"
+}

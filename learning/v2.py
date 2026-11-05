@@ -102,9 +102,15 @@ def position_loss(model, x, k, v, ang, weight=10.0):
     """Fold-count cross-entropy + weight x mean squared vertex distance to the reference shape (true fold count)."""
     fl, pv, pa = model(x)
     ce = nn.functional.cross_entropy(fl, k)
-    zero = torch.zeros(x.shape[0])
+    zero = x.new_zeros(x.shape[0])
     px, pz = fold_vertices(pv, pa, k, zero); rx, rz = fold_vertices(v, ang, k, zero)
-    return ce + weight * (((px - rx) ** 2 + (pz - rz) ** 2).sum(1) / (k + 2).float()).mean()
+    return ce + weight * vertex_mse(px, pz, rx, rz, k)
+
+
+def vertex_mse(px, pz, rx, rz, k):
+    """Mean over real vertices per design, then over designs; padding has no weight."""
+    mask = torch.arange(px.shape[1], device=px.device).unsqueeze(0) < (k + 2).unsqueeze(1)
+    return ((((px - rx) ** 2 + (pz - rz) ** 2) * mask).sum(1) / (k + 2)).mean()
 
 
 def predict(model, ex):
@@ -118,55 +124,35 @@ def predict(model, ex):
 def fold_vertices(v, ang, k, psi):
     """Differentiable side-view vertices xs, zs [B, 13] (sheet-length units) of the shape with k folds; unused
     trailing vertices repeat the end point. Matches src/accordion.js."""
-    B = v.shape[0]; n = (k + 1).float()
+    B = v.shape[0]; n = (k + 1).to(v)
     rem = 1 - MIN_PANEL * n; lengths = []
     for i in range(MAX_FOLDS + 1):
         if i < MAX_FOLDS:
-            active = (k > i).float()
+            active = (k > i).to(v)
             a = rem * v[:, i] * active; rem = rem - a
-        is_last = (k == i).float(); exists = (k >= i).float()
+        is_last = (k == i).to(v); exists = (k >= i).to(v)
         li = (MIN_PANEL + (a if i < MAX_FOLDS else 0)) * (exists - is_last) + (MIN_PANEL + rem) * is_last
         lengths.append(li * exists)
     lengths = torch.stack(lengths, 1)
     deg = 1 + 179 * ang
-    fold_mask = (torch.arange(MAX_FOLDS).unsqueeze(0) < k.unsqueeze(1)).float()
-    sign = torch.tensor([1.0 if i % 2 == 0 else -1.0 for i in range(MAX_FOLDS)])
+    fold_mask = (torch.arange(MAX_FOLDS, device=v.device).unsqueeze(0) < k.unsqueeze(1)).to(v)
+    sign = v.new_tensor([1.0 if i % 2 == 0 else -1.0 for i in range(MAX_FOLDS)])
     turn = torch.cumsum(deg * fold_mask * sign, 1)
-    orient = torch.cat([torch.zeros(B, 1), turn], 1) + psi.unsqueeze(1)
+    orient = torch.cat([v.new_zeros(B, 1), turn], 1) + psi.unsqueeze(1)
     r = orient * math.pi / 180
-    xs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.cos(r), 1)], 1)
-    zs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.sin(r), 1)], 1)
+    xs = torch.cat([v.new_zeros(B, 1), torch.cumsum(lengths * torch.cos(r), 1)], 1)
+    zs = torch.cat([v.new_zeros(B, 1), torch.cumsum(lengths * torch.sin(r), 1)], 1)
     return xs, zs
 
 
-def fold_extents_v(v, ang, k, psi):
+def fold_extents(v, ang, k, psi):
+    """Extents from the same dtype/device-preserving kinematics used by position loss."""
     xs, zs = fold_vertices(v, ang, k, psi)
     return xs.max(1).values - xs.min(1).values, zs.max(1).values - zs.min(1).values
 
 
-def fold_extents(v, ang, k, psi):
-    """Differentiable side-view extents (dx, dz) in sheet-length units of the shape with k folds, panels from the
-    stick-breaking fractions v and angles from ang (both [B, 11]), turned by psi degrees. Matches src/accordion.js."""
-    B = v.shape[0]; n = (k + 1).float()
-    rem = 1 - MIN_PANEL * n; lengths = []
-    for i in range(MAX_FOLDS + 1):
-        if i < MAX_FOLDS:
-            active = (k > i).float()                      # panel i is a non-last panel
-            a = rem * v[:, i] * active; rem = rem - a
-        is_last = (k == i).float()
-        exists = (k >= i).float()
-        li = (MIN_PANEL + (a if i < MAX_FOLDS else 0)) * (exists - is_last) + (MIN_PANEL + rem) * is_last
-        lengths.append(li * exists)
-    lengths = torch.stack(lengths, 1)                     # [B, 12]
-    deg = 1 + 179 * ang                                  # [B, 11]
-    fold_mask = (torch.arange(MAX_FOLDS).unsqueeze(0) < k.unsqueeze(1)).float()
-    sign = torch.tensor([1.0 if i % 2 == 0 else -1.0 for i in range(MAX_FOLDS)])
-    turn = torch.cumsum(deg * fold_mask * sign, 1)        # orientation of panels 1..11
-    orient = torch.cat([torch.zeros(B, 1), turn], 1) + psi.unsqueeze(1)
-    r = orient * math.pi / 180
-    xs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.cos(r), 1)], 1)
-    zs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.sin(r), 1)], 1)
-    return xs.max(1).values - xs.min(1).values, zs.max(1).values - zs.min(1).values
+# Retain the old public helper name for callers.
+fold_extents_v = fold_extents
 
 
 def fit_penalty(model, x, k, psi, ux, uz, margin):

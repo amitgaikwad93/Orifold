@@ -1,0 +1,1986 @@
+[
+  {
+    "id": "v2-short-0022-b2",
+    "requestId": "v2-short-0022",
+    "split": "train",
+    "group": "3,11",
+    "request": {
+      "length": 48.4419401595369,
+      "width": 7.675666766228967,
+      "targetBox": [
+        22.440598982030018,
+        8.78623568581356,
+        6.846388398276745
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          17.171318981284514,
+          14.099302196967871,
+          17.171318981284514
+        ],
+        "width": 7.675666766228967,
+        "angles": [
+          151.64374999999998,
+          151.64374999999998
+        ],
+        "placement": 179.940186,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 28.356250000000017,
+        "minGap": 0.13823759354517987,
+        "sweptArea": 0.2910554895003322,
+        "dimensions": [
+          21.942068830722096,
+          7.675666766228967,
+          6.709446458024784
+        ],
+        "placement": 179.940186,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1161-b2",
+    "requestId": "v2-short-1161",
+    "split": "train",
+    "group": "9,11",
+    "request": {
+      "length": 83.71020886814222,
+      "width": 6.974049008086025,
+      "targetBox": [
+        33.20012566917161,
+        9.01035264962297,
+        36.86992549954042
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          22.752131320853916,
+          38.205946226434385,
+          22.752131320853916
+        ],
+        "width": 6.974049008086025,
+        "angles": [
+          109.68359375000001,
+          109.68359375000001
+        ],
+        "placement": 0.158203,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 70.31640624999999,
+        "minGap": 0.4297380193589907,
+        "sweptArea": 0.45640717903969896,
+        "dimensions": [
+          32.53606667451845,
+          6.974049008086025,
+          36.063434110259976
+        ],
+        "placement": 0.158203,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0993-b2",
+    "requestId": "v2-short-0993",
+    "split": "train",
+    "group": "9,10",
+    "request": {
+      "length": 11.346930579748005,
+      "width": 2.3187096688479114,
+      "targetBox": [
+        4.1801485720181875,
+        2.878678433220632,
+        4.651608240256991
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          3.1443408411223572,
+          5.05824889750329,
+          3.1443408411223572
+        ],
+        "width": 2.3187096688479114,
+        "angles": [
+          115.73359375000001,
+          115.73359375000001
+        ],
+        "placement": 179.948608,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 64.26640624999999,
+        "minGap": 0.4015698258995221,
+        "sweptArea": 0.4457812346879343,
+        "dimensions": [
+          4.096539520297941,
+          2.3187096688479114,
+          4.558553031608621
+        ],
+        "placement": 179.948608,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1107-b2",
+    "requestId": "v2-short-1107",
+    "split": "train",
+    "group": "2,23",
+    "request": {
+      "length": 87.24851852515712,
+      "width": 9.398499722023752,
+      "targetBox": [
+        8.115646736319187,
+        11.835763825251675,
+        83.74015747501556
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          14.64650423288527,
+          57.95551005938658,
+          14.64650423288527
+        ],
+        "width": 9.398499722023752,
+        "angles": [
+          40.630468750000006,
+          40.630468750000006
+        ],
+        "placement": 57.257214,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 139.36953125,
+        "minGap": 0.6642578124999996,
+        "sweptArea": 0.43255000111270925,
+        "dimensions": [
+          7.953327753208734,
+          9.398499722023752,
+          82.04575023368592
+        ],
+        "placement": 57.257214,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0070-b2",
+    "requestId": "v2-short-0070",
+    "split": "train",
+    "group": "3,16",
+    "request": {
+      "length": 47.650764607824385,
+      "width": 16.726599268296734,
+      "targetBox": [
+        6.281706948285367,
+        21.254337783478647,
+        31.35910328309884
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          19.026777573882576,
+          9.597209460059235,
+          19.026777573882576
+        ],
+        "width": 16.726599268296734,
+        "angles": [
+          140.10546875,
+          140.10546875
+        ],
+        "placement": 89.994995,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 39.89453125,
+        "minGap": 0.1291778578458633,
+        "sweptArea": 0.20140696964008645,
+        "dimensions": [
+          6.156066879061631,
+          16.726599268296734,
+          30.69086052292107
+        ],
+        "placement": 89.994995,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1224-b2",
+    "requestId": "v2-short-1224",
+    "split": "train",
+    "group": "3,8",
+    "request": {
+      "length": 40.595433274284005,
+      "width": 7.067055015023693,
+      "targetBox": [
+        14.224848022835824,
+        7.533838612706453,
+        5.798547363033265
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          13.325113522744637,
+          13.945206228794733,
+          13.325113522744637
+        ],
+        "width": 7.067055015023693,
+        "angles": [
+          156.01328124999998,
+          156.01328124999998
+        ],
+        "placement": 179.939331,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 23.986718750000023,
+        "minGap": 0.13964805163191776,
+        "sweptArea": 0.34351632535042786,
+        "dimensions": [
+          13.915327831378184,
+          7.067055015023693,
+          5.682560980422974
+        ],
+        "placement": 179.939331,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0863-b2",
+    "requestId": "v2-short-0863",
+    "split": "train",
+    "group": "4,11",
+    "request": {
+      "length": 60.67441326798871,
+      "width": 14.86250589743636,
+      "targetBox": [
+        9.989881384600718,
+        16.36659503884381,
+        27.46873218487972
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          21.18505727982138,
+          18.304298708345957,
+          21.18505727982138
+        ],
+        "width": 14.86250589743636,
+        "angles": [
+          147.76250000000002,
+          147.76250000000002
+        ],
+        "placement": 89.903687,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 32.23749999999998,
+        "minGap": 0.16092552733199628,
+        "sweptArea": 0.3016802808081342,
+        "dimensions": [
+          9.790074043407083,
+          14.86250589743636,
+          26.90390451599713
+        ],
+        "placement": 89.903687,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-long-0449-b2",
+    "requestId": "v2-long-0449",
+    "split": "train",
+    "group": "3,14",
+    "request": {
+      "length": 43.648061871062964,
+      "width": 17.77175548586432,
+      "targetBox": [
+        25.20025987407064,
+        20.123497575694454,
+        5.8832185206516465
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          16.64593859559327,
+          10.35618467987642,
+          16.64593859559327
+        ],
+        "width": 17.77175548586432,
+        "angles": [
+          146.18984375,
+          146.18984375
+        ],
+        "placement": 179.980591,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 33.810156250000006,
+        "minGap": 0.1320247741224568,
+        "sweptArea": 0.23726552487211242,
+        "dimensions": [
+          24.68902058749771,
+          17.77175548586432,
+          5.7655400653976265
+        ],
+        "placement": 179.980591,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0518-b2",
+    "requestId": "v2-short-0518",
+    "split": "train",
+    "group": "1,17",
+    "request": {
+      "length": 62.71620559040457,
+      "width": 26.139012479502817,
+      "targetBox": [
+        4.905749709925428,
+        30.820945126748757,
+        43.315055814177875
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          26.000245592325477,
+          10.715714405753618,
+          26.000245592325477
+        ],
+        "width": 26.139012479502817,
+        "angles": [
+          153.35625,
+          153.35625
+        ],
+        "placement": 89.986572,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 26.64375000000001,
+        "minGap": 0.07662091991757554,
+        "sweptArea": 0.1708601311691431,
+        "dimensions": [
+          4.807617922414038,
+          26.139012479502817,
+          42.42378128560325
+        ],
+        "placement": 89.986572,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0875-b2",
+    "requestId": "v2-short-0875",
+    "split": "train",
+    "group": "2,11",
+    "request": {
+      "length": 68.53518996620551,
+      "width": 13.132924113772917,
+      "targetBox": [
+        7.650124516608713,
+        13.646905702275072,
+        31.545443226558998
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          24.475863164671964,
+          19.583463636861584,
+          24.475863164671964
+        ],
+        "width": 13.132924113772917,
+        "angles": [
+          157.55156250000002,
+          157.55156250000002
+        ],
+        "placement": 89.939453,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 22.448437499999983,
+        "minGap": 0.1091115635202873,
+        "sweptArea": 0.2857430074703164,
+        "dimensions": [
+          7.497104099726045,
+          13.132924113772917,
+          30.86011315891934
+        ],
+        "placement": 89.939453,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0904-b2",
+    "requestId": "v2-short-0904",
+    "split": "train",
+    "group": "9,11",
+    "request": {
+      "length": 46.834748992696404,
+      "width": 16.816762595338574,
+      "targetBox": [
+        21.990040374214036,
+        20.226068652368657,
+        17.42480065327176
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          12.18524399144794,
+          22.464261009800524,
+          12.18524399144794
+        ],
+        "width": 16.816762595338574,
+        "angles": [
+          108.25078125,
+          108.25078125
+        ],
+        "placement": 90.692017,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 71.74921875,
+        "minGap": 0.4555206034792453,
+        "sweptArea": 0.47964918632389797,
+        "dimensions": [
+          21.54200612209535,
+          16.816762595338574,
+          17.076271612850352
+        ],
+        "placement": 90.692017,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0087-b2",
+    "requestId": "v2-short-0087",
+    "split": "train",
+    "group": "4,10",
+    "request": {
+      "length": 89.24230817006901,
+      "width": 33.13250166825992,
+      "targetBox": [
+        36.76956916593157,
+        42.16229126069966,
+        17.603222881213675
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          29.91530176796494,
+          29.41170463413913,
+          29.91530176796494
+        ],
+        "width": 33.13250166825992,
+        "angles": [
+          144.1609375,
+          144.1609375
+        ],
+        "placement": 179.927246,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 2,
+        "symmetric": true,
+        "spread": 35.83906250000001,
+        "minGap": 0.19296746309753013,
+        "sweptArea": 0.32957081416609924,
+        "dimensions": [
+          36.00940714130092,
+          33.13250166825992,
+          17.251123726887442
+        ],
+        "placement": 179.927246,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0533-b2",
+    "requestId": "v2-short-0533",
+    "split": "train",
+    "group": "1,22",
+    "request": {
+      "length": 55.08562522707507,
+      "width": 11.451534331204794,
+      "targetBox": [
+        4.000101853935609,
+        12.590216518669513,
+        49.134410003486494
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          3.94316848924289,
+          47.19928824858929,
+          3.94316848924289
+        ],
+        "width": 11.451534331204794,
+        "angles": [
+          86.71484375000003,
+          86.71484375000003
+        ],
+        "placement": 8.049223,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 93.28515624999997,
+        "minGap": 0.8568349374999996,
+        "sweptArea": 0.8554268975246972,
+        "dimensions": [
+          3.9200364883228938,
+          11.451534331204794,
+          48.14049622621925
+        ],
+        "placement": 8.049223,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1261-b2",
+    "requestId": "v2-short-1261",
+    "split": "train",
+    "group": "3,11",
+    "request": {
+      "length": 15.036667741369456,
+      "width": 0.7983207903963656,
+      "targetBox": [
+        6.86118164839087,
+        0.9953591093349892,
+        1.9109303128373554
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          5.330080037098049,
+          4.376507667173359,
+          5.330080037098049
+        ],
+        "width": 0.7983207903963656,
+        "angles": [
+          154.68593749999997,
+          154.68593749999997
+        ],
+        "placement": 179.979736,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 25.314062500000034,
+        "minGap": 0.12444951686179496,
+        "sweptArea": 0.29105567212724553,
+        "dimensions": [
+          6.704556444383172,
+          0.7983207903963656,
+          1.8727051447414182
+        ],
+        "placement": 179.979736,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0283-b2",
+    "requestId": "v2-short-0283",
+    "split": "train",
+    "group": "4,9",
+    "request": {
+      "length": 88.55529427761212,
+      "width": 27.652966864817458,
+      "targetBox": [
+        14.60655971129749,
+        34.996384429439196,
+        32.25327019203734
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          29.126345480848723,
+          30.302603315914677,
+          29.126345480848723
+        ],
+        "width": 27.652966864817458,
+        "angles": [
+          151.85234375,
+          151.85234375
+        ],
+        "placement": 89.958618,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 28.14765625000001,
+        "minGap": 0.1614258626820037,
+        "sweptArea": 0.3421883314031314,
+        "dimensions": [
+          14.314408797494934,
+          27.652966864817458,
+          31.544147757264533
+        ],
+        "placement": 89.958618,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1416-b2",
+    "requestId": "v2-short-1416",
+    "split": "train",
+    "group": "6,7",
+    "request": {
+      "length": 47.92249203659594,
+      "width": 6.542218650915206,
+      "targetBox": [
+        14.52831484405099,
+        7.833182451788838,
+        11.543656167236428
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          14.870948310106177,
+          18.180595416383586,
+          14.870948310106177
+        ],
+        "width": 6.542218650915206,
+        "angles": [
+          158.35390625000005,
+          158.35390625000005
+        ],
+        "placement": 163.178121,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 21.64609374999995,
+        "minGap": 0.13994097707939485,
+        "sweptArea": 0.39542584373280104,
+        "dimensions": [
+          14.23460642605988,
+          6.542218650915206,
+          11.30973164281649
+        ],
+        "placement": 163.178121,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0966-b2",
+    "requestId": "v2-short-0966",
+    "split": "train",
+    "group": "7,9",
+    "request": {
+      "length": 19.852454983629286,
+      "width": 6.836961470714519,
+      "targetBox": [
+        7.60043920035501,
+        8.503967047481478,
+        5.713280632182906
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          5.3892336639573415,
+          9.073987655714603,
+          5.3892336639573415
+        ],
+        "width": 6.836961470714519,
+        "angles": [
+          124.89453124999999,
+          124.89453124999999
+        ],
+        "placement": 89.935059,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 55.105468750000014,
+        "minGap": 0.37489285331353195,
+        "sweptArea": 0.4570712573689495,
+        "dimensions": [
+          7.448422294975626,
+          6.836961470714519,
+          5.595965127931419
+        ],
+        "placement": 89.935059,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1044-b2",
+    "requestId": "v2-short-1044",
+    "split": "train",
+    "group": "4,8",
+    "request": {
+      "length": 62.17706795781851,
+      "width": 20.297270276708293,
+      "targetBox": [
+        20.880094803017528,
+        23.260043115341023,
+        11.183885939945378
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          19.934276929583024,
+          22.308514098652456,
+          19.934276929583024
+        ],
+        "width": 20.297270276708293,
+        "angles": [
+          150.59374999999997,
+          150.59374999999997
+        ],
+        "placement": 179.980103,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 29.40625000000003,
+        "minGap": 0.17616548489342018,
+        "sweptArea": 0.35878985199024394,
+        "dimensions": [
+          20.43806554501188,
+          20.297270276708293,
+          10.960201575892917
+        ],
+        "placement": 179.980103,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1369-b2",
+    "requestId": "v2-short-1369",
+    "split": "train",
+    "group": "6,9",
+    "request": {
+      "length": 84.02165658539161,
+      "width": 12.256203978441826,
+      "targetBox": [
+        22.960320371020984,
+        13.228149293108968,
+        31.017995826368892
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          26.240315192304752,
+          31.54102620078211,
+          26.240315192304752
+        ],
+        "width": 12.256203978441826,
+        "angles": [
+          134.54375,
+          134.54375
+        ],
+        "placement": 89.944702,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 45.45625000000001,
+        "minGap": 0.2675472569872157,
+        "sweptArea": 0.37539134830393467,
+        "dimensions": [
+          22.501106407235913,
+          12.256203978441826,
+          30.377743135650693
+        ],
+        "placement": 89.944702,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1065-b2",
+    "requestId": "v2-short-1065",
+    "split": "train",
+    "group": "4,11",
+    "request": {
+      "length": 66.51359122013673,
+      "width": 15.521550338097464,
+      "targetBox": [
+        11.703158982611052,
+        18.047735171646963,
+        31.69197292670886
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          23.46682640235449,
+          19.579938415427755,
+          23.46682640235449
+        ],
+        "width": 15.521550338097464,
+        "angles": [
+          144.19531249999997,
+          144.19531249999997
+        ],
+        "placement": 89.97937,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 35.80468750000003,
+        "minGap": 0.17221644825222357,
+        "sweptArea": 0.2943747258112015,
+        "dimensions": [
+          11.460451344505648,
+          15.521550338097464,
+          31.058132657968322
+        ],
+        "placement": 89.97937,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0562-b2",
+    "requestId": "v2-short-0562",
+    "split": "train",
+    "group": "3,14",
+    "request": {
+      "length": 90.88664648588747,
+      "width": 16.58137768657523,
+      "targetBox": [
+        11.368778524415687,
+        20.40365316588946,
+        51.81281967768174
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          34.63100754478864,
+          21.624631396310185,
+          34.63100754478864
+        ],
+        "width": 16.58137768657523,
+        "angles": [
+          149.02109375,
+          149.02109375
+        ],
+        "placement": 89.966919,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 30.978906249999994,
+        "minGap": 0.12246775625844243,
+        "sweptArea": 0.23792964664272456,
+        "dimensions": [
+          11.141386311879073,
+          16.58137768657523,
+          50.728407183935985
+        ],
+        "placement": 89.966919,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1447-b2",
+    "requestId": "v2-short-1447",
+    "split": "train",
+    "group": "3,12",
+    "request": {
+      "length": 87.47132099466398,
+      "width": 35.78659950895069,
+      "targetBox": [
+        13.524193043952774,
+        38.18079603504654,
+        44.98690340281577
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          31.87744412448472,
+          23.71643274569454,
+          31.87744412448472
+        ],
+        "width": 35.78659950895069,
+        "angles": [
+          146.08437499999997,
+          146.08437499999997
+        ],
+        "placement": 89.94104,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 33.915625000000034,
+        "minGap": 0.1512849235153715,
+        "sweptArea": 0.2711335115711748,
+        "dimensions": [
+          13.253338085089963,
+          35.78659950895069,
+          44.087159869807216
+        ],
+        "placement": 89.94104,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1122-b2",
+    "requestId": "v2-short-1122",
+    "split": "train",
+    "group": "3,11",
+    "request": {
+      "length": 39.13531818892807,
+      "width": 16.97583323256607,
+      "targetBox": [
+        5.2857850147347145,
+        20.89813348733804,
+        17.803389010214154
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          13.833398178106924,
+          11.468521832714222,
+          13.833398178106924
+        ],
+        "width": 16.97583323256607,
+        "angles": [
+          153.18203125,
+          153.18203125
+        ],
+        "placement": 89.966675,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 26.817968750000006,
+        "minGap": 0.1322107307783282,
+        "sweptArea": 0.29304787362187723,
+        "dimensions": [
+          5.180061144829394,
+          16.97583323256607,
+          17.43478505197663
+        ],
+        "placement": 89.966675,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0304-b2",
+    "requestId": "v2-short-0304",
+    "split": "train",
+    "group": "3,7",
+    "request": {
+      "length": 64.88574425689876,
+      "width": 27.48084253564801,
+      "targetBox": [
+        20.742842203278133,
+        31.668271493251204,
+        9.485992177884878
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          21.276694537677216,
+          22.332355181544333,
+          21.276694537677216
+        ],
+        "width": 27.48084253564801,
+        "angles": [
+          172.72812499999995,
+          172.72812499999995
+        ],
+        "placement": 162.781492,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 7.271875000000051,
+        "minGap": 0.04356547263380189,
+        "sweptArea": 0.3488264481660588,
+        "dimensions": [
+          20.32313247252258,
+          27.48084253564801,
+          9.257665713285839
+        ],
+        "placement": 162.781492,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0123-b2",
+    "requestId": "v2-short-0123",
+    "split": "train",
+    "group": "2,19",
+    "request": {
+      "length": 21.118486451450735,
+      "width": 6.325696124598616,
+      "targetBox": [
+        2.3240030123728364,
+        7.287888913839055,
+        16.083072009089936
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          2.5985743218240778,
+          15.921337807802582,
+          2.5985743218240778
+        ],
+        "width": 6.325696124598616,
+        "angles": [
+          127.02656250000001,
+          127.02656250000001
+        ],
+        "placement": 151.196047,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 52.97343749999999,
+        "minGap": 0.6367781014098239,
+        "sweptArea": 1.0034049974704442,
+        "dimensions": [
+          2.2770617471921133,
+          6.325696124598616,
+          15.757664401478994
+        ],
+        "placement": 151.196047,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1372-b2",
+    "requestId": "v2-short-1372",
+    "split": "train",
+    "group": "3,20",
+    "request": {
+      "length": 86.80338127538562,
+      "width": 21.468007749196403,
+      "targetBox": [
+        13.682609017079269,
+        24.67969542302042,
+        70.73129921068117
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          15.234714966937034,
+          56.33395134151154,
+          15.234714966937034
+        ],
+        "width": 21.468007749196403,
+        "angles": [
+          75.21093750000001,
+          75.21093750000001
+        ],
+        "placement": 28.559075,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 104.78906249999999,
+        "minGap": 0.6489833749999997,
+        "sweptArea": 0.6274839409795695,
+        "dimensions": [
+          13.408897335336771,
+          21.468007749196403,
+          69.28121297251477
+        ],
+        "placement": 28.559075,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-long-0102-b2",
+    "requestId": "v2-long-0102",
+    "split": "train",
+    "group": "0,23",
+    "request": {
+      "length": 81.31000728812069,
+      "width": 4.523835379514511,
+      "targetBox": [
+        76.20932910218878,
+        5.133375019276276,
+        2.688594467653289
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          38.622253461857326,
+          4.065500364406038,
+          38.622253461857326
+        ],
+        "width": 4.523835379514511,
+        "angles": [
+          139.68359374999997,
+          139.68359374999997
+        ],
+        "placement": 179.918457,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 40.31640625000003,
+        "minGap": 0.03235040688952094,
+        "sweptArea": 0.04999999744521308,
+        "dimensions": [
+          74.14830011991282,
+          4.523835379514511,
+          2.6348208779531954
+        ],
+        "placement": 179.918457,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0297-b2",
+    "requestId": "v2-short-0297",
+    "split": "train",
+    "group": "6,8",
+    "request": {
+      "length": 13.368178417440504,
+      "width": 5.242091054574442,
+      "targetBox": [
+        4.514479684666377,
+        6.035463193718713,
+        3.5296504724153563
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          4.112796957151471,
+          5.142584503137561,
+          4.112796957151471
+        ],
+        "width": 5.242091054574442,
+        "angles": [
+          137.7625,
+          137.7625
+        ],
+        "placement": 179.967163,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 42.23750000000001,
+        "minGap": 0.25858964889179226,
+        "sweptArea": 0.3846881987763804,
+        "dimensions": [
+          4.420185835289891,
+          5.242091054574442,
+          3.4590540622316954
+        ],
+        "placement": 179.967163,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0221-b2",
+    "requestId": "v2-short-0221",
+    "split": "train",
+    "group": "6,7",
+    "request": {
+      "length": 68.86607435299084,
+      "width": 32.24947632547102,
+      "targetBox": [
+        19.032423166928147,
+        41.266036957203156,
+        19.400673801150994
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          21.14131237712513,
+          26.583449598740582,
+          21.14131237712513
+        ],
+        "width": 32.24947632547102,
+        "angles": [
+          161.71249999999995,
+          161.71249999999995
+        ],
+        "placement": 63.827725,
+        "offset": [
+          0,
+          0.038926357627772745
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 18.28750000000005,
+        "minGap": 0.1211263486527262,
+        "sweptArea": 0.40899545592627773,
+        "dimensions": [
+          18.61927001572216,
+          32.24947632547102,
+          18.973733967500202
+        ],
+        "placement": 63.827725,
+        "offset": [
+          0,
+          0.038926357627772745
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-0333-b2",
+    "requestId": "v2-short-0333",
+    "split": "train",
+    "group": "8,10",
+    "request": {
+      "length": 57.17698164982721,
+      "width": 13.329897352506052,
+      "targetBox": [
+        19.778839337607508,
+        13.812159599103646,
+        23.822844950252286
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          15.54052493435538,
+          26.09593178111645,
+          15.54052493435538
+        ],
+        "width": 13.329897352506052,
+        "angles": [
+          116.64140625,
+          116.64140625
+        ],
+        "placement": 179.990845,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 63.35859375,
+        "minGap": 0.4079497896270903,
+        "sweptArea": 0.45640587868379084,
+        "dimensions": [
+          19.383226345558263,
+          13.329897352506052,
+          23.327207068753815
+        ],
+        "placement": 179.990845,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-short-1404-b2",
+    "requestId": "v2-short-1404",
+    "split": "train",
+    "group": "1,14",
+    "request": {
+      "length": 95.61713686212897,
+      "width": 21.98312212878562,
+      "targetBox": [
+        7.360239765999571,
+        26.730475349491268,
+        55.9271973861803
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          37.25893549875655,
+          21.099265864615873,
+          37.25893549875655
+        ],
+        "width": 21.98312212878562,
+        "angles": [
+          160.03437499999995,
+          160.03437499999995
+        ],
+        "placement": 89.975342,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 19.965625000000045,
+        "minGap": 0.07534713580364871,
+        "sweptArea": 0.2206640499342963,
+        "dimensions": [
+          7.213011327926126,
+          21.98312212878562,
+          54.689816093698454
+        ],
+        "placement": 89.975342,
+        "offset": [
+          0,
+          0
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  },
+  {
+    "id": "v2-long-0218-b2",
+    "requestId": "v2-long-0218",
+    "split": "train",
+    "group": "3,17",
+    "request": {
+      "length": 61.677196607925,
+      "width": 20.64025038067039,
+      "targetBox": [
+        43.89461301259126,
+        25.68526177800613,
+        8.019655202196043
+      ]
+    },
+    "budget": 2,
+    "answer": {
+      "budget": 2,
+      "family": "symmetric-ends-one-angle+spread-refined",
+      "design": {
+        "panelLengths": [
+          8.981741756029077,
+          43.713713095866844,
+          8.981741756029077
+        ],
+        "width": 20.64025038067039,
+        "angles": [
+          129.36953124999994,
+          129.36953124999994
+        ],
+        "placement": 60.981188,
+        "offset": [
+          0,
+          0.005083858594123747
+        ]
+      },
+      "quality": {
+        "valid": true,
+        "fits": true,
+        "passes": true,
+        "violations": [],
+        "contactFree": true,
+        "folds": 2,
+        "order": 3,
+        "symmetric": true,
+        "spread": 50.63046875000006,
+        "minGap": 0.5703299939507934,
+        "sweptArea": 0.9241737605626252,
+        "dimensions": [
+          43.002332457775054,
+          20.64025038067039,
+          7.854178239557998
+        ],
+        "placement": 60.981188,
+        "offset": [
+          0,
+          0.005083858594123747
+        ],
+        "floatingCreases": 0,
+        "sampleCount": 721
+      }
+    }
+  }
+]
