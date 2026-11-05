@@ -224,6 +224,7 @@ Consequences:
    - **(a)** Raise the minimum fold angle (e.g. 15–30°) so every crease visibly folds.
    - **(b)** Require every crease to be necessary: merging any two neighbouring panels must make the design fail.
    - **(c)** Change the spread measure to count only creases that fold at least X°.
+   - **Update after D30 (map r5):** the free-form search beats the reference beyond the band in 23/180, down from 46. Near-flat creases under 10° appear in 7/778 minimum-budget answers, 20/776 at +1 and 260/776 at +2. A typical +2 answer is `[45, 5, 5, 45]` with angles `[89.4°, 1°, 89.4°]`, a U-shape padded with a fake crease to use the budget and look symmetric.
    - **(d)** Whichever rule is chosen, strengthen the reference's spread search (currently family grid plus refinement), because a free-form search beats it beyond the band even without dead creases (11/46).
 2. ~~**First panel always horizontal**~~ — resolved by D30.
    Original record: **First panel always horizontal (raised by the user 2026-11-05).** Cause: the reference frame fixes panel 1 along x (GEOMETRY.md), and D03 forbids rotating the folded shape into the box. So panel 1 must lie along the box length. Measured on map r4:

@@ -173,6 +173,16 @@ Observation for the ranking: several one-fold answers stopped at 177–179° rat
 - **Spread check:** the free-form search beat the reference's spread beyond the 10% band in 46/180 cell-budgets, 35 of them using near-flat creases under 10°. Open question in DECISIONS.md.
 - **Runtime:** map 9.7 min on CPU.
 
+**Revision r5 (D30 turning allowed, 2026-11-05):** the grid is now 784 cells with identical length and height values (0.02, 0.04–1.08). Results: `results/*-r5.json*`.
+- **Feasibility:** 778 solved, 0 proven impossible, 6 not found (all boxes at most 0.08 × 0.08 of sheet length).
+- **Mirror check:** 378 swapped pairs; status and fewest folds agree in all; the opening angle differs by more than 10% in 28 of 1,126 pair-budgets, from search resolution.
+- **Fewest folds:** the free-form search beat it 0/174. **Spread:** the free-form search beat it beyond the band in 23/180, down from 46.
+- **Artefacts:** 5% "foot" first panels fell from 492 to 14 of 1,595 folded answers.
+- **Flat sheets:** 245 boxes need no fold; 95 of them place the flat sheet diagonally in the box.
+- **Symmetry:** 545/778 at the minimum budget, 765 at +1, 776/776 at +2.
+- **Dead creases remain** at budget +2: 260/776 answers contain a fold under 10°. Typical: `[45, 5, 5, 45]` with angles `[89.4°, 1°, 89.4°]`, a U-shape with a fake middle crease. Open question in DECISIONS.md.
+- **Runtime:** map 15.7 min on CPU.
+
 ## Next work items for this instance
 
 1. Done 2026-11-05: 1-panel designs, v2 rules and measures, the reference solver, the map, the completeness check, and the independent check (two revisions).
