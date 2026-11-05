@@ -72,7 +72,23 @@ The goal is a general model of origami geometry, not one application. Requests t
 - sheet width ÷ sheet length;
 - box width relative to sheet width.
 
-Random jitter within each grid cell keeps the model from memorising grid points. The grid includes tight cases, zero-fold cases and impossible cases. Requests are never derived from random folds (D10). Proposed ranges are to be fixed when the request-space map is produced.
+Random jitter within each grid cell keeps the model from memorising grid points. Requests are never derived from random folds (D10).
+
+**Frozen distribution for v2 (D24).** All ratios are relative to sheet length L.
+
+| Share | Box length | Box height | Purpose |
+| --- | --- | --- | --- |
+| 75% | uniform in [0.05, 0.50] | uniform in [0.02, 1.06] | Short boxes: 2+ folds, varied designs |
+| 15% | uniform in [0.50, 1.08] | uniform in [0.02, 1.06] | Easy cases: 0–1 folds |
+| 10% | half below 0.05 (first panel cannot fit), half with box width under sheet width ÷ 0.98 | as above | Impossible diagnostics, reported separately |
+
+Other settings:
+- Sheet width ÷ L is uniform in [0.05, 0.5].
+- For feasible requests, box width = sheet width × uniform [1.03, 1.30].
+- Sheet length is uniform in [10, 100]. Geometry is scale-free, so this only tests units.
+- Splits are grouped by (box length, box height) cells of 0.04 × 0.04, so near-duplicates never cross train/validation/test.
+
+Section 8's "three seeds" consistency check applies to stochastic solvers. The reference solver is deterministic, so its consistency evidence is instead: identical re-runs, the free-form completeness check, and the independent Codex checker (D25).
 
 Known feasibility: an equal-panel flat stack with N panels has final length L/N and height 0. So a request is feasible by construction whenever the width fits and box length ≥ L / (12 × 0.98). Other requests may still be feasible using height; the reference solver decides those, and a solver failure is not proof of impossibility.
 
@@ -134,11 +150,18 @@ The grid has 729 requests: a 100 × 10 sheet, box length 0.04–1.08 and box hei
 - **Search power:** at the reference's own fold count, the free-form search found designs in 168/168 cells needing 2–5 folds, but only 2/10 needing 6 or more. So "no fewer folds found" is good evidence up to about 5 folds and weak above.
 - **Runtime:** map 61 s, check 9 s on CPU.
 
-Observation for the ranking: several one-fold answers stop at 177–179° rather than a clean 180° flat fold. The swept-envelope tie-break (rank 5) prefers them by tiny margins before compactness is considered. See DECISIONS.md open questions.
+Observation for the ranking: several one-fold answers stopped at 177–179° rather than a clean 180°. Fixed by D23.
+
+**Revision r2 (same day)** fixed the reference's grid misses: finer near-closed angles, more refinement starts, and contact-aware refinement. Results: `results/request-map-2026-11-05-r2.json.gz`, `...-completeness-2026-11-05-r2.json`, `results/independent-check-2026-11-05-r2.json`.
+
+- The free-form check now beats the reference in **0/218** cells (was 3).
+- Eight cells dropped one fold.
+- The Codex independent checker passes all 701 solved designs.
+- The report linked above shows r2.
 
 ## Next work items for this instance
 
-1. ~~Allow 1-panel designs~~; ~~margin, active-crease rule and ranking measures~~; ~~reference solver and map report~~ (done 2026-11-05: `src/packing.js`, `tests/packing.test.js`, scripts above).
-2. Fix the reference solver's resolution misses: refine near-miss designs using the contact check, not only overflow, and recheck the three beaten cells.
-3. Decide the open ranking and request-weighting questions, then define the frozen request distribution and run the dataset-acceptance checks (section 8).
-4. Build the visual review page needed for section 9.
+1. Done 2026-11-05: 1-panel designs, v2 rules and measures, the reference solver, the map, the completeness check, and the independent check (two revisions).
+2. Generate the v2 request set from the frozen distribution (section 6) with a fixed seed. Label it with the reference solver, then run section 8: revalidate with `scripts/independent-check.js`, the completeness check, coverage plots, and grouped splits. Keep it in a new `experiments/learning-v2/` directory.
+3. Build the visual review page needed for section 9, ideally reusing the map report's side view.
+4. Only then train.

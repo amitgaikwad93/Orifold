@@ -138,7 +138,18 @@ Revisit if the request-space map shows many requests that need more than 11 fold
 
 The user accepted the agent's proposed details in EXPERIMENT_SPEC.md: the 1° active-crease threshold, the order-score formula, the dataset-acceptance thresholds, and the 95% evaluator pass rate as a reference point (the user's visual verdict still decides success). The grid ranges were fixed for the first map (EXPERIMENT_SPEC.md, "Evidence so far").
 
+## D23 — swept-area ties (user decision, 2026-11-05)
+
+In the ranking, swept-area differences below 1% of sheet length² count as ties, so compactness decides and a clean 180° flat fold beats a near-flat one. Effect on the map: 203 of 469 one-fold answers are now exact 180° folds (previously 0).
+
+## D24 — weight requests toward short boxes (user decision, 2026-11-05)
+
+Training and test requests are weighted toward boxes shorter than about half the sheet, where 2+ folds and varied designs occur. Some easy and impossible cases are kept. The concrete distribution is in EXPERIMENT_SPEC.md section 6.
+
+## D25 — independent verification by Codex (practice, 2026-11-05)
+
+Codex wrote `scripts/independent-check.js` from the spec alone, without reading `src/packing.js`; it imports no project code. It agreed with all 701 solved map designs on rules, 2% fit, contacts at 721 states (505,421 sampled states) and fold/order scores, both before and after the solver fix. Use it on every reference dataset before training. This is sampled validity, not continuous collision proof or ranking optimality.
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Near-flat versus flat (ranking detail).** The swept-envelope tie-break picks 177–179° one-fold designs over a clean 180° flat fold by tiny margins. Agent recommendation: treat swept-area differences under 1% of sheet length² as ties, so compactness then prefers the clean flat fold. Small change to the D16 sub-definitions.
-2. **Request weighting.** A uniform grid gives 64% one-fold requests. Agent recommendation: weight the training/test distribution toward short boxes (box length below about half the sheet), where 2+ folds and the interesting designs occur, while keeping some easy and impossible cases.
+None at this snapshot.

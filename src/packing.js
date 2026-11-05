@@ -13,6 +13,7 @@ const RULES = Object.freeze({
   angleTolerance: 1,       // angles within 1 degree count as equal
   validationSteps: 720,    // authoritative contact sampling
   screeningSteps: 60,      // cheaper sampling while searching and ranking
+  sweepTieTolerance: 0.01, // swept-area differences below 1% of L^2 are ties (D23)
 });
 
 const usable = box => box.map(x => (1 - RULES.margin) * x);
@@ -107,7 +108,8 @@ function compareRanked(a, b) {
   if (a.order !== b.order) return a.order - b.order;
   const gapA = Math.min(a.minGap, 1e3), gapB = Math.min(b.minGap, 1e3);
   if (Math.abs(gapA - gapB) > eps) return gapB - gapA;
-  if (Math.abs(a.sweptArea - b.sweptArea) > eps) return a.sweptArea - b.sweptArea;
+  // D23: swept-area differences under 1% of sheet length squared count as ties.
+  if (Math.abs(a.sweptArea - b.sweptArea) > RULES.sweepTieTolerance) return a.sweptArea - b.sweptArea;
   if (Math.abs(a.dimensions[0] - b.dimensions[0]) > eps * a.dimensions[0] + 1e-12) return a.dimensions[0] - b.dimensions[0];
   return a.dimensions[2] - b.dimensions[2];
 }
@@ -132,7 +134,7 @@ function handRule(request) {
 
 const range = (from, to, step) => { const out = []; for (let x = from; x <= to + 1e-9; x += step) out.push(+x.toFixed(6)); return out; };
 // Near-right and near-closed angles get extra resolution: tall serpentines live there.
-const NEAR = [88, 89, 91, 92, 175, 177, 178, 179, 179.5];
+const NEAR = [88, 89, 91, 92, 165, 170, 172, 174, 175, 176, 177, 178, 179, 179.5];
 const merge = (...lists) => [...new Set(lists.flat())].sort((a, b) => a - b);
 const FINE = merge(range(1, 180, 1), [179.5]), MEDIUM = merge([1], range(5, 180, 5), NEAR), COARSE = merge([1], range(10, 180, 10), NEAR);
 
@@ -167,7 +169,14 @@ function refine(family, start, request) {
   const scale = family.bounds.map(([lo, hi]) => (hi - lo) / 20);
   const minStep = family.bounds.map(([lo, hi]) => (hi - lo) / 2000);
   const clamp = p => p.map((x, i) => Math.min(family.bounds[i][1], Math.max(family.bounds[i][0], x)));
-  const score = p => { const d = family.build(p); return ruleViolations(d, request).length ? Infinity : overflowOf(d, request); };
+  // Fit first; a fitting design that collides scores just above zero so the search keeps moving.
+  const score = p => {
+    const d = family.build(p);
+    if (ruleViolations(d, request).length) return Infinity;
+    const over = overflowOf(d, request);
+    if (over > 0) return over;
+    return motionMetrics(d, 30).blockedSamples ? 1e-6 : 0;
+  };
   let point = start, best = score(point), step = scale, evaluations = 0;
   while (best > 0 && step.some((s, i) => s >= minStep[i]) && evaluations < 400) {
     let moved = false;
@@ -181,7 +190,7 @@ function refine(family, start, request) {
   return best <= 0 ? point : null;
 }
 
-function* candidates(n, request, { refineStarts = 16 } = {}) {
+function* candidates(n, request, { refineStarts = 24 } = {}) {
   for (const family of families(n, request)) {
     const scored = [];
     for (const params of family.grid) {

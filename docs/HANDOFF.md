@@ -1,6 +1,6 @@
 # Orifold handoff
 
-Snapshot: 2026-11-05. The experiment v2 setup is agreed (EXPERIMENT_SPEC.md) and its first evidence exists: a deterministic reference solver and a request-space map of 729 box shapes. No v2 dataset or training yet. Procedure for updating this file: AGENTS.md, "Handoff procedure".
+Snapshot: 2026-11-05 (later). The experiment v2 setup is agreed, the request distribution is frozen, and the deterministic reference solver is verified: no misses found by free-form search, and Codex's independent checker agrees on all 701 map designs. No v2 dataset or training yet. Procedure for updating this file: AGENTS.md, "Handoff procedure".
 
 ## Current state
 
@@ -39,18 +39,22 @@ Snapshot: 2026-11-05. The experiment v2 setup is agreed (EXPERIMENT_SPEC.md) and
 - **Report** (private to the user): https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
 - **Checks:** `npm test` passed, 40/40.
 
+## Since the previous snapshot
+
+- **User decisions:** D23 (tiny swept-area differences are ties, so clean 180° folds win) and D24 (weight requests toward short boxes).
+- **Codex** added `scripts/independent-check.js` (commit `f521f23`): an independent spec-based checker importing no project code. Recorded as D25.
+- **Solver fix** in `src/packing.js`: finer near-closed angles, contact-aware refinement, 24 refinement starts.
+- **Map rerun (r2):** 701/729 solved; free-form search beat it 0/218; the independent checker passes 701/701 (`results/*-r2.json*`).
+- **Report republished** at the same link: https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
+- **Checks:** `npm test` passed, 40/40.
+
 ## In discussion / open
 
-DECISIONS.md open questions:
-
-1. Near-flat versus flat: should tiny swept-area differences count as ties so a clean 180° fold wins?
-2. Weighting requests toward short boxes, since a uniform grid is 64% one-fold.
-
-The user also offered Codex for independent work or verification. A suggested brief is in the latest chat reply; nothing has been sent.
+None. DECISIONS.md has no open questions at this snapshot.
 
 ## Next concrete task
 
-Fix the reference solver's three resolution misses: refine using contact feasibility as well as overflow, then rerun the map and check into new files. Then get the user's answers to the two open questions, freeze the v2 request distribution, and run the dataset-acceptance checks (spec section 8).
+EXPERIMENT_SPEC.md "Next work items" 2: generate and label the v2 request set from the frozen distribution in `experiments/learning-v2/`, run the acceptance checks (independent checker, completeness check, coverage plot, grouped splits), then build the visual review page. No training before both are done.
 
 ## Runtime
 
@@ -63,4 +67,5 @@ npm test
 npm run map -- artifacts/<dir>/map.json                       # ~1 min CPU
 npm run map:check -- artifacts/<dir>/map.json artifacts/<dir>/check.json 40 3
 npm run map:report -- artifacts/<dir>/map.json artifacts/<dir>/report.html artifacts/<dir>/check.json
+node scripts/independent-check.js <map.json.gz>                 # Codex's independent checker
 ```
