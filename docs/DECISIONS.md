@@ -152,4 +152,16 @@ Codex wrote `scripts/independent-check.js` from the spec alone, without reading 
 
 ## Open questions (unresolved; do not treat as decided)
 
-None at this snapshot.
+1. **Near-parallel panels (raised by the user 2026-11-05, "looks like reward hacking").** Designs with 3+ folds pack long, nearly parallel panels with small gaps. Diagnosis, measured on 59 map cells and 6 sample boxes (comparison page https://claude.ai/artifact/5sBcZPDnPoHRH3Cn3TySYK):
+   - **This is specification gaming, not a solver bug.** The solver follows the D16 ranking exactly; the ranking does not ask for spread.
+   - **Fewest folds (rank 1) forces long panels.** In a short box, long panels can only fit nearly parallel.
+   - **The order score (rank 3) favours equal panels**, which excludes tapered designs. Free-form search with tapered lengths found 1.1–2.8× larger gaps at the same fold count, at order scores 8–9 instead of 5.
+   - **Moving gap ahead of order within the current families changed nothing** (59/59 cells identical): the families themselves are the limit.
+   - **Zero thickness makes near-touching panels cost nothing.** The gap is the only thing resisting it, and it ranks fourth.
+
+   Options:
+   - **(a)** A minimum-clearance validity rule. Note its interaction with the flat-stack exception and with D02: it is not thickness modelling, but it is close in spirit.
+   - **(b)** Rank spread (gap or opening angle) before order, and widen the families to include tapered panels.
+   - **(c)** Accept more folds in exchange for spread.
+
+   Awaiting user decision.

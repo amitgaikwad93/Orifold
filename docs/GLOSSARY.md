@@ -45,6 +45,8 @@ For the project owner and any agent explaining the work. Each entry: what it is,
 - **Request-space map** — a picture of every box shape on a grid, showing which are solvable and how many folds each needs. It shows where the problem is easy, hard or impossible before any training.
 - **Completeness check / search power** — testing the reference with an independent search. If the independent search finds a better answer, the reference missed it. *Search power* is how good that independent search is at finding answers that we know exist; weak search power makes "nothing better found" weak evidence.
 
+- **Specification gaming (Goodhart's law)** — an optimizer or model satisfies the rules exactly as written but not as intended, because the rules left a loophole. "Reward hacking" is the same thing when a learning agent does it. Example here: the ranking never asked for space between panels, so packed near-parallel panels scored best. A trained model would exploit the same loophole, so we fix the rules before training.
+
 ## Experiment practice
 
 - **Predeclared** — targets, settings and the test set are fixed *before* seeing results, so we cannot fool ourselves after the fact.

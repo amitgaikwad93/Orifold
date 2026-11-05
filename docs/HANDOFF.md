@@ -50,11 +50,11 @@ Snapshot: 2026-11-05 (later). The experiment v2 setup is agreed, the request dis
 
 ## In discussion / open
 
-None. DECISIONS.md has no open questions at this snapshot.
+DECISIONS.md open question 1: near-parallel panels, which is specification gaming in the ranking. The user must choose between a clearance rule, ranking spread before order with tapered families, or accepting more folds. This blocks freezing the v2 dataset.
 
 ## Next concrete task
 
-EXPERIMENT_SPEC.md "Next work items" 2: generate and label the v2 request set from the frozen distribution in `experiments/learning-v2/`, run the acceptance checks (independent checker, completeness check, coverage plot, grouped splits), then build the visual review page. No training before both are done.
+After the user decides open question 1, update the ranking/rules, rerun the map, independent check and completeness check, then do EXPERIMENT_SPEC.md "Next work items" 2: generate and label the v2 request set from the frozen distribution in `experiments/learning-v2/`, run the acceptance checks (independent checker, completeness check, coverage plot, grouped splits), then build the visual review page. No training before both are done.
 
 ## Runtime
 
