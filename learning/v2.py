@@ -98,12 +98,50 @@ def loss_fn(model, x, k, v, ang, mask):
     return ce + ((pv - v) ** 2 * mask).sum() / denom + ((pa - ang) ** 2 * mask).sum() / denom
 
 
+def position_loss(model, x, k, v, ang, weight=10.0):
+    """Fold-count cross-entropy + weight x mean squared vertex distance to the reference shape (true fold count)."""
+    fl, pv, pa = model(x)
+    ce = nn.functional.cross_entropy(fl, k)
+    zero = torch.zeros(x.shape[0])
+    px, pz = fold_vertices(pv, pa, k, zero); rx, rz = fold_vertices(v, ang, k, zero)
+    return ce + weight * (((px - rx) ** 2 + (pz - rz) ** 2).sum(1) / (k + 2).float()).mean()
+
+
 def predict(model, ex):
     model.eval()
     with torch.no_grad():
         x = torch.tensor([e['x'] for e in ex], dtype=torch.float32)
         fl, pv, pa = model(x)
     return [decode(fl[i], pv[i], pa[i], e['row']['request'], e['budget']) for i, e in enumerate(ex)]
+
+
+def fold_vertices(v, ang, k, psi):
+    """Differentiable side-view vertices xs, zs [B, 13] (sheet-length units) of the shape with k folds; unused
+    trailing vertices repeat the end point. Matches src/accordion.js."""
+    B = v.shape[0]; n = (k + 1).float()
+    rem = 1 - MIN_PANEL * n; lengths = []
+    for i in range(MAX_FOLDS + 1):
+        if i < MAX_FOLDS:
+            active = (k > i).float()
+            a = rem * v[:, i] * active; rem = rem - a
+        is_last = (k == i).float(); exists = (k >= i).float()
+        li = (MIN_PANEL + (a if i < MAX_FOLDS else 0)) * (exists - is_last) + (MIN_PANEL + rem) * is_last
+        lengths.append(li * exists)
+    lengths = torch.stack(lengths, 1)
+    deg = 1 + 179 * ang
+    fold_mask = (torch.arange(MAX_FOLDS).unsqueeze(0) < k.unsqueeze(1)).float()
+    sign = torch.tensor([1.0 if i % 2 == 0 else -1.0 for i in range(MAX_FOLDS)])
+    turn = torch.cumsum(deg * fold_mask * sign, 1)
+    orient = torch.cat([torch.zeros(B, 1), turn], 1) + psi.unsqueeze(1)
+    r = orient * math.pi / 180
+    xs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.cos(r), 1)], 1)
+    zs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.sin(r), 1)], 1)
+    return xs, zs
+
+
+def fold_extents_v(v, ang, k, psi):
+    xs, zs = fold_vertices(v, ang, k, psi)
+    return xs.max(1).values - xs.min(1).values, zs.max(1).values - zs.min(1).values
 
 
 def fold_extents(v, ang, k, psi):
@@ -146,7 +184,8 @@ def train(args):
     t = config['training']; torch.manual_seed(t['seed']); np.random.seed(t['seed']); torch.set_num_threads(t['threads'])
     rows = load_rows(ROOT / config['dataset'])
     tr, va = examples(rows, 'train'), examples(rows, 'validation')
-    model = Model(tuple(config['model']['hidden']))
+    hidden = tuple(args.hidden) if args.hidden else tuple(config['model']['hidden'])
+    model = Model(hidden)
     xs = torch.tensor([e['x'] for e in tr], dtype=torch.float32)
     model.mean.copy_(xs.mean(0)); model.std.copy_(xs.std(0).clamp(min=1e-6))
     opt = torch.optim.Adam(model.parameters(), lr=t['learningRate'])
@@ -162,7 +201,8 @@ def train(args):
     def tighter_penalty(X, A, M):
         _, _, pa = model(X)
         return ((torch.relu(pa - A) ** 2) * M).sum() / M.sum().clamp(min=1)
-    total = lambda X, K, V, A, M, P, UX, UZ: (loss_fn(model, X, K, V, A, M)
+    imitation = (lambda X, K, V, A, M: position_loss(model, X, K, V, A)) if args.imitation == 'positions' else (lambda X, K, V, A, M: loss_fn(model, X, K, V, A, M))
+    total = lambda X, K, V, A, M, P, UX, UZ: (imitation(X, K, V, A, M)
         + (weight * fit_penalty(model, X, K, P, UX, UZ, margin) if weight else 0)
         + (tight * tighter_penalty(X, A, M) if tight else 0))
     params = sum(p.numel() for p in model.parameters())
@@ -188,9 +228,9 @@ def train(args):
             print(f'epoch {epoch}: train {tl:.4f} val {vl:.4f} val pass {rate:.3f}{" *" if better else ""}', flush=True)
             if since >= 600:
                 break
-    torch.save({'state': best['state'], 'hidden': config['model']['hidden']}, out / 'checkpoint.pt')
+    torch.save({'state': best['state'], 'hidden': list(hidden)}, out / 'checkpoint.pt')
     (out / 'history.json').write_text(json.dumps(history, indent=1) + '\n')
-    (out / 'training-summary.json').write_text(json.dumps({'config': args.config, 'fitWeight': weight, 'tighterWeight': tight,
+    (out / 'training-summary.json').write_text(json.dumps({'config': args.config, 'fitWeight': weight, 'tighterWeight': tight, 'imitation': args.imitation, 'hidden': list(hidden),
         'parameters': params, 'trainExamples': len(tr), 'validationExamples': len(va), 'selectedEpoch': best['epoch'],
         'validationPassRate': best['rate'], 'validationLoss': best['loss'], 'stoppedAtEpoch': history[-1]['epoch'],
         'trainingSeconds': round(time.time() - started, 1), 'torch': torch.__version__, 'python': sys.version.split()[0]}, indent=2) + '\n')
@@ -225,5 +265,6 @@ if __name__ == '__main__':
     a = sub.add_parser('train'); a.add_argument('--output', required=True)
     a.add_argument('--config', default='experiments/learning-v2b/train-config.json'); a.add_argument('--fit-weight', type=float, default=0.0)
     a.add_argument('--tighter-weight', type=float, default=0.0)
+    a.add_argument('--imitation', choices=['parameters', 'positions'], default='parameters'); a.add_argument('--hidden', type=int, nargs='*')
     b = sub.add_parser('predict'); b.add_argument('--run', required=True); b.add_argument('--split', required=True)
     args = ap.parse_args(); train(args) if args.cmd == 'train' else predict_cmd(args)
