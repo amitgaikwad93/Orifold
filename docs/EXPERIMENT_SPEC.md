@@ -212,10 +212,24 @@ This is the answer-key baseline for the v2 dataset.
 - **Independence:** requests were generated before labelling, from the distribution only.
 - **Visual review:** round `answer-key-1`, 48 training answers at https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA. **Awaiting the user's verdicts.**
 
+## v2b dataset: creases on walls (D34, 2026-11-05)
+
+`experiments/learning-v2b/` keeps v2's requests and splits (`manifest.json` copied) and relabels them under D34. Label CPU 7,667 s.
+- **Walls:** 6,004/6,004 answers have every crease on a wall (0 floating).
+- **Unchanged from v2:** solved/unsolved status and fewest-fold counts.
+- **Spread cost versus v2:** median 0°, 90th percentile 8.7°, maximum 57.6°. The largest costs are all v2 "spacer panel" designs (`[45, 5, 5, 45]`), now 3-panel zigzags with creases on walls. 396 answers widened.
+- **Validity:** the independent checker passes 5,985/6,004. The 19 differences are order-score counts from the chaining-versus-bins ambiguity; the checker alignment is pending, and the checker has no floating-crease check yet (requested).
+- **Fewest folds** (train): free-form search beat it 0/474.
+- **Spread with walls required on both sides** (train): beaten beyond the band in 13/180 (v2: 5/180 without the wall constraint).
+- **Evidence:** `experiments/learning-v2b/acceptance/`.
+- **Visual review:** round `answer-key-2`, 48 new training answers, at https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA, awaiting the user.
+
+The v2 dataset is kept as a record but superseded for training by v2b.
+
 ## Next work items for this instance
 
 1. ~~Answer key, map, checks~~ (r6) and ~~v2 dataset with acceptance checks~~ (done 2026-11-05).
-2. User reviews round `answer-key-1`; fix the answer key if answers are rejected.
+2. ~~Review round answer-key-1~~ (42 valid, 6 unsure; led to D34 and v2b). Review round answer-key-2 on v2b.
 3. Codex aligns the checker's order-score counting with section 5 and reruns on the dataset.
 4. Define the v2 model and training (new experiment config): inputs are sheet, box and fold budget; outputs are a design. Predeclare the loss, model and checkpoint selection on validation only, then train on CPU.
 5. Evaluate on test once, with the review page round for model outputs.

@@ -19,11 +19,15 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-None. D34 was confirmed by the user. **Running:** relabelling of `experiments/learning-v2b/` (3 label shards, resumable via `*.partial`, then merge). If interrupted, rerun the same label commands; they resume.
+None in DECISIONS.md. Pending user actions:
+- review round `answer-key-2` (v2b);
+- send Codex the floating-crease and order-score alignment prompts.
+
+No jobs are running.
 
 ## Next concrete task
 
-Read the user's verdicts and fix the answer key if anything is rejected. Then write `experiments/learning-v2/train-config.json` (predeclared model, inputs including the fold budget, loss, checkpoint selection on validation only), restore the Python environment (LEARNING.md), and train on CPU. Evaluate on test once; report cases beyond the training range separately.
+Read the round-2 verdicts (ArtifactData `list` on `verdicts`, filter `round == answer-key-2`) and fix the answer key if anything is rejected. Train on **v2b**, not v2. Then write `experiments/learning-v2/train-config.json` (predeclared model, inputs including the fold budget, loss, checkpoint selection on validation only), restore the Python environment (LEARNING.md), and train on CPU. Evaluate on test once; report cases beyond the training range separately.
 
 ## Runtime
 

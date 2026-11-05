@@ -1,0 +1,3803 @@
+{
+  "map": "artifacts/v2b-acceptance/train.json",
+  "summary": {
+    "sampled": 474,
+    "seedsPerCell": 3,
+    "referenceBeaten": 0,
+    "elapsedMs": 14302
+  },
+  "records": [
+    {
+      "boxLength": 0.05890035217162222,
+      "boxHeight": 0.17005826564505697,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2066290188813582,
+      "boxHeight": 0.30630987504497176,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09955141443060711,
+      "boxHeight": 0.1917980485409498,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08773617747938262,
+      "boxHeight": 0.2905143008753658,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4206481641391292,
+      "boxHeight": 0.23180009493604303,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.463247320568189,
+      "boxHeight": 0.14133183715865016,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.05365883547347039,
+      "boxHeight": 0.08782433049753309,
+      "referenceFolds": 9,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31988964600022884,
+      "boxHeight": 0.06446374090388417,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2028617197996937,
+      "boxHeight": 0.2751008440181613,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11033375333063306,
+      "boxHeight": 0.4752733114175499,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.130696273536887,
+      "boxHeight": 0.2995047947391868,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3072325504967012,
+      "boxHeight": 0.17564434140920637,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.25179348380770533,
+      "boxHeight": 0.14680051745846867,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09891182911815122,
+      "boxHeight": 0.40963826127350333,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18222531126812103,
+      "boxHeight": 0.3492620514892042,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18659465877572073,
+      "boxHeight": 0.3218986980617047,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45152912468183787,
+      "boxHeight": 0.1875361975468695,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21260796651476993,
+      "boxHeight": 0.09324739694595338,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18512608071323483,
+      "boxHeight": 0.12568661423400043,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3987624830217101,
+      "boxHeight": 0.31647464826703076,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4638583079795353,
+      "boxHeight": 0.1501622949913144,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.22155295881675557,
+      "boxHeight": 0.12401166610419749,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1364671301562339,
+      "boxHeight": 0.38065788609907036,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4022218240657821,
+      "boxHeight": 0.22322451362386347,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.25092736310325564,
+      "boxHeight": 0.4251378571800888,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4120194773073308,
+      "boxHeight": 0.1972519900277257,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.292952794500161,
+      "boxHeight": 0.15056845985352993,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4359530681744218,
+      "boxHeight": 0.2211443597637117,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.26727789111901074,
+      "boxHeight": 0.10769617224112153,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07507284007733689,
+      "boxHeight": 0.30972162138670684,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2593116417061538,
+      "boxHeight": 0.4051270761899651,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13160220943391324,
+      "boxHeight": 0.3063202557526529,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14826531255384906,
+      "boxHeight": 0.19474145498126744,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08780919548589736,
+      "boxHeight": 0.38364582473412157,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27042339589679615,
+      "boxHeight": 0.15701584547758102,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15829111491329967,
+      "boxHeight": 0.07611758632585407,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18177023249445484,
+      "boxHeight": 0.02571634892374277,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.39712141660274936,
+      "boxHeight": 0.09442073412239552,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.42920113923028114,
+      "boxHeight": 0.21068485846742988,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.33012314909137785,
+      "boxHeight": 0.23024620009586214,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4656287964317017,
+      "boxHeight": 0.08612335238605738,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07325010439381004,
+      "boxHeight": 0.10377013823017478,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12545667472295463,
+      "boxHeight": 0.31518392531201245,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2730609509511851,
+      "boxHeight": 0.33341580774635077,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27892210078425705,
+      "boxHeight": 0.4037334297411144,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0830258688190952,
+      "boxHeight": 0.11366168865934016,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.25173702142201365,
+      "boxHeight": 0.30152352808043364,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4287372273975052,
+      "boxHeight": 0.22722443759441377,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13059815675951542,
+      "boxHeight": 0.3738558865897358,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08380692976061255,
+      "boxHeight": 0.2187333027459681,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.41059150914661585,
+      "boxHeight": 0.22336127309128642,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.343727519409731,
+      "boxHeight": 0.03265580696985126,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1084120640414767,
+      "boxHeight": 0.24447643522173165,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32520772855496033,
+      "boxHeight": 0.36806149881333117,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2122170442948118,
+      "boxHeight": 0.09369072386994959,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2531012231018394,
+      "boxHeight": 0.41199720917269583,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0835387410246767,
+      "boxHeight": 0.2028890562057495,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.47625968670472496,
+      "boxHeight": 0.1615388466976583,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14270076411776245,
+      "boxHeight": 0.24099701015278693,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.42102070756955073,
+      "boxHeight": 0.24995045769959687,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10611600700067354,
+      "boxHeight": 0.2575438206642866,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18851432278752328,
+      "boxHeight": 0.041651621218770744,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06566689716419205,
+      "boxHeight": 0.24702694918960333,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24632303763646637,
+      "boxHeight": 0.2752678310312331,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2205722121289,
+      "boxHeight": 0.40739871742203837,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.35973861450329425,
+      "boxHeight": 0.18995144655928015,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12092162652406842,
+      "boxHeight": 0.4281897450424731,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18348317792406305,
+      "boxHeight": 0.11929605420678854,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2763686379068531,
+      "boxHeight": 0.2817159825563431,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14169070057105274,
+      "boxHeight": 0.0652945868857205,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24798080436885356,
+      "boxHeight": 0.2617945775948465,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.35048682558117433,
+      "boxHeight": 0.34258741263300185,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14566237004473806,
+      "boxHeight": 0.04941883912310004,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16970626529073343,
+      "boxHeight": 0.08347153704613448,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3448879065224901,
+      "boxHeight": 0.24841851780191063,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3055915523902513,
+      "boxHeight": 0.2163819770514965,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24589698445051913,
+      "boxHeight": 0.33032002573832875,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27781930080382156,
+      "boxHeight": 0.20003802571445703,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13560769443865867,
+      "boxHeight": 0.3754860887117684,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.25515820741420614,
+      "boxHeight": 0.06951952885836363,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11942387210438028,
+      "boxHeight": 0.31338430359959607,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19806226226501167,
+      "boxHeight": 0.35124521462246777,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31929063349962233,
+      "boxHeight": 0.3619440189562738,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31641624693293124,
+      "boxHeight": 0.15787308925762772,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27575299791060387,
+      "boxHeight": 0.05484632251784205,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1649428171454929,
+      "boxHeight": 0.36421617086976776,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13033992708660663,
+      "boxHeight": 0.18955333007499575,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3680623257881962,
+      "boxHeight": 0.13339047204703092,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4096766230533831,
+      "boxHeight": 0.10601613570004703,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.337703428522218,
+      "boxHeight": 0.264033764526248,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09501090426929294,
+      "boxHeight": 0.09316846651956438,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3196825811406597,
+      "boxHeight": 0.14619532050564885,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2344137329957448,
+      "boxHeight": 0.4247803179547191,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08391671278513968,
+      "boxHeight": 0.3032943184487522,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24973972799489277,
+      "boxHeight": 0.4290003068745137,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44823978885542604,
+      "boxHeight": 0.11423593865707517,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06898569066543132,
+      "boxHeight": 0.28112196320667865,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1226596129941754,
+      "boxHeight": 0.13220379177480937,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3851699514081702,
+      "boxHeight": 0.2964048958010972,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2717132223304361,
+      "boxHeight": 0.15318969605490565,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.38340052578132605,
+      "boxHeight": 0.2890289320237935,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.154849912726786,
+      "boxHeight": 0.26777917083352804,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12291834704810754,
+      "boxHeight": 0.17681082785129545,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13877823763759806,
+      "boxHeight": 0.025163740292191504,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13610267589101568,
+      "boxHeight": 0.2807351197302342,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12326251710765064,
+      "boxHeight": 0.24537770656868818,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12313733306946234,
+      "boxHeight": 0.19462301321327685,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4456593572045676,
+      "boxHeight": 0.24598395902663467,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09235419122269378,
+      "boxHeight": 0.05784569736570121,
+      "referenceFolds": 9,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16685794696677475,
+      "boxHeight": 0.3213815041817725,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.30452472827164456,
+      "boxHeight": 0.0883093884959817,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3478165749227628,
+      "boxHeight": 0.2293956789560616,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17801214962964879,
+      "boxHeight": 0.08839243125170469,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09158019695896655,
+      "boxHeight": 0.0975925778783858,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3125862943823449,
+      "boxHeight": 0.38489523310214285,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21744720183778557,
+      "boxHeight": 0.1583653619326651,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.49239019961096353,
+      "boxHeight": 0.027483439575880765,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45598307995824144,
+      "boxHeight": 0.11798667285591365,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3220884538954124,
+      "boxHeight": 0.34344196232035756,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28074117975775154,
+      "boxHeight": 0.0626789633370936,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17927205885061998,
+      "boxHeight": 0.4359743835031986,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09126983205787838,
+      "boxHeight": 0.07416488198563456,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.22310474445112052,
+      "boxHeight": 0.09161691708490252,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17175009640632202,
+      "boxHeight": 0.10193194154649973,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.25118870036676527,
+      "boxHeight": 0.08403760185465217,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2286766326054931,
+      "boxHeight": 0.20053994661197067,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24359895273810256,
+      "boxHeight": 0.027018793337047098,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.39463562282035125,
+      "boxHeight": 0.2887952406704426,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1842485939385369,
+      "boxHeight": 0.3598630582727492,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11020993868587539,
+      "boxHeight": 0.49244124952703716,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3321729091461748,
+      "boxHeight": 0.1767560207657516,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1353448833222501,
+      "boxHeight": 0.24681835193187,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19296348455827683,
+      "boxHeight": 0.2519545592553914,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2477596208220348,
+      "boxHeight": 0.11031680138781667,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3028388916980475,
+      "boxHeight": 0.2798481145314873,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2975922434940003,
+      "boxHeight": 0.21721274700015786,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11376467343652621,
+      "boxHeight": 0.24945293873548507,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3404979841667227,
+      "boxHeight": 0.16635273341089488,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.216813549969811,
+      "boxHeight": 0.3215863353759051,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11187332464614883,
+      "boxHeight": 0.2555882386863232,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4292700858321041,
+      "boxHeight": 0.24152062593027948,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3151888395892456,
+      "boxHeight": 0.04183509314432741,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1675546535872854,
+      "boxHeight": 0.4036281836032868,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4226982038351707,
+      "boxHeight": 0.21406244073063135,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.47194032520055773,
+      "boxHeight": 0.08016988432034852,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.33753202740335836,
+      "boxHeight": 0.26068873196840286,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.37609138530679054,
+      "boxHeight": 0.18029490692541003,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1803279937244952,
+      "boxHeight": 0.2741872160695493,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11692259369883687,
+      "boxHeight": 0.2199276221729815,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13288662272971125,
+      "boxHeight": 0.2786821128614247,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.23994909218745308,
+      "boxHeight": 0.4103556986898184,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45859082812676205,
+      "boxHeight": 0.03021115079522133,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.347900119132828,
+      "boxHeight": 0.2558030324056745,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14459127492737026,
+      "boxHeight": 0.13123162554576992,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2144715079222806,
+      "boxHeight": 0.2348291527479887,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.41903685724828393,
+      "boxHeight": 0.09174102017655969,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1537936406908557,
+      "boxHeight": 0.17253687934949993,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1310923191951588,
+      "boxHeight": 0.24842770183458926,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17572317519225186,
+      "boxHeight": 0.3075425989739597,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.34528664277168,
+      "boxHeight": 0.14778160668909548,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3725941760814749,
+      "boxHeight": 0.19835446428507564,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1933040794217959,
+      "boxHeight": 0.08709190825000405,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.42919924366287887,
+      "boxHeight": 0.19862240640446543,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2502517417888157,
+      "boxHeight": 0.33600195754319434,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15324429232859985,
+      "boxHeight": 0.16310134321451186,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08262773868627846,
+      "boxHeight": 0.46596902234479787,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14839098829543218,
+      "boxHeight": 0.05703103046864271,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3776218429789878,
+      "boxHeight": 0.2613151000440121,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1306979340966791,
+      "boxHeight": 0.4475159489922226,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15296041172696279,
+      "boxHeight": 0.10218405980616808,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0827609709231183,
+      "boxHeight": 0.2773569931276143,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17803306645946576,
+      "boxHeight": 0.47339153610169893,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08821067115059122,
+      "boxHeight": 0.4212725036963821,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4990469797048718,
+      "boxHeight": 0.08961954010650516,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15504811403807253,
+      "boxHeight": 0.4088440063782037,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44574260218068956,
+      "boxHeight": 0.16126759132370352,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.37405353488866233,
+      "boxHeight": 0.2889928535558284,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.052170057548210025,
+      "boxHeight": 0.1847152510099113,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11959063645917922,
+      "boxHeight": 0.15955136710777879,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11695553814060987,
+      "boxHeight": 0.0739738885872066,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2718451367225498,
+      "boxHeight": 0.0949578612856567,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.471519132994581,
+      "boxHeight": 0.11493672989308837,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45357293725246556,
+      "boxHeight": 0.13465595126152038,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.33889699697028847,
+      "boxHeight": 0.2051490210182965,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24495668411254884,
+      "boxHeight": 0.20686033165082335,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18879251574398953,
+      "boxHeight": 0.06275405772030354,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06060410726349801,
+      "boxHeight": 0.2693073250539601,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09104246339993552,
+      "boxHeight": 0.04916937790811062,
+      "referenceFolds": 9,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3212135297828354,
+      "boxHeight": 0.03592901408672333,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06747875125147403,
+      "boxHeight": 0.19254165662452577,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.42582559657748786,
+      "boxHeight": 0.2681526223011315,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2658559430507012,
+      "boxHeight": 0.4125123075395823,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.131963149481453,
+      "boxHeight": 0.4073912254907191,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09623132582055405,
+      "boxHeight": 0.37554606072604657,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2569428614922799,
+      "boxHeight": 0.4192583689093591,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27378629078157246,
+      "boxHeight": 0.32482119126245385,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16072667521657424,
+      "boxHeight": 0.07846060939133168,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3909221362904646,
+      "boxHeight": 0.3092112271487713,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.057663511624559766,
+      "boxHeight": 0.16540923653170467,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4819015519111417,
+      "boxHeight": 0.10533888932317496,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4370376773294993,
+      "boxHeight": 0.12651326991617678,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3210860094986856,
+      "boxHeight": 0.3578645398281514,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4149948906386271,
+      "boxHeight": 0.08140818336978554,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1423825821490027,
+      "boxHeight": 0.3060743172466755,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21689246873138474,
+      "boxHeight": 0.2343456083908677,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.33600510039832443,
+      "boxHeight": 0.24179989578202365,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1670363270677626,
+      "boxHeight": 0.13218839457258583,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3532330126152374,
+      "boxHeight": 0.3355913875997067,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4493439028039575,
+      "boxHeight": 0.17263813083991408,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14161094477167352,
+      "boxHeight": 0.052532719932496544,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08265958048868924,
+      "boxHeight": 0.23826947594061493,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14844672480830923,
+      "boxHeight": 0.22994627609848975,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.38727163965813816,
+      "boxHeight": 0.3256041160039604,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10534574917983264,
+      "boxHeight": 0.11102114366367462,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4552582949050702,
+      "boxHeight": 0.1807549950480461,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.33058137600310145,
+      "boxHeight": 0.18437119169160723,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10856992618646474,
+      "boxHeight": 0.1647127944417298,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18934888656949628,
+      "boxHeight": 0.04691907923668623,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4699073354480788,
+      "boxHeight": 0.16737331824377177,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.46946855476126076,
+      "boxHeight": 0.14097412964329123,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.30193807075265794,
+      "boxHeight": 0.1897514710761607,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.23052687727613375,
+      "boxHeight": 0.15087508905678987,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07339501052629203,
+      "boxHeight": 0.10349319683387877,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.47532264787005263,
+      "boxHeight": 0.1047634368389845,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07899960161885247,
+      "boxHeight": 0.17742181446403266,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2873255286831409,
+      "boxHeight": 0.2091919301263988,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17509462538873777,
+      "boxHeight": 0.3379066834971309,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09854544481495393,
+      "boxHeight": 0.1650481043756008,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09739216021262109,
+      "boxHeight": 0.23194853542372582,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.46829742414411163,
+      "boxHeight": 0.19600050600245594,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13496992317959666,
+      "boxHeight": 0.2918123336695135,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1397812867886387,
+      "boxHeight": 0.2571718765422702,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.26015859174076467,
+      "boxHeight": 0.21909733215346933,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1372883976204321,
+      "boxHeight": 0.196290948856622,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.20767473223386332,
+      "boxHeight": 0.34332943443208935,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14386189784854653,
+      "boxHeight": 0.20892626052722332,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27554897976806386,
+      "boxHeight": 0.4170004117116332,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.113682449166663,
+      "boxHeight": 0.10072648132219911,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.05058202877407894,
+      "boxHeight": 0.15329509329050778,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.38784280674299226,
+      "boxHeight": 0.029532101415097715,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32973356504226103,
+      "boxHeight": 0.1785019102692604,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15522675534011798,
+      "boxHeight": 0.18446582563221453,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3060064984019846,
+      "boxHeight": 0.07311661599203945,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2296220264164731,
+      "boxHeight": 0.15809228079393506,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2922913169139065,
+      "boxHeight": 0.3909719473123551,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16464735044864937,
+      "boxHeight": 0.4527234909310937,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3041519254213199,
+      "boxHeight": 0.11219602378085257,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45326204104349016,
+      "boxHeight": 0.1473387630842626,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2054273130721413,
+      "boxHeight": 0.2615619410201907,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.34049800197826696,
+      "boxHeight": 0.2348720025271177,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11162330651422964,
+      "boxHeight": 0.46028096284717324,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08229379591066391,
+      "boxHeight": 0.2207634156383574,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1487693115719594,
+      "boxHeight": 0.46968422144651417,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3708223566878587,
+      "boxHeight": 0.3423917858116329,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08625652807531878,
+      "boxHeight": 0.14393369797617198,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.22837949560489507,
+      "boxHeight": 0.10355204166844488,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28145273533882575,
+      "boxHeight": 0.06742503233253956,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3080428344197571,
+      "boxHeight": 0.3786685763858259,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18386057604802777,
+      "boxHeight": 0.0929777963832021,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4766216690419241,
+      "boxHeight": 0.11219622330740095,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08483351152390242,
+      "boxHeight": 0.49839979534968737,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09555816909996792,
+      "boxHeight": 0.4074617341533303,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27070055305957796,
+      "boxHeight": 0.3535212556086481,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17409787450451406,
+      "boxHeight": 0.41471516126766805,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.26872101459885017,
+      "boxHeight": 0.14261770755052566,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4900414397823624,
+      "boxHeight": 0.09807932797819377,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3288865724694915,
+      "boxHeight": 0.20089151747524742,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24354950663400812,
+      "boxHeight": 0.1326910724118352,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12984028781065718,
+      "boxHeight": 0.046112370640039445,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.37681589878629895,
+      "boxHeight": 0.11280925797298551,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27998828211566434,
+      "boxHeight": 0.13906651224941016,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16129520179238171,
+      "boxHeight": 0.02460847558453679,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11499042493524032,
+      "boxHeight": 0.23561723418533803,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13106555085396393,
+      "boxHeight": 0.23323647420853377,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2674382471945137,
+      "boxHeight": 0.26183937130495905,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07907313134055585,
+      "boxHeight": 0.1590716345794499,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.279546834831126,
+      "boxHeight": 0.2545266279019415,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.41293948924867435,
+      "boxHeight": 0.27323361549526454,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2284438501810655,
+      "boxHeight": 0.14931412192061544,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36598090812331063,
+      "boxHeight": 0.08315005134791137,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3828463132958859,
+      "boxHeight": 0.28778710929676893,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11577472212957218,
+      "boxHeight": 0.3102369921654463,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.052686695009469986,
+      "boxHeight": 0.19851305520161985,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.37911520947236566,
+      "boxHeight": 0.13619706744328142,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2752523184404709,
+      "boxHeight": 0.06988004669547081,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4648212877567858,
+      "boxHeight": 0.1592073547653854,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32496684554498645,
+      "boxHeight": 0.354675134588033,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10218758500413969,
+      "boxHeight": 0.24223552785813812,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24475933597423138,
+      "boxHeight": 0.2278684867732227,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15924849358852955,
+      "boxHeight": 0.3782708361931145,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07999501181766391,
+      "boxHeight": 0.14312764486297966,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11418590776156634,
+      "boxHeight": 0.37671401189640175,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.35796567287761716,
+      "boxHeight": 0.1768717592395842,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4661941051948816,
+      "boxHeight": 0.1336606709472835,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.43551969098625704,
+      "boxHeight": 0.181476148404181,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17489316435530783,
+      "boxHeight": 0.13700949063524603,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.345388884388376,
+      "boxHeight": 0.3412840785831213,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4078550481586717,
+      "boxHeight": 0.20550572630017994,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.189305705728475,
+      "boxHeight": 0.33444579720497136,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.20769744069548324,
+      "boxHeight": 0.34056090332567696,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3167417305870913,
+      "boxHeight": 0.10166557457298041,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31714588825125245,
+      "boxHeight": 0.056681964341551073,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13857118074083702,
+      "boxHeight": 0.13752746373414992,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.35514591389801353,
+      "boxHeight": 0.03978699089959264,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3358166521647945,
+      "boxHeight": 0.17987155565991997,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16277564517222345,
+      "boxHeight": 0.10553626297041772,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21031597019173207,
+      "boxHeight": 0.12749897731468082,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.20762763955863195,
+      "boxHeight": 0.1424124363809824,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0913112051319331,
+      "boxHeight": 0.11233540324494241,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17595139230834322,
+      "boxHeight": 0.4764736401289702,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2538892079144716,
+      "boxHeight": 0.11252400135621429,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1137776501942426,
+      "boxHeight": 0.2497710351459682,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48168933930573987,
+      "boxHeight": 0.1441955852881074,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27928461401024834,
+      "boxHeight": 0.3166680805385113,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09100253756623716,
+      "boxHeight": 0.37839099960401656,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14263128055026755,
+      "boxHeight": 0.2245068060979247,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1599205894744955,
+      "boxHeight": 0.42542810510844,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3170407767756842,
+      "boxHeight": 0.2631130197271705,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.334318132372573,
+      "boxHeight": 0.24075281484052538,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3664229543996044,
+      "boxHeight": 0.19195265062153338,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.34137449067784476,
+      "boxHeight": 0.3211981608346105,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17710869226139042,
+      "boxHeight": 0.25623479502275587,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2971288432716392,
+      "boxHeight": 0.12186756785959006,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17047603182727472,
+      "boxHeight": 0.4200715500116349,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08972759320167825,
+      "boxHeight": 0.43208176825195554,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3602290034061298,
+      "boxHeight": 0.10811151774600149,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13506431682035328,
+      "boxHeight": 0.45491872390732174,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2405370861524716,
+      "boxHeight": 0.36564638176932934,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.26863403181778267,
+      "boxHeight": 0.4083639239519835,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3952122465241701,
+      "boxHeight": 0.18380284709855912,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17681830216897654,
+      "boxHeight": 0.11394297678023578,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3115156377432868,
+      "boxHeight": 0.07349120335653425,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.42340216373559086,
+      "boxHeight": 0.11896772237494589,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0920679169590585,
+      "boxHeight": 0.14874475378543137,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12004538089968264,
+      "boxHeight": 0.23695008290931582,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.30739697703393176,
+      "boxHeight": 0.3884558061510325,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24437197543447836,
+      "boxHeight": 0.40974730979651214,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09859169343253599,
+      "boxHeight": 0.23895785536617042,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3389099926920608,
+      "boxHeight": 0.27841998631134635,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0995754727977328,
+      "boxHeight": 0.18198400739580395,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12421328109921888,
+      "boxHeight": 0.061489679291844374,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.23647478263592348,
+      "boxHeight": 0.12122123163193466,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21583920663688333,
+      "boxHeight": 0.27805368850007656,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13658444012980908,
+      "boxHeight": 0.3006559212692082,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1948545637656935,
+      "boxHeight": 0.24875996850430968,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.30747240347554905,
+      "boxHeight": 0.386601678095758,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.197005987924058,
+      "boxHeight": 0.247135723605752,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36773117994889615,
+      "boxHeight": 0.24772538920864465,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2656041978276335,
+      "boxHeight": 0.2132542545720935,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48142274732235824,
+      "boxHeight": 0.030902287755161524,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4368846795172431,
+      "boxHeight": 0.1988893063366413,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16390190976671876,
+      "boxHeight": 0.09530763713642955,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3504051287425682,
+      "boxHeight": 0.1428374301083386,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3350780554115772,
+      "boxHeight": 0.15038027798756956,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21614983190083875,
+      "boxHeight": 0.2630718770623207,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.26040944722481074,
+      "boxHeight": 0.11561636550351978,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1847998050739989,
+      "boxHeight": 0.255204980392009,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.050521746336016804,
+      "boxHeight": 0.17265015110373497,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.37985000587068496,
+      "boxHeight": 0.10609464285895229,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14023162674857304,
+      "boxHeight": 0.03096450347453356,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.38018819156568495,
+      "boxHeight": 0.033396262098103764,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16599925849586727,
+      "boxHeight": 0.070794573482126,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.34283892734674737,
+      "boxHeight": 0.1858740660920739,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.23482786082895474,
+      "boxHeight": 0.25406217731535435,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18085654847091065,
+      "boxHeight": 0.3726157678291202,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19235733004752548,
+      "boxHeight": 0.11482013979926706,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4556946306955069,
+      "boxHeight": 0.16187686113640665,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.20469520286424084,
+      "boxHeight": 0.22517625737935307,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45629668530309575,
+      "boxHeight": 0.12708469361066818,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2891860725125298,
+      "boxHeight": 0.25938374819234017,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12736308987950906,
+      "boxHeight": 0.02788615267723799,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.21900872609112415,
+      "boxHeight": 0.1494855839945376,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15678316160338002,
+      "boxHeight": 0.24717864893376829,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24271307525923472,
+      "boxHeight": 0.22297672029584648,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19620175384916366,
+      "boxHeight": 0.43728582574054603,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08170097952242941,
+      "boxHeight": 0.43408214660361416,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12387301312992349,
+      "boxHeight": 0.4438824458420277,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.35741659881314264,
+      "boxHeight": 0.18263296749442814,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2030623102677055,
+      "boxHeight": 0.24701799519360068,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3687017326708883,
+      "boxHeight": 0.26914840457960965,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06267226067138836,
+      "boxHeight": 0.253248034901917,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27868600625079126,
+      "boxHeight": 0.09114798562601209,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2112113850191236,
+      "boxHeight": 0.2207882804237306,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24123586394125596,
+      "boxHeight": 0.0954748958349228,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0803918897989206,
+      "boxHeight": 0.173915692307055,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16716120569035411,
+      "boxHeight": 0.04803914984688163,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10409057982033117,
+      "boxHeight": 0.3172228122875095,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14699410567991436,
+      "boxHeight": 0.06619321135804057,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19780166156124324,
+      "boxHeight": 0.4058187751658261,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24962968659820034,
+      "boxHeight": 0.39050683446228507,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31431890218518677,
+      "boxHeight": 0.19770222483202815,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10116590466350318,
+      "boxHeight": 0.09786273246631028,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2239971626433544,
+      "boxHeight": 0.09714377317577601,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.29812973366351797,
+      "boxHeight": 0.3693402872234583,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.34434231974883006,
+      "boxHeight": 0.1494465099647641,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.11922511800657958,
+      "boxHeight": 0.12580379830673338,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14057773606618867,
+      "boxHeight": 0.27966757085174326,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3667084236862138,
+      "boxHeight": 0.12438568467274308,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10271638293052095,
+      "boxHeight": 0.23615363031625747,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36379949864931405,
+      "boxHeight": 0.17419695718213915,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27046888490440324,
+      "boxHeight": 0.42878029592335226,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14014224244747311,
+      "boxHeight": 0.4182979703880847,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06769556856015697,
+      "boxHeight": 0.18752824530005455,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.27326669461326675,
+      "boxHeight": 0.36916667781770235,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.39849290006095545,
+      "boxHeight": 0.1371838480234146,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.40403856637422,
+      "boxHeight": 0.2532480482198298,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.26694999274332076,
+      "boxHeight": 0.23470606738701463,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.22501645854208618,
+      "boxHeight": 0.4288017065264285,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2576245741453022,
+      "boxHeight": 0.021178197246044875,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1193008417962119,
+      "boxHeight": 0.22781840996816752,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19635900809662415,
+      "boxHeight": 0.09899983547627926,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.10052409259369596,
+      "boxHeight": 0.06958514209836722,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.39846880942350255,
+      "boxHeight": 0.02285709571093321,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3031627577496693,
+      "boxHeight": 0.24088180052116512,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.41348937499569727,
+      "boxHeight": 0.26993580631911757,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.25808018338866534,
+      "boxHeight": 0.30538895590230825,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24945580223575237,
+      "boxHeight": 0.19436652353033423,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09718565631192179,
+      "boxHeight": 0.39163403766229754,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08489288232522085,
+      "boxHeight": 0.09206732235848904,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14589737629285082,
+      "boxHeight": 0.3354769402369857,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14260537701193243,
+      "boxHeight": 0.4161276213265956,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.38490685750730336,
+      "boxHeight": 0.1198929981701076,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.15687102469382808,
+      "boxHeight": 0.24789654497057195,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.20327021939447146,
+      "boxHeight": 0.2930997717007995,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.43633937552804125,
+      "boxHeight": 0.14776145935058593,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31231185829965397,
+      "boxHeight": 0.2561188713088632,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17824067582841963,
+      "boxHeight": 0.40633431883528837,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19954833304509523,
+      "boxHeight": 0.24023149749264125,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07817803397774697,
+      "boxHeight": 0.24703753983601928,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13683582891244442,
+      "boxHeight": 0.16872248286381364,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2637558119487949,
+      "boxHeight": 0.13350942619144918,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.31204181297216566,
+      "boxHeight": 0.3781484557129443,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.13122211348963903,
+      "boxHeight": 0.3543875696137548,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.5064535234589129,
+      "boxHeight": 0.03444321760907769,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4976698771235533,
+      "boxHeight": 0.27063923813402657,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4479296258534305,
+      "boxHeight": 0.8674943109229207,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24105223519727587,
+      "boxHeight": 0.8936516149900853,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.22886871848022566,
+      "boxHeight": 0.7361183128878475,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1825317535432987,
+      "boxHeight": 0.8827314153686165,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.23787809626664969,
+      "boxHeight": 0.9315457469411195,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.455134263902437,
+      "boxHeight": 0.40561534065753224,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17808287770021708,
+      "boxHeight": 0.7323642739094793,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4356552456389181,
+      "boxHeight": 0.606970702894032,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3231348147499375,
+      "boxHeight": 0.7913384813442826,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.09976429947419092,
+      "boxHeight": 0.6597452889755369,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.42979597167577593,
+      "boxHeight": 0.47294128241017463,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.1400641622953117,
+      "boxHeight": 0.6115871091745794,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.35992198906606065,
+      "boxHeight": 0.49396445166319614,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3466734079062007,
+      "boxHeight": 0.7376592951640487,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.29413765121717006,
+      "boxHeight": 0.8985061370767653,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.47381699486868456,
+      "boxHeight": 0.8048865785449744,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4521900014951825,
+      "boxHeight": 0.7560180682502687,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2801694986526854,
+      "boxHeight": 0.4613654821366072,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.14272656351095064,
+      "boxHeight": 0.688739997856319,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.0769591177115217,
+      "boxHeight": 0.5553442949987948,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18840471798321234,
+      "boxHeight": 0.6426863512024283,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.07384470727993175,
+      "boxHeight": 0.5229340996220708,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.43121377740753813,
+      "boxHeight": 0.8729614778235555,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.06735133312176914,
+      "boxHeight": 0.9074553434737027,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.19036180708790199,
+      "boxHeight": 0.8131122687458993,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45114932598080487,
+      "boxHeight": 0.339069196600467,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.45323558105155826,
+      "boxHeight": 0.27833700021728874,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.3218733020708896,
+      "boxHeight": 0.5154100905358792,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.18986867908388377,
+      "boxHeight": 0.7578977710567415,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.41811162264784796,
+      "boxHeight": 0.7247005262598396,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.17229068641318007,
+      "boxHeight": 0.7388306351378561,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.6270454499963671,
+      "boxHeight": 0.27923726255074144,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.7955984149128199,
+      "boxHeight": 0.5014521951042116,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.5305906558595598,
+      "boxHeight": 0.501204517763108,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.6953911626245827,
+      "boxHeight": 0.6509699861891568,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.5173932615667581,
+      "boxHeight": 0.6935413545928896,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.7916348090907558,
+      "boxHeight": 0.463831143565476,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.7576569017814473,
+      "boxHeight": 0.2555370262265205,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.5490075951069594,
+      "boxHeight": 0.7447093606553972,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    }
+  ]
+}
