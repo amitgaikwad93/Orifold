@@ -64,11 +64,11 @@ Snapshot: 2026-11-05 (evening). The experiment v2 setup is agreed, the request d
 
 ## In discussion / open
 
-DECISIONS.md open question 1: the dead-crease rule. The agent recommends a minimum fold angle of about 20°. Roomy boxes: keep most spread (D31, decided).
+DECISIONS.md open question 1: keep alternating fold directions for v2 (accepting 1° direction-switch creases; agent recommendation) or allow free mountain/valley directions now. D31 (roomy boxes keep most spread) and D32 (no fold-angle rule) are decided.
 
 ## Next concrete task
 
-After the user decides the crease rule: implement it, strengthen the spread search (23/180 beaten; deterministic free-form refinement from family winners), rerun r6 with all checks (including Codex's checker with placement), then generate the v2 dataset.
+After the user decides fold directions: implement if changed, strengthen the spread search (23/180 beaten; deterministic free-form refinement from family winners), rerun r6 with all checks (including Codex's checker with placement), then generate the v2 dataset.
 
 ## Runtime
 

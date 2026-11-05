@@ -47,6 +47,10 @@ For the project owner and any agent explaining the work. Each entry: what it is,
 
 - **Specification gaming (Goodhart's law)** — an optimizer or model satisfies the rules exactly as written but not as intended, because the rules left a loophole. "Reward hacking" is the same thing when a learning agent does it. Example here: the ranking never asked for space between panels, so packed near-parallel panels scored best. A trained model would exploit the same loophole, so we fix the rules before training.
 
+- **Mountain / valley fold** — the two directions a crease can fold. Our current family alternates them strictly.
+- **Direction-switch crease** — a near-flat crease (around 1°) that the solver adds so that the next real fold can turn the same way as the previous one. It is a workaround for the alternating-direction rule, not a useless fold.
+- **Fold budget** — part of the question given to the model: "at most k folds". Each budget has its own single best answer, so every question still has exactly one answer.
+
 ## Experiment practice
 
 - **Predeclared** — targets, settings and the test set are fixed *before* seeing results, so we cannot fool ourselves after the fact.

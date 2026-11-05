@@ -215,30 +215,12 @@ Consequences:
 
 Where a box has room, the most spread design wins (a gentle fold that uses the space), not the most compact one. Compactness stays a late tie-break.
 
+## D32 — no minimum fold angle rule (user decision, 2026-11-05)
+
+No rule against small fold angles. Evidence supporting this (`scripts/check-switch-creases.js`): merging away any fold under 10° breaks 287/287 such answers in map r5. Under strict alternating fold directions (D19), a near-flat crease is a **direction switch**: it lets two consecutive real folds turn the same way (e.g. a U-shape `[45, 5, 5, 45]` with angles `[89°, 1°, 89°]`). These creases are workarounds for the alternation rule, not fake folds.
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Dead creases and "spread = fold less" (measured 2026-11-05, map r4).** Results: `results/*-r4.json*`.
-   - Fewest folds is confirmed: the free-form search beat the reference 0/218. The independent checker passes 700/701; the one difference is the old symmetry rule in that checker, which Codex is to update to D28.
-   - **Spread is not confirmed.** In 180 cell-budgets, a free-form search found a wider smallest opening angle than the reference in 161. In 46 of those it was beyond the 10% band, which means the reference's band, and therefore its labels, are wrong there.
-   - **35 of those 46 wins use a near-flat crease under 10°** (often exactly the 1° minimum). Such a crease counts toward the fold budget but barely folds, and with short 5% panels it lets the design open other angles very wide.
-   - **The reference does this too at larger budgets:** answers with a fold under 10° number 0/647 at the minimum budget, 34/647 at +1 and 181/646 at +2.
-   - **Specification gaming again.** Spread = 180° − largest fold, so "most spread" rewards folding as little as possible wherever the box allows, and the 1° active-crease threshold lets near-flat creases fill the budget.
+1. **Free fold directions?** The 1° direction-switch creases (D32) show the alternating-direction rule (D19) limits designs such as U-shapes, channels and spirals. Options: keep alternation for v2 and accept switch creases (**agent recommendation**, consistent with D19), or allow each crease to be mountain or valley now. This needs a user decision before freezing the v2 dataset.
 
-   Agent options, not decided:
-   - **(a)** Raise the minimum fold angle (e.g. 15–30°) so every crease visibly folds.
-   - **(b)** Require every crease to be necessary: merging any two neighbouring panels must make the design fail.
-   - **(c)** Change the spread measure to count only creases that fold at least X°.
-   - **Update after D30 (map r5):** the free-form search beats the reference beyond the band in 23/180, down from 46. Near-flat creases under 10° appear in 7/778 minimum-budget answers, 20/776 at +1 and 260/776 at +2. A typical +2 answer is `[45, 5, 5, 45]` with angles `[89.4°, 1°, 89.4°]`, a U-shape padded with a fake crease to use the budget and look symmetric.
-   - **(d)** Whichever rule is chosen, strengthen the reference's spread search (currently family grid plus refinement), because a free-form search beats it beyond the band even without dead creases (11/46).
-2. ~~**First panel always horizontal**~~ — resolved by D30.
-   Original record: **First panel always horizontal (raised by the user 2026-11-05).** Cause: the reference frame fixes panel 1 along x (GEOMETRY.md), and D03 forbids rotating the folded shape into the box. So panel 1 must lie along the box length. Measured on map r4:
-   - The 27 "proven impossible" cells exist only because panel 1 cannot lie flat in the box.
-   - 492 of 1,940 folded answers shrink panel 1 to the 5% minimum as a "foot", a workaround rather than design.
-   - The forced-flat panel 1 needs a different first fold angle, which breaks symmetry, and symmetric shapes often sit tilted.
-
-   Options:
-   - **(A)** Keep as is.
-   - **(B)** Allow rotation of the final shape about the hinge (y) axis when fitting the box. One extra parameter; the motion still starts from the fixed panel; only the placement turns. **Agent recommendation.**
-   - **(C)** Any rotation, including standing the sheet width upright.
-
-   This changes D03, so it is the user's decision, and it should be settled before open question 1 because it changes which designs win.
+Resolved and kept for the record: dead creases (D32), first panel horizontal (D30).
