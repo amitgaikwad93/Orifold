@@ -165,3 +165,18 @@ Codex wrote `scripts/independent-check.js` from the spec alone, without reading 
    - **(c)** Accept more folds in exchange for spread.
 
    Awaiting user decision.
+
+   **Update 2026-11-05, user direction:** no clearance rule. Consider B (spread) and C (trade folds for spread), defined carefully enough to scale to the north star. Symmetry is not always preferred; different shapes have different needs.
+
+   **User hypothesis tested** ("equal panels matter when their number is even; that gives symmetry"); measured with `scripts/symmetry-check.js` for 2–8 panels:
+   - A folded shape is symmetric when panel lengths **and** fold angles are both palindromic (read the same from either end). Equal panels are just one case of this.
+   - Panel count decides the kind: **even → mirror symmetry, odd → point (180° rotational) symmetry.**
+   - Breaking angle symmetry (first fold different, as most current reference designs do) removes symmetry entirely for 3+ panels, even with equal panels.
+   - Tapered panels are never symmetric.
+   - Consequence: the current order score treats palindromic lengths alone as symmetric, which is wrong; it must also check angles.
+
+   Agent proposals awaiting decision:
+   - **Fold budget as a request input** (handles C without an exchange rate). Reference answers for budgets from the minimum up to minimum + 2 folds; the user or application picks the budget.
+   - **Within a budget: spread before order** (B), measured as the smallest opening angle between neighbouring panels (180° − fold angle), with gap as a secondary measure.
+   - **Symmetry as a preference band:** designs within about 10% of the best spread count as tied, then prefer symmetric designs. Later, symmetry preference could become a request input, since it is not always wanted.
+   - **Weighted averages:** only among continuous quality measures inside the hard rules, with stated weights. Never for validity or fit.
