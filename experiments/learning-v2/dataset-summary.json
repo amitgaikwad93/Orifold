@@ -1,0 +1,153 @@
+{
+  "rows": 2200,
+  "labelCpuSeconds": 4218,
+  "summary": {
+    "train/short": {
+      "requests": 1095,
+      "found": 1095,
+      "notFound": 0,
+      "infeasible": 0,
+      "answers": 3285,
+      "symmetricAnswers": 2891,
+      "minFolds": {
+        "0": 90,
+        "1": 572,
+        "2": 235,
+        "3": 100,
+        "4": 37,
+        "5": 31,
+        "6": 11,
+        "7": 11,
+        "8": 5,
+        "9": 3
+      }
+    },
+    "test/short": {
+      "requests": 204,
+      "found": 203,
+      "notFound": 1,
+      "infeasible": 0,
+      "answers": 601,
+      "symmetricAnswers": 517,
+      "minFolds": {
+        "0": 22,
+        "1": 131,
+        "2": 36,
+        "3": 7,
+        "4": 2,
+        "9": 1,
+        "11": 4
+      }
+    },
+    "validation/short": {
+      "requests": 201,
+      "found": 198,
+      "notFound": 3,
+      "infeasible": 0,
+      "answers": 594,
+      "symmetricAnswers": 501,
+      "minFolds": {
+        "0": 9,
+        "1": 129,
+        "2": 39,
+        "3": 10,
+        "4": 11
+      }
+    },
+    "validation/long": {
+      "requests": 58,
+      "found": 58,
+      "notFound": 0,
+      "infeasible": 0,
+      "answers": 174,
+      "symmetricAnswers": 152,
+      "minFolds": {
+        "0": 23,
+        "1": 35
+      }
+    },
+    "train/long": {
+      "requests": 358,
+      "found": 358,
+      "notFound": 0,
+      "infeasible": 0,
+      "answers": 1074,
+      "symmetricAnswers": 996,
+      "minFolds": {
+        "0": 171,
+        "1": 186,
+        "2": 1
+      }
+    },
+    "test/long": {
+      "requests": 84,
+      "found": 84,
+      "notFound": 0,
+      "infeasible": 0,
+      "answers": 252,
+      "symmetricAnswers": 237,
+      "minFolds": {
+        "0": 44,
+        "1": 40
+      }
+    },
+    "train/widthImpossible": {
+      "requests": 79,
+      "found": 0,
+      "notFound": 0,
+      "infeasible": 79,
+      "answers": 0,
+      "symmetricAnswers": 0,
+      "minFolds": {}
+    },
+    "validation/widthImpossible": {
+      "requests": 10,
+      "found": 0,
+      "notFound": 0,
+      "infeasible": 10,
+      "answers": 0,
+      "symmetricAnswers": 0,
+      "minFolds": {}
+    },
+    "test/widthImpossible": {
+      "requests": 11,
+      "found": 0,
+      "notFound": 0,
+      "infeasible": 11,
+      "answers": 0,
+      "symmetricAnswers": 0,
+      "minFolds": {}
+    },
+    "train/tiny": {
+      "requests": 16,
+      "found": 0,
+      "notFound": 16,
+      "infeasible": 0,
+      "answers": 0,
+      "symmetricAnswers": 0,
+      "minFolds": {}
+    },
+    "validation/tiny": {
+      "requests": 55,
+      "found": 0,
+      "notFound": 55,
+      "infeasible": 0,
+      "answers": 0,
+      "symmetricAnswers": 0,
+      "minFolds": {}
+    },
+    "test/tiny": {
+      "requests": 29,
+      "found": 15,
+      "notFound": 14,
+      "infeasible": 0,
+      "answers": 24,
+      "symmetricAnswers": 24,
+      "minFolds": {
+        "9": 1,
+        "10": 7,
+        "11": 7
+      }
+    }
+  }
+}
