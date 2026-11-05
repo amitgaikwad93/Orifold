@@ -19,7 +19,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-D34 (creases on walls before spread) is implemented and prototyped; the comparison page is https://claude.ai/artifact/EyGya8SGoTQnLs55GkQYko. Waiting for the user to confirm it visually. After that, relabel the frozen v2 requests as `experiments/learning-v2b/` (about 1–1.5 h on 3 CPU processes) and rerun all acceptance checks. The independent checker needs a floating-crease check (Codex). The v2 dataset predates D34.
+None. D34 was confirmed by the user. **Running:** relabelling of `experiments/learning-v2b/` (3 label shards, resumable via `*.partial`, then merge). If interrupted, rerun the same label commands; they resume.
 
 ## Next concrete task
 

@@ -237,7 +237,7 @@ Settled by two follow-up answers:
 Measured first: the flagged designs already touched all four walls with their free ends; only the crease floated.
 
 Implementation (`src/packing.js`, `RULES.creasesOnWalls`):
-- **On a wall:** a crease (interior vertex of the side view) counts as on a wall when, at the design's placement angle and slide position (`offset`), it lies within 0.5% of sheet length of a usable-box wall. The 0.5% tolerance is provisional until the user confirms it visually.
+- **On a wall:** a crease (interior vertex of the side view) counts as on a wall when, at the design's placement angle and slide position (`offset`), it lies within 0.5% of sheet length of a usable-box wall. The user confirmed the rule and the 0.5% tolerance visually on 2026-11-05.
 - **Ranking:** fewest floating creases first, then the D29 spread band and the later keys.
 - **Search:** a wall-seeking placement search and a refinement that first moves creases onto walls, then widens within that constraint.
 
@@ -250,4 +250,4 @@ The v2 dataset (`experiments/learning-v2/`) was labelled before D34 and must be 
 
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Confirm D34 visually** (comparison page above) and the 0.5% wall tolerance; then relabel the dataset as `experiments/learning-v2b/` with the same frozen requests and splits.
+None at this snapshot. D34 was confirmed by the user; relabelling into `experiments/learning-v2b/` is in progress.
