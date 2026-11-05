@@ -164,7 +164,7 @@ const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS,
 const CS = 21, ML = 50, MB = 46, MT = 8, MR = 8;
 const cols = DATA.lengths.length, rows = DATA.heights.length;
 const W = ML + cols * CS + MR, H = MT + rows * CS + MB;
-const svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img', 'aria-label': 'Fewest folds by box length and box height' });
+const svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Packing answers by box length and box height', style: 'width:100%;min-width:520px;max-width:' + W + 'px;height:auto;display:block' });
 $('chart').prepend(svg);
 const defs = el('defs', {}, svg);
 const hatch = el('pattern', { id: 'hatch', width: 5, height: 5, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, defs);

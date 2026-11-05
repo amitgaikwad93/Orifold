@@ -260,7 +260,7 @@ function spreadScore(family, request) {
 
 /* All fitting candidates for n panels: grid points, plus fit-refined near-misses. Each carries
  * cheap measures (spread, symmetry, order); contacts are screened later and lazily. */
-function fittingCandidates(n, request, { refineStarts = 16 } = {}) {
+function fittingCandidates(n, request, { refineStarts = 24 } = {}) {
   const out = [];
   for (const family of families(n, request)) {
     const near = [];
