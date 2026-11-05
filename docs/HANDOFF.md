@@ -19,7 +19,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-v2b model runs 1–3 are done on validation (EXPERIMENT_SPEC.md, "v2b model runs"). The user's framing, adopted: aim for precision (low scatter) as well as validity, and track bias, scatter and the tolerance curve per run (`scripts/precision-report.py`, `scripts/tolerance-curve.js`). Proposed run 4, awaiting the user: (a) crease-position imitation, (b) a bigger network. Both judged first on training-set fit. The test split is untouched.
+v2b model runs 1–3 are done on validation (EXPERIMENT_SPEC.md, "v2b model runs"). The user's framing, adopted: aim for precision (low scatter) as well as validity, and track bias, scatter and the tolerance curve per run (`scripts/precision-report.py`, `scripts/tolerance-curve.js`). Run 4 (4a crease-position imitation, 4b 512×3) is done. Both are worse (38–40%) because the run-3 one-sided penalty let folds over-open and collide (agent design error; see EXPERIMENT_SPEC.md). Proposed run 5, awaiting the user: pure imitation in a 2×2 design (parameters/positions × 256×2/512×3), judged on training-set precision first. The test split is untouched.
 
 ## Next concrete task
 

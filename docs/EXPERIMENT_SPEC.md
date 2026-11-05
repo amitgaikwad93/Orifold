@@ -237,7 +237,12 @@ Configs are in `experiments/learning-v2b/train-config*.json` and evidence is in 
 | 2 (w100) | + fit penalty | 78.5% / 86.0% | −36.3° / 32.9° | 84.0 / 90.8 / 95.2% | 96.7%, opening 17° |
 | 3 (t100, selected by bias rule) | + do-not-fold-tighter | 48.6% / 48.2% | −5.1° / 6.5° | 59.4 / 71.7 / 82.8% | 89.2%, opening 76° |
 
+| 4a | run 3 + crease-position imitation | 38.3% / 49.2% | −4.3° / 5.4° (fold angles −19° / 54°) | 48.8 / 62.6 / 68.6% | 79.0%, opening 89° |
+| 4b | run 3 + 512×3 network | 39.6% / 44.0% | −5.6° / 6.1° (fold angles −33° / 64°) | 46.7 / 59.5 / 68.5% | 68.1%, opening 93° |
+
 Nearest-neighbour copy: 51.3%. Imitation ceiling: 99.6%.
+
+**Run 4 lesson (agent design error).** The run-3 "do-not-fold-tighter" penalty is one-sided: over-opening folds costs nothing. Runs 4a and 4b exploited this: fold angles drift 19–33° open with very large scatter, and 61 and 68 validation designs collide. The opening-angle measure looks only at the most-closed fold and hid it. So run 4 does not fairly test shape imitation or capacity. From now on, bias and scatter are reported over all fold angles, and precision is tested first without aim-adjusting penalties (proposed run 5).
 
 Reading:
 - Run 2's validity came from aiming away from the walls (folding tighter), not from precision.
