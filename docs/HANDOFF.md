@@ -12,7 +12,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
   - Alternating fold directions; no fold-angle rule.
 - **Reference solver:** `src/packing.js` (deterministic). Map r6 and checks are in `results/*-r6*`; map report https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
 - **Independent checker:** `scripts/independent-check.js` (written by Codex, imports no project code). It passes r6 (2,330/2,330) and the dataset (5,996/6,004; 8 order-score cases from a spec ambiguity, now defined in section 5).
-- **FOLD export:** `scripts/export-fold.js` (written by Codex, tested). Simulator import not yet confirmed by the user.
+- **FOLD export:** `scripts/export-fold.js` (written by Codex, tested). The user confirmed (2026-11-05) that the example files in `examples/fold/` import into Origami Simulator.
 - **Dataset:** `experiments/learning-v2/`; see EXPERIMENT_SPEC.md "v2 dataset" for size, splits, acceptance results and the known split imbalance.
 - **Review page:** https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA (db collection `verdicts`, owner-only writes), round `answer-key-1`, 48 training answers, currently empty. Read it back with ArtifactData `list` on `verdicts`.
 - v1 remains a failed baseline (LEARNING.md, D10).
@@ -22,7 +22,6 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 No open decisions. Pending user actions:
 - review round `answer-key-1`;
 - optionally send Codex the order-score alignment prompt;
-- optionally try the FOLD files in Origami Simulator.
 
 ## Next concrete task
 

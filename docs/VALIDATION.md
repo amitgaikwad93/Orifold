@@ -43,3 +43,7 @@ Both 100-request comparisons completed. See [PILOT_RESULTS.md](PILOT_RESULTS.md)
 ## Phase 3 learning experiment
 
 The current suites contain 31 Node cases and 5 Python test methods. Added checks cover neural initialization budgets, artifact/checkpoint provenance, re-evaluation of saved network outcomes, 40 cross-language geometry fixtures, invalid geometry inputs, decoder parity and numerical gradient checks, checkpoint reload, and disjoint dataset splits. CPU training and held-out evaluation completed; see LEARNING.md for the intentionally preserved poor network performance. Figures were generated from saved records and visually reviewed.
+
+## FOLD export (2026-11-05)
+
+`scripts/export-fold.js` (written by Codex) has tests for topology, signed angles, the GEOMETRY.md fixtures, placement and preserved panel dimensions. The user confirmed that the three files in `examples/fold/` import into Origami Simulator (origamisimulator.org). The simulator folds with its own physics, not Orifold's prescribed motion, so this confirms file compatibility and the folded shape visually, not the motion or any collision result.
