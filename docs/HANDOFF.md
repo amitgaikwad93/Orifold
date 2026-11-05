@@ -33,9 +33,9 @@ Snapshot: 2026-11-05 (later). The experiment v2 setup is agreed, the request dis
 - **Measured** (EXPERIMENT_SPEC.md, "Evidence so far"):
   - 701/729 solved, 27 proven impossible, 1 not found;
   - fewer folds than the hand rule in 209 requests;
-  - the independent free-form search beat the reference in 3/218 checked cells, all grid-resolution misses;
+  - the independent free-form search beat the first version in 3/218 checked cells (grid-resolution misses, fixed in r2 below);
   - the free-form search is reliable up to about 5 folds.
-- **Evidence:** `results/request-map-2026-11-05.json.gz`, `results/request-map-completeness-2026-11-05.json`.
+- **Evidence (first version):** `results/request-map-2026-11-05.json.gz`, `results/request-map-completeness-2026-11-05.json`. Current results are r2.
 - **Report** (private to the user): https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
 - **Checks:** `npm test` passed, 40/40.
 
