@@ -1,83 +1,47 @@
 # Orifold handoff
 
-Snapshot: 2026-11-05 (evening). The experiment v2 setup is agreed, the request distribution is frozen, and the deterministic reference solver is verified: no misses found by free-form search, and Codex's independent checker agrees on all 701 map designs. No v2 dataset or training yet. Procedure for updating this file: AGENTS.md, "Handoff procedure".
+Snapshot: 2026-11-05. Map r6 passes the independent checker with placement support. A standalone FOLD 1.1 exporter and tests are implemented. The user reports v2 dataset generation is happening separately; this session leaves its files alone.
 
 ## Current state
 
-- Repository: https://github.com/amitgaikwad93/Orifold. Nothing is on `main` yet.
-- Draft PR #1 (`codex/phase-1-accordion`, open, unmerged) holds phases 1–3 up to commit `8d10889`.
-- Working branch: `ccr-d2215757-ddp9pm`, branched from `8d10889`. It holds all docs, audit and v2 work since then, which is **not** in PR #1. No PR exists for it.
-- Works:
-  - the Node geometry evaluator (`src/accordion.js`, now including 1-panel designs);
-  - the v2 rules and reference solver (`src/packing.js`);
-  - the map, check and report scripts;
-  - the v1 optimizer, Python port and learning pipeline.
-- Does not work: the v1 network (0/150; LEARNING.md). The v1 dataset is unsuitable for reuse (D10).
-- Not implemented: the visual review page for the user's verdict, FOLD export, the v2 dataset and training.
+- Repository: https://github.com/amitgaikwad93/Orifold; working branch `ccr-d2215757-ddp9pm`.
+- Draft PR #1 (`codex/phase-1-accordion`) contains the earlier phases; this working branch has the subsequent v2 work. Nothing was merged in this session.
+- Current decisions: D26–D33. Fold-budget answers, opening-angle spread, palindromic lengths and angles, a 10% spread band, and final placement about the hinge axis. Alternating directions and 1° direction-switch creases remain allowed.
+- Map r6 baseline: 778/784 solved; fewest-fold search beaten 0/174, spread beaten beyond the band 8/180, mirror mismatches 2/1,126. These searches do not establish ranking optimality.
+- `scripts/independent-check.js` now rotates only the final cross-section for placement and checks all budget answers. It imports no project geometry or solver code; `src/packing.js` was not read for this work.
+- `scripts/export-fold.js` exports flat crease-pattern topology and a second, placed folded-form frame. Input can be inline design JSON, a JSON file, or a JSON/JSONL file (optionally gzip) selected by cell index or request id and budget/answer.
+- The v1 learning experiment remains a failed baseline. V2 dataset generation and training were not started or changed by this session.
 
-## Last session (2026-11-04 to 05)
+## Last session
 
-- **v1 audit:** labels were inconsistent across seeds (D10).
-- **Docs restructured:** handoff SOP and communication rules in AGENTS.md; new LIMITATIONS.md and GLOSSARY.md.
-- **User decisions:**
-  - setup first (D11);
-  - geometric aesthetics and function measures (D14);
-  - variable fold count, fewest preferred, 0–11 folds (D13, D21);
-  - strict ranking order (D16);
-  - general request grid with no application tailoring (D17);
-  - 2% margin (D18);
-  - complexity only after the pipeline is proven (D19);
-  - success = the model outputs valid fold patterns, judged by the user visually (D20);
-  - all proposed sub-definitions accepted (D22).
-- **Built:** `src/packing.js` (rules, order score, minimum gap, swept area, ranking, hand rule, deterministic reference solver over ordered families with pattern-search refinement), `tests/packing.test.js` (9 tests), and the scripts `request-map.js`, `check-reference-completeness.js` and `render-map-report.js` (`npm run map`, `map:check`, `map:report`).
-- **Measured** (EXPERIMENT_SPEC.md, "Evidence so far"):
-  - 701/729 solved, 27 proven impossible, 1 not found;
-  - fewer folds than the hand rule in 209 requests;
-  - the independent free-form search beat the first version in 3/218 checked cells (grid-resolution misses, fixed in r2 below);
-  - the free-form search is reliable up to about 5 folds.
-- **Evidence (first version):** `results/request-map-2026-11-05.json.gz`, `results/request-map-completeness-2026-11-05.json`. Current results are r2.
-- **Report** (private to the user): https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
-- **Checks:** `npm test` passed, 40/40.
-
-## Since the previous snapshot
-
-- **User decisions:** D23 (tiny swept-area differences are ties, so clean 180° folds win) and D24 (weight requests toward short boxes).
-- **Codex** added `scripts/independent-check.js` (commit `f521f23`): an independent spec-based checker importing no project code. Recorded as D25.
-- **Solver fix** in `src/packing.js`: finer near-closed angles, contact-aware refinement, 24 refinement starts.
-- **Map rerun (r2):** 701/729 solved; free-form search beat it 0/218; the independent checker passes 701/701 (`results/*-r2.json*`).
-- **Report republished** at the same link: https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
-- **Checks:** `npm test` passed, 40/40.
-
-## Latest (2026-11-05, map r6: answer-key baseline)
-
-- **Decisions D30–D33:** turn about the hinge axis to fit; roomy boxes keep most spread; no fold-angle rule (near-flat creases are direction switches); keep alternating directions.
-- **Spread search strengthened** (commit `d415963`).
-- **Map r6:**
-  - fewest folds beaten 0/174;
-  - spread beaten beyond the band 8/180;
-  - mirror mismatches 2/1,126;
-  - 778/784 solved.
-- **Report** (version 5): https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
-- **Codex** must still add `placement` support to `scripts/independent-check.js` and run it on `results/request-map-2026-11-05-r6.json.gz`; the prompt was given to the user.
+- Added placement self-tests: a 100-long panel at 90° fits a 10 × 12 × 103 box; the same panel at 0° fails. Contact tests stay in the unrotated motion frame.
+- Saved `results/independent-check-2026-11-05-r6-codex-v3.json`: 2,330/2,330 answers in 778 cells pass, across 1,679,930 sampled states. All 16 per-check disagreement counts are zero.
+- Added `tests/export-fold.test.js`: standard FOLD metadata/topology/signs, the 0°/90°/180° fixtures from GEOMETRY.md, placed bounds, rectangular-panel edge/diagonal preservation, input selection, gzip JSON/JSONL, and output overwrite protection. Every r6 answer exports with the saved placed dimensions and preserved panel distances.
+- Exported `upright-panel.fold`, `symmetric-five-panel.fold`, and `direction-switch.fold` into ignored `artifacts/fold-examples/`. Source map cell/budget pairs: 728/0, 146/5, 96/3.
+- Checks: checker self-tests and `npm test` passed. No files in `src/` or `experiments/learning-v2/`, and no existing script other than the checker, were modified.
+- These are zero-thickness sampled checks, not continuous collision or ranking proofs. No layer order or manufacturing claim is made. The FOLD files certify nothing; actual Origami Simulator import was not exercised.
 
 ## In discussion / open
 
-None in DECISIONS.md.
+None in DECISIONS.md at this snapshot. Reference search limitations above remain measured limitations.
 
 ## Next concrete task
 
-Generate the v2 dataset (EXPERIMENT_SPEC.md section 6, with D30 grouping of swapped boxes) into `experiments/learning-v2/`, then run the acceptance checks, then build the review page.
+Continue the separately managed v2 dataset generation and acceptance checks, then use the review page for the user's visual verdict before training. Import the exported examples at https://origamisimulator.org via File → Import for an external visual check.
 
 ## Runtime
 
-No jobs are running. Python venv not installed in this container (only needed for learning code). `artifacts/request-map/` holds this session's exploratory copies; it is ignored by git.
+No jobs from this checker/export session remain active. The user reports dataset generation is happening separately; its process was not inspected, stopped, or modified here. `artifacts/fold-examples/` is git-ignored.
 
 ## Commands
 
 ```sh
+node scripts/independent-check.js --self-test
+node scripts/independent-check.js results/request-map-2026-11-05-r6.json.gz
 npm test
-npm run map -- artifacts/<dir>/map.json                       # ~1 min CPU
-npm run map:check -- artifacts/<dir>/map.json artifacts/<dir>/check.json 40 3
-npm run map:report -- artifacts/<dir>/map.json artifacts/<dir>/report.html artifacts/<dir>/check.json
-node scripts/independent-check.js <map.json.gz>                 # Codex's independent checker
+node scripts/export-fold.js --help
+node scripts/export-fold.js --input results/request-map-2026-11-05-r6.json.gz --cell 96 --budget 3 --output artifacts/fold-examples/direction-switch-new.fold
+node scripts/export-fold.js --input experiments/learning-v2/dataset.jsonl.gz --request-id v2-short-0000 --answer 0 --output artifacts/example.fold
 ```
+
+Export outputs must not already exist. Historical result reports must not be overwritten. Examples are workspace artifacts; regenerate them after a fresh checkout.
