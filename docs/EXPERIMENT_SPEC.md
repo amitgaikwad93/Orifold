@@ -223,7 +223,7 @@ This is the answer-key baseline for the v2 dataset.
 - **Fewest folds** (train): free-form search beat it 0/474.
 - **Spread with walls required on both sides** (train): beaten beyond the band in 13/180 (v2: 5/180 without the wall constraint).
 - **Evidence:** `experiments/learning-v2b/acceptance/`.
-- **Visual review:** round `answer-key-2`, 48 new training answers, at https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA, awaiting the user.
+- **Visual review:** round `answer-key-2`, 48 new training answers: **48 valid, 0 unsure, 0 not valid** (`experiments/learning-v2b/acceptance/review-answer-key-2.json`). The answer key is accepted; all section 8 checks have passed.
 
 The v2 dataset is kept as a record but superseded for training by v2b.
 

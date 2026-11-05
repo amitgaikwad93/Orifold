@@ -19,11 +19,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-None in DECISIONS.md. Pending user actions:
-- review round `answer-key-2` (v2b);
-- nothing for Codex: its checker now passes v2b 6,004/6,004.
-
-No jobs are running.
+None. Review round 2 on v2b: 48/48 valid. The answer key and dataset are accepted for training.
 
 ## Next concrete task
 

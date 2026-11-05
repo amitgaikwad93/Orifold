@@ -1,0 +1,445 @@
+{
+  "round": "answer-key-2",
+  "dataset": "experiments/learning-v2b",
+  "page": "https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA",
+  "items": 48,
+  "counts": {
+    "valid": 48,
+    "invalid": 0,
+    "unsure": 0
+  },
+  "verdicts": [
+    {
+      "budget": 2,
+      "item": "v2-long-0033-b2",
+      "note": "",
+      "request": "v2-long-0033",
+      "reviewedAt": "2026-11-05T18:08:27.326Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-long-0058-b3",
+      "note": "",
+      "request": "v2-long-0058",
+      "reviewedAt": "2026-11-05T18:10:05.946Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0158-b2",
+      "note": "",
+      "request": "v2-long-0158",
+      "reviewedAt": "2026-11-05T18:10:24.377Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0169-b2",
+      "note": "",
+      "request": "v2-long-0169",
+      "reviewedAt": "2026-11-05T18:08:32.914Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-long-0272-b1",
+      "note": "",
+      "request": "v2-long-0272",
+      "reviewedAt": "2026-11-05T18:08:43.765Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 0,
+      "item": "v2-long-0289-b0",
+      "note": "",
+      "request": "v2-long-0289",
+      "reviewedAt": "2026-11-05T18:06:17.657Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0305-b2",
+      "note": "",
+      "request": "v2-long-0305",
+      "reviewedAt": "2026-11-05T18:07:51.970Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0343-b2",
+      "note": "",
+      "request": "v2-long-0343",
+      "reviewedAt": "2026-11-05T18:09:54.806Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0409-b2",
+      "note": "",
+      "request": "v2-long-0409",
+      "reviewedAt": "2026-11-05T18:08:02.431Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0001-b1",
+      "note": "",
+      "request": "v2-short-0001",
+      "reviewedAt": "2026-11-05T18:06:43.978Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0050-b2",
+      "note": "",
+      "request": "v2-short-0050",
+      "reviewedAt": "2026-11-05T18:06:53.688Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0125-b3",
+      "note": "",
+      "request": "v2-short-0125",
+      "reviewedAt": "2026-11-05T18:10:02.490Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0126-b2",
+      "note": "",
+      "request": "v2-short-0126",
+      "reviewedAt": "2026-11-05T18:06:49.694Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0163-b2",
+      "note": "",
+      "request": "v2-short-0163",
+      "reviewedAt": "2026-11-05T18:08:17.285Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 6,
+      "item": "v2-short-0164-b6",
+      "note": "",
+      "request": "v2-short-0164",
+      "reviewedAt": "2026-11-05T18:10:47.791Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0173-b2",
+      "note": "",
+      "request": "v2-short-0173",
+      "reviewedAt": "2026-11-05T18:08:21.374Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0344-b3",
+      "note": "",
+      "request": "v2-short-0344",
+      "reviewedAt": "2026-11-05T18:08:52.582Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0355-b2",
+      "note": "",
+      "request": "v2-short-0355",
+      "reviewedAt": "2026-11-05T18:09:43.611Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0372-b3",
+      "note": "",
+      "request": "v2-short-0372",
+      "reviewedAt": "2026-11-05T18:09:40.705Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 0,
+      "item": "v2-short-0452-b0",
+      "note": "",
+      "request": "v2-short-0452",
+      "reviewedAt": "2026-11-05T18:07:03.363Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0472-b3",
+      "note": "",
+      "request": "v2-short-0472",
+      "reviewedAt": "2026-11-05T18:07:44.020Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 0,
+      "item": "v2-short-0507-b0",
+      "note": "",
+      "request": "v2-short-0507",
+      "reviewedAt": "2026-11-05T18:05:40.865Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-0532-b4",
+      "note": "",
+      "request": "v2-short-0532",
+      "reviewedAt": "2026-11-05T18:07:34.952Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 6,
+      "item": "v2-short-0595-b6",
+      "note": "",
+      "request": "v2-short-0595",
+      "reviewedAt": "2026-11-05T18:06:10.073Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0653-b3",
+      "note": "",
+      "request": "v2-short-0653",
+      "reviewedAt": "2026-11-05T18:09:29.407Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0674-b1",
+      "note": "",
+      "request": "v2-short-0674",
+      "reviewedAt": "2026-11-05T18:06:35.976Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0737-b3",
+      "note": "",
+      "request": "v2-short-0737",
+      "reviewedAt": "2026-11-05T18:09:11.023Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0774-b1",
+      "note": "",
+      "request": "v2-short-0774",
+      "reviewedAt": "2026-11-05T18:05:56.926Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0777-b3",
+      "note": "",
+      "request": "v2-short-0777",
+      "reviewedAt": "2026-11-05T18:08:09.671Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0781-b3",
+      "note": "",
+      "request": "v2-short-0781",
+      "reviewedAt": "2026-11-05T18:09:32.200Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-0881-b4",
+      "note": "",
+      "request": "v2-short-0881",
+      "reviewedAt": "2026-11-05T18:09:08.045Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0882-b2",
+      "note": "",
+      "request": "v2-short-0882",
+      "reviewedAt": "2026-11-05T18:06:57.018Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0895-b3",
+      "note": "",
+      "request": "v2-short-0895",
+      "reviewedAt": "2026-11-05T18:08:35.623Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-0908-b4",
+      "note": "",
+      "request": "v2-short-0908",
+      "reviewedAt": "2026-11-05T18:09:47.109Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 0,
+      "item": "v2-short-0934-b0",
+      "note": "",
+      "request": "v2-short-0934",
+      "reviewedAt": "2026-11-05T18:07:00.148Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0990-b3",
+      "note": "",
+      "request": "v2-short-0990",
+      "reviewedAt": "2026-11-05T18:07:20.174Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-1039-b3",
+      "note": "",
+      "request": "v2-short-1039",
+      "reviewedAt": "2026-11-05T18:09:22.967Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1092-b2",
+      "note": "",
+      "request": "v2-short-1092",
+      "reviewedAt": "2026-11-05T18:10:13.796Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1098-b2",
+      "note": "",
+      "request": "v2-short-1098",
+      "reviewedAt": "2026-11-05T18:08:46.927Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-1102-b4",
+      "note": "",
+      "request": "v2-short-1102",
+      "reviewedAt": "2026-11-05T18:10:21.231Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 5,
+      "item": "v2-short-1143-b5",
+      "note": "",
+      "request": "v2-short-1143",
+      "reviewedAt": "2026-11-05T18:09:00.275Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-1190-b3",
+      "note": "",
+      "request": "v2-short-1190",
+      "reviewedAt": "2026-11-05T18:09:26.236Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1204-b2",
+      "note": "",
+      "request": "v2-short-1204",
+      "reviewedAt": "2026-11-05T18:06:27.498Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-1214-b1",
+      "note": "",
+      "request": "v2-short-1214",
+      "reviewedAt": "2026-11-05T18:05:46.917Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-1330-b1",
+      "note": "",
+      "request": "v2-short-1330",
+      "reviewedAt": "2026-11-05T18:08:49.636Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 7,
+      "item": "v2-short-1365-b7",
+      "note": "",
+      "request": "v2-short-1365",
+      "reviewedAt": "2026-11-05T18:10:43.317Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-1385-b1",
+      "note": "",
+      "request": "v2-short-1385",
+      "reviewedAt": "2026-11-05T18:08:24.211Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-1408-b1",
+      "note": "",
+      "request": "v2-short-1408",
+      "reviewedAt": "2026-11-05T18:08:30.103Z",
+      "round": "answer-key-2",
+      "verdict": "valid"
+    }
+  ]
+}
