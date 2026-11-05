@@ -9,9 +9,10 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const zlib = require('node:zlib');
+const { isDeepStrictEqual } = require('node:util');
 
 const INTERVALS = 720; // 721 configurations, including t = 0 and t = 1.
-const DEFAULT_INPUT = path.resolve(__dirname, '../results/request-map-2026-11-05.json.gz');
+const DEFAULT_INPUT = path.resolve(__dirname, '../results/request-map-2026-11-05-r4.json.gz');
 const finite = Number.isFinite;
 const positive = x => finite(x) && x > 0;
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
@@ -23,7 +24,8 @@ const norm = a => Math.hypot(...a);
 // This avoids chaining many small differences into an arbitrarily wide group.
 // The spec does not define clustering for such chains; this convention is
 // explicit so this audit is reproducible. Mirror comparisons use the same
-// 1%-of-sheet-length tolerance. Zero creases have zero distinct angles.
+// 1%-of-sheet-length tolerance for lengths and 1 degree for angles (D28).
+// Zero creases have zero distinct angles.
 function distinctCount(values, tolerance) {
   let count = 0, anchor;
   for (const value of [...values].sort((a, b) => a - b)) {
@@ -37,10 +39,15 @@ function distinctCount(values, tolerance) {
 
 function orderScore(lengths, angles, sheetLength) {
   const tolerance = 0.01 * sheetLength;
-  const symmetric = lengths.every((x, i) => Math.abs(x - lengths[lengths.length - 1 - i]) <= tolerance);
+  const symmetric = lengths.every((x, i) => Math.abs(x - lengths[lengths.length - 1 - i]) <= tolerance) &&
+    angles.every((x, i) => Math.abs(x - angles[angles.length - 1 - i]) <= 1);
   const distinctLengths = distinctCount(lengths, tolerance);
   const distinctAngles = distinctCount(angles, 1);
   return { score: distinctLengths + distinctAngles + Number(!symmetric), distinctLengths, distinctAngles, symmetric };
+}
+
+function spread(angles) {
+  return angles.length === 0 ? 180 : 180 - Math.max(...angles);
 }
 
 function ruleViolations(request, design) {
@@ -142,11 +149,14 @@ function blockedContacts(points, eps, flatEndpoint) {
   return contacts;
 }
 
-function auditCell(cell) {
-  const request = cell.request, design = cell.design, saved = cell.quality || {};
+function auditAnswer(request, answer) {
+  const design = answer?.design, saved = answer?.quality || {}, budget = answer?.budget;
   const problems = ruleViolations(request, design);
   const disagreements = [];
   const add = (check, detail) => disagreements.push({ check, ...detail });
+  if (!Number.isInteger(budget) || budget < 0 || budget > 11) {
+    add('fold-budget', { budget: budget ?? null, reason: 'budget must be an integer from 0 to 11' });
+  }
   if (problems.length) add('panel-and-angle-rules', { violations: problems });
   // Invalid scalar values cannot be used for geometry, but other finite rule
   // failures (short panels, inactive creases, wrong total) are still evaluated.
@@ -163,8 +173,14 @@ function auditCell(cell) {
 
   const folds = design.panelLengths.length - 1;
   const order = orderScore(design.panelLengths, design.angles, request.length);
+  const opening = spread(design.angles);
+  if (Number.isInteger(budget) && folds > budget) add('fold-budget', { budget, computedFolds: folds });
   if (saved.folds !== folds) add('fold-count', { saved: saved.folds ?? null, computed: folds });
   if (saved.order !== order.score) add('order-score', { saved: saved.order ?? null, computed: order });
+  if (saved.symmetric !== order.symmetric) add('symmetry', { saved: saved.symmetric ?? null, computed: order.symmetric });
+  if (!finite(saved.spread) || Math.abs(saved.spread - opening) > 1e-9) {
+    add('spread', { saved: saved.spread ?? null, computed: opening, numericalTolerance: 1e-9 });
+  }
 
   const finalDimensions = dimensions(pointsAt(design, 1), design.width);
   const limits = request.targetBox.map(x => 0.98 * x);
@@ -200,21 +216,54 @@ function auditCell(cell) {
   return { disagreements, sampledStates: INTERVALS + 1, folds, order: order.score };
 }
 
+function auditCell(cell) {
+  const disagreements = [];
+  const minFolds = cell.minFolds;
+  const validMinimum = Number.isInteger(minFolds) && minFolds >= 0 && minFolds <= 11;
+  if (!validMinimum) disagreements.push({ check: 'min-folds', saved: minFolds ?? null,
+    reason: 'minFolds must be an integer from 0 to 11' });
+  const answers = Array.isArray(cell.answers) ? cell.answers : [];
+  const expectedBudgets = validMinimum ? Array.from({ length: Math.min(11, minFolds + 2) - minFolds + 1 }, (_, i) => minFolds + i) : null;
+  const budgets = answers.map(answer => answer?.budget ?? null);
+  if (!Array.isArray(cell.answers) || answers.length === 0 ||
+      (validMinimum && !isDeepStrictEqual(budgets, expectedBudgets))) {
+    disagreements.push({ check: 'budget-sequence', saved: budgets, expected: expectedBudgets,
+      reason: 'answers must cover consecutive budgets minFolds through minFolds + 2, capped at 11' });
+  }
+  if (answers.length === 0 || !cell.design || !isDeepStrictEqual(cell.design, answers[0]?.design)) {
+    disagreements.push({ check: 'top-level-design', reason: 'top-level design must equal the first answer design' });
+  }
+  let sampledStates = 0, passingAnswers = 0;
+  const checkedAnswers = answers.map((answer, answerIndex) => {
+    const checked = auditAnswer(cell.request, answer);
+    sampledStates += checked.sampledStates;
+    if (checked.disagreements.length === 0) passingAnswers++;
+    disagreements.push(...checked.disagreements.map(issue => ({ answerIndex, budget: answer?.budget ?? null, ...issue })));
+    return checked;
+  });
+  return { disagreements, sampledStates, checkedAnswers, passingAnswers };
+}
+
 function auditMap(map, input) {
   if (!Array.isArray(map.cells) || map.cells.length === 0) throw new Error('input must contain a nonempty cells array');
   const result = {
     input,
     policy: {
-      source: 'EXPERIMENT_SPEC.md sections 2–5; GEOMETRY.md contact policy',
+      source: 'EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D29; GEOMETRY.md contact policy',
       motionStates: INTERVALS + 1,
       boxFraction: 0.98,
       contactTolerance: '1e-9 * requested sheet length',
       fitTolerance: '1e-9 * max(sheet dimensions, box dimensions)',
-      orderGrouping: 'sorted bins spanning at most 1% of sheet length / 1 degree; mirror tolerance 1% of sheet length',
+      orderGrouping: 'sorted bins spanning at most 1% of sheet length / 1 degree',
+      symmetry: 'palindromic lengths within 1% of sheet length AND angles within 1 degree',
+      spread: '180 degrees minus largest fold angle; 180 degrees with no folds; numerical tolerance 1e-9 degree',
+      budgets: 'every answer checked; consecutive minFolds through minFolds + 2, capped at 11; folds <= budget',
+      scoreHistograms: 'computed over all answers',
       scope: 'checks saved designs and scores; does not establish global ranking optimality or continuous collision freedom'
     },
     totalCells: map.cells.length,
     solvedCells: 0, skippedCells: 0, sampledStates: 0,
+    checkedAnswers: 0, passingAnswers: 0, disagreementAnswers: 0,
     passingCells: 0, disagreementCells: 0, disagreementsByCheck: {},
     foldCounts: {}, orderScores: {}, disagreements: []
   };
@@ -223,8 +272,13 @@ function auditMap(map, input) {
     result.solvedCells++;
     const checked = auditCell(cell);
     result.sampledStates += checked.sampledStates;
-    if (checked.folds !== undefined) result.foldCounts[checked.folds] = (result.foldCounts[checked.folds] || 0) + 1;
-    if (checked.order !== undefined) result.orderScores[checked.order] = (result.orderScores[checked.order] || 0) + 1;
+    result.checkedAnswers += checked.checkedAnswers.length;
+    result.passingAnswers += checked.passingAnswers;
+    result.disagreementAnswers += checked.checkedAnswers.length - checked.passingAnswers;
+    for (const answer of checked.checkedAnswers) {
+      if (answer.folds !== undefined) result.foldCounts[answer.folds] = (result.foldCounts[answer.folds] || 0) + 1;
+      if (answer.order !== undefined) result.orderScores[answer.order] = (result.orderScores[answer.order] || 0) + 1;
+    }
     if (checked.disagreements.length === 0) { result.passingCells++; return; }
     result.disagreementCells++;
     for (const issue of checked.disagreements) result.disagreementsByCheck[issue.check] = (result.disagreementsByCheck[issue.check] || 0) + 1;
@@ -267,11 +321,28 @@ function selfTest() {
   assert.equal(orderScore([30, 35, 35], [150, 178], 100).score, 5);
   assert.equal(orderScore([49.5, 50.5], [180], 100).score, 2); // Inclusive threshold.
   assert.equal(distinctCount([10, 10.75, 11.5], 1), 2); // No transitive chaining.
+  const differentFirstAngle = orderScore([25, 25, 25, 25], [60, 90, 90], 100);
+  assert.equal(differentFirstAngle.symmetric, false);
+  assert.equal(differentFirstAngle.score, 4); // Equal panels alone are insufficient (D28).
+  const palindromicFivePanels = orderScore([10, 20, 40, 20, 10], [60, 90, 90, 60], 100);
+  assert.equal(palindromicFivePanels.symmetric, true);
+  assert.equal(palindromicFivePanels.score, 5); // Odd-panel point symmetry counts.
+  assert.equal(orderScore([25, 25, 25, 25], [91, 90, 90], 100).symmetric, true);
+  assert.equal(orderScore([25, 25, 25, 25], [91.01, 90, 90], 100).symmetric, false);
+  assert.equal(orderScore([49.49, 50.51], [90], 100).symmetric, false);
+  assert.equal(spread([]), 180);
+  assert.equal(spread([180]), 0);
+  assert.equal(spread([10, 170, 50]), 10); // Largest angle, not first or mean angle.
 
   function cell(d, box, order) {
-    return { status: 'found', request: { ...request, targetBox: box }, design: d,
-      quality: { folds: d.angles.length, order, fits: true, valid: true, passes: true,
-        contactFree: true, dimensions: dimensions(pointsAt(d, 1), 10), sampleCount: 721 } };
+    const minFolds = d.angles.length;
+    const quality = { folds: minFolds, order, symmetric: orderScore(d.panelLengths, d.angles, 100).symmetric,
+      spread: spread(d.angles), fits: true, valid: true, passes: true,
+      contactFree: true, dimensions: dimensions(pointsAt(d, 1), 10), sampleCount: 721 };
+    const answers = Array.from({ length: Math.min(11, minFolds + 2) - minFolds + 1 }, (_, i) => ({
+      budget: minFolds + i, design: structuredClone(d), quality: i === 0 ? quality : structuredClone(quality)
+    }));
+    return { status: 'found', minFolds, answers, request: { ...request, targetBox: box }, design: d, quality };
   }
   const flat = { panelLengths: [50, 50], width: 10, angles: [180] };
   assert.deepEqual(auditCell(cell(flat, [52, 12, 0], 2)).disagreements, []);
@@ -280,14 +351,61 @@ function selfTest() {
   const unfolded = { panelLengths: [100], width: 10, angles: [] };
   assert(auditCell(cell(unfolded, [101, 12, 1], 1)).disagreements.some(x => x.check === 'box-fit'));
   assert.deepEqual(auditCell(cell(unfolded, [100 / 0.98, 10 / 0.98, 0], 1)).disagreements, []);
-  const wrong = cell(flat, [52, 12, 0], 3);
+  const wrong = cell(flat, [52, 12, 0], 2);
+  wrong.quality.order = 3;
   wrong.quality.folds = 2;
   assert.deepEqual(auditCell(wrong).disagreements.map(x => x.check), ['fold-count', 'order-score']);
   const report = auditMap({ cells: [cell(flat, [52, 12, 0], 2), wrong, { status: 'not-found' }] }, 'fixture');
   assert.equal(report.solvedCells, 2);
   assert.equal(report.skippedCells, 1);
   assert.equal(report.disagreementCells, 1);
-  assert.equal(report.sampledStates, 1442);
+  assert.equal(report.sampledStates, 4326);
+  assert.equal(report.checkedAnswers, 6);
+  assert.equal(report.passingAnswers, 5);
+  assert.equal(report.disagreementAnswers, 1);
+
+  const changedScore = cell(flat, [52, 12, 0], 2);
+  changedScore.answers[1].quality.symmetric = false;
+  changedScore.answers[1].quality.spread = 10;
+  const scoreIssues = auditCell(changedScore).disagreements;
+  assert.deepEqual(scoreIssues.map(x => x.check), ['symmetry', 'spread']);
+  assert(scoreIssues.every(x => x.answerIndex === 1 && x.budget === 2));
+  const changedGeometry = cell(flat, [52, 12, 0], 2);
+  changedGeometry.answers[2].design.angles = [0.5];
+  const geometryIssues = auditCell(changedGeometry).disagreements;
+  assert(geometryIssues.some(x => x.check === 'panel-and-angle-rules' && x.answerIndex === 2));
+  assert(geometryIssues.some(x => x.check === 'box-fit' && x.answerIndex === 2));
+  const changedContact = cell(flat, [110, 12, 110], 2);
+  changedContact.answers[2] = { budget: 3, design: partial, quality: cell(partial, [110, 12, 110], 5).quality };
+  assert(auditCell(changedContact).disagreements.some(x => x.check === 'motion-contacts' && x.answerIndex === 2));
+
+  const missingAnswer = cell(flat, [52, 12, 0], 2);
+  missingAnswer.answers.pop();
+  assert(auditCell(missingAnswer).disagreements.some(x => x.check === 'budget-sequence'));
+  const duplicateBudget = cell(flat, [52, 12, 0], 2);
+  duplicateBudget.answers[1].budget = 1;
+  assert(auditCell(duplicateBudget).disagreements.some(x => x.check === 'budget-sequence'));
+  const exceededBudget = cell(flat, [52, 12, 0], 2);
+  exceededBudget.answers[1].budget = 0;
+  assert(auditCell(exceededBudget).disagreements.some(x => x.check === 'fold-budget' && x.answerIndex === 1));
+  const invalidBudget = cell(flat, [52, 12, 0], 2);
+  invalidBudget.answers[1].budget = 2.5;
+  assert(auditCell(invalidBudget).disagreements.some(x => x.check === 'fold-budget'));
+  const differentTop = cell(flat, [52, 12, 0], 2);
+  differentTop.design = { ...flat, angles: [179] };
+  assert.deepEqual(auditCell(differentTop).disagreements.map(x => x.check), ['top-level-design']);
+  const noAnswers = cell(flat, [52, 12, 0], 2);
+  delete noAnswers.answers;
+  assert(auditCell(noAnswers).disagreements.some(x => x.check === 'budget-sequence'));
+  const invalidMinimum = cell(flat, [52, 12, 0], 2);
+  invalidMinimum.minFolds = -1;
+  assert(auditCell(invalidMinimum).disagreements.some(x => x.check === 'min-folds'));
+  for (const folds of [10, 11]) {
+    const stack = { panelLengths: Array(folds + 1).fill(100 / (folds + 1)), width: 10, angles: Array(folds).fill(180) };
+    const capped = cell(stack, [110, 12, 0], 2);
+    assert.deepEqual(capped.answers.map(a => a.budget), folds === 10 ? [10, 11] : [11]);
+    assert.deepEqual(auditCell(capped).disagreements, []);
+  }
   assert.throws(() => auditMap({ cells: [{ status: 'not-found' }] }, 'fixture'), /no solved cells/);
   process.stdout.write('Independent checker self-tests passed.\n');
 }
