@@ -1,13 +1,16 @@
 {
   "input": "/home/user/Orifold/artifacts/v2b-acceptance/all.json.gz",
   "policy": {
-    "source": "EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D33; GEOMETRY.md contact policy",
+    "source": "EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D34; GEOMETRY.md contact policy",
     "motionStates": 721,
     "boxFraction": 0.98,
     "placement": "recorded angle in degrees (missing means 0); final fit only; motion and contacts unrotated",
+    "offset": "turned bounding-box lower-left at [x, z] in usable box; missing means [0, 0]; all vertices must fit",
+    "floatingCreases": "interior side-view vertices farther than 0.5% of sheet length from all four usable x/z walls",
+    "legacyFloatingCreases": "missing saved counts are reported as unavailable, not compared or assumed zero",
     "contactTolerance": "1e-9 * requested sheet length",
     "fitTolerance": "1e-9 * max(sheet dimensions, box dimensions)",
-    "orderGrouping": "sorted bins spanning at most 1% of sheet length / 1 degree",
+    "orderGrouping": "sorted neighbour gaps at most 1% of sheet length / 1 degree, with transitive chaining",
     "symmetry": "palindromic lengths within 1% of sheet length AND angles within 1 degree",
     "spread": "180 degrees minus largest fold angle; 180 degrees with no folds; numerical tolerance 1e-9 degree",
     "budgets": "every answer checked; consecutive minFolds through minFolds + 2, capped at 11; folds <= budget",
@@ -19,10 +22,13 @@
   "skippedCells": 189,
   "sampledStates": 4328884,
   "checkedAnswers": 6004,
-  "passingAnswers": 5985,
-  "disagreementAnswers": 19,
-  "passingCells": 1994,
-  "disagreementCells": 17,
+  "passingAnswers": 6004,
+  "disagreementAnswers": 0,
+  "zeroFloatingCreaseAnswers": 6004,
+  "floatingCreaseComparisons": 6004,
+  "answersWithoutSavedFloatingCreases": 0,
+  "passingCells": 2011,
+  "disagreementCells": 0,
   "disagreementsByCheck": {
     "min-folds": 0,
     "budget-sequence": 0,
@@ -31,10 +37,11 @@
     "panel-and-angle-rules": 0,
     "geometry-and-score": 0,
     "fold-count": 0,
-    "order-score": 19,
+    "order-score": 0,
     "symmetry": 0,
     "spread": 0,
     "box-fit": 0,
+    "floating-creases": 0,
     "saved-dimensions": 0,
     "motion-contacts": 0,
     "valid": 0,
@@ -57,446 +64,16 @@
   },
   "orderScores": {
     "1": 1077,
-    "2": 1381,
-    "3": 1988,
-    "4": 1535,
-    "5": 12,
-    "6": 9,
+    "2": 1385,
+    "3": 1999,
+    "4": 1532,
+    "5": 8,
+    "6": 1,
     "8": 1,
     "9": 1
   },
-  "disagreements": [
-    {
-      "index": 302,
-      "boxLength": 0.09501090426929294,
-      "boxHeight": 0.09316846651956438,
-      "targetBox": [
-        1.0367159250208966,
-        0.9097498851039496,
-        1.0166120793550408
-      ],
-      "issues": [
-        {
-          "answerIndex": 2,
-          "budget": 9,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 335,
-      "boxLength": 0.1226596129941754,
-      "boxHeight": 0.13220379177480937,
-      "targetBox": [
-        9.276518043809459,
-        22.52826531255743,
-        9.998326506356122
-      ],
-      "issues": [
-        {
-          "answerIndex": 1,
-          "budget": 6,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 396,
-      "boxLength": 0.09158019695896655,
-      "boxHeight": 0.0975925778783858,
-      "targetBox": [
-        2.823129202121928,
-        3.166750932329525,
-        3.0084719804902518
-      ],
-      "issues": [
-        {
-          "answerIndex": 2,
-          "budget": 9,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 552,
-      "boxLength": 0.14459127492737026,
-      "boxHeight": 0.13123162554576992,
-      "targetBox": [
-        2.222872036578499,
-        4.398643476379389,
-        2.0174876449976815
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 5,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 5,
-            "distinctLengths": 3,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 589,
-      "boxLength": 0.15324429232859985,
-      "boxHeight": 0.16310134321451186,
-      "targetBox": [
-        3.3222195104307555,
-        7.164168814785185,
-        3.5359128641660194
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 4,
-          "check": "order-score",
-          "saved": 2,
-          "computed": {
-            "score": 3,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": true
-          }
-        }
-      ]
-    },
-    {
-      "index": 620,
-      "boxLength": 0.11959063645917922,
-      "boxHeight": 0.15955136710777879,
-      "targetBox": [
-        10.760018666746461,
-        37.766072049104956,
-        14.355435669669816
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 5,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 5,
-            "distinctLengths": 3,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 741,
-      "boxLength": 0.14844672480830923,
-      "boxHeight": 0.22994627609848975,
-      "targetBox": [
-        12.679681972774937,
-        38.147516745726215,
-        19.64102377817868
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 3,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 4,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 744,
-      "boxLength": 0.10534574917983264,
-      "boxHeight": 0.11102114366367462,
-      "targetBox": [
-        7.740104665440137,
-        8.461886273571317,
-        8.157094887301012
-      ],
-      "issues": [
-        {
-          "answerIndex": 2,
-          "budget": 8,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 775,
-      "boxLength": 0.23052687727613375,
-      "boxHeight": 0.15087508905678987,
-      "targetBox": [
-        7.601938397668325,
-        14.1933931193299,
-        4.975311973616801
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 3,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 4,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 826,
-      "boxLength": 0.14386189784854653,
-      "boxHeight": 0.20892626052722332,
-      "targetBox": [
-        12.466785786851945,
-        44.34715944507419,
-        18.10513398052763
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 4,
-          "check": "order-score",
-          "saved": 2,
-          "computed": {
-            "score": 3,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": true
-          }
-        },
-        {
-          "answerIndex": 1,
-          "budget": 5,
-          "check": "order-score",
-          "saved": 2,
-          "computed": {
-            "score": 3,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": true
-          }
-        }
-      ]
-    },
-    {
-      "index": 856,
-      "boxLength": 0.2296220264164731,
-      "boxHeight": 0.15809228079393506,
-      "targetBox": [
-        7.330834668863174,
-        5.68595423824937,
-        5.047200353601129
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 3,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 4,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 1037,
-      "boxLength": 0.13857118074083702,
-      "boxHeight": 0.13752746373414992,
-      "targetBox": [
-        12.862621189433694,
-        25.679603175622436,
-        12.765740031214413
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 5,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 5,
-            "distinctLengths": 3,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 1252,
-      "boxLength": 0.19235733004752548,
-      "boxHeight": 0.11482013979926706,
-      "targetBox": [
-        4.274837849246818,
-        1.29239650368172,
-        2.5516962589803427
-      ],
-      "issues": [
-        {
-          "answerIndex": 0,
-          "budget": 4,
-          "check": "order-score",
-          "saved": 2,
-          "computed": {
-            "score": 3,
-            "distinctLengths": 2,
-            "distinctAngles": 1,
-            "symmetric": true
-          }
-        }
-      ]
-    },
-    {
-      "index": 1338,
-      "boxLength": 0.10116590466350318,
-      "boxHeight": 0.09786273246631028,
-      "targetBox": [
-        8.95739724045556,
-        28.036620010346073,
-        8.664928887384434
-      ],
-      "issues": [
-        {
-          "answerIndex": 2,
-          "budget": 9,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 1352,
-      "boxLength": 0.11922511800657958,
-      "boxHeight": 0.12580379830673338,
-      "targetBox": [
-        8.104626290853126,
-        8.764891661329543,
-        8.551828576841231
-      ],
-      "issues": [
-        {
-          "answerIndex": 1,
-          "budget": 6,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        },
-        {
-          "answerIndex": 2,
-          "budget": 7,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 1433,
-      "boxLength": 0.08489288232522085,
-      "boxHeight": 0.09206732235848904,
-      "targetBox": [
-        5.475531615315793,
-        25.68514650375562,
-        5.938277986370229
-      ],
-      "issues": [
-        {
-          "answerIndex": 2,
-          "budget": 10,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 6,
-            "distinctLengths": 4,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    },
-    {
-      "index": 2197,
-      "boxLength": 0.06713856103597209,
-      "boxHeight": 0.07983315953984857,
-      "targetBox": [
-        3.8473633751169274,
-        30.29467892912914,
-        4.574825098931059
-      ],
-      "issues": [
-        {
-          "answerIndex": 2,
-          "budget": 11,
-          "check": "order-score",
-          "saved": 3,
-          "computed": {
-            "score": 5,
-            "distinctLengths": 3,
-            "distinctAngles": 1,
-            "symmetric": false
-          }
-        }
-      ]
-    }
-  ]
+  "floatingCreaseCounts": {
+    "0": 6004
+  },
+  "disagreements": []
 }

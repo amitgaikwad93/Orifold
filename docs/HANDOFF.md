@@ -21,7 +21,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 None in DECISIONS.md. Pending user actions:
 - review round `answer-key-2` (v2b);
-- send Codex the floating-crease and order-score alignment prompts.
+- nothing for Codex: its checker now passes v2b 6,004/6,004.
 
 No jobs are running.
 

@@ -218,7 +218,8 @@ This is the answer-key baseline for the v2 dataset.
 - **Walls:** 6,004/6,004 answers have every crease on a wall (0 floating).
 - **Unchanged from v2:** solved/unsolved status and fewest-fold counts.
 - **Spread cost versus v2:** median 0°, 90th percentile 8.7°, maximum 57.6°. The largest costs are all v2 "spacer panel" designs (`[45, 5, 5, 45]`), now 3-panel zigzags with creases on walls. 396 answers widened.
-- **Validity:** the independent checker passes 5,985/6,004. The 19 differences are order-score counts from the chaining-versus-bins ambiguity; the checker alignment is pending, and the checker has no floating-crease check yet (requested).
+- **Validity:** Codex's updated checker (offset containment and floating-crease count added, order-score counting aligned with section 5) passes **6,004/6,004** with 0 disagreements; all 6,004 have 0 floating creases.
+- **Correction:** it first flagged 801 answers whose stored slide offset had been rounded to 6 decimals, placing shapes up to 5e-7 units past a wall. Fixed in `src/packing.js` (the offset is computed at the stored, rounded angle and not rounded), and the offsets in `dataset.jsonl.gz` were recomputed with `scripts/fix-v2b-offsets.js`. Designs, angles and floating counts are unchanged; the original file is in git history (commit 1ee9503). `labels-*-of-3.jsonl` keep the original offsets; `dataset.jsonl.gz` is authoritative.
 - **Fewest folds** (train): free-form search beat it 0/474.
 - **Spread with walls required on both sides** (train): beaten beyond the band in 13/180 (v2: 5/180 without the wall constraint).
 - **Evidence:** `experiments/learning-v2b/acceptance/`.

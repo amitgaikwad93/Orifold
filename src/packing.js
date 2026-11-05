@@ -359,7 +359,10 @@ function wallPlacement(design, request) {
       const w = { psi: tt, ...wallFit(pts, tt, request) }; if (better(w, best)) best = w;
     }
   }
-  design.placement = +best.psi.toFixed(6); design.offset = best.offset.map(v => +v.toFixed(6));
+  // Round the angle, then compute the slide offset at that exact angle (never round the offset: rounding
+  // up could push the shape past a wall by more than the numerical tolerance).
+  design.placement = +best.psi.toFixed(6);
+  design.offset = wallFit(pts, design.placement, request).offset;
   return { overflow: Math.max(base, ...placedDimensions(design).map((v, i) => i === 1 ? -Infinity : (v - u[i]) / L)), floating: best.floating, distance: best.distance };
 }
 
