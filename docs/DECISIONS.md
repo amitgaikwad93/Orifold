@@ -16,7 +16,7 @@ Rationale: the folding geometry is already complex enough. Focus effort on compa
 
 ## D03 — target envelope, not minimum scalar volume (current formulation)
 
-Given fixed sheet dimensions and a limited panel/crease budget, find crease positions and a prescribed motion whose final configuration fits maximum length/width/height bounds. This is packing, not exact shape matching. Translation is permitted for final fit; box orientation is fixed. Motion need not stay inside the storage box unless a future task explicitly adds that requirement.
+Given fixed sheet dimensions and a limited panel/crease budget, find crease positions and a prescribed motion whose final configuration fits maximum length/width/height bounds. This is packing, not exact shape matching. Translation is permitted for final fit; box orientation is fixed. *Amended by D30 (2026-11-05): the final shape may also turn about the hinge axis.* Motion need not stay inside the storage box unless a future task explicitly adds that requirement.
 
 Material volume is zero by assumption. A 3D configuration can still have a nonzero enclosing box; a fully flat-folded configuration can have zero height. Do not minimize the product of box dimensions as the sole objective: zero height would make many designs trivially tie. Preserve the finite panel budget to avoid arbitrarily many tiny folds. *Amended by D13 (2026-11-05): the fixed budget is replaced by a variable fold count with fewest folds preferred.*
 
@@ -199,6 +199,18 @@ Mirror symmetry (even panel counts) and point symmetry (odd panel counts) are bo
 
 Designs whose smallest opening angle is within 10% of the widest valid design (same request, same budget) count as equally spread. Among those, symmetric designs win, then fewer folds, then order score. The full ranking is in EXPERIMENT_SPEC.md section 5 and supersedes the D16 order and D21's "fewest folds first".
 
+## D30 — the final shape may turn about the hinge axis to fit the box (user decision, 2026-11-05)
+
+Panel 1 stays fixed as the reference frame for the folding motion. When fitting the box, the final folded shape may be turned by any angle about the hinge (y) axis, which is the side-view rotation, and translated. Each design records its `placement` angle, and fit is checked at that angle. The motion is still not required to stay inside the box.
+
+Motivation (measured on map r4): the old rule produced 27 artificial "impossible" boxes, 492 of 1,940 folded answers with a 5% "foot" first panel, and symmetry broken by the forced-flat first panel.
+
+Consequences:
+- Box (length a, height b) and (b, a) are the same problem: the map is checked for mirror consistency (`scripts/check-map-mirror.js`).
+- Dataset splits must group each box with its swapped partner.
+- The hand rule may stand its flat stack upright.
+- Option C (standing the sheet width upright) was not adopted; with parallel creases it adds little.
+
 ## Open questions (unresolved; do not treat as decided)
 
 1. **Dead creases and "spread = fold less" (measured 2026-11-05, map r4).** Results: `results/*-r4.json*`.
@@ -213,7 +225,8 @@ Designs whose smallest opening angle is within 10% of the widest valid design (s
    - **(b)** Require every crease to be necessary: merging any two neighbouring panels must make the design fail.
    - **(c)** Change the spread measure to count only creases that fold at least X°.
    - **(d)** Whichever rule is chosen, strengthen the reference's spread search (currently family grid plus refinement), because a free-form search beats it beyond the band even without dead creases (11/46).
-2. **First panel always horizontal (raised by the user 2026-11-05).** Cause: the reference frame fixes panel 1 along x (GEOMETRY.md), and D03 forbids rotating the folded shape into the box. So panel 1 must lie along the box length. Measured on map r4:
+2. ~~**First panel always horizontal**~~ — resolved by D30.
+   Original record: **First panel always horizontal (raised by the user 2026-11-05).** Cause: the reference frame fixes panel 1 along x (GEOMETRY.md), and D03 forbids rotating the folded shape into the box. So panel 1 must lie along the box length. Measured on map r4:
    - The 27 "proven impossible" cells exist only because panel 1 cannot lie flat in the box.
    - 492 of 1,940 folded answers shrink panel 1 to the 5% minimum as a "foot", a workaround rather than design.
    - The forced-flat panel 1 needs a different first fold angle, which breaks symmetry, and symmetric shapes often sit tilted.

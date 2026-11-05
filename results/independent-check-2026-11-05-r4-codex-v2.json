@@ -1,0 +1,48 @@
+{
+  "input": "/home/user/Orifold/results/request-map-2026-11-05-r4.json.gz",
+  "policy": {
+    "source": "EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D29; GEOMETRY.md contact policy",
+    "motionStates": 721,
+    "boxFraction": 0.98,
+    "contactTolerance": "1e-9 * requested sheet length",
+    "fitTolerance": "1e-9 * max(sheet dimensions, box dimensions)",
+    "orderGrouping": "sorted bins spanning at most 1% of sheet length / 1 degree",
+    "symmetry": "palindromic lengths within 1% of sheet length AND angles within 1 degree",
+    "spread": "180 degrees minus largest fold angle; 180 degrees with no folds; numerical tolerance 1e-9 degree",
+    "budgets": "every answer checked; consecutive minFolds through minFolds + 2, capped at 11; folds <= budget",
+    "scoreHistograms": "computed over all answers",
+    "scope": "checks saved designs and scores; does not establish global ranking optimality or continuous collision freedom"
+  },
+  "totalCells": 729,
+  "solvedCells": 701,
+  "skippedCells": 28,
+  "sampledStates": 1515542,
+  "checkedAnswers": 2102,
+  "passingAnswers": 2102,
+  "disagreementAnswers": 0,
+  "passingCells": 701,
+  "disagreementCells": 0,
+  "disagreementsByCheck": {},
+  "foldCounts": {
+    "0": 162,
+    "1": 648,
+    "2": 762,
+    "3": 355,
+    "4": 103,
+    "5": 29,
+    "6": 25,
+    "7": 6,
+    "8": 8,
+    "9": 1,
+    "10": 2,
+    "11": 1
+  },
+  "orderScores": {
+    "1": 162,
+    "2": 451,
+    "3": 741,
+    "4": 619,
+    "5": 129
+  },
+  "disagreements": []
+}

@@ -39,7 +39,7 @@ The segment classifier uses signed distances with epsilon = 1e-9 × total sheet 
 - `sampledSweptBox`: bounding box of all sampled vertices in the fixed coordinate frame. It is an estimate of the swept envelope, not an exact continuous-motion bound.
 - `assumptions`: explicit flags for unverified continuous collisions, layer order, enclosure motion, thickness, and actuator behavior.
 
-Fit permits final translation but no reorientation search. The target is a storage requirement; motion inside an enclosing box is not checked. Sampled collision tests may miss events between samples. Increase sampling for investigation, but do not present finite sampling as a proof of continuous validity.
+Fit permits final translation and, since D30, turning the final shape about the hinge (y) axis by the design's recorded `placement` angle (`src/packing.js`); no other reorientation. The target is a storage requirement; motion inside an enclosing box is not checked. Sampled collision tests may miss events between samples. Increase sampling for investigation, but do not present finite sampling as a proof of continuous validity.
 
 ## Analytical fixtures
 

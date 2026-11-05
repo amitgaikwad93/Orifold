@@ -5,12 +5,12 @@ Single reference for the evaluator's limits. Other documents link here rather th
 ## The model of the world
 
 - **Zero thickness, rigid flat panels, ideal hinges.** Material volume is zero; no bending, stretching, strain, fatigue, or material behaviour. This is a deliberate scope decision (DECISIONS.md D02), not an oversight.
-- **One fold family so far:** four panels, three parallel hinges, alternating fold directions. Width can never shrink in this family. Results do not transfer to other crease patterns automatically.
+- **One fold family so far:** parallel creases, 1–12 panels (v1 used exactly four), alternating fold directions. Width can never shrink in this family. Results do not transfer to other crease patterns automatically.
 - **Prescribed motion.** All hinges rotate together on a linear schedule. This is a chosen path, not proof that the mechanism has one degree of freedom or can be driven by one actuator.
 
 ## What "pass" checks
 
-A design passes when (a) its **final** shape fits inside the target box (fixed orientation, translation allowed) and (b) no prohibited contact is found at the **sampled** motion states (721 for acceptance).
+A design passes when (a) its **final** shape fits inside the target box (translation allowed, and turning about the hinge axis by its recorded placement angle) and (b) no prohibited contact is found at the **sampled** motion states (721 for acceptance).
 
 It does **not** check:
 
@@ -18,7 +18,7 @@ It does **not** check:
 - the order in which stacked layers lie on top of each other;
 - whether the motion stays inside the box (only the endpoint must fit);
 - thickness, manufacturability, strength, or actuation;
-- function or aesthetics (see DECISIONS.md open questions).
+- function or aesthetics. These are *ranking preferences* among passing designs (EXPERIMENT_SPEC.md section 5), not pass/fail checks.
 
 ## Contact policy caveats
 

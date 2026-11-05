@@ -32,7 +32,7 @@ For a given sheet size and box size, does a model trained from scratch output a 
 - **0 to 11 folds (1 to 12 panels).** Zero folds is the correct answer when the flat sheet already fits.
 - Each panel is at least 5% of sheet length.
 - Fold directions alternate mountain/valley. All folds move together on the existing simultaneous linear schedule.
-- The first panel stays fixed along the length axis; there is no reorientation search.
+- The first panel is the fixed reference frame for the motion. For the final fit, the folded shape may turn about the hinge axis (side-view rotation) and is placed at its recorded `placement` angle (D30).
 - Free fold directions, non-parallel creases and Miura-type patterns come only after this pipeline is proven.
 
 ### 3. Validity (decided layers, D11)
@@ -48,7 +48,7 @@ Out of scope, as in LIMITATIONS.md: continuous collision proof, layer order, thi
 
 ### 4. Task satisfaction (decided, D18)
 
-The final folded shape must fit inside the target box with a **2% gap on every axis**: each final dimension ≤ 0.98 × the box dimension. Height zero (flat folded) satisfies any height. Width cannot shrink in this family, so a box narrower than sheet width ÷ 0.98 is analytically infeasible.
+The final folded shape, turned by its placement angle, must fit inside the target box with a **2% gap on every axis**: each final dimension ≤ 0.98 × the box dimension. Height zero (flat folded) satisfies any height. Width cannot shrink in this family, so a box narrower than sheet width ÷ 0.98 is analytically infeasible.
 
 ### 5. Ranking (decided: D26–D29, replacing the D16 order)
 
@@ -94,7 +94,7 @@ Other settings:
 - Sheet width ÷ L is uniform in [0.05, 0.5].
 - For feasible requests, box width = sheet width × uniform [1.03, 1.30].
 - Sheet length is uniform in [10, 100]. Geometry is scale-free, so this only tests units.
-- Splits are grouped by (box length, box height) cells of 0.04 × 0.04, so near-duplicates never cross train/validation/test.
+- Splits are grouped by (box length, box height) cells of 0.04 × 0.04, so near-duplicates never cross train/validation/test. Since D30, a box and its length/height-swapped partner are the same problem and must share a group.
 
 Section 8's "three seeds" consistency check applies to stochastic solvers. The reference solver is deterministic, so its consistency evidence is instead: identical re-runs, the free-form completeness check, and the independent Codex checker (D25).
 
