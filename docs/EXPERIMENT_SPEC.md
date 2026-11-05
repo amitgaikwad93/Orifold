@@ -2,7 +2,7 @@
 
 Every experiment fills in this specification **before** data is generated or a model is trained. Part 1 is the reusable template. Part 2 is the agreed instance for the next experiment. Changing a filled-in specification after results are seen must be recorded as a new version, not edited silently.
 
-Status labels: **decided** = the user agreed (DECISIONS.md reference); **proposed** = an agent definition the user has not reviewed in detail, adjustable before the experiment is frozen.
+Status labels: **decided** = the user agreed (DECISIONS.md reference). The user accepted all agent-proposed sub-definitions on 2026-11-05 (D22); text still saying *proposed* below is decided unless listed in DECISIONS.md open questions.
 
 ## Part 1 — template
 
@@ -120,10 +120,25 @@ Reported for honesty about whether learning added value (AGENTS.md):
 - **Success** means the model learned to produce valid patterns for this family. It does not mean learning beats the hand rule or the solver.
 - **Failure** with a dataset that passed section 8 is real evidence about the model or training. Failure before section 8 passes says nothing about the approach.
 
+## Evidence so far: request-space map (2026-11-05)
+
+Report: https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj (private to the user). Data: `results/request-map-2026-11-05.json.gz` and `results/request-map-completeness-2026-11-05.json`. Rebuild with `npm run map -- <out.json>`, `npm run map:check -- <map.json> <out.json> 40 3`, and `npm run map:report -- <map.json> <out.html> <check.json>`.
+
+The grid has 729 requests: a 100 × 10 sheet, box length 0.04–1.08 and box height 0.02–1.06 (as fractions of sheet length) in steps of 0.04, box width 12. Measured:
+
+- **Solved:** 701. **Proven impossible:** 27 (first panel cannot fit). **Not found within 11 folds:** 1 (box 8 × 2).
+- **Fold counts:** 0: 54, 1: 469, 2: 118, 3: 31, 4: 13, 5: 6, 6: 5, 7: 1, 8: 3, 11: 1. A uniform grid is dominated by easy one-fold answers; interesting designs live in short boxes.
+- **Against the hand rule:** the reference never needs more folds. It needs fewer in 209 requests by using the box height, and solves 26 where the hand rule would need over 11 folds.
+- **Order scores:** 1: 54, 2: 412, 4: 118, 5: 117.
+- **Completeness check:** independent free-form search, with 3 seeds and one fold fewer than the reference, beat the reference in 3 of 218 cells. All three are designs from the reference's own family (different first panel, two angles) that its grid resolution missed.
+- **Search power:** at the reference's own fold count, the free-form search found designs in 168/168 cells needing 2–5 folds, but only 2/10 needing 6 or more. So "no fewer folds found" is good evidence up to about 5 folds and weak above.
+- **Runtime:** map 61 s, check 9 s on CPU.
+
+Observation for the ranking: several one-fold answers stop at 177–179° rather than a clean 180° flat fold. The swept-envelope tie-break (rank 5) prefers them by tiny margins before compactness is considered. See DECISIONS.md open questions.
+
 ## Next work items for this instance
 
-1. Extend the evaluator to allow 1 panel (0 folds); it currently requires at least 2.
-2. Add the 2% margin check, the active-crease rule and the ranking measures (order score, minimum gap, swept envelope).
-3. Build the reference solver (section 7) and the request-space map report (D15), including where the hand rule succeeds or fails.
-4. Run the dataset acceptance checks, then freeze splits.
-5. Build the visual review page needed for section 9.
+1. ~~Allow 1-panel designs~~; ~~margin, active-crease rule and ranking measures~~; ~~reference solver and map report~~ (done 2026-11-05: `src/packing.js`, `tests/packing.test.js`, scripts above).
+2. Fix the reference solver's resolution misses: refine near-miss designs using the contact check, not only overflow, and recheck the three beaten cells.
+3. Decide the open ranking and request-weighting questions, then define the frozen request distribution and run the dataset-acceptance checks (section 8).
+4. Build the visual review page needed for section 9.

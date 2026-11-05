@@ -1,59 +1,66 @@
 # Orifold handoff
 
-Snapshot: 2026-11-05. Tooling works end to end; the first learning experiment failed and a later audit showed its dataset could not fairly test the approach. The project is now **designing the experimental setup** before any new training. Procedure for updating this file: AGENTS.md, "Handoff procedure".
+Snapshot: 2026-11-05. The experiment v2 setup is agreed (EXPERIMENT_SPEC.md) and its first evidence exists: a deterministic reference solver and a request-space map of 729 box shapes. No v2 dataset or training yet. Procedure for updating this file: AGENTS.md, "Handoff procedure".
 
 ## Current state
 
 - Repository: https://github.com/amitgaikwad93/Orifold. Nothing is on `main` yet.
 - Draft PR #1 (`codex/phase-1-accordion`, open, unmerged) holds phases 1–3 up to commit `8d10889`.
-- Current working branch: `ccr-d2215757-ddp9pm`, branched from `8d10889`. It adds this session's docs and audit commits, which are **not** in PR #1. No PR exists for it yet; one would stack on PR #1.
-- Works: the Node geometry evaluator (`src/accordion.js`), the optimizer (`src/optimizer.js`, solves 150/150 held-out requests), the Python geometry port (parity tested), and the training/evaluation pipeline with frozen splits.
-- Does not work: the v1 network (0/150 strict, 3/150 within 1%). See docs/LEARNING.md.
-- Not implemented: FOLD export, a visualisation of datasets and outcomes, function/aesthetic metrics.
+- Working branch: `ccr-d2215757-ddp9pm`, branched from `8d10889`. It holds all docs, audit and v2 work since then, which is **not** in PR #1. No PR exists for it.
+- Works:
+  - the Node geometry evaluator (`src/accordion.js`, now including 1-panel designs);
+  - the v2 rules and reference solver (`src/packing.js`);
+  - the map, check and report scripts;
+  - the v1 optimizer, Python port and learning pipeline.
+- Does not work: the v1 network (0/150; LEARNING.md). The v1 dataset is unsuitable for reuse (D10).
+- Not implemented: the visual review page for the user's verdict, FOLD export, the v2 dataset and training.
 
-## Last session (2026-11-04)
+## Last session (2026-11-04 to 05)
 
-- Reviewed the project direction with the user. Findings: in the 4-panel accordion the optimizer already solves requests in ~130 ms, so learning cannot add practical value at this size. The v1 labels sit on the box boundary.
-- **Audited the v1 dataset** (`node scripts/audit-label-consistency.js experiments/learning-v1 results/label-consistency-audit-2026-11-04.json 40 12345`). Re-solving with another seed changed the design in 90% of 40 requests, and found lower rotation than the stored label in 24. Target boxes were derived from random folds. Recorded as DECISIONS.md D10.
-- The user set the current-stage focus: design the setup (experiment targets, objective dataset criteria, definition of valid origami) independent of scale (D11). The user also asked for plain-language communication and visuals (D12).
-- Documentation housekeeping:
-  - AGENTS.md rewritten, with the handoff SOP and communication rules;
-  - new docs/LIMITATIONS.md, the single source for evaluator caveats;
-  - new docs/GLOSSARY.md;
-  - audit notes added to LEARNING.md; README and PLAN updated.
-- Checks: `npm test` passed; the docs link check passed.
+- **v1 audit:** labels were inconsistent across seeds (D10).
+- **Docs restructured:** handoff SOP and communication rules in AGENTS.md; new LIMITATIONS.md and GLOSSARY.md.
+- **User decisions:**
+  - setup first (D11);
+  - geometric aesthetics and function measures (D14);
+  - variable fold count, fewest preferred, 0–11 folds (D13, D21);
+  - strict ranking order (D16);
+  - general request grid with no application tailoring (D17);
+  - 2% margin (D18);
+  - complexity only after the pipeline is proven (D19);
+  - success = the model outputs valid fold patterns, judged by the user visually (D20);
+  - all proposed sub-definitions accepted (D22).
+- **Built:** `src/packing.js` (rules, order score, minimum gap, swept area, ranking, hand rule, deterministic reference solver over ordered families with pattern-search refinement), `tests/packing.test.js` (9 tests), and the scripts `request-map.js`, `check-reference-completeness.js` and `render-map-report.js` (`npm run map`, `map:check`, `map:report`).
+- **Measured** (EXPERIMENT_SPEC.md, "Evidence so far"):
+  - 701/729 solved, 27 proven impossible, 1 not found;
+  - fewer folds than the hand rule in 209 requests;
+  - the independent free-form search beat the reference in 3/218 checked cells, all grid-resolution misses;
+  - the free-form search is reliable up to about 5 folds.
+- **Evidence:** `results/request-map-2026-11-05.json.gz`, `results/request-map-completeness-2026-11-05.json`.
+- **Report** (private to the user): https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
+- **Checks:** `npm test` passed, 40/40.
 
 ## In discussion / open
 
-The setup discussion is concluded for experiment v2. Decisions D13–D21 (2026-11-05) are written up in [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md):
+DECISIONS.md open questions:
 
-- parallel creases, 0–11 folds, alternating directions;
-- a 2% fit margin;
-- a strict ranking: fewest folds, then most ordered, then gap, sweep, compactness;
-- a general systematic request grid;
-- success = the model outputs valid fold patterns, judged by the user on a visual review page.
+1. Near-flat versus flat: should tiny swept-area differences count as ties so a clean 180° fold wins?
+2. Weighting requests toward short boxes, since a uniform grid is 64% one-fold.
 
-Still open: the agent-proposed sub-definitions marked *proposed* in the spec (DECISIONS.md open question 1). They can be adjusted before the experiment is frozen.
+The user also offered Codex for independent work or verification. A suggested brief is in the latest chat reply; nothing has been sent.
 
 ## Next concrete task
 
-Implement EXPERIMENT_SPEC.md "Next work items" 1–3:
-
-1. Allow 1-panel designs in `src/accordion.js`.
-2. Add the 2% margin, active-crease rule and ranking measures, with tests.
-3. Build the seed-independent reference solver and a request-space map report page showing feasible, infeasible and unknown regions and where the hand rule works.
-
-Show the map to the user before generating any training data.
+Fix the reference solver's three resolution misses: refine using contact feasibility as well as overflow, then rerun the map and check into new files. Then get the user's answers to the two open questions, freeze the v2 request distribution, and run the dataset-acceptance checks (spec section 8).
 
 ## Runtime
 
-No jobs are running. The Python/PyTorch venv is not installed in this container; the setup steps are in docs/LEARNING.md and are only needed for learning-code work. `npm test` needs only Node 18 or later.
+No jobs are running. Python venv not installed in this container (only needed for learning code). `artifacts/request-map/` holds this session's exploratory copies; it is ignored by git.
 
 ## Commands
 
 ```sh
 npm test
-.venv/bin/python -m unittest discover -s tests -p 'test_*.py' -v   # after venv setup
-npm run solve -- examples/narrow-box.json
-python3 -m http.server 8000   # then open /demo/accordion.html
+npm run map -- artifacts/<dir>/map.json                       # ~1 min CPU
+npm run map:check -- artifacts/<dir>/map.json artifacts/<dir>/check.json 40 3
+npm run map:report -- artifacts/<dir>/map.json artifacts/<dir>/report.html artifacts/<dir>/check.json
 ```

@@ -68,7 +68,8 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - [x] Audit v1 labels: inconsistent across seeds (DECISIONS.md D10). v1 validated the pipeline, not the approach.
 - [x] Experiment specification agreed in principle: [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md) (DECISIONS.md D13–D21). Parallel creases, 0–11 folds, 2% margin, strict ranking, success judged by the user on a visual review page.
 - [x] Visualisation approach chosen: built on demand (D15).
-- [ ] Next: extend the evaluator to 0 folds, add the margin check and ranking measures, build the seed-independent reference solver and a request-space map report (where the hand rule succeeds or fails), then pass the dataset-acceptance checks before any training.
+- [x] Evaluator handles 0 folds; v2 rules, ranking measures and a deterministic reference solver in `src/packing.js`. Request-space map of 729 requests published, with an independent completeness check (EXPERIMENT_SPEC.md, "Evidence so far").
+- [ ] Next: fix the reference solver's 3 resolution misses, settle the two open ranking/weighting questions, freeze the request distribution and pass the dataset-acceptance checks before any training.
 - [ ] Build the visual review page for the user's verdict (spec section 9).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.

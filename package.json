@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node --test tests/*.test.js",
     "solve": "node scripts/solve.js",
-    "pilot": "node scripts/pilot.js"
+    "pilot": "node scripts/pilot.js",
+    "map": "node scripts/request-map.js",
+    "map:check": "node scripts/check-reference-completeness.js",
+    "map:report": "node scripts/render-map-report.js"
   }
 }

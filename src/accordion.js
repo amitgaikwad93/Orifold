@@ -6,9 +6,9 @@ const OrifoldAccordion = (() => {
   const RELATIVE_EPSILON = 1e-9;
 
   function validateDesign({ panelLengths, width, angles } = {}) {
-    if (!Array.isArray(panelLengths) || panelLengths.length < 2 ||
+    if (!Array.isArray(panelLengths) || panelLengths.length < 1 ||
         !panelLengths.every(x => Number.isFinite(x) && x > 0)) {
-      throw new Error('Supply at least two positive, finite panel lengths.');
+      throw new Error('Supply at least one positive, finite panel length.');
     }
     const length = panelLengths.reduce((sum, x) => sum + x, 0);
     if (!Number.isFinite(length) || panelLengths.some(x => x <= length * 1e-8)) {

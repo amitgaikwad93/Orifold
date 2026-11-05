@@ -41,6 +41,10 @@ For the project owner and any agent explaining the work. Each entry: what it is,
 - **Nearest-neighbour baseline** — answer a new request by copying the solution of the most similar known request. If this beats the network, the network is not adding much.
 - **Amortized optimization** — spending effort once in training so that each later request is answered instantly, instead of running a search every time. This is the main practical reason to use learning here.
 
+- **Reference solver** — our deterministic (no randomness) search that produces one best answer per request, following the agreed ranking. It produces the answers a model would learn from or be compared with.
+- **Request-space map** — a picture of every box shape on a grid, showing which are solvable and how many folds each needs. It shows where the problem is easy, hard or impossible before any training.
+- **Completeness check / search power** — testing the reference with an independent search. If the independent search finds a better answer, the reference missed it. *Search power* is how good that independent search is at finding answers that we know exist; weak search power makes "nothing better found" weak evidence.
+
 ## Experiment practice
 
 - **Predeclared** — targets, settings and the test set are fixed *before* seeing results, so we cannot fool ourselves after the fact.
