@@ -19,11 +19,16 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-None. Review round 2 on v2b: 48/48 valid. The answer key and dataset are accepted for training.
+v2b model run 1 is trained (`experiments/learning-v2b/run-1/`; config `train-config.json`). Validation results:
+- **model alone:** 45.3% pass (all failures are fit; the fold count is often wrong);
+- **model + correction:** 93.8% pass (`scripts/repair-designs.js`), about 5 ms per answer;
+- **dumb start + correction:** 77.0%.
+
+See `run-1/validation-analysis.json`. The test split is untouched. Waiting for the user to choose: run the one-time test now (predeclaring model + correction first), or improve the model on validation first.
 
 ## Next concrete task
 
-Read the round-2 verdicts (ArtifactData `list` on `verdicts`, filter `round == answer-key-2`) and fix the answer key if anything is rejected. Train on **v2b**, not v2. Then write `experiments/learning-v2/train-config.json` (predeclared model, inputs including the fold budget, loss, checkpoint selection on validation only), restore the Python environment (LEARNING.md), and train on CPU. Evaluate on test once; report cases beyond the training range separately.
+Act on the user's choice. Before any test run, add "model + correction" to `train-config.json` as a predeclared reported method.
 
 ## Runtime
 
