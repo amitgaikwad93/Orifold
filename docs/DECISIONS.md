@@ -225,7 +225,12 @@ Fold directions stay strictly alternating for experiment v2; 1° direction-switc
 
 ## D34 — every crease on a box wall, ranked before spread (user decision, 2026-11-05)
 
-From review round answer-key-1 ("prefer hinge at the boundary") and two follow-up answers:
+From review round answer-key-1 (48 training answers: 42 valid, 6 unsure, 0 not valid; `experiments/learning-v2/acceptance/review-answer-key-1.json`):
+- 5 of the 6 unsure were one-fold, gentle, diagonally placed folds with the note "Prefer hinge at the boundary";
+- one unsure was the "spacer panel" pattern;
+- one valid answer carried the note "would make both panels of same size" (91 + 9 L-shape in a narrow box).
+
+Settled by two follow-up answers:
 - every crease, not just one, should rest on a box wall;
 - this ranks before spread.
 
