@@ -84,6 +84,10 @@ The user is not an ML engineer and is learning through this project. Explain wha
 
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Function and aesthetics.** The user says function and aesthetics matter alongside validity. How to measure them is open. Agent proposal (2026-11-04): functional metrics computed from geometry (compaction ratio, fill of the target box, margin to collisions, number of active creases, smoothness of the motion), and aesthetics captured first as user preference judgements (pairwise "which do you prefer" comparisons of rendered folds), later possibly approximated by simple geometric proxies (regularity, symmetry, panel-length ratios).
+1. **Function and geometric aesthetics.** The user clarified (2026-11-05) that "aesthetics" means **geometric** order in the design itself, not visual presentation: v1's random folds had no structure, so no aesthetics. Measured on v1 labels: 13/1,000 have equal panels, 13 a uniform angle, 21 mirror-symmetric panels, 192 use every crease. Agent proposal, not decided:
+   - Candidate measures: proportion (simple panel ratios), angle consistency (number of distinct angles), symmetry (pattern and folded shape), economy (no unused creases), repetition (for larger patterns), and description length as a summary of these.
+   - Recommended use: as the quality tie-break among fitting designs ("most ordered design that fits"), rather than as a hard rule or a report-only metric. Expected, not yet measured, to also make labels consistent (D10); verify with the label-consistency audit.
+   - Show the trade-off between function and order on the request-space map: fits with a fully regular design, fits only with a compromise, does not fit.
+   - Function metrics depend on the intended use of the folds, which the user has not stated yet. Candidates: compaction, box fill, collision clearance, active-crease count, swept envelope.
 2. **Visualisation setup** on the user's PC. Options recommended 2026-11-04: an improved browser viewer in this repo, FOLD export to an existing origami simulator, a static report gallery of rendered folds, or a notebook. No choice made yet.
 3. **Experiment specification content** (D11): validity layers, quality objective, request distribution, success target.

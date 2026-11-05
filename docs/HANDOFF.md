@@ -27,7 +27,7 @@ Snapshot: 2026-11-04. Tooling works end to end; the first learning experiment fa
 
 The user said the setup discussion is **not finished**. Open items are listed in DECISIONS.md, "Open questions":
 
-1. How to measure function and aesthetics.
+1. How to measure function and **geometric** aesthetics (order built into the design, not visual style; clarified 2026-11-05). The proposal is to use it as the quality tie-break.
 2. Which visualisation route to use on the user's PC.
 3. The content of the experiment specification: validity layers, quality objective, request distribution, success target.
 
