@@ -19,12 +19,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-v2b model run 1 is trained (`experiments/learning-v2b/run-1/`; config `train-config.json`). Validation results:
-- **model alone:** 45.3% pass (all failures are fit; the fold count is often wrong);
-- **model + correction:** 93.8% pass (`scripts/repair-designs.js`), about 5 ms per answer;
-- **dumb start + correction:** 77.0%.
-
-See `run-1/validation-analysis.json`. The test split is untouched. Waiting for the user to choose: run the one-time test now (predeclaring model + correction first), or improve the model on validation first.
+v2b model runs 1–3 are done on validation (EXPERIMENT_SPEC.md, "v2b model runs"). The user's framing, adopted: aim for precision (low scatter) as well as validity, and track bias, scatter and the tolerance curve per run (`scripts/precision-report.py`, `scripts/tolerance-curve.js`). Proposed run 4, awaiting the user: (a) crease-position imitation, (b) a bigger network. Both judged first on training-set fit. The test split is untouched.
 
 ## Next concrete task
 

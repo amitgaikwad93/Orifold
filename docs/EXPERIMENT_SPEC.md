@@ -227,6 +227,23 @@ This is the answer-key baseline for the v2 dataset.
 
 The v2 dataset is kept as a record but superseded for training by v2b.
 
+## v2b model runs (validation only; the test split is untouched)
+
+Configs are in `experiments/learning-v2b/train-config*.json` and evidence is in `run-*/`. All runs use the same data, inputs, outputs and network (MLP 256×256, 75,554 parameters, trained from scratch on CPU in about 2–3 minutes).
+
+| Run | Loss | Model-alone pass (validation / train) | Opening bias / scatter | Pass at 1% / 5% / 10% sheet tolerance | Model + correction |
+| --- | --- | --- | --- | --- | --- |
+| 1 | imitation | 45.3% / 46.6% | −3.9° / 6.2° | 53.8 / 74.5 / 82.3% | 93.8%, opening 76° |
+| 2 (w100) | + fit penalty | 78.5% / 86.0% | −36.3° / 32.9° | 84.0 / 90.8 / 95.2% | 96.7%, opening 17° |
+| 3 (t100, selected by bias rule) | + do-not-fold-tighter | 48.6% / 48.2% | −5.1° / 6.5° | 59.4 / 71.7 / 82.8% | 89.2%, opening 76° |
+
+Nearest-neighbour copy: 51.3%. Imitation ceiling: 99.6%.
+
+Reading:
+- Run 2's validity came from aiming away from the walls (folding tighter), not from precision.
+- With the aim held near the reference (run 3), validity returns to about 48%, and the model fits its own training data no better.
+- Precision is the bottleneck. Next: shape-based (crease-position) imitation and/or more capacity, judged first on training-set fit and scatter.
+
 ## Next work items for this instance
 
 1. ~~Answer key, map, checks~~ (r6) and ~~v2 dataset with acceptance checks~~ (done 2026-11-05).
