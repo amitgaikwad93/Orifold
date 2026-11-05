@@ -102,13 +102,23 @@ kbd { font-family: var(--mono); font-size: 11px; border: 1px solid var(--rule); 
     <h1>Fold Review</h1>
     <p class="lede">Each item is one answer from the answer key: a sheet folded to fit a box, within a fold budget. Judge whether it is a valid fold pattern you would accept. Play the motion to see it fold. Your verdicts are saved as you go and Claude reads them back. These items come from the training split only.</p>
   </header>
+  <section class="card" aria-label="How to review" style="gap:8px">
+    <h2>How to review</h2>
+    <p class="lede">The computer has already checked the hard rules: it fits the box, no panels collide, and every panel is valid. Your job is the judgment it cannot make: <b>would you accept this as an answer for this box and this fold budget?</b></p>
+    <dl>
+      <dt>Valid fold</dt><dd style="font-family:inherit">You would be happy for the model to learn to produce this.</dd>
+      <dt>Not valid</dt><dd style="font-family:inherit">Something looks wrong: panels crossing or overlapping, poking out of the box, or physically implausible.</dd>
+      <dt>Unsure</dt><dd style="font-family:inherit">Technically fine but odd: a pointless-looking crease, a strangely tiny panel, a shape you would not call good origami.</dd>
+    </dl>
+    <p class="cap">Press Play to watch it fold. The open dot is the end that stays still. The sheet starts flat and turns into its place in the box as it folds. Designs with one fold have one moving panel. A short note on any "Not valid" or "Unsure" helps most.</p>
+  </section>
   <div class="bar" id="bar"></div>
   <div id="notice" class="notice" hidden></div>
   <div class="main">
     <section class="card" aria-label="Fold">
       <h2 id="title"></h2>
       <svg class="side" id="side" viewBox="0 0 100 100" role="img" aria-label="Side view of the fold inside the box"></svg>
-      <p class="cap">Side view, final shape turned and placed in the box. Solid outline: box. Dashed: 98% limit. Open dot: fixed end. Panels alternate two shades. The frame fits the box, so mid-motion poses can run past it.</p>
+      <p class="cap">Side view. Solid outline: box. Dashed: 98% limit. Open dot: the end that stays still. Panels alternate two shades. The frame fits the box, so mid-motion poses can run past it.</p>
       <div class="motion"><button class="btn" id="play">Play</button><input id="prog" type="range" min="0" max="1" step="0.005" value="1" aria-label="Folding progress"><span id="pval" class="eyebrow">100%</span></div>
     </section>
     <section class="card" aria-label="Verdict">
@@ -159,7 +169,8 @@ function draw() {
   const X = x => 50 + (x - cx) * sc, Z = z => 50 - (z - cz) * sc;
   el('rect', { x: X(0), y: Z(it.box[1]), width: it.box[0] * sc, height: it.box[1] * sc, fill: 'none', stroke: 'var(--box)', 'stroke-width': .6 }, s);
   el('rect', { x: X(0), y: Z(it.box[1] * .98), width: it.box[0] * .98 * sc, height: it.box[1] * .98 * sc, fill: 'none', stroke: 'var(--box)', 'stroke-width': .35, 'stroke-dasharray': '1.2 1' }, s);
-  const q = section(it.panels, it.angles, progress, it.psi).map(([x, z]) => [X(x - mx), Z(z - mz)]);
+  // The sheet starts flat and turns into its box placement as it folds (fold angles and turn both scale with progress).
+  const q = section(it.panels, it.angles, progress, it.psi * progress).map(([x, z]) => [X(x - mx), Z(z - mz)]);
   for (let i = 0; i < q.length - 1; i++) el('line', { x1: q[i][0], y1: q[i][1], x2: q[i + 1][0], y2: q[i + 1][1], stroke: i % 2 ? 'var(--panel-b)' : 'var(--panel-a)', 'stroke-width': 1.3, 'stroke-linecap': 'round' }, s);
   q.slice(1, -1).forEach(([x, z]) => el('circle', { cx: x, cy: z, r: .8, fill: 'var(--ink)' }, s));
   el('circle', { cx: q[0][0], cy: q[0][1], r: 1.1, fill: 'var(--sheet)', stroke: 'var(--ink)', 'stroke-width': .4 }, s);

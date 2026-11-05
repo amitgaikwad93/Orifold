@@ -296,7 +296,7 @@ function drawSide() {
   const bx = c.x, bz = c.z;
   // Place the final shape at the bottom-left of the box; motion uses the same offset.
   let lo = [0, 0], hi = [bx, bz];
-  for (let k = 0; k <= 40; k++) for (const [x, z] of section(c.panels, c.angles, k / 40, c.psi)) {
+  for (let k = 0; k <= 40; k++) for (const [x, z] of section(c.panels, c.angles, k / 40, c.psi * k / 40)) {
     lo = [Math.min(lo[0], x - minX), Math.min(lo[1], z - minZ)]; hi = [Math.max(hi[0], x - minX), Math.max(hi[1], z - minZ)];
   }
   const span = Math.max(hi[0] - lo[0], hi[1] - lo[1]) * 1.12, pad = 4, s = (100 - 2 * pad) / span;
@@ -304,7 +304,8 @@ function drawSide() {
   const X = x => 50 + (x - cx) * s, Z = z => 50 - (z - cz) * s;
   el('rect', { x: X(0), y: Z(bz), width: bx * s, height: bz * s, fill: 'none', stroke: 'var(--box)', 'stroke-width': 0.6 }, svgS);
   el('rect', { x: X(0), y: Z(bz * 0.98), width: bx * 0.98 * s, height: bz * 0.98 * s, fill: 'none', stroke: 'var(--box)', 'stroke-width': 0.35, 'stroke-dasharray': '1.2 1' }, svgS);
-  const pts = section(c.panels, c.angles, progress, c.psi).map(([x, z]) => [X(x - minX), Z(z - minZ)]);
+  // The sheet starts flat and turns into its box placement as it folds.
+  const pts = section(c.panels, c.angles, progress, c.psi * progress).map(([x, z]) => [X(x - minX), Z(z - minZ)]);
   for (let i = 0; i < pts.length - 1; i++) el('line', { x1: pts[i][0], y1: pts[i][1], x2: pts[i + 1][0], y2: pts[i + 1][1], stroke: i % 2 ? 'var(--panel-b)' : 'var(--panel-a)', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, svgS);
   pts.slice(1, -1).forEach(([x, z]) => el('circle', { cx: x, cy: z, r: 0.9, fill: 'var(--ink)' }, svgS));
   el('circle', { cx: pts[0][0], cy: pts[0][1], r: 1.2, fill: 'var(--sheet)', stroke: 'var(--ink)', 'stroke-width': 0.4 }, svgS);
