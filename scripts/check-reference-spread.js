@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // Independent check of the reference's spread (D27): for sampled cells and each fold budget, a free-form
 // randomized search (any panel lengths and angles, exactly budget+1 panels) maximizes the smallest
-// opening angle. If it finds a valid design wider than the reference's band (10%), the reference
+// opening angle (since D34, among designs with every crease on a wall). If it finds a valid design wider than the reference's band (10%), the reference
 // missed a meaningfully more spread design.
 // Usage: node scripts/check-reference-spread.js <map.json> <output.json> [cells=60] [seeds=3]
 const fs = require('fs');
-const { assess, ruleViolations, motionMetrics, overflowOf, spreadOf, RULES } = require('../src/packing');
+const { assess, ruleViolations, motionMetrics, overflowOf, wallPlacement, floatingAt, spreadOf, RULES } = require('../src/packing');
 const { randomGenerator } = require('../src/optimizer');
 const [mapPath, output, cellsArg = '60', seedsArg = '3'] = process.argv.slice(2);
 if (!mapPath || !output) { console.error('Usage: <map.json> <output.json> [cells] [seeds]'); process.exit(2); }
@@ -22,6 +22,11 @@ function score(design, request) {          // higher is better; >= 0 means valid
   const over = Math.max(0, overflowOf(design, request));   // best placement angle (D30), recorded on the design
   if (over > 0) return -2 - over;
   if (motionMetrics(design, 30).blockedSamples) return -1;
+  if (RULES.creasesOnWalls) {   // D34: only designs with every crease on a wall compete
+    const w = wallPlacement(design, request);
+    if (w.overflow > 0) return -1;
+    if (w.floating > 0) return -0.5 - Math.min(0.4, 10 * w.distance);
+  }
   return spreadOf(design) / 180;
 }
 function search(n, request, seed, population = 40, generations = 200) {
@@ -37,8 +42,10 @@ function search(n, request, seed, population = 40, generations = 200) {
   const order = fit.map((f, i) => [f, i]).sort((x, y) => y[0] - x[0]);
   for (const [f, i] of order.slice(0, 5)) {       // best few, confirmed at 721 samples
     if (f < 0) break;
-    const design = decode(pop[i], n, request); overflowOf(design, request); const q = assess(design, request);
-    if (q.passes) return { design, spread: q.spread };
+    const design = decode(pop[i], n, request); overflowOf(design, request);
+    if (RULES.creasesOnWalls) wallPlacement(design, request);
+    const q = assess(design, request);
+    if (q.passes && (!RULES.creasesOnWalls || q.floatingCreases === 0)) return { design, spread: q.spread };
   }
   return null;
 }
