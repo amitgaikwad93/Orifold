@@ -106,8 +106,39 @@ def predict(model, ex):
     return [decode(fl[i], pv[i], pa[i], e['row']['request'], e['budget']) for i, e in enumerate(ex)]
 
 
+def fold_extents(v, ang, k, psi):
+    """Differentiable side-view extents (dx, dz) in sheet-length units of the shape with k folds, panels from the
+    stick-breaking fractions v and angles from ang (both [B, 11]), turned by psi degrees. Matches src/accordion.js."""
+    B = v.shape[0]; n = (k + 1).float()
+    rem = 1 - MIN_PANEL * n; lengths = []
+    for i in range(MAX_FOLDS + 1):
+        if i < MAX_FOLDS:
+            active = (k > i).float()                      # panel i is a non-last panel
+            a = rem * v[:, i] * active; rem = rem - a
+        is_last = (k == i).float()
+        exists = (k >= i).float()
+        li = (MIN_PANEL + (a if i < MAX_FOLDS else 0)) * (exists - is_last) + (MIN_PANEL + rem) * is_last
+        lengths.append(li * exists)
+    lengths = torch.stack(lengths, 1)                     # [B, 12]
+    deg = 1 + 179 * ang                                  # [B, 11]
+    fold_mask = (torch.arange(MAX_FOLDS).unsqueeze(0) < k.unsqueeze(1)).float()
+    sign = torch.tensor([1.0 if i % 2 == 0 else -1.0 for i in range(MAX_FOLDS)])
+    turn = torch.cumsum(deg * fold_mask * sign, 1)        # orientation of panels 1..11
+    orient = torch.cat([torch.zeros(B, 1), turn], 1) + psi.unsqueeze(1)
+    r = orient * math.pi / 180
+    xs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.cos(r), 1)], 1)
+    zs = torch.cat([torch.zeros(B, 1), torch.cumsum(lengths * torch.sin(r), 1)], 1)
+    return xs.max(1).values - xs.min(1).values, zs.max(1).values - zs.min(1).values
+
+
+def fit_penalty(model, x, k, psi, ux, uz, margin):
+    _, pv, pa = model(x)
+    dx, dz = fold_extents(pv, pa, k, psi)
+    return (torch.relu(dx - (1 - margin) * ux) ** 2 + torch.relu(dz - (1 - margin) * uz) ** 2).mean()
+
+
 def train(args):
-    config = json.loads((ROOT / 'experiments/learning-v2b/train-config.json').read_text())
+    config = json.loads((ROOT / args.config).read_text())
     out = Path(args.output)
     if out.exists():
         raise SystemExit(f'{out} exists; use a new output directory')
@@ -120,6 +151,14 @@ def train(args):
     model.mean.copy_(xs.mean(0)); model.std.copy_(xs.std(0).clamp(min=1e-6))
     opt = torch.optim.Adam(model.parameters(), lr=t['learningRate'])
     Xt, Kt, Vt, At, Mt = batch_tensors(tr); Xv, Kv, Vv, Av, Mv = batch_tensors(va)
+    fit = config.get('fitLoss'); weight = args.fit_weight if fit else 0.0
+    def geo(ex):
+        u = [[0.98 * e['row']['request']['targetBox'][0] / e['row']['request']['length'], 0.98 * e['row']['request']['targetBox'][2] / e['row']['request']['length']] for e in ex]
+        return (torch.tensor([e['answer']['design'].get('placement', 0.0) for e in ex], dtype=torch.float32),
+                torch.tensor([a for a, _ in u], dtype=torch.float32), torch.tensor([b for _, b in u], dtype=torch.float32))
+    Pt, UXt, UZt = geo(tr); Pv, UXv, UZv = geo(va)
+    margin = fit['margin'] if fit else 0.0
+    total = lambda X, K, V, A, M, P, UX, UZ: loss_fn(model, X, K, V, A, M) + (weight * fit_penalty(model, X, K, P, UX, UZ, margin) if weight else 0)
     params = sum(p.numel() for p in model.parameters())
     print(f'train examples {len(tr)}, validation {len(va)}, parameters {params}', flush=True)
     history, best, since, started = [], None, 0, time.time()
@@ -127,11 +166,11 @@ def train(args):
         model.train(); perm = torch.randperm(len(tr))
         for i in range(0, len(tr), t['batchSize']):
             idx = perm[i:i + t['batchSize']]
-            opt.zero_grad(); loss = loss_fn(model, Xt[idx], Kt[idx], Vt[idx], At[idx], Mt[idx]); loss.backward(); opt.step()
+            opt.zero_grad(); loss = total(Xt[idx], Kt[idx], Vt[idx], At[idx], Mt[idx], Pt[idx], UXt[idx], UZt[idx]); loss.backward(); opt.step()
         if epoch % 50 == 0:
             model.eval()
             with torch.no_grad():
-                tl = float(loss_fn(model, Xt, Kt, Vt, At, Mt)); vl = float(loss_fn(model, Xv, Kv, Vv, Av, Mv))
+                tl = float(total(Xt, Kt, Vt, At, Mt, Pt, UXt, UZt)); vl = float(total(Xv, Kv, Vv, Av, Mv, Pv, UXv, UZv))
             res = assess([(e['id'], e['row']['request'], d) for e, d in zip(va, predict(model, va))])
             rate = sum(r['passes'] for r in res.values()) / len(va)
             history.append({'epoch': epoch, 'trainLoss': tl, 'validationLoss': vl, 'validationPassRate': rate})
@@ -145,7 +184,7 @@ def train(args):
                 break
     torch.save({'state': best['state'], 'hidden': config['model']['hidden']}, out / 'checkpoint.pt')
     (out / 'history.json').write_text(json.dumps(history, indent=1) + '\n')
-    (out / 'training-summary.json').write_text(json.dumps({'config': 'experiments/learning-v2b/train-config.json',
+    (out / 'training-summary.json').write_text(json.dumps({'config': args.config, 'fitWeight': weight,
         'parameters': params, 'trainExamples': len(tr), 'validationExamples': len(va), 'selectedEpoch': best['epoch'],
         'validationPassRate': best['rate'], 'validationLoss': best['loss'], 'stoppedAtEpoch': history[-1]['epoch'],
         'trainingSeconds': round(time.time() - started, 1), 'torch': torch.__version__, 'python': sys.version.split()[0]}, indent=2) + '\n')
@@ -178,5 +217,6 @@ def predict_cmd(args):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(); sub = ap.add_subparsers(dest='cmd', required=True)
     a = sub.add_parser('train'); a.add_argument('--output', required=True)
+    a.add_argument('--config', default='experiments/learning-v2b/train-config.json'); a.add_argument('--fit-weight', type=float, default=0.0)
     b = sub.add_parser('predict'); b.add_argument('--run', required=True); b.add_argument('--split', required=True)
     args = ap.parse_args(); train(args) if args.cmd == 'train' else predict_cmd(args)
