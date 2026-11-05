@@ -1,0 +1,47 @@
+{
+  "experiment": "learning-v2b model run 1",
+  "predeclared": "2026-11-05, written before any v2b training run; changes after seeing results must go into a new config",
+  "dataset": "experiments/learning-v2b/dataset.jsonl.gz",
+  "examples": "one example per (request, fold budget) reference answer; train split for fitting, validation split for checkpoint selection, test split evaluated once at the end",
+  "inputs": {
+    "features": [
+      "shorter box side / sheet length",
+      "longer box side / sheet length",
+      "fold budget / 11"
+    ],
+    "note": "box length and height are sorted because a box and its swapped partner are the same problem (D30); box width and sheet width only decide feasibility and are not inputs"
+  },
+  "outputs": {
+    "foldCount": "12-way classification (0..11 folds), restricted to at most the budget at prediction time",
+    "panels": "11 stick-breaking fractions in [0, 1] (each panel at least 5% of sheet length); the first (folds) are used",
+    "angles": "11 values in [0, 1] mapped to 1..180 degrees; the first (folds) are used",
+    "placement": "not predicted: the predicted shape is placed with the same deterministic placement search as the reference (wall placement)"
+  },
+  "model": {
+    "type": "MLP",
+    "hidden": [
+      256,
+      256
+    ],
+    "activation": "tanh",
+    "initialization": "PyTorch default, from scratch"
+  },
+  "loss": "cross-entropy(fold count) + mean squared error on the used panel fractions + mean squared error on the used angles, with the true fold count (teacher forcing)",
+  "training": {
+    "optimizer": "Adam",
+    "learningRate": 0.001,
+    "batchSize": 128,
+    "maxEpochs": 3000,
+    "seed": 20261107,
+    "threads": 1
+  },
+  "checkpointSelection": "every 50 epochs: validation pass rate from the Node reference checker (valid + fits after placement, 721 motion states); best pass rate wins, ties broken by lower validation loss; stop after 600 epochs without improvement",
+  "successCriterion": "D20: share of test (request, budget) answers whose predicted design passes all hard rules; the user judges a visual sample. Reference point 95%.",
+  "reportedAlongside": [
+    "all creases on walls (D34) and opening angle relative to the reference answer",
+    "fold count equal to the reference",
+    "baselines on the same test answers: hand rule (fold-budget-agnostic), nearest-neighbour copy of the closest training answer with the same budget, reference solver",
+    "test answers needing more folds than any training answer reported separately (known split imbalance)"
+  ],
+  "ceiling": "Decoded reference labels (perfect imitation) pass 4,343/4,359 training answers (99.6%); the 16 failures are zero-slack fits that tip over by floating-point decoding error. This is the ceiling for imitation in this output format."
+}
