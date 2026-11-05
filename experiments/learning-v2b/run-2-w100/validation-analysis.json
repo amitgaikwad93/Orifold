@@ -1,0 +1,74 @@
+{
+  "split": "validation (development only; test untouched)",
+  "answers": 768,
+  "selection": {
+    "w10": {
+      "selectedEpoch": 200,
+      "validationPass": 0.652
+    },
+    "w100": {
+      "selectedEpoch": 250,
+      "validationPass": 0.785
+    },
+    "chosen": "w100 (higher validation pass, per predeclared rule)"
+  },
+  "modelAlone_w100": {
+    "passRate": 0.7852,
+    "trainPassRate": 0.86,
+    "failures": {
+      "doesNotFit": 165,
+      "collision": 0
+    },
+    "overflowOfFailures": {
+      "p25": 0.01,
+      "median": 0.0373,
+      "p75": 0.0921
+    },
+    "passByReferenceFolds": {
+      "0": [
+        96,
+        1.0
+      ],
+      "1": [
+        204,
+        0.88
+      ],
+      "2": [
+        303,
+        0.69
+      ],
+      "3": [
+        112,
+        0.7
+      ],
+      "4": [
+        52,
+        0.75
+      ],
+      "5": [
+        1,
+        1.0
+      ]
+    },
+    "passByKind": {
+      "long": [
+        174,
+        0.845
+      ],
+      "short": [
+        594,
+        0.768
+      ]
+    },
+    "passingWithAllCreasesOnWalls": [
+      473,
+      603
+    ],
+    "passingOpeningAngleOverReference": {
+      "median": 0.33,
+      "p25": 0.13
+    },
+    "inferenceMsPerAnswer": 0.0253
+  },
+  "reading": "The fit penalty raised model-alone validity from 45% to 78.5%, but passing designs open only about a third as wide as the reference: the model folds tighter to stay inside the box. Validity improved at the cost of the spread preference (D27), which the loss does not reward."
+}
