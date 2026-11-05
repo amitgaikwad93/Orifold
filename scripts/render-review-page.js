@@ -65,7 +65,7 @@ p { margin: 0; }
 .main { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 18px; align-items: start; }
 @media (max-width: 820px) { .main { grid-template-columns: minmax(0, 1fr); } }
 .card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
-svg.side { width: 100%; height: auto; aspect-ratio: 1 / 1; background: var(--paper); border-radius: 4px; display: block; }
+svg.side { overflow: hidden; width: 100%; height: auto; aspect-ratio: 1 / 1; background: var(--paper); border-radius: 4px; display: block; }
 .cap { font-size: 12.5px; color: var(--ink-2); }
 .motion { display: flex; gap: 12px; align-items: center; }
 .motion input { flex: 1; min-width: 0; accent-color: var(--accent); }
@@ -108,7 +108,7 @@ kbd { font-family: var(--mono); font-size: 11px; border: 1px solid var(--rule); 
     <section class="card" aria-label="Fold">
       <h2 id="title"></h2>
       <svg class="side" id="side" viewBox="0 0 100 100" role="img" aria-label="Side view of the fold inside the box"></svg>
-      <p class="cap">Side view, final shape turned and placed in the box. Solid outline: box. Dashed: 98% limit. Open dot: fixed end. Panels alternate two shades.</p>
+      <p class="cap">Side view, final shape turned and placed in the box. Solid outline: box. Dashed: 98% limit. Open dot: fixed end. Panels alternate two shades. The frame fits the box, so mid-motion poses can run past it.</p>
       <div class="motion"><button class="btn" id="play">Play</button><input id="prog" type="range" min="0" max="1" step="0.005" value="1" aria-label="Folding progress"><span id="pval" class="eyebrow">100%</span></div>
     </section>
     <section class="card" aria-label="Verdict">
@@ -152,8 +152,9 @@ function section(P, A, t, psi) {
 function draw() {
   const it = items[idx], s = $('side'); s.innerHTML = '';
   const fin = section(it.panels, it.angles, 1, it.psi), mx = Math.min(...fin.map(p => p[0])), mz = Math.min(...fin.map(p => p[1]));
+  // Frame the box and the final shape; mid-motion poses may run past the frame.
   let lo = [0, 0], hi = [it.box[0], it.box[1]];
-  for (let k = 0; k <= 30; k++) for (const [x, z] of section(it.panels, it.angles, k / 30, it.psi)) { lo = [Math.min(lo[0], x - mx), Math.min(lo[1], z - mz)]; hi = [Math.max(hi[0], x - mx), Math.max(hi[1], z - mz)]; }
+  for (const [x, z] of fin) { lo = [Math.min(lo[0], x - mx), Math.min(lo[1], z - mz)]; hi = [Math.max(hi[0], x - mx), Math.max(hi[1], z - mz)]; }
   const span = Math.max(hi[0] - lo[0], hi[1] - lo[1]) * 1.1, sc = 92 / span, cx = (lo[0] + hi[0]) / 2, cz = (lo[1] + hi[1]) / 2;
   const X = x => 50 + (x - cx) * sc, Z = z => 50 - (z - cz) * sc;
   el('rect', { x: X(0), y: Z(it.box[1]), width: it.box[0] * sc, height: it.box[1] * sc, fill: 'none', stroke: 'var(--box)', 'stroke-width': .6 }, s);
