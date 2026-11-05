@@ -158,7 +158,13 @@ def train(args):
                 torch.tensor([a for a, _ in u], dtype=torch.float32), torch.tensor([b for _, b in u], dtype=torch.float32))
     Pt, UXt, UZt = geo(tr); Pv, UXv, UZv = geo(va)
     margin = fit['margin'] if fit else 0.0
-    total = lambda X, K, V, A, M, P, UX, UZ: loss_fn(model, X, K, V, A, M) + (weight * fit_penalty(model, X, K, P, UX, UZ, margin) if weight else 0)
+    tight = args.tighter_weight if config.get('tighterPenalty') else 0.0
+    def tighter_penalty(X, A, M):
+        _, _, pa = model(X)
+        return ((torch.relu(pa - A) ** 2) * M).sum() / M.sum().clamp(min=1)
+    total = lambda X, K, V, A, M, P, UX, UZ: (loss_fn(model, X, K, V, A, M)
+        + (weight * fit_penalty(model, X, K, P, UX, UZ, margin) if weight else 0)
+        + (tight * tighter_penalty(X, A, M) if tight else 0))
     params = sum(p.numel() for p in model.parameters())
     print(f'train examples {len(tr)}, validation {len(va)}, parameters {params}', flush=True)
     history, best, since, started = [], None, 0, time.time()
@@ -184,7 +190,7 @@ def train(args):
                 break
     torch.save({'state': best['state'], 'hidden': config['model']['hidden']}, out / 'checkpoint.pt')
     (out / 'history.json').write_text(json.dumps(history, indent=1) + '\n')
-    (out / 'training-summary.json').write_text(json.dumps({'config': args.config, 'fitWeight': weight,
+    (out / 'training-summary.json').write_text(json.dumps({'config': args.config, 'fitWeight': weight, 'tighterWeight': tight,
         'parameters': params, 'trainExamples': len(tr), 'validationExamples': len(va), 'selectedEpoch': best['epoch'],
         'validationPassRate': best['rate'], 'validationLoss': best['loss'], 'stoppedAtEpoch': history[-1]['epoch'],
         'trainingSeconds': round(time.time() - started, 1), 'torch': torch.__version__, 'python': sys.version.split()[0]}, indent=2) + '\n')
@@ -218,5 +224,6 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(); sub = ap.add_subparsers(dest='cmd', required=True)
     a = sub.add_parser('train'); a.add_argument('--output', required=True)
     a.add_argument('--config', default='experiments/learning-v2b/train-config.json'); a.add_argument('--fit-weight', type=float, default=0.0)
+    a.add_argument('--tighter-weight', type=float, default=0.0)
     b = sub.add_parser('predict'); b.add_argument('--run', required=True); b.add_argument('--split', required=True)
     args = ap.parse_args(); train(args) if args.cmd == 'train' else predict_cmd(args)
