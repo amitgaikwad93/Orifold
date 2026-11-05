@@ -201,4 +201,15 @@ Designs whose smallest opening angle is within 10% of the widest valid design (s
 
 ## Open questions (unresolved; do not treat as decided)
 
-None at this snapshot. The near-parallel-panel question was resolved by D26–D29.
+1. **Dead creases and "spread = fold less" (measured 2026-11-05, map r4).** Results: `results/*-r4.json*`.
+   - Fewest folds is confirmed: the free-form search beat the reference 0/218. The independent checker passes 700/701; the one difference is the old symmetry rule in that checker, which Codex is to update to D28.
+   - **Spread is not confirmed.** In 180 cell-budgets, a free-form search found a wider smallest opening angle than the reference in 161. In 46 of those it was beyond the 10% band, which means the reference's band, and therefore its labels, are wrong there.
+   - **35 of those 46 wins use a near-flat crease under 10°** (often exactly the 1° minimum). Such a crease counts toward the fold budget but barely folds, and with short 5% panels it lets the design open other angles very wide.
+   - **The reference does this too at larger budgets:** answers with a fold under 10° number 0/647 at the minimum budget, 34/647 at +1 and 181/646 at +2.
+   - **Specification gaming again.** Spread = 180° − largest fold, so "most spread" rewards folding as little as possible wherever the box allows, and the 1° active-crease threshold lets near-flat creases fill the budget.
+
+   Agent options, not decided:
+   - **(a)** Raise the minimum fold angle (e.g. 15–30°) so every crease visibly folds.
+   - **(b)** Require every crease to be necessary: merging any two neighbouring panels must make the design fail.
+   - **(c)** Change the spread measure to count only creases that fold at least X°.
+   - **(d)** Whichever rule is chosen, strengthen the reference's spread search (currently family grid plus refinement), because a free-form search beats it beyond the band even without dead creases (11/46).

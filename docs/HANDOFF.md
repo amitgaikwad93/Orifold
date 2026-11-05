@@ -48,13 +48,20 @@ Snapshot: 2026-11-05 (later). The experiment v2 setup is agreed, the request dis
 - **Report republished** at the same link: https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
 - **Checks:** `npm test` passed, 40/40.
 
+## Latest (2026-11-05, map r4)
+
+- **Implemented D26–D29** in `src/packing.js`: fold budget, opening-angle spread, 10% band, lengths-and-angles symmetry, new design families, spread refinement. Commits `cf9802c`, `b9aae9a`.
+- **New check** `scripts/check-reference-spread.js` (free-form search for a wider opening).
+- **Map r4** (`results/*-r4.json*`): 701 solved; fewest folds confirmed (0/218). Report republished at https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj with a budget switch and an opening-angle view.
+- **Codex** is to update `scripts/independent-check.js` to D26–D28 and run it on `results/request-map-2026-11-05-r4.json.gz`. The prompt was given to the user. The old checker flags 1 order score, which is expected from the old symmetry rule.
+
 ## In discussion / open
 
-Near-parallel-panel ranking issue (DECISIONS.md open question 1): mostly decided as D26 (fold budget input), D27 (spread by smallest opening angle, before order) and D28 (mirror or point symmetry). Only the tie-band size remains open; the agent suggested 10%.
+DECISIONS.md open question 1: dead creases and "spread = fold less". The spread check found the reference beaten beyond the band in 46/180, mostly through near-flat creases. The user must choose a rule (minimum fold angle, necessary creases, or a spread measure that ignores tiny folds).
 
 ## Next concrete task
 
-After the user sets the tie band: implement D26–D28 in `src/packing.js` (budget input, opening-angle spread, tapered and palindromic families, corrected symmetry check), update `scripts/independent-check.js` to match the spec (Codex could do this independently), update EXPERIMENT_SPEC.md sections 2 and 5, rerun the map, independent check and completeness check, then do EXPERIMENT_SPEC.md "Next work items" 2: generate and label the v2 request set from the frozen distribution in `experiments/learning-v2/`, run the acceptance checks (independent checker, completeness check, coverage plot, grouped splits), then build the visual review page. No training before both are done.
+After the user decides: implement the crease rule, strengthen the spread search (consider deterministic free-form refinement seeded from family winners), rerun the map and all three checks, then continue to the v2 dataset.
 
 ## Runtime
 

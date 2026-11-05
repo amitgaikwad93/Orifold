@@ -167,9 +167,16 @@ Observation for the ranking: several one-fold answers stopped at 177–179° rat
 - The Codex independent checker passes all 701 solved designs.
 - The report linked above shows r2.
 
+**Revision r4 (D26–D29 ranking, 2026-11-05):**
+- **Feasibility:** unchanged; 701/729 solved, and fewest-fold counts match r2 (free-form beat 0/218).
+- **Symmetric answers:** 297/701 at the minimum budget, 650 at +1, 684 at +2.
+- **Spread check:** the free-form search beat the reference's spread beyond the 10% band in 46/180 cell-budgets, 35 of them using near-flat creases under 10°. Open question in DECISIONS.md.
+- **Runtime:** map 9.7 min on CPU.
+
 ## Next work items for this instance
 
 1. Done 2026-11-05: 1-panel designs, v2 rules and measures, the reference solver, the map, the completeness check, and the independent check (two revisions).
-2. Generate the v2 request set from the frozen distribution (section 6) with a fixed seed. Label it with the reference solver, then run section 8: revalidate with `scripts/independent-check.js`, the completeness check, coverage plots, and grouped splits. Keep it in a new `experiments/learning-v2/` directory.
-3. Build the visual review page needed for section 9, ideally reusing the map report's side view.
-4. Only then train.
+2. Resolve the dead-crease/spread question (DECISIONS.md) and strengthen the reference's spread search; re-verify with the spread check and the updated independent checker.
+3. Generate the v2 request set from the frozen distribution (section 6) with a fixed seed. Label it with the reference solver, then run section 8: revalidate with `scripts/independent-check.js`, the completeness check, coverage plots, and grouped splits. Keep it in a new `experiments/learning-v2/` directory.
+4. Build the visual review page needed for section 9, ideally reusing the map report's side view.
+5. Only then train.
