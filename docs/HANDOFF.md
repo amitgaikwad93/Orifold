@@ -1,6 +1,6 @@
 # Orifold handoff
 
-Snapshot: 2026-11-04. Tooling works end to end; the first learning experiment failed and a later audit showed its dataset could not fairly test the approach. The project is now **designing the experimental setup** before any new training. Procedure for updating this file: AGENTS.md, "Handoff procedure".
+Snapshot: 2026-11-05. Tooling works end to end; the first learning experiment failed and a later audit showed its dataset could not fairly test the approach. The project is now **designing the experimental setup** before any new training. Procedure for updating this file: AGENTS.md, "Handoff procedure".
 
 ## Current state
 
@@ -25,18 +25,18 @@ Snapshot: 2026-11-04. Tooling works end to end; the first learning experiment fa
 
 ## In discussion / open
 
-The user said the setup discussion is **not finished**. Open items are listed in DECISIONS.md, "Open questions":
+Decided 2026-11-05 (DECISIONS.md): a variable fold count with fewest folds preferred (D13), the geometric-aesthetic and function measures (D14), and visualisation built on demand (D15). Still open, with agent recommendations, in DECISIONS.md "Open questions":
 
-1. How to measure function and **geometric** aesthetics (order built into the design, not visual style; clarified 2026-11-05). The proposal is to use it as the quality tie-break.
-2. Which visualisation route to use on the user's PC.
-3. The content of the experiment specification: validity layers, quality objective, request distribution, success target.
-4. Whether to replace the fixed 4-panel budget with a variable fold count plus a fold cost. This conflicts with D03 and is undecided.
-
-Do not treat the agent's proposals there as decisions.
+1. Ranking order of the measures.
+2. Fit margin.
+3. Fold family and fold directions.
+4. Intended use and request distribution.
+5. Success target.
+6. Fold cap.
 
 ## Next concrete task
 
-Continue the setup discussion with the user. Then draft `docs/EXPERIMENT_SPEC.md` (the template plus the accordion instance) from what they decide. The most useful first evidence for that discussion is a visual map of the accordion request space: a grid over box length and height relative to sheet length, showing feasibility and representative folds. It fits whichever visualisation route is chosen. Do not build a v2 dataset or train before the spec is agreed.
+Get answers to the open questions, then draft `docs/EXPERIMENT_SPEC.md` (template plus the parallel-crease instance). First evidence: a report page with the request-space map for variable fold counts, checking where the hand rule "folds = sheet length ÷ box length, rounded up" fits and where it fails. Do not build a v2 dataset or train before the spec is agreed.
 
 ## Runtime
 

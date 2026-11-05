@@ -18,7 +18,7 @@ Rationale: the folding geometry is already complex enough. Focus effort on compa
 
 Given fixed sheet dimensions and a limited panel/crease budget, find crease positions and a prescribed motion whose final configuration fits maximum length/width/height bounds. This is packing, not exact shape matching. Translation is permitted for final fit; box orientation is fixed. Motion need not stay inside the storage box unless a future task explicitly adds that requirement.
 
-Material volume is zero by assumption. A 3D configuration can still have a nonzero enclosing box; a fully flat-folded configuration can have zero height. Do not minimize the product of box dimensions as the sole objective: zero height would make many designs trivially tie. Preserve the finite panel budget to avoid arbitrarily many tiny folds.
+Material volume is zero by assumption. A 3D configuration can still have a nonzero enclosing box; a fully flat-folded configuration can have zero height. Do not minimize the product of box dimensions as the sole objective: zero height would make many designs trivially tie. Preserve the finite panel budget to avoid arbitrarily many tiny folds. *Amended by D13 (2026-11-05): the fixed budget is replaced by a variable fold count with fewest folds preferred.*
 
 ## D04 — current representation and evaluator (implemented)
 
@@ -82,13 +82,34 @@ The user said this discussion is not finished. Do not start v2 training before t
 
 The user is not an ML engineer and is learning through this project. Explain what the agent is doing in plain language, introduce concepts as they arise (docs/GLOSSARY.md), and present trade-offs between choices. Visual presentation of datasets and outcomes is strongly preferred. Rules are in AGENTS.md, "Communicating with the user".
 
+## D13 — variable fold count, fewest folds preferred (user decision, 2026-11-05)
+
+Replace the fixed four-panel budget with a variable number of folds, preferring the fewest that achieve the task. Removing the limit outright was rejected because with zero thickness extra folds are free, which makes packing trivial. A minimum panel size (currently 5% of sheet length, so at most 20 panels) still prevents arbitrarily tiny panels. Whether to add an explicit lower cap is open.
+
+## D14 — quality measures (user decision, 2026-11-05)
+
+Among valid designs that fit, designs are judged on:
+
+- **Geometric aesthetics** (order built into the design, not visual style): proportion (simple panel ratios), angle consistency (few distinct angles), symmetry (crease pattern and folded shape), economy (no unused creases), repetition (for larger patterns), with description length as a summary.
+- **Function:** compactness, how well the design fits the box, smallest gap between non-adjacent panels during folding, fewer folds, and the motion's swept envelope.
+
+v1 context: of 1,000 v1 labels, 13 have equal panels, 13 a uniform angle, 21 mirror-symmetric panels, and 192 use every crease. How these measures are ordered or weighted into a single ranking is still open.
+
+## D15 — visualisation built on demand (user decision, 2026-11-05)
+
+Use the recommended routes, built only when a task needs them:
+
+- **Main:** a generated report page per experiment (request-space map, fold thumbnails, method comparisons), opened in a browser.
+- **Single designs:** the existing interactive viewer, extended as needed.
+- **Independent 3D check:** FOLD export to an external origami simulator, once export exists.
+
+Notebooks are not planned.
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Function and geometric aesthetics.** The user clarified (2026-11-05) that "aesthetics" means **geometric** order in the design itself, not visual presentation: v1's random folds had no structure, so no aesthetics. Measured on v1 labels: 13/1,000 have equal panels, 13 a uniform angle, 21 mirror-symmetric panels, 192 use every crease. Agent proposal, not decided:
-   - Candidate measures: proportion (simple panel ratios), angle consistency (number of distinct angles), symmetry (pattern and folded shape), economy (no unused creases), repetition (for larger patterns), and description length as a summary of these.
-   - Recommended use: as the quality tie-break among fitting designs ("most ordered design that fits"), rather than as a hard rule or a report-only metric. Expected, not yet measured, to also make labels consistent (D10); verify with the label-consistency audit.
-   - Show the trade-off between function and order on the request-space map: fits with a fully regular design, fits only with a compromise, does not fit.
-   - Function metrics depend on the intended use of the folds, which the user has not stated yet. Candidates: compaction, box fill, collision clearance, active-crease count, swept envelope.
-2. **Visualisation setup** on the user's PC. Options recommended 2026-11-04: an improved browser viewer in this repo, FOLD export to an existing origami simulator, a static report gallery of rendered folds, or a notebook. No choice made yet.
-3. **Experiment specification content** (D11): validity layers, quality objective, request distribution, success target.
-4. **Fold-count constraint** (raised by the user 2026-11-05; conflicts with D03 "preserve the finite panel budget"). Agent analysis: with zero thickness, extra folds cost nothing, so removing the limit entirely makes packing trivial (N equal panels folded flat reach length L/N). Recommended alternative, not decided: a variable panel count, with "fewer folds" as part of the quality ranking, plus the existing minimum panel size (5% of sheet length, so at most 20 panels) as a safety cap.
+1. **Ranking order.** How the D14 measures combine. Agent recommendation: a strict priority order rather than weighted scores. Valid and fits (with margin) → fewest folds → most ordered → most clearance → smallest swept envelope. Note that compactness and fewest folds pull against each other: the fewest-fold design is the least compact one that still fits.
+2. **Fit margin.** Strict fit or a required clearance inside the box. Recommendation: a small fixed margin, e.g. 2% per axis, so designs are not on the boundary (D10).
+3. **Fold family and fold directions.** Recommendation: parallel creases with variable count first (width still cannot shrink), alternating mountain/valley only; free direction choices and Miura-type patterns later.
+4. **Intended use and request distribution.** What the folds are for decides which boxes to ask for. Recommendation until then: a systematic grid over box length and height relative to the sheet, including tight and impossible cases, never derived from random folds.
+5. **Success target for the next experiment.** Recommendation: first test whether a hand rule (folds = sheet length ÷ box length, rounded up) already solves the ranked task; learning is only worth it where that rule and nearest-neighbour lookup fail, and must then beat them on the same requests.
+6. **Fold cap.** Whether to cap the count below the 20 implied by the minimum panel size. The user's message "8 also agree" may have meant a cap of 8; unconfirmed.
