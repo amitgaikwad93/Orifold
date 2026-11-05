@@ -1,0 +1,9 @@
+answers 768 | rules + collision-free 768
+tolerance   0.00%  of sheet: pass 45.3%   | of box side: pass 45.3%
+tolerance   0.25%  of sheet: pass 47.3%   | of box side: pass 45.7%
+tolerance   0.50%  of sheet: pass 49.6%   | of box side: pass 46.1%
+tolerance   1.00%  of sheet: pass 53.8%   | of box side: pass 47.3%
+tolerance   2.00%  of sheet: pass 62.4%   | of box side: pass 49.1%
+tolerance   3.00%  of sheet: pass 69.3%   | of box side: pass 51.2%
+tolerance   5.00%  of sheet: pass 74.5%   | of box side: pass 55.9%
+tolerance  10.00%  of sheet: pass 82.3%   | of box side: pass 62.5%
