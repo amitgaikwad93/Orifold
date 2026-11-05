@@ -30,6 +30,7 @@ The user said the setup discussion is **not finished**. Open items are listed in
 1. How to measure function and **geometric** aesthetics (order built into the design, not visual style; clarified 2026-11-05). The proposal is to use it as the quality tie-break.
 2. Which visualisation route to use on the user's PC.
 3. The content of the experiment specification: validity layers, quality objective, request distribution, success target.
+4. Whether to replace the fixed 4-panel budget with a variable fold count plus a fold cost. This conflicts with D03 and is undecided.
 
 Do not treat the agent's proposals there as decisions.
 
