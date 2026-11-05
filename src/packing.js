@@ -103,15 +103,15 @@ function motionMetrics(design, steps) {
 
 function assess(design, request, { steps = RULES.validationSteps } = {}) {
   const violations = ruleViolations(design, request);
-  const final = foldAccordion(design);
-  const fits = fitsWithMargin(final.dimensions, request.targetBox, Math.max(request.length, ...request.targetBox));
+  const dimensions = placedDimensions(design);   // final shape turned by its placement angle (D30)
+  const fits = fitsWithMargin(dimensions, request.targetBox, Math.max(request.length, ...request.targetBox));
   const motion = motionMetrics(design, steps);
   const official = steps === RULES.validationSteps ? evaluateAccordion(design, request.targetBox, { steps }) : null;
   const contactFree = official ? official.noBlockedContactsAtSamples : motion.blockedSamples === 0;
   return {
     valid: violations.length === 0 && contactFree, fits, passes: violations.length === 0 && contactFree && fits,
     violations, contactFree, folds: design.angles.length, order: orderScore(design), symmetric: isSymmetric(design),
-    spread: spreadOf(design), minGap: motion.minGap, sweptArea: motion.sweptArea, dimensions: final.dimensions,
+    spread: spreadOf(design), minGap: motion.minGap, sweptArea: motion.sweptArea, dimensions, placement: design.placement ?? 0,
     sampleCount: steps + 1,
   };
 }
@@ -142,21 +142,22 @@ function rankDesigns(list) {
 }
 
 function analyticallyInfeasible(request) {
-  const [X, Y] = usable(request.targetBox);
+  const Y = usable(request.targetBox)[1];
   if (request.width > Y * (1 + 1e-9)) return 'width-cannot-contract';
-  if (RULES.minPanelFraction * request.length > X * (1 + 1e-9)) return 'first-panel-cannot-fit';
   return null;
 }
 
 const equalDesign = (n, request, angles) => ({
   panelLengths: Array(n).fill(request.length / n), width: request.width, angles });
 
-// Baseline: fold flat into the fewest equal panels that fit the box length.
+// Baseline: fold flat into the fewest equal panels that fit the box's longer side (length or,
+// turned upright, height; D30).
 function handRule(request) {
   if (analyticallyInfeasible(request)) return null;
-  const n = Math.max(1, Math.ceil(request.length / usable(request.targetBox)[0] - 1e-9));
+  const u = usable(request.targetBox), upright = u[2] > u[0];
+  const n = Math.max(1, Math.ceil(request.length / Math.max(u[0], u[2]) - 1e-9));
   if (n > RULES.maxPanels) return null;
-  return equalDesign(n, request, Array(n - 1).fill(180));
+  return { ...equalDesign(n, request, Array(n - 1).fill(180)), placement: upright ? 90 : 0 };
 }
 
 const range = (from, to, step) => { const out = []; for (let x = from; x <= to + 1e-9; x += step) out.push(+x.toFixed(6)); return out; };
@@ -212,10 +213,74 @@ function quickExtents(design) {
   return [hx - lx, hz - lz];
 }
 
-// Largest final-shape overflow beyond the usable box, as a fraction of sheet length (<= 0 fits).
+// Final cross-section vertices (x, z), first panel along +x.
+function finalSection(design) {
+  const pts = [[0, 0]]; let o = 0;
+  const p = design.panelLengths, a = design.angles;
+  for (let i = 0; i < p.length; i++) {
+    if (i > 0) o += (i % 2 ? 1 : -1) * a[i - 1];
+    const r = o * Math.PI / 180, c = Math.cos(r), s = Math.sin(r), q = pts[i];
+    pts.push([q[0] + p[i] * (Math.abs(c) < 1e-14 ? 0 : c), q[1] + p[i] * (Math.abs(s) < 1e-14 ? 0 : s)]);
+  }
+  return pts;
+}
+
+// Extents after turning the final shape by psi degrees about the hinge (y) axis (D30).
+function turnedExtents(pts, psi) {
+  if (!psi) {
+    let lx = Infinity, hx = -Infinity, lz = Infinity, hz = -Infinity;
+    for (const [x, z] of pts) { lx = Math.min(lx, x); hx = Math.max(hx, x); lz = Math.min(lz, z); hz = Math.max(hz, z); }
+    return [hx - lx, hz - lz];
+  }
+  const r = psi * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+  let lx = Infinity, hx = -Infinity, lz = Infinity, hz = -Infinity;
+  for (const [x, z] of pts) {
+    const X = x * c - z * s, Z = x * s + z * c;
+    lx = Math.min(lx, X); hx = Math.max(hx, X); lz = Math.min(lz, Z); hz = Math.max(hz, Z);
+  }
+  return [hx - lx, hz - lz];
+}
+
+const placedDimensions = design => {
+  const [dx, dz] = turnedExtents(finalSection(design), design.placement ?? 0);
+  return [dx, design.width, dz];
+};
+
+/* Best placement angle in [0, 180) for fitting the usable box (extents repeat every 180 degrees).
+ * Prefers 0, then 90, then the best of: panel and vertex-pair alignments with either box axis,
+ * a 5-degree grid, and a local refinement. Returns { psi, overflow } (overflow <= 0 fits). */
+function bestPlacement(design, request) {
+  const pts = finalSection(design), u = usable(request.targetBox), L = request.length;
+  const over = psi => { const [dx, dz] = turnedExtents(pts, psi); return Math.max((dx - u[0]) / L, (dz - u[2]) / L); };
+  let diameter = 0;
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++)
+    diameter = Math.max(diameter, Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1]));
+  const diagonal = Math.hypot(u[0], u[2]);
+  if (diameter > diagonal * (1 + 1e-9)) return { psi: 0, overflow: (diameter - diagonal) / L };
+  for (const psi of [0, 90]) { const o = over(psi); if (o <= 1e-12) return { psi, overflow: o }; }
+  const tries = new Set();
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+    const ang = Math.atan2(pts[j][1] - pts[i][1], pts[j][0] - pts[i][0]) * 180 / Math.PI;
+    for (const t of [-ang, 90 - ang]) tries.add(((t % 180) + 180) % 180);
+  }
+  for (let t = 0; t < 180; t += 5) tries.add(t);
+  let best = { psi: 0, overflow: Infinity };
+  for (const t of tries) { const o = over(t); if (o < best.overflow) best = { psi: t, overflow: o }; }
+  for (let step = 2.5; step > 1e-4 && best.overflow > 0; step /= 2) {
+    for (const t of [best.psi - step, best.psi + step]) { const o = over(t); if (o < best.overflow) best = { psi: ((t % 180) + 180) % 180, overflow: o }; }
+  }
+  return best;
+}
+
+// Largest final-shape overflow beyond the usable box, as a fraction of sheet length (<= 0 fits),
+// at the best placement angle; records that angle on the design as `placement`.
 function overflowOf(design, request) {
-  const [dx, dz] = quickExtents(design), u = usable(request.targetBox);
-  return Math.max((dx - u[0]) / request.length, (request.width - u[1]) / request.length, (dz - u[2]) / request.length);
+  const widthOver = (request.width - usable(request.targetBox)[1]) / request.length;
+  const { psi, overflow } = bestPlacement(design, request);
+  design.placement = +psi.toFixed(6);
+  const turned = placedDimensions(design);
+  const u = usable(request.targetBox);
+  return Math.max(widthOver, (turned[0] - u[0]) / request.length, (turned[2] - u[2]) / request.length, overflow > 0 ? overflow : -Infinity);
 }
 
 // Deterministic pattern search (no randomness). Lower score is better; stops at `goal` or when steps are tiny.
@@ -275,7 +340,10 @@ function fittingCandidates(n, request, { refineStarts = 24 } = {}) {
     near.sort((a, b) => a[0] - b[0]);
     for (const [, params] of near.slice(0, refineStarts)) {
       const r = patternSearch(family, params, fitScore(family, request), 0);
-      if (r.score <= 0) out.push({ family: family.name + '+fit-refined', familyRef: family, params: r.point, design: family.build(r.point) });
+      if (r.score <= 0) {
+        const design = family.build(r.point);
+        if (overflowOf(design, request) <= 0) out.push({ family: family.name + '+fit-refined', familyRef: family, params: r.point, design });
+      }
     }
   }
   for (const c of out) Object.assign(c, { folds: n - 1, spread: spreadOf(c.design), symmetric: isSymmetric(c.design), order: orderScore(c.design) });
@@ -296,7 +364,7 @@ function referenceSolveBudgets(request, { maxPanels = RULES.maxPanels, extraBudg
     if (!screened.has(key)) {
       const m = motionMetrics(c.design, RULES.screeningSteps);
       screened.set(key, m.blockedSamples ? null : { folds: c.folds, spread: c.spread, symmetric: c.symmetric, order: c.order,
-        minGap: m.minGap, sweptArea: m.sweptArea, dimensions: foldAccordion(c.design).dimensions, candidate: c });
+        minGap: m.minGap, sweptArea: m.sweptArea, dimensions: placedDimensions(c.design), candidate: c });
     }
     return screened.get(key);
   };
@@ -322,6 +390,7 @@ function referenceSolveBudgets(request, { maxPanels = RULES.maxPanels, extraBudg
       const r = patternSearch(family, m.candidate.params, spreadScore(family, request), -1, 300);
       if (r.score < 0) {
         const design = family.build(r.point);
+        if (overflowOf(design, request) > 0) continue;   // also records the placement angle
         const c = { family: family.name + '+spread-refined', familyRef: family, params: r.point, design,
           folds: design.angles.length, spread: spreadOf(design), symmetric: isSymmetric(design), order: orderScore(design) };
         pool.push(c); allowed.push(c);
@@ -357,5 +426,5 @@ function referenceSolve(request, options = {}) {
 }
 
 module.exports = { RULES, usable, fitsWithMargin, ruleViolations, orderScore, isSymmetric, spreadOf, segmentDistance,
-  motionMetrics, assess, compareWithinBand, rankDesigns, analyticallyInfeasible, handRule, families, quickExtents,
+  motionMetrics, assess, compareWithinBand, rankDesigns, analyticallyInfeasible, handRule, families, quickExtents, finalSection, turnedExtents, placedDimensions, bestPlacement, overflowOf,
   fittingCandidates, referenceSolveBudgets, referenceSolve };

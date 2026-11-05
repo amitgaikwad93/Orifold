@@ -50,12 +50,14 @@ test('segment distance handles separation, touching and crossing', () => {
   assert.ok(Math.abs(P.segmentDistance([0, 0], [1, 0], [2, 0], [3, 0]) - 1) < 1e-12);
 });
 
-test('hand rule folds flat into ceil(L / 0.98X) equal panels', () => {
+test('hand rule folds flat into ceil(L / 0.98 x longer box side) equal panels', () => {
   const h = P.handRule(request([25, 12, 1]));
+  assert.equal(P.handRule(request([10, 12, 30])).placement, 90);   // stands the stack upright when height is longer
   assert.equal(h.panelLengths.length, 5);
   assert.ok(P.assess(h, request([25, 12, 1])).passes);
   assert.equal(P.handRule(request([100 / 0.98 + 1, 12, 1])).angles.length, 0);
-  assert.equal(P.handRule(request([5, 12, 90])), null);   // would need more than 12 panels
+  assert.equal(P.handRule(request([5, 12, 90])).angles.length, 1);   // stands upright: 2 panels of 50
+  assert.equal(P.handRule(request([5, 12, 5])), null);               // would need more than 12 panels
 });
 
 test('ranking: 10% spread band, then symmetry, fewer folds, order, spread', () => {
@@ -73,7 +75,9 @@ test('ranking: 10% spread band, then symmetry, fewer folds, order, spread', () =
 
 test('reference solver: analytic infeasibility, zero folds and determinism', () => {
   assert.equal(P.referenceSolve({ length: 100, width: 12, targetBox: [50, 12, 50] }).status, 'analytically-infeasible');
-  assert.equal(P.referenceSolve(request([4, 12, 90])).reason, 'first-panel-cannot-fit');
+  // A box shorter than any panel is solvable once the shape may be turned upright (D30).
+  const tall = P.referenceSolve(request([4, 12, 90]));
+  assert.equal(tall.status, 'found'); assert.ok(tall.quality.passes);
   const flat = P.referenceSolve(request([110, 12, 3]));
   assert.equal(flat.quality.folds, 0);
   const budgets = P.referenceSolveBudgets(request([20, 12, 30]));
@@ -86,10 +90,24 @@ test('reference solver: analytic infeasibility, zero folds and determinism', () 
   assert.ok(a.quality.passes);
 });
 
-test('reference solver uses box height to beat the hand rule on a tall box', () => {
-  const r = request([12, 12, 40]);
+test('reference solver beats the flat-stack hand rule by using both box dimensions', () => {
+  const r = request([20, 12, 30]);   // hand rule (upright allowed): 3 folds
   const ref = P.referenceSolve(r);
   assert.equal(ref.status, 'found');
   assert.ok(ref.quality.passes && ref.quality.sampleCount === 721);
   assert.ok(ref.quality.folds < P.handRule(r).angles.length);
+});
+
+test('placement: the final shape may turn about the hinge axis to fit (D30)', () => {
+  const design = { panelLengths: [100], width: 10, angles: [] };
+  assert.ok(P.overflowOf(design, request([10, 12, 103])) <= 0);
+  assert.equal(design.placement, 90);
+  assert.ok(P.assess(design, request([10, 12, 103])).passes);
+  assert.ok(!P.assess({ ...design, placement: 0 }, request([10, 12, 103])).fits);
+});
+
+test('swapping box length and height gives the same fold count and similar spread (D30)', () => {
+  const a = P.referenceSolveBudgets(request([12, 12, 42])), b = P.referenceSolveBudgets(request([42, 12, 12]));
+  assert.equal(a.minFolds, b.minFolds);
+  a.answers.forEach((x, i) => assert.ok(Math.abs(x.quality.spread - b.answers[i].quality.spread) <= 0.1 * Math.max(x.quality.spread, b.answers[i].quality.spread)));
 });

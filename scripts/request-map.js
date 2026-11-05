@@ -8,9 +8,10 @@ const output = process.argv[2];
 if (!output) { console.error('Usage: node scripts/request-map.js <output.json>'); process.exit(2); }
 if (fs.existsSync(output)) { console.error(`Refusing to overwrite ${output}`); process.exit(1); }
 const L = 100, W = 10, boxWidth = 12;
-const lengths = [], heights = [];
+// Same values on both axes, so each box has a swapped (length <-> height) partner (D30 check).
+const lengths = [0.02];
 for (let x = 0.04; x <= 1.08 + 1e-9; x += 0.04) lengths.push(+x.toFixed(2));
-for (let z = 0.02; z <= 1.06 + 1e-9; z += 0.04) heights.push(+z.toFixed(2));
+const heights = [...lengths];
 const cells = [], started = Date.now();
 for (const bz of heights) for (const bx of lengths) {
   const request = { length: L, width: W, targetBox: [bx * L, boxWidth, bz * L] };

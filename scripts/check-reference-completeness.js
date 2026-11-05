@@ -4,8 +4,7 @@
 // A pass there means the reference's ordered families missed a design with fewer folds.
 // Usage: node scripts/check-reference-completeness.js <map.json> <output.json> [oneFoldSamples=40] [seeds=3]
 const fs = require('fs');
-const { foldAccordion } = require('../src/accordion');
-const { assess, ruleViolations, motionMetrics, usable, RULES } = require('../src/packing');
+const { assess, ruleViolations, motionMetrics, overflowOf, RULES } = require('../src/packing');
 const { randomGenerator } = require('../src/optimizer');
 const [mapPath, output, samplesArg = '60', seedsArg = '3'] = process.argv.slice(2);
 if (!mapPath || !output) { console.error('Usage: <map.json> <output.json> [samples] [seeds]'); process.exit(2); }
@@ -20,13 +19,12 @@ function decode(v, n, request) {
 }
 function score(design, request) {
   if (ruleViolations(design, request).length) return 1e9;
-  const d = foldAccordion(design).dimensions, u = usable(request.targetBox);
-  const over = d.reduce((s, x, i) => s + Math.max(0, (x - u[i]) / request.length) ** 2, 0);
+  const over = Math.max(0, overflowOf(design, request));   // best placement angle (D30), recorded on the design
   if (over > 0) return 1 + over;
   return motionMetrics(design, 30).blockedSamples ? 0.5 : 0;   // 0 = fits and contact-free at 31 samples
 }
 function freeSearch(n, request, seed, population = 40, generations = 120) {
-  if (n === 1) { const design = decode([], 1, request), quality = assess(design, request); return quality.passes ? { design, quality } : null; }
+  if (n === 1) { const design = decode([], 1, request); overflowOf(design, request); const quality = assess(design, request); return quality.passes ? { design, quality } : null; }
   const rng = randomGenerator(seed), dims = 2 * n - 2;
   let pop = Array.from({ length: population }, () => Array.from({ length: dims }, rng));
   let fit = pop.map(v => score(decode(v, n, request), request));
@@ -37,7 +35,7 @@ function freeSearch(n, request, seed, population = 40, generations = 120) {
       const s = score(decode(trial, n, request), request);
       if (s <= fit[i]) { pop[i] = trial; fit[i] = s; }
       if (fit[i] === 0) {
-        const design = decode(pop[i], n, request), quality = assess(design, request);
+        const design = decode(pop[i], n, request); overflowOf(design, request); const quality = assess(design, request);
         if (quality.passes) return { design, quality };
         fit[i] = 0.5;  // failed the dense check; keep searching
       }

@@ -20,7 +20,7 @@ const cells = map.cells.map(c => {
       sym: a.quality.symmetric, spread: r(a.quality.spread, 1),
       gap: Number.isFinite(a.quality.minGap) ? r(a.quality.minGap, 4) : null, sweep: r(a.quality.sweptArea, 4),
       dims: [r(a.quality.dimensions[0] / L, 4), r(a.quality.dimensions[2] / L, 4)],
-      panels: a.design.panelLengths.map(p => r(p / L, 4)), angles: a.design.angles.map(x => r(x, 2)),
+      panels: a.design.panelLengths.map(p => r(p / L, 4)), angles: a.design.angles.map(x => r(x, 2)), psi: r(a.design.placement ?? 0, 2),
       spreadCheck: sc ? (sc.beyondBand ? 'beaten' : 'confirmed') : null, freeSpread: sc?.freeSpread ?? null };
   });
   return { x: c.boxLength, z: c.boxHeight,
@@ -142,7 +142,7 @@ dd { margin: 0; font-family: var(--mono); font-size: 13px; font-variant-numeric:
     <h2>How to read this</h2>
     <p><b>Hand rule:</b> fold flat into the fewest equal panels whose length fits the box, ignoring height. "Folds saved" counts how many fewer folds the solver needed by also using the box's height.</p>
     <p><b>Fold budget and spread:</b> the budget buttons choose how many folds are allowed: the fewest that work, or one or two more. The opening-angle view shows the smallest angle between neighbouring panels for that budget; bigger means more spread. A small dot marks symmetric designs (mirror for even panel counts, rotational for odd).</p>
-    <p><b>Reference solver:</b> searches design families (equal, different-first, symmetric-ends and tapered panels; one, first-different or palindromic angles) on a fixed grid, refined deterministically for fit and for spread. It has no randomness. A square marked "?" means it found nothing within 11 folds, which is not proof that no design exists. Squares marked × are proven impossible: even the shortest allowed first panel (5% of the sheet) is longer than the box.</p>
+    <p><b>Reference solver:</b> searches design families (equal, different-first, symmetric-ends and tapered panels; one, first-different or palindromic angles) on a fixed grid, refined deterministically for fit and for spread. It has no randomness. A square marked "?" means it found nothing within 11 folds, which is not proof that no design exists. Squares marked × are proven impossible. The folded shape may be turned in the side view to fit the box, so swapping box length and height gives the same answer, turned a quarter-turn.</p>
     <p><b>Solver checks:</b> ringed squares were re-checked by independent free-form random searches. In the fold views: a search for one fold fewer. In the opening-angle view: a search for a wider opening at the same budget. A red ring means the search beat the reference (for spread, by more than the 10% band).</p>
     <p><b>Limits:</b> zero-thickness rigid panels, contacts checked at 721 sampled motion states, motion not required to stay inside the box. Full list in docs/LIMITATIONS.md. Box width is fixed at 12 and does not change the fold.</p>
   </section>
@@ -245,10 +245,12 @@ function showTip(c, i, j) {
 ['b0', 'b1', 'b2'].forEach((id, k) => { $(id).onclick = () => { budget = k; paint(); if (selected) { stop(); progress = 1; renderDetail(); } }; });
 
 // Same kinematics as src/accordion.js: alternating signed rotations, scaled by motion progress.
-function section(panels, angles, t) {
+// The final placement turn (psi, about the hinge axis) is applied to every motion frame for display.
+function section(panels, angles, t, psi = 0) {
   const pts = [[0, 0]]; let o = 0;
   panels.forEach((len, i) => { if (i > 0) o += (i % 2 ? 1 : -1) * angles[i - 1] * t; const a = o * Math.PI / 180, p = pts[i]; pts.push([p[0] + len * Math.cos(a), p[1] + len * Math.sin(a)]); });
-  return pts;
+  const r = psi * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+  return psi ? pts.map(([x, z]) => [x * c - z * s, x * s + z * c]) : pts;
 }
 const FAMILY = { 'flat': 'No fold', 'equal-one-angle': 'Equal panels, one angle', 'equal-first-angle-different': 'Equal panels, first angle different',
   'equal-palindromic-angles': 'Equal panels, symmetric angles', 'first-panel-one-angle': 'Different first panel, one angle',
@@ -261,7 +263,7 @@ function renderDetail() {
   const c = selected, d = $('detail');
   const head = '<h2>Box ' + (c.x * 100).toFixed(0) + ' × ' + (c.z * 100).toFixed(0) + ' <small>sheet 100 long</small></h2>';
   if (c.s !== 'found') {
-    d.innerHTML = head + '<p class="lede">' + (c.s === 'infeasible' ? 'Proven impossible: the first panel must be at least 5 long and stays flat, but the box allows only ' + (c.x * 98).toFixed(1) + ' after the 2% gap.' : 'The reference solver found no valid design within 11 folds. This is not proof that none exists.') + '</p>';
+    d.innerHTML = head + '<p class="lede">' + (c.s === 'infeasible' ? 'Proven impossible: the sheet width does not fit the box width.' : 'The reference solver found no valid design within 11 folds. This is not proof that none exists.') + '</p>';
     return;
   }
   const a = answerOf(c), fmt = (v, n = 1) => (v * 100).toFixed(n);
@@ -277,6 +279,7 @@ function renderDetail() {
     '<dt>Hand rule</dt><dd>' + (c.hand === null ? 'impossible (needs over 11 folds)' : c.hand + ' fold' + (c.hand === 1 ? '' : 's') + ' (fewest found: ' + c.minFolds + ')') + '</dd>' +
     '<dt>Panel lengths</dt><dd>' + a.panels.map(p => fmt(p)).join(' · ') + '</dd>' +
     '<dt>Fold angles</dt><dd>' + (a.angles.length ? a.angles.map(x => x.toFixed(1) + '°').join(' · ') : 'none') + '</dd>' +
+    '<dt>Turned in box</dt><dd>' + a.psi.toFixed(1) + '°</dd>' +
     '<dt>Folded size</dt><dd>' + fmt(a.dims[0]) + ' × ' + fmt(a.dims[1]) + ' in a box of ' + (c.x * 100).toFixed(0) + ' × ' + (c.z * 100).toFixed(0) + '</dd>' +
     '<dt>Smallest gap</dt><dd>' + (a.gap === null ? 'no non-adjacent panels' : fmt(a.gap, 2) + ' (during motion)') + '</dd>' +
     '<dt>Motion sweep</dt><dd>' + (a.sweep * 100).toFixed(1) + '% of sheet length²</dd>' +
@@ -288,12 +291,12 @@ function renderDetail() {
 function drawSide() {
   const c = answerOf(selected), svgS = $('side'); if (!svgS) return; c.x = selected.x; c.z = selected.z;
   svgS.innerHTML = '';
-  const fin = section(c.panels, c.angles, 1);
+  const fin = section(c.panels, c.angles, 1, c.psi);
   const minX = Math.min(...fin.map(p => p[0])), minZ = Math.min(...fin.map(p => p[1]));
   const bx = c.x, bz = c.z;
   // Place the final shape at the bottom-left of the box; motion uses the same offset.
   let lo = [0, 0], hi = [bx, bz];
-  for (let k = 0; k <= 40; k++) for (const [x, z] of section(c.panels, c.angles, k / 40)) {
+  for (let k = 0; k <= 40; k++) for (const [x, z] of section(c.panels, c.angles, k / 40, c.psi)) {
     lo = [Math.min(lo[0], x - minX), Math.min(lo[1], z - minZ)]; hi = [Math.max(hi[0], x - minX), Math.max(hi[1], z - minZ)];
   }
   const span = Math.max(hi[0] - lo[0], hi[1] - lo[1]) * 1.12, pad = 4, s = (100 - 2 * pad) / span;
@@ -301,7 +304,7 @@ function drawSide() {
   const X = x => 50 + (x - cx) * s, Z = z => 50 - (z - cz) * s;
   el('rect', { x: X(0), y: Z(bz), width: bx * s, height: bz * s, fill: 'none', stroke: 'var(--box)', 'stroke-width': 0.6 }, svgS);
   el('rect', { x: X(0), y: Z(bz * 0.98), width: bx * 0.98 * s, height: bz * 0.98 * s, fill: 'none', stroke: 'var(--box)', 'stroke-width': 0.35, 'stroke-dasharray': '1.2 1' }, svgS);
-  const pts = section(c.panels, c.angles, progress).map(([x, z]) => [X(x - minX), Z(z - minZ)]);
+  const pts = section(c.panels, c.angles, progress, c.psi).map(([x, z]) => [X(x - minX), Z(z - minZ)]);
   for (let i = 0; i < pts.length - 1; i++) el('line', { x1: pts[i][0], y1: pts[i][1], x2: pts[i + 1][0], y2: pts[i + 1][1], stroke: i % 2 ? 'var(--panel-b)' : 'var(--panel-a)', 'stroke-width': 1.4, 'stroke-linecap': 'round' }, svgS);
   pts.slice(1, -1).forEach(([x, z]) => el('circle', { cx: x, cy: z, r: 0.9, fill: 'var(--ink)' }, svgS));
   el('circle', { cx: pts[0][0], cy: pts[0][1], r: 1.2, fill: 'var(--sheet)', stroke: 'var(--ink)', 'stroke-width': 0.4 }, svgS);
