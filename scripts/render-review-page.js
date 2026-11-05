@@ -25,6 +25,7 @@ for (let step = 0; step < 3; step++) {
     items.push({ id: `${r.id}-b${a.budget}`, request: r.id, kind: r.kind, budgetStep: step, budget: a.budget,
       box: [r4(r.request.targetBox[0] / L), r4(r.request.targetBox[2] / L)], sheetLength: r4(L),
       panels: a.design.panelLengths.map(p => r4(p / L)), angles: a.design.angles.map(x => +x.toFixed(2)), psi: +(a.design.placement ?? 0).toFixed(3),
+      offset: (a.design.offset ?? [0, 0]).map(v => r4(v / L)), floating: a.quality.floatingCreases ?? null,
       folds: a.quality.folds, spread: +a.quality.spread.toFixed(1), symmetric: a.quality.symmetric, order: a.quality.order });
     if (items.filter(it => it.budgetStep === step).length >= perStep) break;
   }
@@ -164,13 +165,15 @@ function draw() {
   const fin = section(it.panels, it.angles, 1, it.psi), mx = Math.min(...fin.map(p => p[0])), mz = Math.min(...fin.map(p => p[1]));
   // Frame the box and the final shape; mid-motion poses may run past the frame.
   let lo = [0, 0], hi = [it.box[0], it.box[1]];
-  for (const [x, z] of fin) { lo = [Math.min(lo[0], x - mx), Math.min(lo[1], z - mz)]; hi = [Math.max(hi[0], x - mx), Math.max(hi[1], z - mz)]; }
+  for (const [x, z] of fin) { const [ox, oz] = it.offset || [0, 0]; lo = [Math.min(lo[0], x - mx + ox), Math.min(lo[1], z - mz + oz)]; hi = [Math.max(hi[0], x - mx + ox), Math.max(hi[1], z - mz + oz)]; }
   const span = Math.max(hi[0] - lo[0], hi[1] - lo[1]) * 1.1, sc = 92 / span, cx = (lo[0] + hi[0]) / 2, cz = (lo[1] + hi[1]) / 2;
   const X = x => 50 + (x - cx) * sc, Z = z => 50 - (z - cz) * sc;
   el('rect', { x: X(0), y: Z(it.box[1]), width: it.box[0] * sc, height: it.box[1] * sc, fill: 'none', stroke: 'var(--box)', 'stroke-width': .6 }, s);
   el('rect', { x: X(0), y: Z(it.box[1] * .98), width: it.box[0] * .98 * sc, height: it.box[1] * .98 * sc, fill: 'none', stroke: 'var(--box)', 'stroke-width': .35, 'stroke-dasharray': '1.2 1' }, s);
   // The sheet starts flat and turns into its box placement as it folds (fold angles and turn both scale with progress).
-  const q = section(it.panels, it.angles, progress, it.psi * progress).map(([x, z]) => [X(x - mx), Z(z - mz)]);
+  // Slide to the recorded offset inside the usable box (D34: this is what puts creases on walls).
+  const [ox, oz] = it.offset || [0, 0];
+  const q = section(it.panels, it.angles, progress, it.psi * progress).map(([x, z]) => [X(x - mx + ox), Z(z - mz + oz)]);
   for (let i = 0; i < q.length - 1; i++) el('line', { x1: q[i][0], y1: q[i][1], x2: q[i + 1][0], y2: q[i + 1][1], stroke: i % 2 ? 'var(--panel-b)' : 'var(--panel-a)', 'stroke-width': 1.3, 'stroke-linecap': 'round' }, s);
   q.slice(1, -1).forEach(([x, z]) => el('circle', { cx: x, cy: z, r: .8, fill: 'var(--ink)' }, s));
   el('circle', { cx: q[0][0], cy: q[0][1], r: 1.1, fill: 'var(--sheet)', stroke: 'var(--ink)', 'stroke-width': .4 }, s);
@@ -187,7 +190,7 @@ function render() {
     ['Fold budget', it.budget + ' (' + step + ')'], ['Folds used', it.folds],
     ['Smallest opening', it.spread.toFixed(1) + '°'], ['Symmetric', it.symmetric ? (it.panels.length % 2 ? 'yes, rotational' : 'yes, mirror') : 'no'],
     ['Panel lengths', it.panels.map(p => (p * 100).toFixed(1)).join(' · ')], ['Fold angles', it.angles.length ? it.angles.map(a => a.toFixed(1) + '°').join(' · ') : 'none'],
-    ['Turned in box', it.psi.toFixed(1) + '°'], ['Box (sheet = 100)', Math.round(it.box[0] * 100) + ' × ' + Math.round(it.box[1] * 100)],
+    ['Turned in box', it.psi.toFixed(1) + '°'], ['Creases on walls', it.floating === null ? 'not measured' : it.floating === 0 ? 'all' : it.floating + ' floating'], ['Box (sheet = 100)', Math.round(it.box[0] * 100) + ' × ' + Math.round(it.box[1] * 100)],
   ].map(([k, x]) => '<dt>' + k + '</dt><dd>' + x + '</dd>').join('');
   const strip = $('strip'); strip.innerHTML = '';
   items.forEach((x, i) => { const b = document.createElement('button'); b.textContent = i + 1; b.className = i === idx ? 'cur' : '';
