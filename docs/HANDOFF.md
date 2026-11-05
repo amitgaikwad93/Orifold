@@ -50,11 +50,11 @@ Snapshot: 2026-11-05 (later). The experiment v2 setup is agreed, the request dis
 
 ## In discussion / open
 
-DECISIONS.md open question 1: near-parallel panels, which is specification gaming in the ranking. The user must choose between a clearance rule, ranking spread before order with tapered families, or accepting more folds. This blocks freezing the v2 dataset.
+Near-parallel-panel ranking issue (DECISIONS.md open question 1): mostly decided as D26 (fold budget input), D27 (spread by smallest opening angle, before order) and D28 (mirror or point symmetry). Only the tie-band size remains open; the agent suggested 10%.
 
 ## Next concrete task
 
-After the user decides open question 1, update the ranking/rules, rerun the map, independent check and completeness check, then do EXPERIMENT_SPEC.md "Next work items" 2: generate and label the v2 request set from the frozen distribution in `experiments/learning-v2/`, run the acceptance checks (independent checker, completeness check, coverage plot, grouped splits), then build the visual review page. No training before both are done.
+After the user sets the tie band: implement D26–D28 in `src/packing.js` (budget input, opening-angle spread, tapered and palindromic families, corrected symmetry check), update `scripts/independent-check.js` to match the spec (Codex could do this independently), update EXPERIMENT_SPEC.md sections 2 and 5, rerun the map, independent check and completeness check, then do EXPERIMENT_SPEC.md "Next work items" 2: generate and label the v2 request set from the frozen distribution in `experiments/learning-v2/`, run the acceptance checks (independent checker, completeness check, coverage plot, grouped splits), then build the visual review page. No training before both are done.
 
 ## Runtime
 

@@ -150,6 +150,18 @@ Training and test requests are weighted toward boxes shorter than about half the
 
 Codex wrote `scripts/independent-check.js` from the spec alone, without reading `src/packing.js`; it imports no project code. It agreed with all 701 solved map designs on rules, 2% fit, contacts at 721 states (505,421 sampled states) and fold/order scores, both before and after the solver fix. Use it on every reference dataset before training. This is sampled validity, not continuous collision proof or ranking optimality.
 
+## D26 — fold budget is a request input (user decision, 2026-11-05)
+
+Each request states a maximum number of folds. The reference answer is the best design within that budget. Reference answers are produced for budgets from the minimum feasible fold count up to the minimum + 2. This replaces "fewest folds" as rank 1 and avoids an exchange rate between folds and spread.
+
+## D27 — spread before order (user decision, 2026-11-05)
+
+Within the fold budget, prefer the most spread design, measured as the smallest opening angle between neighbouring panels (180° minus fold angle). The smallest non-adjacent gap is the secondary spread measure. Spread ranks before the order score. Reference families must include unequal (e.g. tapered) and symmetric non-equal panel patterns.
+
+## D28 — any symmetry counts (user decision, 2026-11-05)
+
+Mirror symmetry (even panel counts) and point symmetry (odd panel counts) are both acceptable. Symmetry means palindromic panel lengths **and** palindromic fold angles (measured in `scripts/symmetry-check.js`). The order score must be corrected to check angles too. Symmetry is not universally preferred for future shapes; it may later become a request input.
+
 ## Open questions (unresolved; do not treat as decided)
 
 1. **Near-parallel panels (raised by the user 2026-11-05, "looks like reward hacking").** Designs with 3+ folds pack long, nearly parallel panels with small gaps. Diagnosis, measured on 59 map cells and 6 sample boxes (comparison page https://claude.ai/artifact/5sBcZPDnPoHRH3Cn3TySYK):
@@ -175,7 +187,9 @@ Codex wrote `scripts/independent-check.js` from the spec alone, without reading 
    - Tapered panels are never symmetric.
    - Consequence: the current order score treats palindromic lengths alone as symmetric, which is wrong; it must also check angles.
 
-   Agent proposals awaiting decision:
+   Decided since: D26 (fold budget), D27 (spread), D28 (any symmetry). Still open: the **tie band**, i.e. how much spread to give up for symmetry. Designs within X% of the best smallest opening angle count as tied, then the symmetric one wins. Agent suggests X = 10%; awaiting the user.
+
+   Original agent proposals:
    - **Fold budget as a request input** (handles C without an exchange rate). Reference answers for budgets from the minimum up to minimum + 2 folds; the user or application picks the budget.
    - **Within a budget: spread before order** (B), measured as the smallest opening angle between neighbouring panels (180° − fold angle), with gap as a secondary measure.
    - **Symmetry as a preference band:** designs within about 10% of the best spread count as tied, then prefer symmetric designs. Later, symmetry preference could become a request input, since it is not always wanted.
