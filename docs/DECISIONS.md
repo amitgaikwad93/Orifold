@@ -211,6 +211,10 @@ Consequences:
 - The hand rule may stand its flat stack upright.
 - Option C (standing the sheet width upright) was not adopted; with parallel creases it adds little.
 
+## D31 — roomy boxes keep "most spread" (user decision, 2026-11-05)
+
+Where a box has room, the most spread design wins (a gentle fold that uses the space), not the most compact one. Compactness stays a late tie-break.
+
 ## Open questions (unresolved; do not treat as decided)
 
 1. **Dead creases and "spread = fold less" (measured 2026-11-05, map r4).** Results: `results/*-r4.json*`.

@@ -64,7 +64,7 @@ Snapshot: 2026-11-05 (evening). The experiment v2 setup is agreed, the request d
 
 ## In discussion / open
 
-DECISIONS.md open question 1: the dead-crease rule. The agent recommends a minimum fold angle of about 20°. Also asked, not yet answered: in roomy boxes, should "most spread" (a gentle fold) win, or compact packing?
+DECISIONS.md open question 1: the dead-crease rule. The agent recommends a minimum fold angle of about 20°. Roomy boxes: keep most spread (D31, decided).
 
 ## Next concrete task
 
