@@ -60,7 +60,7 @@ Within a budget, among valid designs that fit:
 2. Within the band, in strict order:
    1. **symmetric** first: palindromic panel lengths and fold angles; mirror for even panel counts, rotational for odd, both accepted (D28);
    2. **fewer folds**;
-   3. **lower order score:** distinct lengths (1% of L) + distinct angles (1°) + 1 if not symmetric;
+   3. **lower order score:** distinct lengths (1% of L) + distinct angles (1°) + 1 if not symmetric. "Distinct" is counted by chaining: sort the values, and start a new group only where a gap between neighbours exceeds the tolerance. So 25.0, 25.8 and 26.6 (L = 100) form one group. Clarified 2026-11-05 after the independent checker, which used fixed-span bins, disagreed on 8/6,004 dataset answers;
    4. **wider opening angle;**
    5. **larger smallest gap** between non-adjacent panels during the motion;
    6. **smaller swept area** (differences under 1% of L² are ties, D23);
