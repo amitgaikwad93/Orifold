@@ -1,0 +1,102 @@
+{
+  "file_spec": 1.1,
+  "file_creator": "Orifold",
+  "file_classes": [
+    "singleModel"
+  ],
+  "file_description": "Zero-thickness parallel-hinge geometry. No collision, layer-order, or manufacturing certification.",
+  "frame_title": "Flat crease pattern",
+  "frame_classes": [
+    "creasePattern"
+  ],
+  "frame_unit": "unit",
+  "vertices_coords": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      100,
+      0
+    ],
+    [
+      100,
+      10
+    ]
+  ],
+  "edges_vertices": [
+    [
+      0,
+      2
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "edges_assignment": [
+    "B",
+    "B",
+    "B",
+    "B"
+  ],
+  "edges_foldAngle": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "faces_vertices": [
+    [
+      0,
+      2,
+      3,
+      1
+    ]
+  ],
+  "orifold:placement": 90,
+  "file_frames": [
+    {
+      "frame_parent": 0,
+      "frame_inherit": true,
+      "frame_title": "Final folded form",
+      "frame_classes": [
+        "foldedForm"
+      ],
+      "vertices_coords": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          6.123233995736766e-15,
+          0,
+          100
+        ],
+        [
+          6.123233995736766e-15,
+          10,
+          100
+        ]
+      ]
+    }
+  ]
+}
