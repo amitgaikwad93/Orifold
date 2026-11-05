@@ -1,0 +1,248 @@
+{
+  "input": "/home/user/Orifold/artifacts/v2-acceptance/all.json.gz",
+  "policy": {
+    "source": "EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D33; GEOMETRY.md contact policy",
+    "motionStates": 721,
+    "boxFraction": 0.98,
+    "placement": "recorded angle in degrees (missing means 0); final fit only; motion and contacts unrotated",
+    "contactTolerance": "1e-9 * requested sheet length",
+    "fitTolerance": "1e-9 * max(sheet dimensions, box dimensions)",
+    "orderGrouping": "sorted bins spanning at most 1% of sheet length / 1 degree",
+    "symmetry": "palindromic lengths within 1% of sheet length AND angles within 1 degree",
+    "spread": "180 degrees minus largest fold angle; 180 degrees with no folds; numerical tolerance 1e-9 degree",
+    "budgets": "every answer checked; consecutive minFolds through minFolds + 2, capped at 11; folds <= budget",
+    "scoreHistograms": "computed over all answers",
+    "scope": "checks saved designs and scores; does not establish global ranking optimality or continuous collision freedom"
+  },
+  "totalCells": 2200,
+  "solvedCells": 2011,
+  "skippedCells": 189,
+  "sampledStates": 4328884,
+  "checkedAnswers": 6004,
+  "passingAnswers": 5996,
+  "disagreementAnswers": 8,
+  "passingCells": 2004,
+  "disagreementCells": 7,
+  "disagreementsByCheck": {
+    "min-folds": 0,
+    "budget-sequence": 0,
+    "top-level-design": 0,
+    "fold-budget": 0,
+    "panel-and-angle-rules": 0,
+    "geometry-and-score": 0,
+    "fold-count": 0,
+    "order-score": 8,
+    "symmetry": 0,
+    "spread": 0,
+    "box-fit": 0,
+    "saved-dimensions": 0,
+    "motion-contacts": 0,
+    "valid": 0,
+    "passes": 0,
+    "sample-count": 0
+  },
+  "foldCounts": {
+    "0": 1077,
+    "1": 1443,
+    "2": 1388,
+    "3": 1484,
+    "4": 348,
+    "5": 57,
+    "6": 102,
+    "7": 22,
+    "8": 29,
+    "9": 16,
+    "10": 15,
+    "11": 23
+  },
+  "orderScores": {
+    "1": 1077,
+    "2": 1847,
+    "3": 1274,
+    "4": 1801,
+    "5": 4,
+    "6": 1
+  },
+  "disagreements": [
+    {
+      "index": 255,
+      "boxLength": 0.27781930080382156,
+      "boxHeight": 0.20003802571445703,
+      "targetBox": [
+        3.622670315737715,
+        8.227664563914393,
+        2.6084286285287956
+      ],
+      "issues": [
+        {
+          "answerIndex": 2,
+          "budget": 4,
+          "check": "order-score",
+          "saved": 2,
+          "computed": {
+            "score": 3,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 589,
+      "boxLength": 0.15324429232859985,
+      "boxHeight": 0.16310134321451186,
+      "targetBox": [
+        3.3222195104307555,
+        7.164168814785185,
+        3.5359128641660194
+      ],
+      "issues": [
+        {
+          "answerIndex": 0,
+          "budget": 4,
+          "check": "order-score",
+          "saved": 2,
+          "computed": {
+            "score": 3,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 741,
+      "boxLength": 0.14844672480830923,
+      "boxHeight": 0.22994627609848975,
+      "targetBox": [
+        12.679681972774937,
+        38.147516745726215,
+        19.64102377817868
+      ],
+      "issues": [
+        {
+          "answerIndex": 0,
+          "budget": 3,
+          "check": "order-score",
+          "saved": 3,
+          "computed": {
+            "score": 4,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": false
+          }
+        }
+      ]
+    },
+    {
+      "index": 775,
+      "boxLength": 0.23052687727613375,
+      "boxHeight": 0.15087508905678987,
+      "targetBox": [
+        7.601938397668325,
+        14.1933931193299,
+        4.975311973616801
+      ],
+      "issues": [
+        {
+          "answerIndex": 0,
+          "budget": 3,
+          "check": "order-score",
+          "saved": 3,
+          "computed": {
+            "score": 4,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": false
+          }
+        }
+      ]
+    },
+    {
+      "index": 826,
+      "boxLength": 0.14386189784854653,
+      "boxHeight": 0.20892626052722332,
+      "targetBox": [
+        12.466785786851945,
+        44.34715944507419,
+        18.10513398052763
+      ],
+      "issues": [
+        {
+          "answerIndex": 0,
+          "budget": 4,
+          "check": "order-score",
+          "saved": 2,
+          "computed": {
+            "score": 3,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": true
+          }
+        },
+        {
+          "answerIndex": 1,
+          "budget": 5,
+          "check": "order-score",
+          "saved": 2,
+          "computed": {
+            "score": 3,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 856,
+      "boxLength": 0.2296220264164731,
+      "boxHeight": 0.15809228079393506,
+      "targetBox": [
+        7.330834668863174,
+        5.68595423824937,
+        5.047200353601129
+      ],
+      "issues": [
+        {
+          "answerIndex": 0,
+          "budget": 3,
+          "check": "order-score",
+          "saved": 3,
+          "computed": {
+            "score": 4,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": false
+          }
+        }
+      ]
+    },
+    {
+      "index": 1252,
+      "boxLength": 0.19235733004752548,
+      "boxHeight": 0.11482013979926706,
+      "targetBox": [
+        4.274837849246818,
+        1.29239650368172,
+        2.5516962589803427
+      ],
+      "issues": [
+        {
+          "answerIndex": 0,
+          "budget": 4,
+          "check": "order-score",
+          "saved": 2,
+          "computed": {
+            "score": 3,
+            "distinctLengths": 2,
+            "distinctAngles": 1,
+            "symmetric": true
+          }
+        }
+      ]
+    }
+  ]
+}

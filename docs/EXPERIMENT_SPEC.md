@@ -194,10 +194,28 @@ Observation for the ranking: several one-fold answers stopped at 177–179° rat
 
 This is the answer-key baseline for the v2 dataset.
 
+## v2 dataset (2026-11-05)
+
+`experiments/learning-v2/`: `config.json` and `manifest.json` (frozen before labelling), `labels-*-of-3.jsonl`, `dataset.jsonl.gz`, `dataset-summary.json` and `acceptance/`. Built with `scripts/generate-v2-dataset.js` (steps: requests, label shards, merge).
+
+- **Size:** 2,200 requests: 1,500 short, 500 long, 100 width-impossible, 100 tiny. 6,004 reference answers across the three budgets. Label CPU 4,218 s.
+- **Splits** (366 groups, swapped boxes grouped): train 1,548, validation 324, test 328.
+- **Solved:** all train/long, train/short, validation/long and test/long requests. 198/201 validation/short and 203/204 test/short; the unsolved 4 are not proven impossible. Width-impossible requests are rejected analytically. Tiny boxes: 15/29 solved in test (9–11 folds), 0/71 in train and validation.
+- **Known split imbalance (not corrected; splits were frozen first):** the tiny-box groups and a few 9–11-fold short boxes fell mostly into test. Train short boxes need at most 9 folds; test includes 4 short boxes needing 11. Report test results for cases beyond the training range separately.
+
+**Acceptance checks (section 8):**
+- **Validity:** the independent checker passes all 6,004 answers on rules, placed fit, contacts at 721 states, budgets, symmetry and spread (4.3 M motion states). Order score: 8 disagreements, traced to an ambiguity in "distinct within 1%"; resolved in section 5 (chaining). The checker update is requested.
+- **Fewest folds** (train): the free-form search beat it 0/474.
+- **Spread** (train): beaten beyond the 10% band in 5/180.
+- **Consistency:** the reference solver is deterministic (identical re-runs).
+- **Coverage:** the request-space map (r6) covers the box-shape space; the dataset follows the frozen distribution.
+- **Independence:** requests were generated before labelling, from the distribution only.
+- **Visual review:** round `answer-key-1`, 48 training answers at https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA. **Awaiting the user's verdicts.**
+
 ## Next work items for this instance
 
-1. Done 2026-11-05: 1-panel designs, v2 rules and measures, the reference solver, the map, the completeness check, and the independent check (two revisions).
-2. ~~Resolve dead creases and strengthen the spread search~~ (done: D32, D33, r6). Remaining: Codex's checker with placement must pass r6.
-3. Generate the v2 request set from the frozen distribution (section 6) with a fixed seed. Label it with the reference solver, then run section 8: revalidate with `scripts/independent-check.js`, the completeness check, coverage plots, and grouped splits. Keep it in a new `experiments/learning-v2/` directory.
-4. Build the visual review page needed for section 9, ideally reusing the map report's side view.
-5. Only then train.
+1. ~~Answer key, map, checks~~ (r6) and ~~v2 dataset with acceptance checks~~ (done 2026-11-05).
+2. User reviews round `answer-key-1`; fix the answer key if answers are rejected.
+3. Codex aligns the checker's order-score counting with section 5 and reruns on the dataset.
+4. Define the v2 model and training (new experiment config): inputs are sheet, box and fold budget; outputs are a design. Predeclare the loss, model and checkpoint selection on validation only, then train on CPU.
+5. Evaluate on test once, with the review page round for model outputs.
