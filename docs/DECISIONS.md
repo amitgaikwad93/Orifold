@@ -150,6 +150,39 @@ Training and test requests are weighted toward boxes shorter than about half the
 
 Codex wrote `scripts/independent-check.js` from the spec alone, without reading `src/packing.js`; it imports no project code. It agreed with all 701 solved map designs on rules, 2% fit, contacts at 721 states (505,421 sampled states) and fold/order scores, both before and after the solver fix. Use it on every reference dataset before training. This is sampled validity, not continuous collision proof or ranking optimality.
 
+## D25b — record: near-parallel panels diagnosis and symmetry test (2026-11-05; resolved by D26–D29)
+
+**Near-parallel panels (raised by the user 2026-11-05, "looks like reward hacking").** Designs with 3+ folds pack long, nearly parallel panels with small gaps. Diagnosis, measured on 59 map cells and 6 sample boxes (comparison page https://claude.ai/artifact/5sBcZPDnPoHRH3Cn3TySYK):
+- **This is specification gaming, not a solver bug.** The solver follows the D16 ranking exactly; the ranking does not ask for spread.
+- **Fewest folds (rank 1) forces long panels.** In a short box, long panels can only fit nearly parallel.
+- **The order score (rank 3) favours equal panels**, which excludes tapered designs. Free-form search with tapered lengths found 1.1–2.8× larger gaps at the same fold count, at order scores 8–9 instead of 5.
+- **Moving gap ahead of order within the current families changed nothing** (59/59 cells identical): the families themselves are the limit.
+- **Zero thickness makes near-touching panels cost nothing.** The gap is the only thing resisting it, and it ranks fourth.
+
+Options:
+- **(a)** A minimum-clearance validity rule. Note its interaction with the flat-stack exception and with D02: it is not thickness modelling, but it is close in spirit.
+- **(b)** Rank spread (gap or opening angle) before order, and widen the families to include tapered panels.
+- **(c)** Accept more folds in exchange for spread.
+
+Awaiting user decision.
+
+**Update 2026-11-05, user direction:** no clearance rule. Consider B (spread) and C (trade folds for spread), defined carefully enough to scale to the north star. Symmetry is not always preferred; different shapes have different needs.
+
+**User hypothesis tested** ("equal panels matter when their number is even; that gives symmetry"); measured with `scripts/symmetry-check.js` for 2–8 panels:
+- A folded shape is symmetric when panel lengths **and** fold angles are both palindromic (read the same from either end). Equal panels are just one case of this.
+- Panel count decides the kind: **even → mirror symmetry, odd → point (180° rotational) symmetry.**
+- Breaking angle symmetry (first fold different, as most current reference designs do) removes symmetry entirely for 3+ panels, even with equal panels.
+- Tapered panels are never symmetric.
+- Consequence: the current order score treats palindromic lengths alone as symmetric, which is wrong; it must also check angles.
+
+Decided since: D26 (fold budget), D27 (spread), D28 (any symmetry). Still open: the **tie band**, i.e. how much spread to give up for symmetry. Designs within X% of the best smallest opening angle count as tied, then the symmetric one wins. Agent suggests X = 10%; awaiting the user.
+
+Original agent proposals:
+- **Fold budget as a request input** (handles C without an exchange rate). Reference answers for budgets from the minimum up to minimum + 2 folds; the user or application picks the budget.
+- **Within a budget: spread before order** (B), measured as the smallest opening angle between neighbouring panels (180° − fold angle), with gap as a secondary measure.
+- **Symmetry as a preference band:** designs within about 10% of the best spread count as tied, then prefer symmetric designs. Later, symmetry preference could become a request input, since it is not always wanted.
+- **Weighted averages:** only among continuous quality measures inside the hard rules, with stated weights. Never for validity or fit.
+
 ## D26 — fold budget is a request input (user decision, 2026-11-05)
 
 Each request states a maximum number of folds. The reference answer is the best design within that budget. Reference answers are produced for budgets from the minimum feasible fold count up to the minimum + 2. This replaces "fewest folds" as rank 1 and avoids an exchange rate between folds and spread.
@@ -162,35 +195,10 @@ Within the fold budget, prefer the most spread design, measured as the smallest 
 
 Mirror symmetry (even panel counts) and point symmetry (odd panel counts) are both acceptable. Symmetry means palindromic panel lengths **and** palindromic fold angles (measured in `scripts/symmetry-check.js`). The order score must be corrected to check angles too. Symmetry is not universally preferred for future shapes; it may later become a request input.
 
+## D29 — 10% spread tie band (user decision, 2026-11-05)
+
+Designs whose smallest opening angle is within 10% of the widest valid design (same request, same budget) count as equally spread. Among those, symmetric designs win, then fewer folds, then order score. The full ranking is in EXPERIMENT_SPEC.md section 5 and supersedes the D16 order and D21's "fewest folds first".
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Near-parallel panels (raised by the user 2026-11-05, "looks like reward hacking").** Designs with 3+ folds pack long, nearly parallel panels with small gaps. Diagnosis, measured on 59 map cells and 6 sample boxes (comparison page https://claude.ai/artifact/5sBcZPDnPoHRH3Cn3TySYK):
-   - **This is specification gaming, not a solver bug.** The solver follows the D16 ranking exactly; the ranking does not ask for spread.
-   - **Fewest folds (rank 1) forces long panels.** In a short box, long panels can only fit nearly parallel.
-   - **The order score (rank 3) favours equal panels**, which excludes tapered designs. Free-form search with tapered lengths found 1.1–2.8× larger gaps at the same fold count, at order scores 8–9 instead of 5.
-   - **Moving gap ahead of order within the current families changed nothing** (59/59 cells identical): the families themselves are the limit.
-   - **Zero thickness makes near-touching panels cost nothing.** The gap is the only thing resisting it, and it ranks fourth.
-
-   Options:
-   - **(a)** A minimum-clearance validity rule. Note its interaction with the flat-stack exception and with D02: it is not thickness modelling, but it is close in spirit.
-   - **(b)** Rank spread (gap or opening angle) before order, and widen the families to include tapered panels.
-   - **(c)** Accept more folds in exchange for spread.
-
-   Awaiting user decision.
-
-   **Update 2026-11-05, user direction:** no clearance rule. Consider B (spread) and C (trade folds for spread), defined carefully enough to scale to the north star. Symmetry is not always preferred; different shapes have different needs.
-
-   **User hypothesis tested** ("equal panels matter when their number is even; that gives symmetry"); measured with `scripts/symmetry-check.js` for 2–8 panels:
-   - A folded shape is symmetric when panel lengths **and** fold angles are both palindromic (read the same from either end). Equal panels are just one case of this.
-   - Panel count decides the kind: **even → mirror symmetry, odd → point (180° rotational) symmetry.**
-   - Breaking angle symmetry (first fold different, as most current reference designs do) removes symmetry entirely for 3+ panels, even with equal panels.
-   - Tapered panels are never symmetric.
-   - Consequence: the current order score treats palindromic lengths alone as symmetric, which is wrong; it must also check angles.
-
-   Decided since: D26 (fold budget), D27 (spread), D28 (any symmetry). Still open: the **tie band**, i.e. how much spread to give up for symmetry. Designs within X% of the best smallest opening angle count as tied, then the symmetric one wins. Agent suggests X = 10%; awaiting the user.
-
-   Original agent proposals:
-   - **Fold budget as a request input** (handles C without an exchange rate). Reference answers for budgets from the minimum up to minimum + 2 folds; the user or application picks the budget.
-   - **Within a budget: spread before order** (B), measured as the smallest opening angle between neighbouring panels (180° − fold angle), with gap as a secondary measure.
-   - **Symmetry as a preference band:** designs within about 10% of the best spread count as tied, then prefer symmetric designs. Later, symmetry preference could become a request input, since it is not always wanted.
-   - **Weighted averages:** only among continuous quality measures inside the hard rules, with stated weights. Never for validity or fit.
+None at this snapshot. The near-parallel-panel question was resolved by D26–D29.

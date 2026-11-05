@@ -50,18 +50,26 @@ Out of scope, as in LIMITATIONS.md: continuous collision proof, layer order, thi
 
 The final folded shape must fit inside the target box with a **2% gap on every axis**: each final dimension ≤ 0.98 × the box dimension. Height zero (flat folded) satisfies any height. Width cannot shrink in this family, so a box narrower than sheet width ÷ 0.98 is analytically infeasible.
 
-### 5. Ranking (decided order, D16; sub-definitions proposed)
+### 5. Ranking (decided: D26–D29, replacing the D16 order)
 
-A strict priority order. Each step only breaks ties left by the previous one:
+Each request carries a **fold budget** (maximum folds, D26). Reference answers are produced for budgets from the minimum feasible fold count up to the minimum + 2 (capped at 11).
 
-1. **Valid and fits** (sections 3–4).
-2. **Fewest folds.**
-3. **Most ordered (geometric aesthetics, D14).** *Proposed score, lower is better:* number of distinct panel lengths (within 1% of sheet length) + number of distinct fold angles (within 1°) + 1 if the panel sequence is not mirror-symmetric.
-4. **Largest smallest gap** between non-adjacent panels during the motion.
-5. **Smallest swept envelope** of the motion.
-6. **Most compact** final shape: smaller final length, then smaller height.
+Within a budget, among valid designs that fit:
 
-The ranking defines the reference answer. The success criterion below needs validity only.
+1. **Most spread (D27):** the widest *smallest opening angle* between neighbouring panels (180° − largest fold angle; 180° with no fold). Every design within **10%** of the widest counts as equally spread (D29). The band is measured against the best design for that request and budget, so the ranking stays consistent.
+2. Within the band, in strict order:
+   1. **symmetric** first: palindromic panel lengths and fold angles; mirror for even panel counts, rotational for odd, both accepted (D28);
+   2. **fewer folds**;
+   3. **lower order score:** distinct lengths (1% of L) + distinct angles (1°) + 1 if not symmetric;
+   4. **wider opening angle;**
+   5. **larger smallest gap** between non-adjacent panels during the motion;
+   6. **smaller swept area** (differences under 1% of L² are ties, D23);
+   7. **more compact:** shorter final length, then lower height.
+3. Designs outside the band rank by opening angle.
+
+"Fewer folds" ranks inside the band; it is an agent implementation choice. It means a design with fewer folds wins when it is nearly as spread. The ranking defines the reference answers; the success criterion (section 9) needs validity only.
+
+**Watch item:** the smallest opening angle only measures *neighbouring* panels. Designs can use short "spacer" panels to open wide angles while two long non-adjacent panels stay parallel (seen at box 60 × 10 with 3 folds). This is valid, but the user should judge it visually.
 
 ### 6. Requests (decided, D17)
 

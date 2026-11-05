@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Experiment v2 request-space map: reference solver and hand rule over a grid of box shapes.
+// Experiment v2 request-space map: reference answers for fold budgets min..min+2 and the hand rule over a grid of box shapes.
 // Usage: node scripts/request-map.js <output.json>
 // Box width is set wider than the sheet (width never contracts and does not affect the fold).
 const fs = require('fs'), path = require('path');
-const { referenceSolve, handRule, assess, RULES } = require('../src/packing');
+const { referenceSolveBudgets, handRule, assess, RULES } = require('../src/packing');
 const output = process.argv[2];
 if (!output) { console.error('Usage: node scripts/request-map.js <output.json>'); process.exit(2); }
 if (fs.existsSync(output)) { console.error(`Refusing to overwrite ${output}`); process.exit(1); }
@@ -14,10 +14,12 @@ for (let z = 0.02; z <= 1.06 + 1e-9; z += 0.04) heights.push(+z.toFixed(2));
 const cells = [], started = Date.now();
 for (const bz of heights) for (const bx of lengths) {
   const request = { length: L, width: W, targetBox: [bx * L, boxWidth, bz * L] };
-  const ref = referenceSolve(request), hand = handRule(request);
+  const ref = referenceSolveBudgets(request), hand = handRule(request), first = ref.answers[0];
   const handQuality = hand ? assess(hand, request) : null;
+  // design/quality/family = the answer at the minimum fold budget; answers = every budget (D26).
   cells.push({ boxLength: bx, boxHeight: bz, request, status: ref.status, reason: ref.reason ?? null,
-    family: ref.family ?? null, design: ref.design ?? null, quality: ref.quality ?? null, elapsedMs: ref.elapsedMs,
+    minFolds: ref.minFolds ?? null, answers: ref.answers,
+    family: first?.family ?? null, design: first?.design ?? null, quality: first?.quality ?? null, elapsedMs: ref.elapsedMs,
     handRule: hand ? { design: hand, folds: hand.angles.length, passes: handQuality.passes } : null });
 }
 fs.mkdirSync(path.dirname(output), { recursive: true });

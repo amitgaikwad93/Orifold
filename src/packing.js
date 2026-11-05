@@ -1,5 +1,7 @@
 /* Experiment v2 rules (docs/EXPERIMENT_SPEC.md): validity, 2% fit margin, ranking measures,
  * hand-rule baseline and a deterministic reference solver over ordered design families.
+ * Ranking (D26-D28): fold budget is an input; within it, most spread (smallest opening angle)
+ * with a 10% tie band, then symmetry, fewer folds, order score, spread, gap, sweep, compactness.
  * Zero-thickness rigid panels, parallel creases, alternating fold directions.
  */
 const { foldAccordion, checkContacts, evaluateAccordion } = require('./accordion');
@@ -14,6 +16,8 @@ const RULES = Object.freeze({
   validationSteps: 720,    // authoritative contact sampling
   screeningSteps: 60,      // cheaper sampling while searching and ranking
   sweepTieTolerance: 0.01, // swept-area differences below 1% of L^2 are ties (D23)
+  spreadTieBand: 0.10,     // designs within 10% of the best opening angle count as equally spread
+  extraBudgets: 2,         // reference answers for minimum folds .. minimum + 2 (D26)
 });
 
 const usable = box => box.map(x => (1 - RULES.margin) * x);
@@ -43,12 +47,22 @@ function distinctCount(values, tolerance) {
   return count;
 }
 
+// Symmetry (D28): palindromic panel lengths AND palindromic fold angles. Even panel counts then
+// give mirror symmetry, odd counts point symmetry (scripts/symmetry-check.js).
+function isSymmetric(design) {
+  const p = design.panelLengths, a = design.angles, L = p.reduce((s, x) => s + x, 0);
+  return p.every((x, i) => Math.abs(x - p[p.length - 1 - i]) <= RULES.lengthTolerance * L) &&
+    a.every((x, i) => Math.abs(x - a[a.length - 1 - i]) <= RULES.angleTolerance);
+}
+
 // Geometric order (D14, spec section 5): lower is more ordered.
 function orderScore(design) {
-  const p = design.panelLengths, L = p.reduce((s, x) => s + x, 0), tol = RULES.lengthTolerance * L;
-  const symmetric = p.every((x, i) => Math.abs(x - p[p.length - 1 - i]) <= tol);
-  return distinctCount(p, tol) + distinctCount(design.angles, RULES.angleTolerance) + (symmetric ? 0 : 1);
+  const p = design.panelLengths, L = p.reduce((s, x) => s + x, 0);
+  return distinctCount(p, RULES.lengthTolerance * L) + distinctCount(design.angles, RULES.angleTolerance) + (isSymmetric(design) ? 0 : 1);
 }
+
+// Spread (D27): smallest opening angle between neighbouring panels, 180 - fold angle. No fold: 180.
+const spreadOf = design => design.angles.length ? 180 - Math.max(...design.angles) : 180;
 
 function segmentDistance(a, b, c, d) {
   const pointSegment = (p, q, r) => {
@@ -96,22 +110,35 @@ function assess(design, request, { steps = RULES.validationSteps } = {}) {
   const contactFree = official ? official.noBlockedContactsAtSamples : motion.blockedSamples === 0;
   return {
     valid: violations.length === 0 && contactFree, fits, passes: violations.length === 0 && contactFree && fits,
-    violations, contactFree, folds: design.angles.length, order: orderScore(design),
-    minGap: motion.minGap, sweptArea: motion.sweptArea, dimensions: final.dimensions, sampleCount: steps + 1,
+    violations, contactFree, folds: design.angles.length, order: orderScore(design), symmetric: isSymmetric(design),
+    spread: spreadOf(design), minGap: motion.minGap, sweptArea: motion.sweptArea, dimensions: final.dimensions,
+    sampleCount: steps + 1,
   };
 }
 
-// Strict priority order (D16). Negative means a is better.
-function compareRanked(a, b) {
+// Keys after the spread band. Negative means a is better.
+function compareWithinBand(a, b) {
   const eps = 1e-6;
+  if (a.symmetric !== b.symmetric) return a.symmetric ? -1 : 1;
   if (a.folds !== b.folds) return a.folds - b.folds;
   if (a.order !== b.order) return a.order - b.order;
+  if (Math.abs(a.spread - b.spread) > 1e-6) return b.spread - a.spread;
   const gapA = Math.min(a.minGap, 1e3), gapB = Math.min(b.minGap, 1e3);
   if (Math.abs(gapA - gapB) > eps) return gapB - gapA;
-  // D23: swept-area differences under 1% of sheet length squared count as ties.
   if (Math.abs(a.sweptArea - b.sweptArea) > RULES.sweepTieTolerance) return a.sweptArea - b.sweptArea;
   if (Math.abs(a.dimensions[0] - b.dimensions[0]) > eps * a.dimensions[0] + 1e-12) return a.dimensions[0] - b.dimensions[0];
   return a.dimensions[2] - b.dimensions[2];
+}
+
+// Rank a set of valid, fitting designs (metrics objects). The band is relative to the best in the set,
+// so ranking is transitive. Returns the metrics sorted best first.
+function rankDesigns(list) {
+  if (!list.length) return [];
+  const best = Math.max(...list.map(m => m.spread));
+  const cut = (1 - RULES.spreadTieBand) * best - 1e-9;
+  const inBand = list.filter(m => m.spread >= cut).sort(compareWithinBand);
+  const rest = list.filter(m => m.spread < cut).sort((a, b) => b.spread - a.spread || compareWithinBand(a, b));
+  return [...inBand, ...rest];
 }
 
 function analyticallyInfeasible(request) {
@@ -138,109 +165,197 @@ const NEAR = [88, 89, 91, 92, 165, 170, 172, 174, 175, 176, 177, 178, 179, 179.5
 const merge = (...lists) => [...new Set(lists.flat())].sort((a, b) => a - b);
 const FINE = merge(range(1, 180, 1), [179.5]), MEDIUM = merge([1], range(5, 180, 5), NEAR), COARSE = merge([1], range(10, 180, 10), NEAR);
 
-/* Ordered design families with at most three parameters, cheapest description first.
- * Each family: parameter grid, bounds, and a builder. Lengths are fractions of sheet length. */
+/* Design families with at most three parameters. Lengths are fractions of sheet length.
+ * Length patterns: equal; different first panel; symmetric ends (palindromic); geometric taper.
+ * Angle patterns: one angle; first different; palindromic (first and last different). */
 function families(n, request) {
   const L = request.length, min = RULES.minPanelFraction, W = request.width;
   if (n === 1) return [{ name: 'flat', grid: [[]], bounds: [], build: () => equalDesign(1, request, []) }];
-  const hi = 1 - min * (n - 1), tight = usable(request.targetBox)[0] / L * (1 - 1e-9);
-  const firsts = k => { const v = range(min, hi, (hi - min) / k); if (tight >= min && tight <= hi) v.push(tight); return v; };
-  const split = (l0, angles) => ({ panelLengths: [l0 * L, ...Array(n - 1).fill((1 - l0) * L / (n - 1))], width: W, angles });
+  const k = n - 1, hiFirst = 1 - min * (n - 1), tight = usable(request.targetBox)[0] / L * (1 - 1e-9);
+  const firsts = steps => { const v = range(min, hiFirst, (hiFirst - min) / steps); if (tight >= min && tight <= hiFirst) v.push(tight); return v; };
+  const hiEnd = (1 - min * (n - 2)) / 2, ends = steps => range(min, hiEnd, (hiEnd - min) / steps);
   const product = (...axes) => axes.reduce((acc, axis) => acc.flatMap(p => axis.map(x => [...p, x])), [[]]);
-  const out = [{ name: 'equal-uniform', grid: product(FINE), bounds: [[1, 180]],
-    build: ([t]) => equalDesign(n, request, Array(n - 1).fill(t)) }];
-  if (n >= 3) out.push({ name: 'equal-two-angle', grid: product(MEDIUM, MEDIUM), bounds: [[1, 180], [1, 180]],
-    build: ([a, b]) => equalDesign(n, request, [a, ...Array(n - 2).fill(b)]) });
-  out.push({ name: 'first-panel-uniform', grid: product(firsts(24), MEDIUM), bounds: [[min, hi], [1, 180]],
-    build: ([l0, t]) => split(l0, Array(n - 1).fill(t)) });
-  if (n >= 3) out.push({ name: 'first-panel-two-angle', grid: product(firsts(12), COARSE, COARSE), bounds: [[min, hi], [1, 180], [1, 180]],
-    build: ([l0, a, b]) => split(l0, [a, ...Array(n - 2).fill(b)]) });
+  const len = {
+    equal: () => Array(n).fill(L / n),
+    first: l0 => [l0 * L, ...Array(n - 1).fill((1 - l0) * L / (n - 1))],
+    ends: e => [e * L, ...Array(n - 2).fill((1 - 2 * e) * L / (n - 2)), e * L],
+    taper: r => { const w = Array.from({ length: n }, (_, i) => r ** i), s = w.reduce((a, b) => a + b, 0); return w.map(x => x / s * L); },
+  };
+  const ang = { one: t => Array(k).fill(t), firstDiff: (a, b) => [a, ...Array(k - 1).fill(b)],
+    palin: (a, b) => [a, ...Array(k - 2).fill(b), a] };
+  const D = (lengths, angles) => ({ panelLengths: lengths, width: W, angles });
+  const tapers = range(0.5, 1.5, 0.05).filter(r => Math.abs(r - 1) > 1e-9);
+  const out = [{ name: 'equal-one-angle', grid: product(FINE), bounds: [[1, 180]], build: ([t]) => D(len.equal(), ang.one(t)) }];
+  if (k >= 2) out.push({ name: 'equal-first-angle-different', grid: product(MEDIUM, MEDIUM), bounds: [[1, 180], [1, 180]], build: ([a, b]) => D(len.equal(), ang.firstDiff(a, b)) });
+  if (k >= 3) out.push({ name: 'equal-palindromic-angles', grid: product(MEDIUM, MEDIUM), bounds: [[1, 180], [1, 180]], build: ([a, b]) => D(len.equal(), ang.palin(a, b)) });
+  out.push({ name: 'first-panel-one-angle', grid: product(firsts(24), MEDIUM), bounds: [[min, hiFirst], [1, 180]], build: ([l0, t]) => D(len.first(l0), ang.one(t)) });
+  if (k >= 2) out.push({ name: 'first-panel-first-angle-different', grid: product(firsts(12), COARSE, COARSE), bounds: [[min, hiFirst], [1, 180], [1, 180]], build: ([l0, a, b]) => D(len.first(l0), ang.firstDiff(a, b)) });
+  if (n >= 3) {
+    out.push({ name: 'symmetric-ends-one-angle', grid: product(ends(16), MEDIUM), bounds: [[min, hiEnd], [1, 180]], build: ([e, t]) => D(len.ends(e), ang.one(t)) });
+    if (k >= 3) out.push({ name: 'symmetric-ends-palindromic-angles', grid: product(ends(8), COARSE, COARSE), bounds: [[min, hiEnd], [1, 180], [1, 180]], build: ([e, a, b]) => D(len.ends(e), ang.palin(a, b)) });
+    out.push({ name: 'taper-one-angle', grid: product(tapers, MEDIUM), bounds: [[0.5, 1.5], [1, 180]], build: ([r, t]) => D(len.taper(r), ang.one(t)) });
+    out.push({ name: 'taper-first-angle-different', grid: product(tapers.filter((_, i) => i % 2 === 0), COARSE, COARSE), bounds: [[0.5, 1.5], [1, 180], [1, 180]], build: ([r, a, b]) => D(len.taper(r), ang.firstDiff(a, b)) });
+  }
   return out;
+}
+
+// Final x and z extents of the folded cross-section, without building the full geometry.
+function quickExtents(design) {
+  let x = 0, z = 0, lx = 0, hx = 0, lz = 0, hz = 0, o = 0;
+  const p = design.panelLengths, a = design.angles;
+  for (let i = 0; i < p.length; i++) {
+    if (i > 0) o += (i % 2 ? 1 : -1) * a[i - 1];
+    const r = o * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+    x += p[i] * (Math.abs(c) < 1e-14 ? 0 : c); z += p[i] * (Math.abs(s) < 1e-14 ? 0 : s);
+    lx = Math.min(lx, x); hx = Math.max(hx, x); lz = Math.min(lz, z); hz = Math.max(hz, z);
+  }
+  return [hx - lx, hz - lz];
 }
 
 // Largest final-shape overflow beyond the usable box, as a fraction of sheet length (<= 0 fits).
 function overflowOf(design, request) {
-  const d = foldAccordion(design).dimensions, u = usable(request.targetBox);
-  return Math.max(...d.map((x, i) => (x - u[i]) / request.length));
+  const [dx, dz] = quickExtents(design), u = usable(request.targetBox);
+  return Math.max((dx - u[0]) / request.length, (request.width - u[1]) / request.length, (dz - u[2]) / request.length);
 }
 
-// Deterministic pattern search from a near-miss toward a fitting design (no randomness).
-function refine(family, start, request) {
-  const scale = family.bounds.map(([lo, hi]) => (hi - lo) / 20);
+// Deterministic pattern search (no randomness). Lower score is better; stops at `goal` or when steps are tiny.
+function patternSearch(family, start, score, goal = -Infinity, budget = 400) {
   const minStep = family.bounds.map(([lo, hi]) => (hi - lo) / 2000);
   const clamp = p => p.map((x, i) => Math.min(family.bounds[i][1], Math.max(family.bounds[i][0], x)));
-  // Fit first; a fitting design that collides scores just above zero so the search keeps moving.
-  const score = p => {
+  let point = start, best = score(point), step = family.bounds.map(([lo, hi]) => (hi - lo) / 20), used = 0;
+  while (best > goal && step.some((s, i) => s >= minStep[i]) && used < budget) {
+    let moved = false;
+    for (let i = 0; i < point.length && !moved; i++) for (const sign of [1, -1]) {
+      const trial = clamp(point.map((x, k) => k === i ? x + sign * step[i] : x)), value = score(trial);
+      used++;
+      if (value < best) { point = trial; best = value; moved = true; break; }
+    }
+    if (!moved) step = step.map(s => s / 2);
+  }
+  return { point, score: best };
+}
+
+// Fit first; a fitting design that collides scores just above zero so the search keeps moving.
+function fitScore(family, request) {
+  return p => {
     const d = family.build(p);
     if (ruleViolations(d, request).length) return Infinity;
     const over = overflowOf(d, request);
     if (over > 0) return over;
     return motionMetrics(d, 30).blockedSamples ? 1e-6 : 0;
   };
-  let point = start, best = score(point), step = scale, evaluations = 0;
-  while (best > 0 && step.some((s, i) => s >= minStep[i]) && evaluations < 400) {
-    let moved = false;
-    for (let i = 0; i < point.length && !moved; i++) for (const sign of [1, -1]) {
-      const trial = clamp(point.map((x, k) => k === i ? x + sign * step[i] : x)), value = score(trial);
-      evaluations++;
-      if (value < best) { point = trial; best = value; moved = true; break; }
-    }
-    if (!moved) step = step.map(s => s / 2);
-  }
-  return best <= 0 ? point : null;
 }
 
-function* candidates(n, request, { refineStarts = 24 } = {}) {
+// Valid fitting designs score -spread/180, so minimizing widens the smallest opening angle.
+function spreadScore(family, request) {
+  return p => {
+    const d = family.build(p);
+    if (ruleViolations(d, request).length) return Infinity;
+    const over = overflowOf(d, request);
+    if (over > 0) return 1 + over;
+    if (motionMetrics(d, 30).blockedSamples) return 0.5;
+    return -spreadOf(d) / 180;
+  };
+}
+
+/* All fitting candidates for n panels: grid points, plus fit-refined near-misses. Each carries
+ * cheap measures (spread, symmetry, order); contacts are screened later and lazily. */
+function fittingCandidates(n, request, { refineStarts = 16 } = {}) {
+  const out = [];
   for (const family of families(n, request)) {
-    const scored = [];
+    const near = [];
     for (const params of family.grid) {
       const design = family.build(params);
       if (ruleViolations(design, request).length) continue;
-      const overflow = overflowOf(design, request);
-      if (overflow <= 0) yield { family: family.name, design };
-      else scored.push([overflow, params]);
+      const over = overflowOf(design, request);
+      if (over <= 0) out.push({ family: family.name, familyRef: family, params, design });
+      else near.push([over, params]);
     }
     if (!family.bounds.length) continue;
-    scored.sort((a, b) => a[0] - b[0]);
-    for (const [, params] of scored.slice(0, refineStarts)) {
-      const point = refine(family, params, request);
-      if (point) yield { family: family.name + '+refined', design: family.build(point) };
+    near.sort((a, b) => a[0] - b[0]);
+    for (const [, params] of near.slice(0, refineStarts)) {
+      const r = patternSearch(family, params, fitScore(family, request), 0);
+      if (r.score <= 0) out.push({ family: family.name + '+fit-refined', familyRef: family, params: r.point, design: family.build(r.point) });
     }
   }
+  for (const c of out) Object.assign(c, { folds: n - 1, spread: spreadOf(c.design), symmetric: isSymmetric(c.design), order: orderScore(c.design) });
+  return out;
 }
 
-/* Fewest folds first; within a fold count, the most ordered fitting designs are screened for
- * contacts, ranked, and the winner is revalidated at 720 samples. Grid search plus deterministic
- * refinement: no randomness, so the answer cannot depend on a seed. "not-found" is not proof. */
-function referenceSolve(request, { maxPanels = RULES.maxPanels } = {}) {
+/* Reference answers for fold budgets minimum .. minimum + extraBudgets (D26).
+ * For each budget: find the widest valid opening angle (grid, then spread refinement), take the
+ * 10% band, rank it, and revalidate the winner at 720 samples. Deterministic; "not-found" is not proof. */
+function referenceSolveBudgets(request, { maxPanels = RULES.maxPanels, extraBudgets = RULES.extraBudgets } = {}) {
   const started = Date.now();
   const reason = analyticallyInfeasible(request);
-  if (reason) return { status: 'analytically-infeasible', reason, elapsedMs: Date.now() - started };
-  const scale = Math.max(request.length, ...request.targetBox);
-  let examined = 0;
-  for (let n = 1; n <= maxPanels; n++) {
-    const fitting = [];
-    for (const c of candidates(n, request)) {
-      examined++;
-      if (!fitsWithMargin(foldAccordion(c.design).dimensions, request.targetBox, scale)) continue;
-      fitting.push({ ...c, order: orderScore(c.design) });
+  if (reason) return { status: 'analytically-infeasible', reason, answers: [], elapsedMs: Date.now() - started };
+  const pool = [], screened = new Map();
+  const keyOf = d => d.panelLengths.map(x => x.toFixed(6)).join(',') + '|' + d.angles.map(x => x.toFixed(6)).join(',');
+  const metricsOf = c => {
+    const key = keyOf(c.design);
+    if (!screened.has(key)) {
+      const m = motionMetrics(c.design, RULES.screeningSteps);
+      screened.set(key, m.blockedSamples ? null : { folds: c.folds, spread: c.spread, symmetric: c.symmetric, order: c.order,
+        minGap: m.minGap, sweptArea: m.sweptArea, dimensions: foldAccordion(c.design).dimensions, candidate: c });
     }
-    const orders = [...new Set(fitting.map(c => c.order))].sort((a, b) => a - b);
-    for (const order of orders) {
-      const screened = fitting.filter(c => c.order === order)
-        .map(c => ({ ...c, metrics: { folds: n - 1, order, dimensions: foldAccordion(c.design).dimensions,
-          ...motionMetrics(c.design, RULES.screeningSteps) } }))
-        .filter(c => c.metrics.blockedSamples === 0)
-        .sort((a, b) => compareRanked(a.metrics, b.metrics));
-      for (const c of screened) {
-        const quality = assess(c.design, request);
-        if (quality.passes) return { status: 'found', family: c.family, design: c.design, quality,
-          examined, elapsedMs: Date.now() - started };
+    return screened.get(key);
+  };
+  const validIn = (list, limit) => { const out = []; for (const c of list) { const m = metricsOf(c); if (m) { out.push(m); if (out.length >= limit) break; } } return out; };
+  // Minimum feasible fold count: smallest n with a valid fitting candidate.
+  let minPanels = null;
+  for (let n = 1; n <= maxPanels && minPanels === null; n++) {
+    const cands = fittingCandidates(n, request).sort((a, b) => b.spread - a.spread);
+    pool.push(...cands);
+    if (validIn(cands, 1).length) minPanels = n;
+  }
+  if (minPanels === null) return { status: 'not-found', answers: [], elapsedMs: Date.now() - started };
+  const lastPanels = Math.min(maxPanels, minPanels + extraBudgets);
+  for (let n = minPanels + 1; n <= lastPanels; n++) pool.push(...fittingCandidates(n, request));
+  const answers = [];
+  for (let budget = minPanels - 1; budget <= lastPanels - 1; budget++) {
+    const allowed = pool.filter(c => c.folds <= budget).sort((a, b) => b.spread - a.spread);
+    // Widest valid openings, then spread refinement from the best few of each family.
+    const seeds = validIn(allowed, 400);
+    const perFamily = new Map();
+    for (const m of seeds) { const f = m.candidate.familyRef; if (!f.bounds.length) continue; const list = perFamily.get(f) || []; if (list.length < 3) { list.push(m); perFamily.set(f, list); } }
+    for (const [family, list] of perFamily) for (const m of list) {
+      const r = patternSearch(family, m.candidate.params, spreadScore(family, request), -1, 300);
+      if (r.score < 0) {
+        const design = family.build(r.point);
+        const c = { family: family.name + '+spread-refined', familyRef: family, params: r.point, design,
+          folds: design.angles.length, spread: spreadOf(design), symmetric: isSymmetric(design), order: orderScore(design) };
+        pool.push(c); allowed.push(c);
       }
     }
+    allowed.sort((a, b) => b.spread - a.spread);
+    const top = validIn(allowed, 1)[0];
+    if (!top) continue;
+    const cut = (1 - RULES.spreadTieBand) * top.spread - 1e-9;
+    // Screen the band in ranking order; stop after enough valid designs in the leading class.
+    const band = allowed.filter(c => c.spread >= cut)
+      .sort((a, b) => (a.symmetric === b.symmetric ? 0 : a.symmetric ? -1 : 1) || a.folds - b.folds || a.order - b.order || b.spread - a.spread);
+    const valid = []; let leadClass = null;
+    for (const c of band) {
+      const cls = `${c.symmetric}|${c.folds}|${c.order}`;
+      if (leadClass && cls !== leadClass) break;
+      const m = metricsOf(c);
+      if (m) { valid.push(m); leadClass = leadClass || cls; if (valid.length >= 150) break; }
+    }
+    for (const m of rankDesigns(valid.length ? valid : [top])) {
+      const quality = assess(m.candidate.design, request);
+      if (quality.passes) { answers.push({ budget, family: m.candidate.family, design: m.candidate.design, quality }); break; }
+    }
   }
-  return { status: 'not-found', examined, elapsedMs: Date.now() - started };
+  return { status: answers.length ? 'found' : 'not-found', minFolds: minPanels - 1, answers, elapsedMs: Date.now() - started };
 }
 
-module.exports = { RULES, usable, fitsWithMargin, ruleViolations, orderScore, segmentDistance,
-  motionMetrics, assess, compareRanked, analyticallyInfeasible, handRule, families, candidates, referenceSolve };
+// Single answer at the minimum budget (or a given budget), for callers that need one design.
+function referenceSolve(request, options = {}) {
+  const r = referenceSolveBudgets(request, options);
+  const pick = options.budget === undefined ? r.answers[0] : r.answers.find(a => a.budget === options.budget);
+  return { ...r, family: pick?.family, design: pick?.design, quality: pick?.quality, status: pick ? 'found' : r.status };
+}
+
+module.exports = { RULES, usable, fitsWithMargin, ruleViolations, orderScore, isSymmetric, spreadOf, segmentDistance,
+  motionMetrics, assess, compareWithinBand, rankDesigns, analyticallyInfeasible, handRule, families, quickExtents,
+  fittingCandidates, referenceSolveBudgets, referenceSolve };

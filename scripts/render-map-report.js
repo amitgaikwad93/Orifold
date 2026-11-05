@@ -2,38 +2,41 @@
 // Render the request-space map (and optional completeness check) as one self-contained HTML page.
 // Usage: node scripts/render-map-report.js <map.json> <output.html> [completeness.json]
 const fs = require('fs');
-const [mapPath, output, completenessPath] = process.argv.slice(2);
-if (!mapPath || !output) { console.error('Usage: <map.json> <output.html> [completeness.json]'); process.exit(2); }
+const [mapPath, output, completenessPath, spreadPath] = process.argv.slice(2);
+if (!mapPath || !output) { console.error('Usage: <map.json> <output.html> [completeness.json] [spread-check.json]'); process.exit(2); }
 const map = JSON.parse(fs.readFileSync(mapPath, 'utf8'));
-const check = completenessPath && fs.existsSync(completenessPath) ? JSON.parse(fs.readFileSync(completenessPath, 'utf8')) : null;
+const load = p => p && fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : null;
+const check = load(completenessPath), spreadCheck = load(spreadPath);
 const L = map.sheet.length, r = (x, d) => +x.toFixed(d);
-const checkKey = c => `${c.boxLength},${c.boxHeight}`;
-const checked = new Map((check?.records ?? []).map(x => [checkKey(x), x]));
-const familyName = f => (f || '').replace('+refined', '');
+const key = (x, z) => `${x},${z}`;
+const checked = new Map((check?.records ?? []).map(x => [key(x.boxLength, x.boxHeight), x]));
+const spreadChecked = new Map((spreadCheck?.records ?? []).map(x => [key(x.boxLength, x.boxHeight) + '|' + x.budget, x]));
+const familyName = f => (f || '').replace(/\+.*$/, '');
 const cells = map.cells.map(c => {
-  const k = checked.get(checkKey(c));
-  return {
-    x: c.boxLength, z: c.boxHeight,
+  const k = checked.get(key(c.boxLength, c.boxHeight));
+  const answers = (c.answers ?? []).map(a => {
+    const sc = spreadChecked.get(key(c.boxLength, c.boxHeight) + '|' + a.budget);
+    return { budget: a.budget, family: familyName(a.family), folds: a.quality.folds, order: a.quality.order,
+      sym: a.quality.symmetric, spread: r(a.quality.spread, 1),
+      gap: Number.isFinite(a.quality.minGap) ? r(a.quality.minGap, 4) : null, sweep: r(a.quality.sweptArea, 4),
+      dims: [r(a.quality.dimensions[0] / L, 4), r(a.quality.dimensions[2] / L, 4)],
+      panels: a.design.panelLengths.map(p => r(p / L, 4)), angles: a.design.angles.map(x => r(x, 2)),
+      spreadCheck: sc ? (sc.beyondBand ? 'beaten' : 'confirmed') : null, freeSpread: sc?.freeSpread ?? null };
+  });
+  return { x: c.boxLength, z: c.boxHeight,
     s: c.status === 'found' ? 'found' : c.status === 'analytically-infeasible' ? 'infeasible' : 'unknown',
-    reason: c.reason, family: familyName(c.family),
-    folds: c.quality?.folds ?? null, order: c.quality?.order ?? null,
-    gap: c.quality && Number.isFinite(c.quality.minGap) ? r(c.quality.minGap, 4) : null,
-    sweep: c.quality ? r(c.quality.sweptArea, 4) : null,
-    dims: c.quality ? [r(c.quality.dimensions[0] / L, 4), r(c.quality.dimensions[2] / L, 4)] : null,
-    panels: c.design ? c.design.panelLengths.map(p => r(p / L, 4)) : null,
-    angles: c.design ? c.design.angles.map(a => r(a, 2)) : null,
-    hand: c.handRule ? c.handRule.folds : null,
-    check: k ? (k.fewerFoldsFound ? 'beaten' : 'confirmed') : null,
-  };
+    minFolds: c.minFolds ?? null, hand: c.handRule ? c.handRule.folds : null, answers,
+    check: k ? (k.fewerFoldsFound ? 'beaten' : 'confirmed') : null };
 });
 const found = cells.filter(c => c.s === 'found');
+const allAnswers = found.flatMap(c => c.answers);
 const stats = {
   total: cells.length, found: found.length,
   infeasible: cells.filter(c => c.s === 'infeasible').length, unknown: cells.filter(c => c.s === 'unknown').length,
-  fewer: found.filter(c => c.hand !== null && c.hand > c.folds).length,
-  handImpossible: found.filter(c => c.hand === null).length,
-  checked: check?.summary.sampled ?? 0, beaten: check?.summary.referenceBeaten ?? 0, seeds: check?.summary.seedsPerCell ?? 0,
-  seconds: r(map.elapsedMs / 1000, 0),
+  fewer: found.filter(c => c.hand !== null && c.hand > c.minFolds).length,
+  symmetric: allAnswers.filter(a => a.sym).length, answers: allAnswers.length,
+  checked: check?.summary.sampled ?? 0, beaten: check?.summary.referenceBeaten ?? 0,
+  spreadChecked: spreadCheck?.summary.cellBudgetsChecked ?? 0, spreadBeaten: spreadCheck?.summary.freeWiderBeyondBand ?? 0,
 };
 const data = JSON.stringify({ lengths: map.lengths, heights: map.heights, cells, stats });
 
@@ -112,7 +115,7 @@ dd { margin: 0; font-family: var(--mono); font-size: 13px; font-variant-numeric:
   <header>
     <div class="eyebrow">Orifold · experiment v2 · request-space map</div>
     <h1>Fold Count Map</h1>
-    <p class="lede" style="max-width:68ch">Each square is one packing request: a 100 × 10 sheet into a box of the given length and height, with a 2% gap. The number is the fewest folds the reference solver found for a valid design. Select a square to see that design from the side and play its folding motion.</p>
+    <p class="lede" style="max-width:68ch">Each square is one packing request: a 100 × 10 sheet into a box of the given length and height, with a 2% gap. Each request also has a fold budget: the fewest folds that work, or one or two more. Within the budget the solver picks the most spread design (widest smallest opening angle between neighbouring panels), preferring symmetric designs within 10% of the widest. Select a square to see the design and play its motion.</p>
     <div class="facts" id="facts"></div>
   </header>
   <div class="main">
@@ -120,8 +123,14 @@ dd { margin: 0; font-family: var(--mono); font-size: 13px; font-variant-numeric:
       <div class="controls">
         <h2 id="map-title">Box shapes</h2>
         <div class="seg" role="group" aria-label="Map view">
-          <button id="view-folds" aria-pressed="true">Folds needed</button>
-          <button id="view-saved" aria-pressed="false">Folds saved vs hand rule</button>
+          <button id="view-folds" aria-pressed="true">Fewest folds</button>
+          <button id="view-spread" aria-pressed="false">Opening angle</button>
+          <button id="view-saved" aria-pressed="false">Saved vs hand rule</button>
+        </div>
+        <div class="seg" role="group" aria-label="Fold budget">
+          <button id="b0" aria-pressed="true">Fewest</button>
+          <button id="b1" aria-pressed="false">+1 fold</button>
+          <button id="b2" aria-pressed="false">+2 folds</button>
         </div>
       </div>
       <div class="chart" id="chart"><div class="tip" id="tip" hidden></div></div>
@@ -132,8 +141,9 @@ dd { margin: 0; font-family: var(--mono); font-size: 13px; font-variant-numeric:
   <section class="note">
     <h2>How to read this</h2>
     <p><b>Hand rule:</b> fold flat into the fewest equal panels whose length fits the box, ignoring height. "Folds saved" counts how many fewer folds the solver needed by also using the box's height.</p>
-    <p><b>Reference solver:</b> searches ordered design families (equal panels, or one different first panel; one or two fold angles) on a fixed grid, refined deterministically. It has no randomness. A square marked "?" means it found nothing within 11 folds, which is not proof that no design exists. Squares marked × are proven impossible: even the shortest allowed first panel (5% of the sheet) is longer than the box.</p>
-    <p><b>Solver check:</b> for ringed squares, an independent free-form random search looked for a design with one fold fewer. A red ring means it found one, so the reference missed a better answer there.</p>
+    <p><b>Fold budget and spread:</b> the budget buttons choose how many folds are allowed: the fewest that work, or one or two more. The opening-angle view shows the smallest angle between neighbouring panels for that budget; bigger means more spread. A small dot marks symmetric designs (mirror for even panel counts, rotational for odd).</p>
+    <p><b>Reference solver:</b> searches design families (equal, different-first, symmetric-ends and tapered panels; one, first-different or palindromic angles) on a fixed grid, refined deterministically for fit and for spread. It has no randomness. A square marked "?" means it found nothing within 11 folds, which is not proof that no design exists. Squares marked × are proven impossible: even the shortest allowed first panel (5% of the sheet) is longer than the box.</p>
+    <p><b>Solver checks:</b> ringed squares were re-checked by independent free-form random searches. In the fold views: a search for one fold fewer. In the opening-angle view: a search for a wider opening at the same budget. A red ring means the search beat the reference (for spread, by more than the 10% band).</p>
     <p><b>Limits:</b> zero-thickness rigid panels, contacts checked at 721 sampled motion states, motion not required to stay inside the box. Full list in docs/LIMITATIONS.md. Box width is fixed at 12 and does not change the fold.</p>
   </section>
 </div>
@@ -144,8 +154,9 @@ const $ = id => document.getElementById(id);
 const S = DATA.stats;
 $('facts').innerHTML = [
   ['Requests', S.total], ['Solved', S.found], ['Proven impossible', S.infeasible], ['Not found', S.unknown],
-  ['Fewer folds than hand rule', S.fewer], ['Hand rule impossible, solver found one', S.handImpossible],
-  ...(S.checked ? [['Squares re-checked', S.checked], ['Solver beaten', S.beaten]] : []),
+  ['Fewer folds than hand rule', S.fewer], ['Symmetric answers', S.symmetric + ' / ' + S.answers],
+  ...(S.checked ? [['Fold re-checks beaten', S.beaten + ' / ' + S.checked]] : []),
+  ...(S.spreadChecked ? [['Spread re-checks beaten', S.spreadBeaten + ' / ' + S.spreadChecked]] : []),
 ].map(([k, v]) => '<div><b>' + v + '</b><span>' + k + '</span></div>').join('');
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -169,52 +180,69 @@ el('text', { x: ML + cols * CS / 2, y: H - 6, 'text-anchor': 'middle', 'font-siz
 const yl = el('text', { x: 12, y: MT + rows * CS / 2, 'text-anchor': 'middle', 'font-size': 12, fill: 'var(--ink)', transform: 'rotate(-90 12 ' + (MT + rows * CS / 2) + ')' }, svg);
 yl.textContent = 'Box height ÷ sheet length →';
 
-let view = 'folds', selected = null;
+let view = 'folds', budget = 0, selected = null;
 const shade = n => { const k = Math.min(8, Math.max(0, n)); return ['var(--f' + k + ')', k <= 2 ? 'var(--t-light)' : 'var(--t-dark)']; };
+const ANGLE_BINS = [5, 10, 20, 30, 45, 60, 90, 179.9];   // upper edges; above = no fold (180)
+const angleBin = a => { const i = ANGLE_BINS.findIndex(e => a < e); return i === -1 ? 8 : i; };
+const answerOf = c => c.answers[Math.min(budget, c.answers.length - 1)];
 const nodes = DATA.cells.map(c => {
   const i = DATA.lengths.findIndex(v => Math.abs(v - c.x) < 1e-9), j = DATA.heights.findIndex(v => Math.abs(v - c.z) < 1e-9);
   const g = el('g', { class: 'cell', tabindex: 0, role: 'button' }, svg);
   const bg = el('rect', { class: 'bg', x: colX(i), y: rowY(j), width: CS, height: CS, rx: 2 }, g);
   const ring = el('rect', { x: colX(i) + 2.5, y: rowY(j) + 2.5, width: CS - 5, height: CS - 5, rx: 2, fill: 'none', 'stroke-width': 1.6 }, g);
   const label = el('text', { x: colX(i) + CS / 2, y: rowY(j) + CS / 2 + 4, 'text-anchor': 'middle', 'font-size': 10.5 }, g);
+  const dot = el('circle', { cx: colX(i) + CS - 4, cy: rowY(j) + 4, r: 1.8 }, g);
   g.addEventListener('click', () => select(c));
   g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(c); } });
   g.addEventListener('mouseenter', () => showTip(c, i, j));
   g.addEventListener('mouseleave', () => { $('tip').hidden = true; });
-  return { c, g, bg, ring, label };
+  return { c, g, bg, ring, label, dot };
 });
-function value(c) { return view === 'folds' ? c.folds : (c.hand === null ? null : c.hand - c.folds); }
 function paint() {
-  for (const { c, g, bg, ring, label } of nodes) {
+  for (const { c, g, bg, ring, label, dot } of nodes) {
     g.classList.toggle('sel', c === selected);
+    dot.setAttribute('fill', 'none'); label.setAttribute('font-size', 10.5);
+    let check = null;
     if (c.s !== 'found') {
       bg.setAttribute('fill', c.s === 'infeasible' ? 'url(#hatch)' : 'var(--paper)');
       label.setAttribute('fill', 'var(--ink-2)'); label.textContent = c.s === 'infeasible' ? '×' : '?';
+    } else if (view === 'spread') {
+      const a = answerOf(c), k = angleBin(a.spread), [f, t] = shade(k);
+      bg.setAttribute('fill', f); label.setAttribute('fill', t);
+      label.textContent = Math.round(a.spread); if (a.spread >= 99.5) label.setAttribute('font-size', 8.5);
+      if (a.sym) dot.setAttribute('fill', t);
+      check = a.spreadCheck;
     } else {
-      const v = value(c);
+      const v = view === 'folds' ? c.minFolds : (c.hand === null ? null : c.hand - c.minFolds);
       if (v === null) { bg.setAttribute('fill', 'var(--paper)'); label.setAttribute('fill', 'var(--ink)'); label.textContent = '∞'; }
       else { const [f, t] = shade(v); bg.setAttribute('fill', f); label.setAttribute('fill', t); label.textContent = v; }
+      check = c.check;
     }
-    ring.setAttribute('stroke', c.check === 'beaten' ? 'var(--critical)' : c.check === 'confirmed' ? 'var(--ink)' : 'none');
-    ring.setAttribute('stroke-opacity', c.check === 'confirmed' ? 0.45 : 1);
-    ring.setAttribute('stroke-width', c.check === 'beaten' ? 2.2 : 1.2);
+    ring.setAttribute('stroke', check === 'beaten' ? 'var(--critical)' : check === 'confirmed' ? 'var(--ink)' : 'none');
+    ring.setAttribute('stroke-opacity', check === 'confirmed' ? 0.45 : 1);
+    ring.setAttribute('stroke-width', check === 'beaten' ? 2.2 : 1.2);
   }
-  const steps = [0, 1, 2, 3, 4, 5, 6, 7, 8].map(n => '<span><i class="sw" style="background:var(--f' + n + ')"></i>' + (n === 8 ? '8+' : n) + '</span>').join('');
-  $('legend').innerHTML = '<span>' + (view === 'folds' ? 'Folds:' : 'Folds saved:') + '</span>' + steps +
-    '<span><i class="sw" style="background:url(#hatch);border:1px solid var(--rule)"></i>× impossible</span>' +
-    '<span>? not found</span>' + (view === 'saved' ? '<span>∞ hand rule needs over 11 folds</span>' : '') +
-    (S.checked ? '<span><i class="sw" style="border:1.5px solid var(--ink);opacity:.6"></i>re-checked</span><span><i class="sw" style="border:2px solid var(--critical)"></i>check found fewer folds</span>' : '');
+  const names = view === 'spread' ? ['<5°', '5–10', '10–20', '20–30', '30–45', '45–60', '60–90', '90+', 'no fold'] : [0, 1, 2, 3, 4, 5, 6, 7, '8+'];
+  const steps = names.map((n, k) => '<span><i class="sw" style="background:var(--f' + k + ')"></i>' + n + '</span>').join('');
+  $('legend').innerHTML = '<span>' + (view === 'folds' ? 'Fewest folds:' : view === 'saved' ? 'Folds saved:' : 'Smallest opening angle:') + '</span>' + steps +
+    '<span><i class="sw" style="background:url(#hatch);border:1px solid var(--rule)"></i>× impossible</span><span>? not found</span>' +
+    (view === 'saved' ? '<span>∞ hand rule needs over 11 folds</span>' : '') + (view === 'spread' ? '<span>• symmetric</span>' : '') +
+    '<span><i class="sw" style="border:1.5px solid var(--ink);opacity:.6"></i>re-checked</span><span><i class="sw" style="border:2px solid var(--critical)"></i>re-check beat the solver</span>';
+  ['b0', 'b1', 'b2'].forEach((id, k) => $(id).setAttribute('aria-pressed', String(k === budget)));
+  ['folds', 'spread', 'saved'].forEach(v => $('view-' + v).setAttribute('aria-pressed', String(v === view)));
 }
 function showTip(c, i, j) {
   const t = $('tip');
-  const desc = c.s === 'found' ? c.folds + ' fold' + (c.folds === 1 ? '' : 's') + ' · hand rule ' + (c.hand === null ? 'impossible' : c.hand) : c.s === 'infeasible' ? 'proven impossible' : 'none found within 11 folds';
+  let desc;
+  if (c.s === 'found') { const a = answerOf(c); desc = 'fewest ' + c.minFolds + ' · budget ' + a.budget + ': ' + a.folds + ' folds, opening ' + a.spread.toFixed(0) + '°' + (a.sym ? ', symmetric' : ''); }
+  else desc = c.s === 'infeasible' ? 'proven impossible' : 'none found within 11 folds';
   t.textContent = 'Box ' + (c.x * 100).toFixed(0) + ' × ' + (c.z * 100).toFixed(0) + ' — ' + desc;
   t.hidden = false;
   const chart = $('chart'), left = colX(i) + CS + 6 - chart.scrollLeft, top = rowY(j) - 6;
   t.style.left = Math.min(left, chart.clientWidth - t.offsetWidth - 4) + 'px'; t.style.top = Math.max(0, top) + 'px';
 }
-$('view-folds').onclick = () => { view = 'folds'; $('view-folds').setAttribute('aria-pressed', 'true'); $('view-saved').setAttribute('aria-pressed', 'false'); paint(); };
-$('view-saved').onclick = () => { view = 'saved'; $('view-saved').setAttribute('aria-pressed', 'true'); $('view-folds').setAttribute('aria-pressed', 'false'); paint(); };
+['folds', 'spread', 'saved'].forEach(v => { $('view-' + v).onclick = () => { view = v; paint(); }; });
+['b0', 'b1', 'b2'].forEach((id, k) => { $(id).onclick = () => { budget = k; paint(); if (selected) { stop(); progress = 1; renderDetail(); } }; });
 
 // Same kinematics as src/accordion.js: alternating signed rotations, scaled by motion progress.
 function section(panels, angles, t) {
@@ -222,8 +250,11 @@ function section(panels, angles, t) {
   panels.forEach((len, i) => { if (i > 0) o += (i % 2 ? 1 : -1) * angles[i - 1] * t; const a = o * Math.PI / 180, p = pts[i]; pts.push([p[0] + len * Math.cos(a), p[1] + len * Math.sin(a)]); });
   return pts;
 }
-const FAMILY = { 'flat': 'No fold', 'equal-uniform': 'Equal panels, one angle', 'equal-two-angle': 'Equal panels, two angles',
-  'first-panel-uniform': 'Different first panel, one angle', 'first-panel-two-angle': 'Different first panel, two angles' };
+const FAMILY = { 'flat': 'No fold', 'equal-one-angle': 'Equal panels, one angle', 'equal-first-angle-different': 'Equal panels, first angle different',
+  'equal-palindromic-angles': 'Equal panels, symmetric angles', 'first-panel-one-angle': 'Different first panel, one angle',
+  'first-panel-first-angle-different': 'Different first panel, first angle different', 'symmetric-ends-one-angle': 'Symmetric end panels, one angle',
+  'symmetric-ends-palindromic-angles': 'Symmetric end panels, symmetric angles', 'taper-one-angle': 'Tapered panels, one angle',
+  'taper-first-angle-different': 'Tapered panels, first angle different' };
 let progress = 1, playing = null;
 function select(c) { selected = c; stop(); progress = 1; paint(); renderDetail(); }
 function renderDetail() {
@@ -233,27 +264,29 @@ function renderDetail() {
     d.innerHTML = head + '<p class="lede">' + (c.s === 'infeasible' ? 'Proven impossible: the first panel must be at least 5 long and stays flat, but the box allows only ' + (c.x * 98).toFixed(1) + ' after the 2% gap.' : 'The reference solver found no valid design within 11 folds. This is not proof that none exists.') + '</p>';
     return;
   }
-  const fmt = (v, n = 1) => (v * 100).toFixed(n);
+  const a = answerOf(c), fmt = (v, n = 1) => (v * 100).toFixed(n);
   d.innerHTML = head +
-    '<div class="legend"><span class="pill">' + c.folds + ' fold' + (c.folds === 1 ? '' : 's') + '</span><span class="pill">order score ' + c.order + '</span><span class="pill">' + FAMILY[c.family] + '</span>' +
-    (c.check === 'beaten' ? '<span class="pill warn">check found fewer folds</span>' : c.check === 'confirmed' ? '<span class="pill">check: none fewer found</span>' : '') + '</div>' +
+    '<div class="legend"><span class="pill">budget ' + a.budget + ' folds</span><span class="pill">uses ' + a.folds + '</span><span class="pill">opening ' + a.spread.toFixed(1) + '°</span>' +
+    '<span class="pill">' + (a.sym ? (a.panels.length % 2 ? 'rotational symmetry' : 'mirror symmetry') : 'not symmetric') + '</span><span class="pill">order score ' + a.order + '</span>' +
+    (a.spreadCheck === 'beaten' ? '<span class="pill warn">re-check found ' + a.freeSpread.toFixed(1) + '° opening</span>' : a.spreadCheck === 'confirmed' ? '<span class="pill">spread re-check: not beaten</span>' : '') + '</div>' +
     '<svg class="side" id="side" viewBox="0 0 100 100" role="img" aria-label="Side view of the fold inside the box"></svg>' +
     '<p class="cap">Side view, final shape placed in the box. Solid outline: box. Dashed: 98% limit. Open dot: fixed end. The frame covers the whole motion.</p>' +
     '<div class="motion"><button id="play">Play</button><input id="prog" type="range" min="0" max="1" step="0.005" value="' + progress + '" aria-label="Folding progress"><span id="pval" class="eyebrow">100%</span></div>' +
     '<dl>' +
-    '<dt>Hand rule</dt><dd>' + (c.hand === null ? 'impossible (needs over 11 folds)' : c.hand + ' fold' + (c.hand === 1 ? '' : 's') + (c.hand > c.folds ? ' · solver saves ' + (c.hand - c.folds) : ' · same')) + '</dd>' +
-    '<dt>Panel lengths</dt><dd>' + c.panels.map(p => fmt(p)).join(' · ') + '</dd>' +
-    '<dt>Fold angles</dt><dd>' + (c.angles.length ? c.angles.map(a => a.toFixed(1) + '°').join(' · ') : 'none') + '</dd>' +
-    '<dt>Folded size</dt><dd>' + fmt(c.dims[0]) + ' × ' + fmt(c.dims[1]) + ' in a box of ' + (c.x * 100).toFixed(0) + ' × ' + (c.z * 100).toFixed(0) + '</dd>' +
-    '<dt>Smallest gap</dt><dd>' + (c.gap === null ? 'no non-adjacent panels' : fmt(c.gap, 2) + ' (during motion)') + '</dd>' +
-    '<dt>Motion sweep</dt><dd>' + (c.sweep * 100).toFixed(1) + '% of sheet length²</dd>' +
+    '<dt>Design family</dt><dd>' + (FAMILY[a.family] || a.family) + '</dd>' +
+    '<dt>Hand rule</dt><dd>' + (c.hand === null ? 'impossible (needs over 11 folds)' : c.hand + ' fold' + (c.hand === 1 ? '' : 's') + ' (fewest found: ' + c.minFolds + ')') + '</dd>' +
+    '<dt>Panel lengths</dt><dd>' + a.panels.map(p => fmt(p)).join(' · ') + '</dd>' +
+    '<dt>Fold angles</dt><dd>' + (a.angles.length ? a.angles.map(x => x.toFixed(1) + '°').join(' · ') : 'none') + '</dd>' +
+    '<dt>Folded size</dt><dd>' + fmt(a.dims[0]) + ' × ' + fmt(a.dims[1]) + ' in a box of ' + (c.x * 100).toFixed(0) + ' × ' + (c.z * 100).toFixed(0) + '</dd>' +
+    '<dt>Smallest gap</dt><dd>' + (a.gap === null ? 'no non-adjacent panels' : fmt(a.gap, 2) + ' (during motion)') + '</dd>' +
+    '<dt>Motion sweep</dt><dd>' + (a.sweep * 100).toFixed(1) + '% of sheet length²</dd>' +
     '</dl>';
   $('prog').oninput = e => { stop(); progress = +e.target.value; drawSide(); };
   $('play').onclick = () => playing ? stop() : play();
   drawSide();
 }
 function drawSide() {
-  const c = selected, svgS = $('side'); if (!svgS) return;
+  const c = answerOf(selected), svgS = $('side'); if (!svgS) return; c.x = selected.x; c.z = selected.z;
   svgS.innerHTML = '';
   const fin = section(c.panels, c.angles, 1);
   const minX = Math.min(...fin.map(p => p[0])), minZ = Math.min(...fin.map(p => p[1]));
@@ -284,7 +317,7 @@ function play() {
   playing = requestAnimationFrame(tick);
 }
 function stop() { if (playing) cancelAnimationFrame(playing); playing = null; const b = $('play'); if (b) b.textContent = 'Play'; }
-const start = DATA.cells.find(c => c.s === 'found' && Math.abs(c.x - 0.12) < 1e-6 && Math.abs(c.z - 0.42) < 1e-6) || DATA.cells.find(c => c.s === 'found');
+const start = DATA.cells.find(c => c.s === 'found' && Math.abs(c.x - 0.2) < 1e-6 && Math.abs(c.z - 0.3) < 1e-6) || DATA.cells.find(c => c.s === 'found');
 paint(); select(start);
 </script>
 `;
