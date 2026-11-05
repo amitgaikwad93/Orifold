@@ -1,0 +1,95 @@
+{
+  "experiment": "learning-v2b",
+  "created": "2026-11-05T14:45:46.930Z",
+  "seed": 20261105,
+  "splitSeed": 20261106,
+  "counts": {
+    "short": 1500,
+    "long": 500,
+    "widthImpossible": 100,
+    "tiny": 100
+  },
+  "distribution": {
+    "short": {
+      "boxLength": [
+        0.05,
+        0.5
+      ],
+      "boxHeight": [
+        0.02,
+        1.06
+      ]
+    },
+    "long": {
+      "boxLength": [
+        0.5,
+        1.08
+      ],
+      "boxHeight": [
+        0.02,
+        1.06
+      ]
+    },
+    "widthImpossible": {
+      "boxLength": [
+        0.05,
+        1.08
+      ],
+      "boxHeight": [
+        0.02,
+        1.06
+      ],
+      "boxWidthOverSheetWidth": [
+        0.6,
+        0.97
+      ]
+    },
+    "tiny": {
+      "boxLength": [
+        0.01,
+        0.08
+      ],
+      "boxHeight": [
+        0.01,
+        0.08
+      ]
+    },
+    "sheetLength": [
+      10,
+      100
+    ],
+    "sheetWidthOverLength": [
+      0.05,
+      0.5
+    ],
+    "boxWidthOverSheetWidth": [
+      1.03,
+      1.3
+    ]
+  },
+  "splits": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "groupCell": 0.04,
+  "groupingRule": "box length and height ratios, sorted (D30: a box and its swapped partner are one problem), floored to 0.04 cells",
+  "rules": {
+    "margin": 0.02,
+    "minPanelFraction": 0.05,
+    "maxPanels": 12,
+    "activeAngle": 1,
+    "lengthTolerance": 0.01,
+    "angleTolerance": 1,
+    "validationSteps": 720,
+    "screeningSteps": 60,
+    "sweepTieTolerance": 0.01,
+    "spreadTieBand": 0.1,
+    "extraBudgets": 2,
+    "creasesOnWalls": true,
+    "wallTolerance": 0.005
+  },
+  "notes": "Ratios are relative to sheet length. Tiny boxes are diagnostics expected to be unsolved; that is not proof of impossibility. Width-impossible boxes are proven impossible.",
+  "labelRevision": "D34: every crease on a box wall, ranked before spread (wall tolerance 0.5% of sheet length)",
+  "requestsFrom": "experiments/learning-v2/manifest.json (identical requests and splits; copied, not regenerated)"
+}
