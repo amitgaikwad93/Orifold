@@ -20,19 +20,15 @@ const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
 const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
 const norm = a => Math.hypot(...a);
 
-// Sorted, minimum-anchored bins: a group spans at most the stated tolerance.
-// This avoids chaining many small differences into an arbitrarily wide group.
-// The spec does not define clustering for such chains; this convention is
-// explicit so this audit is reproducible. Mirror comparisons use the same
+// The clarified section 5 groups by chaining sorted neighbours whose gap is
+// within tolerance, even if a group's full span exceeds it. Mirrors use the
 // 1%-of-sheet-length tolerance for lengths and 1 degree for angles (D28).
 // Zero creases have zero distinct angles.
 function distinctCount(values, tolerance) {
-  let count = 0, anchor;
+  let count = 0, previous;
   for (const value of [...values].sort((a, b) => a - b)) {
-    if (count === 0 || value - anchor > tolerance) {
-      anchor = value;
-      count++;
-    }
+    if (count === 0 || value - previous > tolerance) count++;
+    previous = value;
   }
   return count;
 }
@@ -66,6 +62,7 @@ function ruleViolations(request, design) {
   if (angles.length !== lengths.length - 1) problems.push('angle count must equal panel count minus one');
   if (!positive(design.width) || Math.abs(design.width - request.width) > eps) problems.push('design width differs from sheet width');
   if (design.placement !== undefined && !finite(design.placement)) problems.push('placement must be a finite angle in degrees');
+  if (!validOffset(design)) problems.push('offset must be an array of two finite coordinates [x, z]');
   lengths.forEach((x, i) => {
     if (!positive(x)) problems.push(`panel ${i} is not a positive finite length`);
     else if (x < 0.05 * request.length - eps) problems.push(`panel ${i} is shorter than 5% of sheet length`);
@@ -107,6 +104,27 @@ function placedPoints(design) {
   const psi = (design.placement === undefined ? 0 : design.placement) * Math.PI / 180;
   const c = Math.cos(psi), s = Math.sin(psi);
   return pointsAt(design, 1).map(([x, z]) => [x * c - z * s, x * s + z * c]);
+}
+
+function validOffset(design) {
+  return design.offset === undefined || (Array.isArray(design.offset) && design.offset.length === 2 && design.offset.every(finite));
+}
+
+// offset locates the lower-left of the TURNED bounding box, not the original
+// chain origin. The four walls are the usable box's side-view x/z walls;
+// the sheet's width is checked separately and cannot shrink.
+function positionedPoints(design) {
+  const turned = placedPoints(design);
+  const minX = Math.min(...turned.map(p => p[0])), minZ = Math.min(...turned.map(p => p[1]));
+  const [offsetX, offsetZ] = design.offset === undefined ? [0, 0] : design.offset;
+  return turned.map(([x, z]) => [x - minX + offsetX, z - minZ + offsetZ]);
+}
+
+function floatingCreases(points, request) {
+  const [length, , height] = request.targetBox.map(x => 0.98 * x);
+  const tolerance = 0.005 * request.length;
+  return points.slice(1, -1).filter(([x, z]) =>
+    Math.min(Math.abs(x), Math.abs(length - x), Math.abs(z), Math.abs(height - z)) > tolerance).length;
 }
 
 function pointSegmentDistance(p, a, b) {
@@ -173,6 +191,7 @@ function auditAnswer(request, answer) {
     Array.isArray(design.panelLengths) && design.panelLengths.length > 0 &&
     design.panelLengths.every(positive) && positive(design.width) &&
     (design.placement === undefined || finite(design.placement)) &&
+    validOffset(design) &&
     Array.isArray(design.angles) && design.angles.length === design.panelLengths.length - 1 &&
     design.angles.every(finite) && Array.isArray(request.targetBox) &&
     request.targetBox.length === 3 && request.targetBox.every(x => finite(x) && x >= 0);
@@ -192,13 +211,24 @@ function auditAnswer(request, answer) {
     add('spread', { saved: saved.spread ?? null, computed: opening, numericalTolerance: 1e-9 });
   }
 
-  const finalDimensions = dimensions(placedPoints(design), design.width);
+  const positioned = positionedPoints(design);
+  const finalDimensions = dimensions(positioned, design.width);
   const limits = request.targetBox.map(x => 0.98 * x);
   const fitEps = 1e-9 * Math.max(request.length, request.width, ...request.targetBox);
-  const fits = finalDimensions.every((x, i) => x <= limits[i] + fitEps);
+  const bounds = [[Math.min(...positioned.map(p => p[0])), Math.max(...positioned.map(p => p[0]))],
+    [0, design.width], [Math.min(...positioned.map(p => p[1])), Math.max(...positioned.map(p => p[1]))]];
+  const fits = design.width <= limits[1] + fitEps && positioned.every(([x, z]) =>
+    x >= -fitEps && x <= limits[0] + fitEps && z >= -fitEps && z <= limits[2] + fitEps);
   if (!fits || saved.fits !== fits) add('box-fit', {
-    saved: saved.fits ?? null, computed: fits, dimensions: finalDimensions, limits, numericalTolerance: fitEps
+    saved: saved.fits ?? null, computed: fits, dimensions: finalDimensions,
+    offset: design.offset ?? [0, 0], bounds, limits,
+    outsideBy: bounds.map(([min, max], i) => Math.max(0, -min, max - limits[i])), numericalTolerance: fitEps
   });
+  const floating = floatingCreases(positioned, request);
+  const hasSavedFloating = Object.hasOwn(saved, 'floatingCreases');
+  if (hasSavedFloating && saved.floatingCreases !== floating) {
+    add('floating-creases', { saved: saved.floatingCreases, computed: floating });
+  }
   if (!Array.isArray(saved.dimensions) || saved.dimensions.length !== 3 ||
       saved.dimensions.some((x, i) => !finite(x) || Math.abs(x - finalDimensions[i]) > fitEps)) {
     add('saved-dimensions', { saved: saved.dimensions ?? null, computed: finalDimensions });
@@ -223,7 +253,7 @@ function auditAnswer(request, answer) {
   if (saved.valid !== valid) add('valid', { saved: saved.valid ?? null, computed: valid });
   if (saved.passes !== (valid && fits)) add('passes', { saved: saved.passes ?? null, computed: valid && fits });
   if (saved.sampleCount !== INTERVALS + 1) add('sample-count', { saved: saved.sampleCount ?? null, computed: INTERVALS + 1 });
-  return { disagreements, sampledStates: INTERVALS + 1, folds, order: order.score };
+  return { disagreements, sampledStates: INTERVALS + 1, folds, order: order.score, floating, hasSavedFloating };
 }
 
 function auditCell(cell) {
@@ -259,13 +289,16 @@ function auditMap(map, input) {
   const result = {
     input,
     policy: {
-      source: 'EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D33; GEOMETRY.md contact policy',
+      source: 'EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D34; GEOMETRY.md contact policy',
       motionStates: INTERVALS + 1,
       boxFraction: 0.98,
       placement: 'recorded angle in degrees (missing means 0); final fit only; motion and contacts unrotated',
+      offset: 'turned bounding-box lower-left at [x, z] in usable box; missing means [0, 0]; all vertices must fit',
+      floatingCreases: 'interior side-view vertices farther than 0.5% of sheet length from all four usable x/z walls',
+      legacyFloatingCreases: 'missing saved counts are reported as unavailable, not compared or assumed zero',
       contactTolerance: '1e-9 * requested sheet length',
       fitTolerance: '1e-9 * max(sheet dimensions, box dimensions)',
-      orderGrouping: 'sorted bins spanning at most 1% of sheet length / 1 degree',
+      orderGrouping: 'sorted neighbour gaps at most 1% of sheet length / 1 degree, with transitive chaining',
       symmetry: 'palindromic lengths within 1% of sheet length AND angles within 1 degree',
       spread: '180 degrees minus largest fold angle; 180 degrees with no folds; numerical tolerance 1e-9 degree',
       budgets: 'every answer checked; consecutive minFolds through minFolds + 2, capped at 11; folds <= budget',
@@ -275,11 +308,12 @@ function auditMap(map, input) {
     totalCells: map.cells.length,
     solvedCells: 0, skippedCells: 0, sampledStates: 0,
     checkedAnswers: 0, passingAnswers: 0, disagreementAnswers: 0,
+    zeroFloatingCreaseAnswers: 0, floatingCreaseComparisons: 0, answersWithoutSavedFloatingCreases: 0,
     passingCells: 0, disagreementCells: 0,
     disagreementsByCheck: Object.fromEntries(['min-folds', 'budget-sequence', 'top-level-design', 'fold-budget',
       'panel-and-angle-rules', 'geometry-and-score', 'fold-count', 'order-score', 'symmetry', 'spread',
-      'box-fit', 'saved-dimensions', 'motion-contacts', 'valid', 'passes', 'sample-count'].map(check => [check, 0])),
-    foldCounts: {}, orderScores: {}, disagreements: []
+      'box-fit', 'floating-creases', 'saved-dimensions', 'motion-contacts', 'valid', 'passes', 'sample-count'].map(check => [check, 0])),
+    foldCounts: {}, orderScores: {}, floatingCreaseCounts: {}, disagreements: []
   };
   map.cells.forEach((cell, index) => {
     if (cell.status !== 'found') { result.skippedCells++; return; }
@@ -292,11 +326,18 @@ function auditMap(map, input) {
     for (const answer of checked.checkedAnswers) {
       if (answer.folds !== undefined) result.foldCounts[answer.folds] = (result.foldCounts[answer.folds] || 0) + 1;
       if (answer.order !== undefined) result.orderScores[answer.order] = (result.orderScores[answer.order] || 0) + 1;
+      if (answer.floating !== undefined) {
+        result.floatingCreaseCounts[answer.floating] = (result.floatingCreaseCounts[answer.floating] || 0) + 1;
+        if (answer.floating === 0) result.zeroFloatingCreaseAnswers++;
+        if (answer.hasSavedFloating) result.floatingCreaseComparisons++;
+        else result.answersWithoutSavedFloatingCreases++;
+      }
     }
     if (checked.disagreements.length === 0) { result.passingCells++; return; }
     result.disagreementCells++;
     for (const issue of checked.disagreements) result.disagreementsByCheck[issue.check] = (result.disagreementsByCheck[issue.check] || 0) + 1;
-    result.disagreements.push({ index, boxLength: cell.boxLength, boxHeight: cell.boxHeight,
+    result.disagreements.push({ index, ...(cell.id === undefined ? {} : { id: cell.id }),
+      boxLength: cell.boxLength, boxHeight: cell.boxHeight,
       targetBox: cell.request?.targetBox, issues: checked.disagreements });
   });
   if (result.solvedCells === 0) throw new Error('input has no solved cells (status "found")');
@@ -334,7 +375,9 @@ function selfTest() {
   assert.equal(orderScore([25, 25, 25, 25], [90, 90, 90], 100).score, 2);
   assert.equal(orderScore([30, 35, 35], [150, 178], 100).score, 5);
   assert.equal(orderScore([49.5, 50.5], [180], 100).score, 2); // Inclusive threshold.
-  assert.equal(distinctCount([10, 10.75, 11.5], 1), 2); // No transitive chaining.
+  assert.equal(distinctCount([10, 10.75, 11.5], 1), 1); // Chaining per clarified section 5.
+  assert.equal(distinctCount([25, 25.8, 26.6], 1), 1);
+  assert.equal(distinctCount([10, 10.75, 12], 1), 2);
   const differentFirstAngle = orderScore([25, 25, 25, 25], [60, 90, 90], 100);
   assert.equal(differentFirstAngle.symmetric, false);
   assert.equal(differentFirstAngle.score, 4); // Equal panels alone are insufficient (D28).
@@ -352,6 +395,7 @@ function selfTest() {
     const minFolds = d.angles.length;
     const quality = { folds: minFolds, order, symmetric: orderScore(d.panelLengths, d.angles, 100).symmetric,
       spread: spread(d.angles), fits: true, valid: true, passes: true,
+      floatingCreases: floatingCreases(positionedPoints(d), { ...request, targetBox: box }),
       contactFree: true, dimensions: dimensions(placedPoints(d), 10), sampleCount: 721 };
     const answers = Array.from({ length: Math.min(11, minFolds + 2) - minFolds + 1 }, (_, i) => ({
       budget: minFolds + i, design: structuredClone(d), quality: i === 0 ? quality : structuredClone(quality)
@@ -373,6 +417,48 @@ function selfTest() {
   assert.deepEqual(placedPoints(unfolded), pointsAt(unfolded, 1));
   assert(auditCell(cell({ ...partial, placement: 90 }, [110, 12, 110], 5))
     .disagreements.some(x => x.check === 'motion-contacts')); // A turn cannot hide contact.
+  const rightAngle = { panelLengths: [50, 50], width: 10, angles: [90], placement: 0, offset: [0, 0] };
+  const wallRequest = { ...request, targetBox: [60, 12, 60] };
+  assert.equal(floatingCreases(positionedPoints(rightAngle), wallRequest), 0);
+  assert.deepEqual(auditCell(cell(rightAngle, wallRequest.targetBox, 2)).disagreements, []);
+  const slid = { ...rightAngle, offset: [1, 1] };
+  assert.equal(floatingCreases(positionedPoints(slid), wallRequest), 1);
+  assert.deepEqual(auditCell(cell(slid, wallRequest.targetBox, 2)).disagreements, []);
+  // The 37-degree fixture specifies its otherwise unspecified panel lengths
+  // and slide explicitly. At placement 0 a two-panel hinge is on the lower
+  // wall unless the lower-left of the shape is slid upward.
+  const gentle = { panelLengths: [10, 10], width: 10, angles: [37], placement: 0, offset: [1, 1] };
+  const gentleRequest = { length: 20, width: 10, targetBox: [37, 12, 92] };
+  assert.equal(floatingCreases(positionedPoints(gentle), gentleRequest), 1);
+  assert.equal(floatingCreases(positionedPoints({ ...gentle, offset: [0, 0] }), gentleRequest), 0);
+  const gentleAnswer = { budget: 1, design: gentle,
+    quality: { valid: true, fits: true, passes: true, contactFree: true, folds: 1, order: 2,
+      symmetric: true, spread: 143, floatingCreases: 1, dimensions: dimensions(placedPoints(gentle), 10), sampleCount: 721 } };
+  assert.deepEqual(auditAnswer(gentleRequest, gentleAnswer).disagreements, []);
+  assert.equal(floatingCreases(positionedPoints({ ...rightAngle, offset: [1, 0.5] }), wallRequest), 0);
+  assert.equal(floatingCreases(positionedPoints({ ...rightAngle, offset: [1, 0.5001] }), wallRequest), 1);
+  assert.equal(floatingCreases(positionedPoints({ ...rightAngle, offset: [8.8, 1] }), wallRequest), 0); // Right wall.
+  assert.equal(floatingCreases(positionedPoints({ ...rightAngle, placement: 90, offset: [1, 8.8] }), wallRequest), 0); // Top wall.
+  const negativeTurn = { ...rightAngle, placement: -90 };
+  assert.deepEqual(auditCell(cell(negativeTurn, wallRequest.targetBox, 2)).disagreements, []); // Normalize before offset.
+  for (const offset of [[-1, 0], [0, -1], [9, 0], [0, 9]]) {
+    assert(auditCell(cell({ ...rightAngle, offset }, wallRequest.targetBox, 2))
+      .disagreements.some(x => x.check === 'box-fit'));
+  }
+  for (const offset of [null, [0], [0, 0, 0], [NaN, 0], ['0', 0]]) {
+    assert(ruleViolations(request, { ...rightAngle, offset }).some(x => x.includes('offset')));
+  }
+  assert.deepEqual(positionedPoints({ ...rightAngle, offset: undefined }), positionedPoints(rightAngle));
+  const wrongFloating = cell(rightAngle, wallRequest.targetBox, 2);
+  wrongFloating.answers[1].quality.floatingCreases = 1;
+  assert.deepEqual(auditCell(wrongFloating).disagreements.map(x => x.check), ['floating-creases']);
+  const legacy = cell(rightAngle, wallRequest.targetBox, 2);
+  for (const answer of legacy.answers) delete answer.quality.floatingCreases;
+  const legacyReport = auditMap({ cells: [legacy] }, 'legacy fixture');
+  assert.equal(legacyReport.answersWithoutSavedFloatingCreases, 3);
+  assert.equal(legacyReport.floatingCreaseComparisons, 0);
+  assert.equal(legacyReport.zeroFloatingCreaseAnswers, 3);
+  assert.equal(legacyReport.disagreementCells, 0);
   const wrong = cell(flat, [52, 12, 0], 2);
   wrong.quality.order = 3;
   wrong.quality.folds = 2;
@@ -385,6 +471,8 @@ function selfTest() {
   assert.equal(report.checkedAnswers, 6);
   assert.equal(report.passingAnswers, 5);
   assert.equal(report.disagreementAnswers, 1);
+  assert.equal(report.floatingCreaseComparisons, 6);
+  assert.equal(report.zeroFloatingCreaseAnswers, 6);
 
   const changedScore = cell(flat, [52, 12, 0], 2);
   changedScore.answers[1].quality.symmetric = false;
