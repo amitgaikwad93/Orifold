@@ -219,8 +219,10 @@ Where a box has room, the most spread design wins (a gentle fold that uses the s
 
 No rule against small fold angles. Evidence supporting this (`scripts/check-switch-creases.js`): merging away any fold under 10° breaks 287/287 such answers in map r5. Under strict alternating fold directions (D19), a near-flat crease is a **direction switch**: it lets two consecutive real folds turn the same way (e.g. a U-shape `[45, 5, 5, 45]` with angles `[89°, 1°, 89°]`). These creases are workarounds for the alternation rule, not fake folds.
 
+## D33 — keep alternating fold directions for v2 (user decision, 2026-11-05)
+
+Fold directions stay strictly alternating for experiment v2; 1° direction-switch creases are accepted (D32). Free mountain/valley assignment is the first candidate upgrade once v2 has trained successfully.
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Free fold directions?** The 1° direction-switch creases (D32) show the alternating-direction rule (D19) limits designs such as U-shapes, channels and spirals. Options: keep alternation for v2 and accept switch creases (**agent recommendation**, consistent with D19), or allow each crease to be mountain or valley now. This needs a user decision before freezing the v2 dataset.
-
-Resolved and kept for the record: dead creases (D32), first panel horizontal (D30).
+None at this snapshot. Resolved and kept for the record: free fold directions (D33), dead creases (D32), first panel horizontal (D30).

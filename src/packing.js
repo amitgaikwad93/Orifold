@@ -311,7 +311,7 @@ function fitScore(family, request) {
   };
 }
 
-// Valid fitting designs score -spread/180, so minimizing widens the smallest opening angle.
+// Valid fitting designs score about -spread/180, so minimizing widens the smallest opening angle.
 function spreadScore(family, request) {
   return p => {
     const d = family.build(p);
@@ -319,8 +319,41 @@ function spreadScore(family, request) {
     const over = overflowOf(d, request);
     if (over > 0) return 1 + over;
     if (motionMetrics(d, 30).blockedSamples) return 0.5;
-    return -spreadOf(d) / 180;
+    // A small reward for spare room (over <= 0) lets one-coordinate moves cross ridges: first make
+    // room (e.g. shorten a panel), then open a fold into it. Spread still dominates.
+    return -spreadOf(d) / 180 + 0.05 * over;
   };
+}
+
+/* Free-form parameterizations for the last refinement step (any lengths and angles, n panels).
+ * 'free': stick-breaking panel fractions + every angle. 'free-symmetric': palindromic weights + palindromic angles.
+ * Parameters lie in [0, 1]; encode() maps an existing design into the space so refinement starts from it. */
+function freeFamily(n, request, symmetric) {
+  const L = request.length, min = RULES.minPanelFraction, k = n - 1, W = request.width;
+  if (!symmetric) {
+    const build = v => { let rem = 1 - min * n; const lengths = [];
+      for (let i = 0; i < n - 1; i++) { const a = rem * v[i]; rem -= a; lengths.push((min + a) * L); }
+      lengths.push((min + rem) * L);
+      return { panelLengths: lengths, width: W, angles: v.slice(n - 1).map(x => 1 + 179 * x) }; };
+    const encode = d => { let rem = 1 - min * n; const v = [];
+      for (let i = 0; i < n - 1; i++) { const a = d.panelLengths[i] / L - min; v.push(rem > 1e-12 ? Math.min(1, Math.max(0, a / rem)) : 0); rem -= a; }
+      return [...v, ...d.angles.map(a => (a - 1) / 179)]; };
+    return { name: 'free', bounds: Array(2 * k).fill([0, 1]), build, encode };
+  }
+  const hl = Math.ceil(n / 2), ha = Math.ceil(k / 2);
+  const build = v => {
+    const w = Array.from({ length: n }, (_, i) => 0.02 + v[Math.min(i, n - 1 - i)]), sw = w.reduce((a, b) => a + b, 0);
+    const lengths = w.map(x => (min + (1 - min * n) * x / sw) * L);
+    const angles = Array.from({ length: k }, (_, i) => 1 + 179 * v[hl + Math.min(i, k - 1 - i)]);
+    return { panelLengths: lengths, width: W, angles };
+  };
+  const encode = d => {
+    const share = d.panelLengths.map(x => Math.max(0, x / L - min)), tot = share.reduce((a, b) => a + b, 0) || 1;
+    const scale = Math.max(...share.slice(0, hl)) / tot || 1;   // keep weights inside [0, 1]
+    const w = share.slice(0, hl).map(x => Math.min(1, Math.max(0, x / tot / scale)));
+    return [...w, ...d.angles.slice(0, ha).map(a => (a - 1) / 179)];
+  };
+  return { name: 'free-symmetric', bounds: Array(hl + ha).fill([0, 1]), build, encode };
 }
 
 /* All fitting candidates for n panels: grid points, plus fit-refined near-misses. Each carries
@@ -396,6 +429,24 @@ function referenceSolveBudgets(request, { maxPanels = RULES.maxPanels, extraBudg
         pool.push(c); allowed.push(c);
       }
     }
+    // Final free-form refinement (deterministic): widen the best valid designs with any lengths and
+    // angles, and the best symmetric ones while keeping them symmetric, so the 10% band compares fairly.
+    allowed.sort((a, b) => b.spread - a.spread);
+    const leaders = validIn(allowed, 60);
+    const starts = [...leaders.filter(m => m.folds >= 1).slice(0, 6).map(m => [m, false]),
+      ...leaders.filter(m => m.folds >= 2 && m.symmetric).slice(0, 4).map(m => [m, true])];
+    for (const [m, keepSymmetric] of starts) {
+      const n = m.folds + 1, fam = freeFamily(n, request, keepSymmetric);
+      if (!fam.bounds.length) continue;
+      const r = patternSearch(fam, fam.encode(m.candidate.design), spreadScore(fam, request), -1, 900);
+      if (r.score < 0 && spreadOf(fam.build(r.point)) > m.spread + 1e-6) {
+        const design = fam.build(r.point);
+        if (overflowOf(design, request) > 0) continue;
+        const c = { family: fam.name + '-refined', familyRef: fam, params: r.point, design,
+          folds: design.angles.length, spread: spreadOf(design), symmetric: isSymmetric(design), order: orderScore(design) };
+        pool.push(c); allowed.push(c);
+      }
+    }
     allowed.sort((a, b) => b.spread - a.spread);
     const top = validIn(allowed, 1)[0];
     if (!top) continue;
@@ -427,4 +478,4 @@ function referenceSolve(request, options = {}) {
 
 module.exports = { RULES, usable, fitsWithMargin, ruleViolations, orderScore, isSymmetric, spreadOf, segmentDistance,
   motionMetrics, assess, compareWithinBand, rankDesigns, analyticallyInfeasible, handRule, families, quickExtents, finalSection, turnedExtents, placedDimensions, bestPlacement, overflowOf,
-  fittingCandidates, referenceSolveBudgets, referenceSolve };
+  fittingCandidates, freeFamily, referenceSolveBudgets, referenceSolve };
