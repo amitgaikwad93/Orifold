@@ -16,6 +16,7 @@ Phases 1–3: geometry, numerical optimization, and the first CPU-trained neural
 
 - [What a passing result means: limitations](docs/LIMITATIONS.md)
 - [Plain-language glossary](docs/GLOSSARY.md)
+- [Experiment specification (next experiment)](docs/EXPERIMENT_SPEC.md)
 - [Project plan, capability contract, milestones, and budget](docs/PLAN.md)
 - [Geometry equations, contact policy, and limitations](docs/GEOMETRY.md)
 - [Validation results and user-reported paper comparison](docs/VALIDATION.md)

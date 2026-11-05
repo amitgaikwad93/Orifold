@@ -105,11 +105,35 @@ Use the recommended routes, built only when a task needs them:
 
 Notebooks are not planned.
 
+## D16 — ranking by strict priority order (user decision, 2026-11-05)
+
+Valid designs that fit are ranked by a strict priority order, not a weighted score: valid and fits → fewest folds → most ordered → largest smallest gap → smallest swept envelope → most compact. Each step only breaks ties left by the previous one. Compactness therefore acts as a tie-break, not a goal. Detailed sub-definitions are in EXPERIMENT_SPEC.md section 5.
+
+## D17 — general geometry model; no application-specific requests (user decision, 2026-11-05)
+
+The long-term aim is a general AI model of mechanical (non-artistic) origami geometry; foldable solar panels are an example of the kind of object, not a target application. Do not tailor requests to one use. Requests come from a systematic grid over sheet and box shape ratios, including tight, zero-fold and impossible cases, and are never derived from random folds.
+
+## D18 — 2% fit margin (user decision, 2026-11-05)
+
+A design fits only if every final dimension is at most 98% of the box dimension. Strict boundary fit is no longer the acceptance rule for new experiments; v1 results remain as recorded.
+
+## D19 — complexity only after the pipeline is proven (user decision, 2026-11-05)
+
+Next family: parallel creases with a variable count and alternating fold directions. Free fold directions, non-parallel creases and Miura-type patterns come only after this pipeline is proven end to end.
+
+## D20 — success criterion: the model outputs valid fold patterns (user decision, 2026-11-05)
+
+For a given sheet and box size, success means the trained model outputs a valid fold pattern. Validity is checked mathematically by the evaluator and visually by the user on a review page built for the experiment. **The user's verdict decides success.** Baselines (hand rule, nearest neighbour, solver) are still reported for context, so the project stays candid about whether learning added value, but they are not success gates.
+
+## D21 — fold count 0 to 11 (agent decision delegated by the user, 2026-11-05)
+
+Allow 0 to 11 folds (1 to 12 panels), with each panel at least 5% of sheet length.
+
+- **Why allow 0:** "no fold needed" is the correct fewest-fold answer when the flat sheet fits, and tests that the model does not fold unnecessarily.
+- **Why cap at 12 panels:** enough for repetition and rhythm, small enough for a fixed-size model output and a tractable reference search, and below the 20 implied by the minimum panel size.
+
+Revisit if the request-space map shows many requests that need more than 11 folds.
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **Ranking order.** How the D14 measures combine. Agent recommendation: a strict priority order rather than weighted scores. Valid and fits (with margin) → fewest folds → most ordered → most clearance → smallest swept envelope. Note that compactness and fewest folds pull against each other: the fewest-fold design is the least compact one that still fits.
-2. **Fit margin.** Strict fit or a required clearance inside the box. Recommendation: a small fixed margin, e.g. 2% per axis, so designs are not on the boundary (D10).
-3. **Fold family and fold directions.** Recommendation: parallel creases with variable count first (width still cannot shrink), alternating mountain/valley only; free direction choices and Miura-type patterns later.
-4. **Intended use and request distribution.** What the folds are for decides which boxes to ask for. Recommendation until then: a systematic grid over box length and height relative to the sheet, including tight and impossible cases, never derived from random folds.
-5. **Success target for the next experiment.** Recommendation: first test whether a hand rule (folds = sheet length ÷ box length, rounded up) already solves the ranked task; learning is only worth it where that rule and nearest-neighbour lookup fail, and must then beat them on the same requests.
-6. **Fold cap.** Whether to cap the count below the 20 implied by the minimum panel size. The user's message "8 also agree" may have meant a cap of 8; unconfirmed.
+1. **Proposed sub-definitions** in EXPERIMENT_SPEC.md: the 1° active-crease threshold, the order score formula, grid ranges, the dataset-acceptance thresholds, and the 95% reference point. The user may adjust these before the experiment is frozen.

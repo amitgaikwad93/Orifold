@@ -11,6 +11,10 @@ For the project owner and any agent explaining the work. Each entry: what it is,
 - **Witness** — a design we already know works, used to build a request that is guaranteed solvable.
 - **Quality objective (tie-break)** — when many designs pass, the rule for which one is "best". v1 used "least total folding". If this rule does not pick one clear winner, labels become inconsistent.
 
+- **Fit margin** — the required gap inside the box. We use 2%: the fold may use at most 98% of each box dimension.
+- **Strict priority order (lexicographic ranking)** — compare designs on the first measure; only if tied, look at the next one. Avoids arbitrary weights and gives one clear answer per request.
+- **Order score** — our proposed measure of geometric aesthetics: fewer distinct panel lengths and angles, and mirror symmetry, mean a more ordered design.
+
 ## The conventional side
 
 - **Optimizer (differential evolution)** — a search method that tries many designs, keeps the better ones and mixes them, over ~1,000 tries. No learning: it starts from scratch on each request. It is our reliable baseline.
@@ -40,4 +44,4 @@ For the project owner and any agent explaining the work. Each entry: what it is,
 ## Experiment practice
 
 - **Predeclared** — targets, settings and the test set are fixed *before* seeing results, so we cannot fool ourselves after the fact.
-- **Experiment specification** — the written contract for one experiment: task, validity rules, quality objective, how requests are sampled, how labels are made and checked, metrics, success target, baselines, and what a failure would mean. Proposed in DECISIONS.md D11.
+- **Experiment specification** — the written contract for one experiment: task, validity rules, quality objective, how requests are sampled, how labels are made and checked, metrics, success target, baselines, and what a failure would mean. See [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md).

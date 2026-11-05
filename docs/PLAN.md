@@ -66,8 +66,10 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 
 - [x] Compare all methods on 150 held-out requests: full optimizer 150/150 strict, short optimizer 138/150, network-initialized short optimizer 140/150. The paired hybrid gain is only 6 wins versus 4 losses, not an established reliable benefit.
 - [x] Audit v1 labels: inconsistent across seeds (DECISIONS.md D10). v1 validated the pipeline, not the approach.
-- [ ] Next: agree an experiment specification (DECISIONS.md D11) covering validity layers, quality objective, request distribution, dataset acceptance checks, success target and baselines. Map the accordion request space as first evidence. Only then build a new dataset or train. Preserve v1 unchanged; do not increase model size blindly.
-- [ ] Choose and set up a visualisation route for datasets and outcomes (DECISIONS.md open question 2).
+- [x] Experiment specification agreed in principle: [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md) (DECISIONS.md D13–D21). Parallel creases, 0–11 folds, 2% margin, strict ranking, success judged by the user on a visual review page.
+- [x] Visualisation approach chosen: built on demand (D15).
+- [ ] Next: extend the evaluator to 0 folds, add the margin check and ranking measures, build the seed-independent reference solver and a request-space map report (where the hand rule succeeds or fails), then pass the dataset-acceptance checks before any training.
+- [ ] Build the visual review page for the user's verdict (spec section 9).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.
 - Report strict numerical fit as well as tolerance-based success; the current evaluator uses only numerical tolerance (not the 1% learning target).

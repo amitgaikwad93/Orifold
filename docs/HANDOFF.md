@@ -25,18 +25,25 @@ Snapshot: 2026-11-05. Tooling works end to end; the first learning experiment fa
 
 ## In discussion / open
 
-Decided 2026-11-05 (DECISIONS.md): a variable fold count with fewest folds preferred (D13), the geometric-aesthetic and function measures (D14), and visualisation built on demand (D15). Still open, with agent recommendations, in DECISIONS.md "Open questions":
+The setup discussion is concluded for experiment v2. Decisions D13–D21 (2026-11-05) are written up in [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md):
 
-1. Ranking order of the measures.
-2. Fit margin.
-3. Fold family and fold directions.
-4. Intended use and request distribution.
-5. Success target.
-6. Fold cap.
+- parallel creases, 0–11 folds, alternating directions;
+- a 2% fit margin;
+- a strict ranking: fewest folds, then most ordered, then gap, sweep, compactness;
+- a general systematic request grid;
+- success = the model outputs valid fold patterns, judged by the user on a visual review page.
+
+Still open: the agent-proposed sub-definitions marked *proposed* in the spec (DECISIONS.md open question 1). They can be adjusted before the experiment is frozen.
 
 ## Next concrete task
 
-Get answers to the open questions, then draft `docs/EXPERIMENT_SPEC.md` (template plus the parallel-crease instance). First evidence: a report page with the request-space map for variable fold counts, checking where the hand rule "folds = sheet length ÷ box length, rounded up" fits and where it fails. Do not build a v2 dataset or train before the spec is agreed.
+Implement EXPERIMENT_SPEC.md "Next work items" 1–3:
+
+1. Allow 1-panel designs in `src/accordion.js`.
+2. Add the 2% margin, active-crease rule and ranking measures, with tests.
+3. Build the seed-independent reference solver and a request-space map report page showing feasible, infeasible and unknown regions and where the hand rule works.
+
+Show the map to the user before generating any training data.
 
 ## Runtime
 
