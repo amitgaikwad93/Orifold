@@ -213,3 +213,14 @@ Designs whose smallest opening angle is within 10% of the widest valid design (s
    - **(b)** Require every crease to be necessary: merging any two neighbouring panels must make the design fail.
    - **(c)** Change the spread measure to count only creases that fold at least X°.
    - **(d)** Whichever rule is chosen, strengthen the reference's spread search (currently family grid plus refinement), because a free-form search beats it beyond the band even without dead creases (11/46).
+2. **First panel always horizontal (raised by the user 2026-11-05).** Cause: the reference frame fixes panel 1 along x (GEOMETRY.md), and D03 forbids rotating the folded shape into the box. So panel 1 must lie along the box length. Measured on map r4:
+   - The 27 "proven impossible" cells exist only because panel 1 cannot lie flat in the box.
+   - 492 of 1,940 folded answers shrink panel 1 to the 5% minimum as a "foot", a workaround rather than design.
+   - The forced-flat panel 1 needs a different first fold angle, which breaks symmetry, and symmetric shapes often sit tilted.
+
+   Options:
+   - **(A)** Keep as is.
+   - **(B)** Allow rotation of the final shape about the hinge (y) axis when fitting the box. One extra parameter; the motion still starts from the fixed panel; only the placement turns. **Agent recommendation.**
+   - **(C)** Any rotation, including standing the sheet width upright.
+
+   This changes D03, so it is the user's decision, and it should be settled before open question 1 because it changes which designs win.
