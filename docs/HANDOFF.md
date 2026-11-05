@@ -19,9 +19,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-No open decisions. Pending user actions:
-- review round `answer-key-1`;
-- optionally send Codex the order-score alignment prompt;
+Answer-key review round 1 is done: 42 valid, 6 unsure, 0 not valid. DECISIONS.md open question 1, "hinge at the boundary", needs the user's definition and priority before training. A rule change means relabelling the dataset (about 70 CPU-minutes) and rerunning the checks.
 
 ## Next concrete task
 

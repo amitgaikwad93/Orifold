@@ -225,4 +225,8 @@ Fold directions stay strictly alternating for experiment v2; 1° direction-switc
 
 ## Open questions (unresolved; do not treat as decided)
 
-None at this snapshot. Resolved and kept for the record: free fold directions (D33), dead creases (D32), first panel horizontal (D30).
+1. **"Prefer hinge at the boundary" (user review round answer-key-1, 2026-11-05).** Verdicts: 42 valid, 6 unsure, 0 not valid (`experiments/learning-v2/acceptance/review-answer-key-1.json`).
+   - 5 of the 6 unsure are one-fold, equal-panel, gentle (24–74°) folds placed at an angle in roomy boxes, with the note "Prefer hinge at the boundary". The crease floats mid-box. This is a consequence of D31 (most spread in roomy boxes).
+   - Putting the crease on a box wall needs a different design and costs much spread (e.g. 151° → about 88° at box 37 × 92), so a tie-break inside the 10% band would rarely apply.
+   - Needs the user to define (a) which hinges must touch the boundary (all, or at least one) and (b) its priority relative to spread.
+   - Other notes: one unsure without a note is the "spacer panel" pattern (`[42.7, 7.3, 7.3, 42.7]`); one valid answer with "would make both panels of same size" (91 + 9 L-shape in a narrow box, where equal panels would open only about 20° vs 110°).
