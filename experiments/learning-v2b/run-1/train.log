@@ -1,0 +1,29 @@
+train examples 4359, validation 768, parameters 75554
+epoch 50: train 0.1689 val 0.1677 val pass 0.352 *
+epoch 100: train 0.1167 val 0.1210 val pass 0.371 *
+epoch 150: train 0.0965 val 0.1153 val pass 0.335
+epoch 200: train 0.0749 val 0.0930 val pass 0.376 *
+epoch 250: train 0.0735 val 0.0787 val pass 0.370
+epoch 300: train 0.0745 val 0.1050 val pass 0.388 *
+epoch 350: train 0.0629 val 0.1005 val pass 0.344
+epoch 400: train 0.0540 val 0.0890 val pass 0.408 *
+epoch 450: train 0.0595 val 0.0873 val pass 0.365
+epoch 500: train 0.0465 val 0.0827 val pass 0.370
+epoch 550: train 0.0442 val 0.0875 val pass 0.415 *
+epoch 600: train 0.0376 val 0.0756 val pass 0.385
+epoch 650: train 0.0351 val 0.0797 val pass 0.350
+epoch 700: train 0.0347 val 0.0826 val pass 0.372
+epoch 750: train 0.0349 val 0.0833 val pass 0.453 *
+epoch 800: train 0.0314 val 0.0758 val pass 0.391
+epoch 850: train 0.0311 val 0.0726 val pass 0.365
+epoch 900: train 0.0305 val 0.0810 val pass 0.438
+epoch 950: train 0.0269 val 0.0762 val pass 0.401
+epoch 1000: train 0.0426 val 0.0807 val pass 0.371
+epoch 1050: train 0.0306 val 0.0788 val pass 0.388
+epoch 1100: train 0.0278 val 0.0831 val pass 0.409
+epoch 1150: train 0.0276 val 0.0821 val pass 0.365
+epoch 1200: train 0.0249 val 0.0859 val pass 0.418
+epoch 1250: train 0.0252 val 0.0866 val pass 0.397
+epoch 1300: train 0.0261 val 0.0824 val pass 0.355
+epoch 1350: train 0.0320 val 0.0919 val pass 0.353
+selected epoch 750: validation pass 0.453

@@ -1,0 +1,103 @@
+{
+  "split": "validation (development only; the test split is untouched)",
+  "answers": 768,
+  "modelAlone": {
+    "passRate": 0.4531,
+    "failures": {
+      "doesNotFit": 420,
+      "collision": 0
+    },
+    "overflowOfFailures": {
+      "p25": 0.0157,
+      "median": 0.041,
+      "p75": 0.1539,
+      "unit": "fraction of sheet length"
+    },
+    "foldCountMatchesReference": "746/768",
+    "passByReferenceFolds": {
+      "0": [
+        96,
+        1.0
+      ],
+      "1": [
+        204,
+        0.44
+      ],
+      "2": [
+        303,
+        0.36
+      ],
+      "3": [
+        112,
+        0.41
+      ],
+      "4": [
+        52,
+        0.13
+      ],
+      "5": [
+        1,
+        0.0
+      ]
+    },
+    "passByKind": {
+      "long": [
+        174,
+        0.684
+      ],
+      "short": [
+        594,
+        0.386
+      ]
+    },
+    "passingWithAllCreasesOnWalls": [
+      265,
+      348
+    ],
+    "inferenceMsPerAnswer": 0.0313
+  },
+  "modelPlusCorrection": {
+    "method": "scripts/repair-designs.js 400: free-form deterministic pattern search for fit (at most 400 evaluations) from the model's design, then wall placement",
+    "passRate": 0.9375,
+    "passing": 720,
+    "passingWithAllCreasesOnWalls": 552,
+    "medianOpeningDeg": 76.3,
+    "msPerAnswer": {
+      "median": 5,
+      "p90": 9,
+      "max": 34
+    }
+  },
+  "dumbStartPlusCorrection": {
+    "method": "same correction from equal panels, all folds 150 degrees, fold count = budget (no model)",
+    "passRate": 0.7695,
+    "passing": 591,
+    "passingWithAllCreasesOnWalls": 325,
+    "medianOpeningDeg": 30,
+    "msPerAnswer": {
+      "median": 5
+    }
+  },
+  "imitationCeiling": "0.996 (decoded reference labels on train)",
+  "diagnosis": {
+    "script": "scripts/diagnose-v2b-run.py",
+    "trainPassRate": 0.466,
+    "validationPassRate": 0.453,
+    "foldCountRight": {
+      "train": [
+        4309,
+        0.469
+      ],
+      "validation": [
+        746,
+        0.452
+      ]
+    },
+    "validationWithTrueFoldCountGiven": 0.447,
+    "nearestNeighbourCopyValidationPass": 0.513,
+    "trainNearestNeighbourSameFoldCount": 0.957,
+    "trainMedianNeighbourDistance": 0.0078,
+    "reading": "Not a data-quantity or fold-count problem: the model fails on its own training data as often as on new data and almost always picks the right fold count. Even copying the exact valid answer of a box 0.8% away fails half the time, so answers have almost no slack (they sit on walls by the rules), and parameter-imitation error (train MSE about 0.025) is far too coarse."
+  },
+  "notes": "Model + correction was not in the predeclared config; it must be predeclared before any test evaluation."
+}
