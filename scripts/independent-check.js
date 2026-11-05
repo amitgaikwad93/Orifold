@@ -12,7 +12,7 @@ const zlib = require('node:zlib');
 const { isDeepStrictEqual } = require('node:util');
 
 const INTERVALS = 720; // 721 configurations, including t = 0 and t = 1.
-const DEFAULT_INPUT = path.resolve(__dirname, '../results/request-map-2026-11-05-r4.json.gz');
+const DEFAULT_INPUT = path.resolve(__dirname, '../results/request-map-2026-11-05-r6.json.gz');
 const finite = Number.isFinite;
 const positive = x => finite(x) && x > 0;
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1]];
@@ -65,6 +65,7 @@ function ruleViolations(request, design) {
   if (lengths.length < 1 || lengths.length > 12) problems.push('panel count outside 1–12');
   if (angles.length !== lengths.length - 1) problems.push('angle count must equal panel count minus one');
   if (!positive(design.width) || Math.abs(design.width - request.width) > eps) problems.push('design width differs from sheet width');
+  if (design.placement !== undefined && !finite(design.placement)) problems.push('placement must be a finite angle in degrees');
   lengths.forEach((x, i) => {
     if (!positive(x)) problems.push(`panel ${i} is not a positive finite length`);
     else if (x < 0.05 * request.length - eps) problems.push(`panel ${i} is shorter than 5% of sheet length`);
@@ -98,6 +99,14 @@ function dimensions(points, width) {
     width,
     Math.max(...points.map(p => p[1])) - Math.min(...points.map(p => p[1]))
   ];
+}
+
+// D30: placement is a rigid turn for final box fit only. The motion and
+// contact tests below continue to use pointsAt in the original frame.
+function placedPoints(design) {
+  const psi = (design.placement === undefined ? 0 : design.placement) * Math.PI / 180;
+  const c = Math.cos(psi), s = Math.sin(psi);
+  return pointsAt(design, 1).map(([x, z]) => [x * c - z * s, x * s + z * c]);
 }
 
 function pointSegmentDistance(p, a, b) {
@@ -163,6 +172,7 @@ function auditAnswer(request, answer) {
   const canCompute = request && positive(request.length) && positive(request.width) && design &&
     Array.isArray(design.panelLengths) && design.panelLengths.length > 0 &&
     design.panelLengths.every(positive) && positive(design.width) &&
+    (design.placement === undefined || finite(design.placement)) &&
     Array.isArray(design.angles) && design.angles.length === design.panelLengths.length - 1 &&
     design.angles.every(finite) && Array.isArray(request.targetBox) &&
     request.targetBox.length === 3 && request.targetBox.every(x => finite(x) && x >= 0);
@@ -182,7 +192,7 @@ function auditAnswer(request, answer) {
     add('spread', { saved: saved.spread ?? null, computed: opening, numericalTolerance: 1e-9 });
   }
 
-  const finalDimensions = dimensions(pointsAt(design, 1), design.width);
+  const finalDimensions = dimensions(placedPoints(design), design.width);
   const limits = request.targetBox.map(x => 0.98 * x);
   const fitEps = 1e-9 * Math.max(request.length, request.width, ...request.targetBox);
   const fits = finalDimensions.every((x, i) => x <= limits[i] + fitEps);
@@ -249,9 +259,10 @@ function auditMap(map, input) {
   const result = {
     input,
     policy: {
-      source: 'EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D29; GEOMETRY.md contact policy',
+      source: 'EXPERIMENT_SPEC.md sections 2–5; DECISIONS.md D26–D33; GEOMETRY.md contact policy',
       motionStates: INTERVALS + 1,
       boxFraction: 0.98,
+      placement: 'recorded angle in degrees (missing means 0); final fit only; motion and contacts unrotated',
       contactTolerance: '1e-9 * requested sheet length',
       fitTolerance: '1e-9 * max(sheet dimensions, box dimensions)',
       orderGrouping: 'sorted bins spanning at most 1% of sheet length / 1 degree',
@@ -264,7 +275,10 @@ function auditMap(map, input) {
     totalCells: map.cells.length,
     solvedCells: 0, skippedCells: 0, sampledStates: 0,
     checkedAnswers: 0, passingAnswers: 0, disagreementAnswers: 0,
-    passingCells: 0, disagreementCells: 0, disagreementsByCheck: {},
+    passingCells: 0, disagreementCells: 0,
+    disagreementsByCheck: Object.fromEntries(['min-folds', 'budget-sequence', 'top-level-design', 'fold-budget',
+      'panel-and-angle-rules', 'geometry-and-score', 'fold-count', 'order-score', 'symmetry', 'spread',
+      'box-fit', 'saved-dimensions', 'motion-contacts', 'valid', 'passes', 'sample-count'].map(check => [check, 0])),
     foldCounts: {}, orderScores: {}, disagreements: []
   };
   map.cells.forEach((cell, index) => {
@@ -338,7 +352,7 @@ function selfTest() {
     const minFolds = d.angles.length;
     const quality = { folds: minFolds, order, symmetric: orderScore(d.panelLengths, d.angles, 100).symmetric,
       spread: spread(d.angles), fits: true, valid: true, passes: true,
-      contactFree: true, dimensions: dimensions(pointsAt(d, 1), 10), sampleCount: 721 };
+      contactFree: true, dimensions: dimensions(placedPoints(d), 10), sampleCount: 721 };
     const answers = Array.from({ length: Math.min(11, minFolds + 2) - minFolds + 1 }, (_, i) => ({
       budget: minFolds + i, design: structuredClone(d), quality: i === 0 ? quality : structuredClone(quality)
     }));
@@ -351,6 +365,14 @@ function selfTest() {
   const unfolded = { panelLengths: [100], width: 10, angles: [] };
   assert(auditCell(cell(unfolded, [101, 12, 1], 1)).disagreements.some(x => x.check === 'box-fit'));
   assert.deepEqual(auditCell(cell(unfolded, [100 / 0.98, 10 / 0.98, 0], 1)).disagreements, []);
+  const upright = { ...unfolded, placement: 90 };
+  assert.deepEqual(auditCell(cell(upright, [10, 12, 103], 1)).disagreements, []);
+  assert(auditCell(cell({ ...unfolded, placement: 0 }, [10, 12, 103], 1))
+    .disagreements.some(x => x.check === 'box-fit'));
+  assert(ruleViolations(request, { ...unfolded, placement: NaN }).some(x => x.includes('placement')));
+  assert.deepEqual(placedPoints(unfolded), pointsAt(unfolded, 1));
+  assert(auditCell(cell({ ...partial, placement: 90 }, [110, 12, 110], 5))
+    .disagreements.some(x => x.check === 'motion-contacts')); // A turn cannot hide contact.
   const wrong = cell(flat, [52, 12, 0], 2);
   wrong.quality.order = 3;
   wrong.quality.folds = 2;
