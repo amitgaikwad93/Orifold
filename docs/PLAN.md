@@ -72,7 +72,9 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - [x] Reference misses fixed (0/218 beaten); ranking ties (D23) and short-box weighting (D24) decided; request distribution frozen; Codex independent checker agrees on all 701 designs (D25).
 - [x] v2 dataset generated and labelled (2,200 requests, 6,004 answers); acceptance checks passed except the visual review (EXPERIMENT_SPEC.md, "v2 dataset"). Review page built.
 - [x] Review round 1 (42 valid, 6 unsure, 0 not valid) led to D34 (creases on walls); dataset relabelled as v2b, all checks rerun.
-- [ ] Next: review round 2 on v2b; then predeclare and train the v2 model on v2b.
+- [x] Review round 2 accepted v2b (48/48); full-data runs 1–4 completed on validation, with historical results preserved.
+- [x] D35 training-only 32-request precision diagnostic completed: corrected masking and paired pure-imitation runs; neither passed the copying gate on all 32 ([report](../experiments/memorization-v1/REPORT.md)).
+- [ ] Next recommendation: isolate output optimization from shared-network learning before a new full-data run; see HANDOFF.md.
 - [ ] Build the visual review page for the user's verdict (spec section 9).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.

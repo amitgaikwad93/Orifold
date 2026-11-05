@@ -256,3 +256,12 @@ Reading:
 3. Codex aligns the checker's order-score counting with section 5 and reruns on the dataset.
 4. Define the v2 model and training (new experiment config): inputs are sheet, box and fold budget; outputs are a design. Predeclare the loss, model and checkpoint selection on validation only, then train on CPU.
 5. Evaluate on test once, with the review page round for model outputs.
+
+
+## Training-only memorization diagnostic (D35, 2026-11-05)
+
+The user authorized the small diagnostic before further scaling. Frozen setup and manifest: `experiments/memorization-v1/` (commit `33da2b3`, made before training). The position loss now ignores padded endpoint copies; dtype/device-preserving differentiable geometry has analytical, independent-export parity and gradient checks. Historical run 4a used the old padded loss and competing penalties; it is preserved unchanged.
+
+Two identical 256×256 models trained on 32 training requests, two folds and one exact family, for 4,000 fixed full-batch epochs without fit/tighter penalties. Neither met the all-32 copying gate. Parameter/position imitation respectively: 12/32 and 10/32 sampled-valid, 0 sampled collisions, mean per-example vertex RMS 0.530%/0.353% L, angle MAE 0.891°/1.311°. Float32 reference round trips pass 29/32 at saved placement and 32/32 after placement search. Failed-search overflow can describe an unturned fallback pose; the separate placement sweep is labeled post-hoc. No validation or test examples were used.
+
+[Complete results, limitations and next recommendation](../experiments/memorization-v1/REPORT.md). This diagnostic does not choose a generalization winner or authorize the proposed full-data run 5.

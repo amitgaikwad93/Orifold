@@ -1,0 +1,464 @@
+{
+  "parameters": {
+    "description": "Post-hoc 0.01-degree sweep, translation to minimum, no shape correction. Best found overflow is an upper bound on minimum possible overflow; not a feasibility proof. Primary pass counts are unchanged.",
+    "meanSweepBestOverflowOverL": 0.002281774915993593,
+    "maxSweepBestOverflowOverL": 0.01043010643090847,
+    "rows": [
+      {
+        "id": "v2-short-0022-b2",
+        "rawReturnedPoseOverflowOverL": 0.004461517708836937,
+        "referenceAngleZeroOffsetOverflowOverL": 0.004608017387674135,
+        "sweepBestAngleDegrees": 0.23,
+        "sweepBestOverflowOverL": 0.0039052130521597395
+      },
+      {
+        "id": "v2-short-1161-b2",
+        "rawReturnedPoseOverflowOverL": 0.0009544039543747276,
+        "referenceAngleZeroOffsetOverflowOverL": 0.001109759455283521,
+        "sweepBestAngleDegrees": 0.09,
+        "sweepBestOverflowOverL": 0.0009674332045185308
+      },
+      {
+        "id": "v2-short-0993-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0012342838173012294,
+        "sweepBestAngleDegrees": 0.13,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1107-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0.00021554815045435327,
+        "sweepBestAngleDegrees": 57.15,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0070-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 89.89,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1224-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 3.72,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0863-b2",
+        "rawReturnedPoseOverflowOverL": 0.28464378960119846,
+        "referenceAngleZeroOffsetOverflowOverL": 0.004460422416288384,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0.004036523439321565
+      },
+      {
+        "id": "v2-long-0449-b2",
+        "rawReturnedPoseOverflowOverL": 0.003247576116992729,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0032923755176171854,
+        "sweepBestAngleDegrees": 0.24,
+        "sweepBestOverflowOverL": 0.002688219328259134
+      },
+      {
+        "id": "v2-short-0518-b2",
+        "rawReturnedPoseOverflowOverL": 0.0008448882206024527,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0008806320375910615,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0.0008448882206024549
+      },
+      {
+        "id": "v2-short-0875-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 89.98,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0904-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 90.61,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0087-b2",
+        "rawReturnedPoseOverflowOverL": 0.005503823293925951,
+        "referenceAngleZeroOffsetOverflowOverL": 0.005840210666346046,
+        "sweepBestAngleDegrees": 0.0,
+        "sweepBestOverflowOverL": 0.005503823293925958
+      },
+      {
+        "id": "v2-short-0533-b2",
+        "rawReturnedPoseOverflowOverL": 0.009086666081504439,
+        "referenceAngleZeroOffsetOverflowOverL": 0.019181918999339798,
+        "sweepBestAngleDegrees": 8.75,
+        "sweepBestOverflowOverL": 0.00908729121266151
+      },
+      {
+        "id": "v2-short-1261-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 0.0,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0283-b2",
+        "rawReturnedPoseOverflowOverL": 0.002694677409642984,
+        "referenceAngleZeroOffsetOverflowOverL": 0.002913538606915178,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0.0026946774096429926
+      },
+      {
+        "id": "v2-short-1416-b2",
+        "rawReturnedPoseOverflowOverL": 0.057805702322382274,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0036679422540602524,
+        "sweepBestAngleDegrees": 162.3,
+        "sweepBestOverflowOverL": 8.410894036559036e-05
+      },
+      {
+        "id": "v2-short-0966-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 89.92,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1044-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 6.943540950099525e-06,
+        "sweepBestAngleDegrees": 0.54,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1369-b2",
+        "rawReturnedPoseOverflowOverL": 0.10063825716906025,
+        "referenceAngleZeroOffsetOverflowOverL": 0.01034276887056923,
+        "sweepBestAngleDegrees": 89.83,
+        "sweepBestOverflowOverL": 0.010223530626311539
+      },
+      {
+        "id": "v2-short-1065-b2",
+        "rawReturnedPoseOverflowOverL": 0.29625562644305853,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0018043971386906832,
+        "sweepBestAngleDegrees": 90.52,
+        "sweepBestOverflowOverL": 0.00019695848587530929
+      },
+      {
+        "id": "v2-short-0562-b2",
+        "rawReturnedPoseOverflowOverL": 0.0008794470171777208,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0013580460233892783,
+        "sweepBestAngleDegrees": 89.81,
+        "sweepBestOverflowOverL": 0.0008831114166487769
+      },
+      {
+        "id": "v2-short-1447-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 89.91,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1122-b2",
+        "rawReturnedPoseOverflowOverL": 3.563196958795664e-05,
+        "referenceAngleZeroOffsetOverflowOverL": 0.00018815494886273432,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 3.56319695879459e-05
+      },
+      {
+        "id": "v2-short-0304-b2",
+        "rawReturnedPoseOverflowOverL": 0.02467842569340014,
+        "referenceAngleZeroOffsetOverflowOverL": 0.03595672433098984,
+        "sweepBestAngleDegrees": 170.43,
+        "sweepBestOverflowOverL": 0.01043010643090847
+      },
+      {
+        "id": "v2-short-0123-b2",
+        "rawReturnedPoseOverflowOverL": 0.35162852638111614,
+        "referenceAngleZeroOffsetOverflowOverL": 0.00485221279350323,
+        "sweepBestAngleDegrees": 151.28,
+        "sweepBestOverflowOverL": 0.004688301833600916
+      },
+      {
+        "id": "v2-short-1372-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 28.580000000000002,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-long-0102-b2",
+        "rawReturnedPoseOverflowOverL": 0.0049004355652597165,
+        "referenceAngleZeroOffsetOverflowOverL": 0.004962968870213427,
+        "sweepBestAngleDegrees": 0.0,
+        "sweepBestOverflowOverL": 0.004900435565259716
+      },
+      {
+        "id": "v2-short-0297-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 0.63,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0221-b2",
+        "rawReturnedPoseOverflowOverL": 0.008746291199824546,
+        "referenceAngleZeroOffsetOverflowOverL": 0.009871929968992499,
+        "sweepBestAngleDegrees": 67.37,
+        "sweepBestOverflowOverL": 0.00874885974809847
+      },
+      {
+        "id": "v2-short-0333-b2",
+        "rawReturnedPoseOverflowOverL": 0.0010861026873598182,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0010752888836188523,
+        "sweepBestAngleDegrees": 179.85,
+        "sweepBestOverflowOverL": 0.0009076068620061939
+      },
+      {
+        "id": "v2-short-1404-b2",
+        "rawReturnedPoseOverflowOverL": 0.49798339852731505,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0009590857658629132,
+        "sweepBestAngleDegrees": 89.91,
+        "sweepBestOverflowOverL": 0.000750402970350339
+      },
+      {
+        "id": "v2-long-0218-b2",
+        "rawReturnedPoseOverflowOverL": 0.0014138834497561632,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0070384831461176856,
+        "sweepBestAngleDegrees": 61.56,
+        "sweepBestOverflowOverL": 0.0014396733016898144
+      }
+    ]
+  },
+  "positions": {
+    "description": "Post-hoc 0.01-degree sweep, translation to minimum, no shape correction. Best found overflow is an upper bound on minimum possible overflow; not a feasibility proof. Primary pass counts are unchanged.",
+    "meanSweepBestOverflowOverL": 0.0022309762660679415,
+    "maxSweepBestOverflowOverL": 0.01930456404955122,
+    "rows": [
+      {
+        "id": "v2-short-0022-b2",
+        "rawReturnedPoseOverflowOverL": 0.0012174238521854433,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0013609716638708913,
+        "sweepBestAngleDegrees": 0.19,
+        "sweepBestOverflowOverL": 0.0007581522280926678
+      },
+      {
+        "id": "v2-short-1161-b2",
+        "rawReturnedPoseOverflowOverL": 0.0014826561308166123,
+        "referenceAngleZeroOffsetOverflowOverL": 0.00030311988919889954,
+        "sweepBestAngleDegrees": 0.16,
+        "sweepBestOverflowOverL": 0.0003153190744966117
+      },
+      {
+        "id": "v2-short-0993-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 0.0,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1107-b2",
+        "rawReturnedPoseOverflowOverL": 0.0010395868865994003,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0012908587513157654,
+        "sweepBestAngleDegrees": 57.36,
+        "sweepBestOverflowOverL": 0.0010398855373296156
+      },
+      {
+        "id": "v2-short-0070-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 89.86,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1224-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 3.2800000000000002,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0863-b2",
+        "rawReturnedPoseOverflowOverL": 0.005532893818453644,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0059589587257720955,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0.005532893818453621
+      },
+      {
+        "id": "v2-long-0449-b2",
+        "rawReturnedPoseOverflowOverL": 0.0020570224429311253,
+        "referenceAngleZeroOffsetOverflowOverL": 0.001994469135906507,
+        "sweepBestAngleDegrees": 179.71,
+        "sweepBestOverflowOverL": 0.0011313122458810332
+      },
+      {
+        "id": "v2-short-0518-b2",
+        "rawReturnedPoseOverflowOverL": 0.6006537179628074,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0004898751264560408,
+        "sweepBestAngleDegrees": 90.06,
+        "sweepBestOverflowOverL": 0.00040054264091464453
+      },
+      {
+        "id": "v2-short-0875-b2",
+        "rawReturnedPoseOverflowOverL": 0.0003869904512179986,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0005543752870605378,
+        "sweepBestAngleDegrees": 89.84,
+        "sweepBestOverflowOverL": 0.00039598176464338
+      },
+      {
+        "id": "v2-short-0904-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0.00012444679286927052,
+        "sweepBestAngleDegrees": 90.76,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0087-b2",
+        "rawReturnedPoseOverflowOverL": 0.0009568306204077641,
+        "referenceAngleZeroOffsetOverflowOverL": 0.001047875493394801,
+        "sweepBestAngleDegrees": 179.97,
+        "sweepBestOverflowOverL": 0.0009197400777598008
+      },
+      {
+        "id": "v2-short-0533-b2",
+        "rawReturnedPoseOverflowOverL": 0.1233946186191455,
+        "referenceAngleZeroOffsetOverflowOverL": 0.006460610762504204,
+        "sweepBestAngleDegrees": 7.95,
+        "sweepBestOverflowOverL": 0.005057420269917248
+      },
+      {
+        "id": "v2-short-1261-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 9.208585363512656e-05,
+        "sweepBestAngleDegrees": 179.84,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0283-b2",
+        "rawReturnedPoseOverflowOverL": 0.1954555163038321,
+        "referenceAngleZeroOffsetOverflowOverL": 0.010963903197070607,
+        "sweepBestAngleDegrees": 89.41,
+        "sweepBestOverflowOverL": 0.010672649979593996
+      },
+      {
+        "id": "v2-short-1416-b2",
+        "rawReturnedPoseOverflowOverL": 0.05606146793292845,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0011343985585386962,
+        "sweepBestAngleDegrees": 163.02,
+        "sweepBestOverflowOverL": 0.0008844280699526474
+      },
+      {
+        "id": "v2-short-0966-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1044-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 0.56,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1369-b2",
+        "rawReturnedPoseOverflowOverL": 0.09590219667943785,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0033659493566357557,
+        "sweepBestAngleDegrees": 89.78,
+        "sweepBestOverflowOverL": 0.003216350051593986
+      },
+      {
+        "id": "v2-short-1065-b2",
+        "rawReturnedPoseOverflowOverL": 0.29589643774159174,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0014464190043817493,
+        "sweepBestAngleDegrees": 90.19,
+        "sweepBestOverflowOverL": 0.0008127563618958167
+      },
+      {
+        "id": "v2-short-0562-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-1447-b2",
+        "rawReturnedPoseOverflowOverL": 0.0003169789650506646,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0005491412570320098,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0.0003169789650506738
+      },
+      {
+        "id": "v2-short-1122-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 8.133041234673066e-05,
+        "sweepBestAngleDegrees": 89.79,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0304-b2",
+        "rawReturnedPoseOverflowOverL": 0.023323327314213785,
+        "referenceAngleZeroOffsetOverflowOverL": 0.03144990456355812,
+        "sweepBestAngleDegrees": 172.43,
+        "sweepBestOverflowOverL": 0.011496436259728127
+      },
+      {
+        "id": "v2-short-0123-b2",
+        "rawReturnedPoseOverflowOverL": 0.345361786493146,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0011928207130090795,
+        "sweepBestAngleDegrees": 151.38,
+        "sweepBestOverflowOverL": 0.0008480838464631768
+      },
+      {
+        "id": "v2-short-1372-b2",
+        "rawReturnedPoseOverflowOverL": 0.0002802189042886688,
+        "referenceAngleZeroOffsetOverflowOverL": 0.000296363051138282,
+        "sweepBestAngleDegrees": 28.55,
+        "sweepBestOverflowOverL": 0.0002914010386635135
+      },
+      {
+        "id": "v2-long-0102-b2",
+        "rawReturnedPoseOverflowOverL": 0.019304564049551224,
+        "referenceAngleZeroOffsetOverflowOverL": 0.019352470118080403,
+        "sweepBestAngleDegrees": 0.0,
+        "sweepBestOverflowOverL": 0.01930456404955122
+      },
+      {
+        "id": "v2-short-0297-b2",
+        "rawReturnedPoseOverflowOverL": -0.0,
+        "referenceAngleZeroOffsetOverflowOverL": 0,
+        "sweepBestAngleDegrees": 179.98,
+        "sweepBestOverflowOverL": 0
+      },
+      {
+        "id": "v2-short-0221-b2",
+        "rawReturnedPoseOverflowOverL": 0.0019550273969470883,
+        "referenceAngleZeroOffsetOverflowOverL": 0.002885457534353486,
+        "sweepBestAngleDegrees": 64.55,
+        "sweepBestOverflowOverL": 0.0019551764766129187
+      },
+      {
+        "id": "v2-short-0333-b2",
+        "rawReturnedPoseOverflowOverL": 0.0024054293213547485,
+        "referenceAngleZeroOffsetOverflowOverL": 0.002471010522597239,
+        "sweepBestAngleDegrees": 0.02,
+        "sweepBestOverflowOverL": 0.0022627786672824723
+      },
+      {
+        "id": "v2-short-1404-b2",
+        "rawReturnedPoseOverflowOverL": 0.001165719648198686,
+        "referenceAngleZeroOffsetOverflowOverL": 0.0012548209835975266,
+        "sweepBestAngleDegrees": 90.0,
+        "sweepBestOverflowOverL": 0.001165719648198671
+      },
+      {
+        "id": "v2-long-0218-b2",
+        "rawReturnedPoseOverflowOverL": 0.0026060350083330678,
+        "referenceAngleZeroOffsetOverflowOverL": 0.002699271241365958,
+        "sweepBestAngleDegrees": 60.910000000000004,
+        "sweepBestOverflowOverL": 0.0026126694420982866
+      }
+    ]
+  }
+}

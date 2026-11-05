@@ -248,6 +248,12 @@ Prototype on 14 training boxes (`scripts/compare-wall-rule.js`; page https://cla
 
 The v2 dataset (`experiments/learning-v2/`) was labelled before D34 and must be relabelled into a new version before training; v2 stays as a record.
 
+## D35 — diagnose training precision on a tiny training-only subset (user authorization, 2026-11-05)
+
+After the audit, the user authorized proceeding with a controlled 32-request diagnostic: correct/test position-loss padding; compare parameter and position imitation with identical models and no competing fit/opening penalties; measure geometry, numerical round trips and sampled validity; preserve every outcome and keep held-out splits unused. Setup and manifest were frozen in commit `33da2b3` before training.
+
+Completed evidence: [memorization-v1 report](../experiments/memorization-v1/REPORT.md). Neither arm met the copying gate on all 32 examples. Parameters: 12/32 sampled-valid; positions: 10/32. Position error improved on average while some angle errors worsened. This is not a decision to scale the model, weaken the box rules, or replace the ranking.
+
 ## Open questions (unresolved; do not treat as decided)
 
-None at this snapshot. D34 was confirmed by the user; relabelling into `experiments/learning-v2b/` is in progress.
+The next training experiment remains open. Agent recommendation after D35: optimize independent outputs per request as a control, then test a family-specific two-parameter output representation on the same training-only subset. This has not been run or approved. The earlier proposed full-data run-5 2×2 comparison is also unrun. Test evaluation and a declared model-plus-correction method remain future work.

@@ -1,45 +1,53 @@
 # Orifold handoff
 
-Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset are built and verified by independent checks. The user's visual review of the answer key is pending. No v2 model trained yet. Procedure: AGENTS.md, "Handoff procedure".
+Snapshot: 2026-11-05. The 32-request training-only precision diagnostic is complete; neither pure-imitation arm copied all examples accurately enough. All jobs are finished.
 
 ## Current state
 
-- Repository https://github.com/amitgaikwad93/Orifold, working branch `ccr-d2215757-ddp9pm`. Draft PR #1 (`codex/phase-1-accordion`) holds the earlier phases only. Nothing merged; no PR for this branch.
-- **Rules:** EXPERIMENT_SPEC.md sections 2–5; decisions D11–D33.
-  - Fold budget is an input.
-  - Most spread (smallest opening angle) within a 10% band, then symmetric, fewer folds, order, etc.
-  - 2% margin; the final shape may turn about the hinge axis.
-  - Alternating fold directions; no fold-angle rule.
-- **Reference solver:** `src/packing.js` (deterministic). Map r6 and checks are in `results/*-r6*`; map report https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
-- **Independent checker:** `scripts/independent-check.js` (written by Codex, imports no project code). It passes r6 (2,330/2,330) and the dataset (5,996/6,004; 8 order-score cases from a spec ambiguity, now defined in section 5).
-- **FOLD export:** `scripts/export-fold.js` (written by Codex, tested). The user confirmed (2026-11-05) that the example files in `examples/fold/` import into Origami Simulator.
-- **Dataset:** `experiments/learning-v2/`; see EXPERIMENT_SPEC.md "v2 dataset" for size, splits, acceptance results and the known split imbalance.
-- **Review page:** https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA (db collection `verdicts`, owner-only writes), round `answer-key-1`, 48 training answers, currently empty. Read it back with ArtifactData `list` on `verdicts`.
-- v1 remains a failed baseline (LEARNING.md, D10).
+- Repository: https://github.com/amitgaikwad93/Orifold, working branch `ccr-d2215757-ddp9pm`. This work stays on that branch; no merge. Earlier draft PR #1 covers prior phases.
+- Rules: EXPERIMENT_SPEC.md and DECISIONS.md D26–D35. Zero-thickness, 0–11 alternating folds, final rotation/offset allowed, 2% box margin, wall-contact ranking before spread.
+- Authoritative training dataset: `experiments/learning-v2b/dataset.jsonl.gz`, 6,004 independently checked answers with corrected full-precision offsets. Earlier v2 and label shards are historical. Review round 2 accepted 48/48.
+- Full-data runs 1–4 are preserved in `experiments/learning-v2b/run-*`. Run 2 improved fit by folding much tighter; run 4's one-sided penalty allowed over-opening/collisions. Run 4a additionally used a position loss that counted padded endpoints repeatedly. Its recorded results have not been rewritten.
+- New evidence: [memorization-v1 report](../experiments/memorization-v1/REPORT.md), with frozen setup/manifest, checkpoints, histories, all predictions and a plot. No held-out examples used in this diagnostic. The v2b test split remains unevaluated.
+- Independent checker and FOLD export remain available; FOLD import into Origami Simulator was confirmed by the user previously. No certification is implied.
+
+## Last session
+
+- Pulled through `f2d4330`, then froze the diagnostic/code in `33da2b3` before training.
+- Corrected real-vertex masking in `learning/v2.py`, made differentiable kinematics preserve dtype/device, and made extent calculations share that implementation. Did not read `src/packing.js`, change solver source, modify datasets or overwrite historical results.
+- Trained identical 75,554-parameter models from the same initialization on 32 unique training requests, exact family `symmetric-ends-one-angle+spread-refined`, budget/count 2. Fixed 4,000 epochs; no fit/tighter penalties or early checkpoint selection.
+- Parameters / positions: sampled validity **12/32 / 10/32**; correct folds **32/32 each**; no sampled collisions; all failures are box fit. Mean per-example vertex RMS **0.530% / 0.353% L**; angle MAE **0.891° / 1.311°**. Copying gate met by **1/32 / 5/32**, so both fail the all-32 gate.
+- Float32 reference round trips pass 29/32 at saved placement, 32/32 after placement search. All 160 independent/reference overall comparisons agree.
+- Discovered returned overflow on failed placement search can use a 0° fallback pose. Separate post-hoc 0.01° sweep gives mean best-found overflow 0.228% / 0.223% L; it does not alter primary pass counts or prove infeasibility.
+- Validation: 12 Python unit tests passed; `npm test` passed all 7 test files. Plot inspected. Source/gradient/round-trip tests are in `tests/test_v2_learning.py`; diagnostic placement/contact tests in `tests/test_memorization.py`.
 
 ## In discussion / open
 
-Runs overview page (validation only): https://claude.ai/artifact/XSiQ7WdyeAYu6wD7t21BSE (built from `experiments/learning-v2b/run-*/`).
-
-v2b model runs 1–3 are done on validation (EXPERIMENT_SPEC.md, "v2b model runs"). The user's framing, adopted: aim for precision (low scatter) as well as validity, and track bias, scatter and the tolerance curve per run (`scripts/precision-report.py`, `scripts/tolerance-curve.js`). Run 4 (4a crease-position imitation, 4b 512×3) is done. Both are worse (38–40%) because the run-3 one-sided penalty let folds over-open and collide (agent design error; see EXPERIMENT_SPEC.md). Proposed run 5, awaiting the user: pure imitation in a 2×2 design (parameters/positions × 256×2/512×3), judged on training-set precision first. The test split is untouched.
+See DECISIONS.md Open questions. The user authorized this small diagnostic (D35), not a generalization winner or a larger model. The earlier full-data run-5 2×2 proposal remains unrun. Pure position loss does not control angle precision equally across short/long panels. No decision to weaken fit, add material thickness, or change ranking.
 
 ## Next concrete task
 
-Act on the user's choice. Before any test run, add "model + correction" to `train-config.json` as a predeclared reported method.
+Recommended, not run: optimize independent output parameters per request to isolate loss/representation optimization from learning a shared request-to-design mapping. Then compare a two-parameter symmetric-family head with the generic head on the same 32 examples, under a newly frozen budget. Investigate this before scaling; neither 4,000 epochs nor one seed establishes a capacity limit.
 
 ## Runtime
 
-No jobs running. The Python venv is not installed in this container. Exploratory copies are in ignored `artifacts/`.
+No active jobs. CPU-only `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid compute provisioned. Original datasets and prior results unchanged.
 
 ## Commands
 
 ```sh
-npm test                                                         # 53 tests
-node scripts/generate-v2-dataset.js requests|label|merge <dir>   # dataset steps (refuse to overwrite)
-node scripts/dataset-as-map.js <dataset.jsonl.gz> <out.json[.gz]> [split]
-node scripts/independent-check.js <map-or-adapted.json[.gz]>
-node scripts/check-reference-completeness.js <map.json> <out.json> 40 3
-node scripts/check-reference-spread.js <map.json> <out.json> 60 3
-node scripts/render-review-page.js <dataset.jsonl.gz> <out.html> 48 7 <round>
-node scripts/export-fold.js --help
+.venv/bin/python -m unittest discover -s tests -p 'test_*.py'
+npm test
+node scripts/independent-check.js --self-test
+node scripts/dataset-as-map.js <dataset.jsonl.gz> <new-map.json.gz>
+node scripts/independent-check.js <new-map.json.gz>
 ```
+
+Diagnostic reproduction requires a **new experiment directory** with the frozen config/manifest; the runner refuses existing results:
+
+```sh
+.venv/bin/python -m learning.memorization <new-experiment-directory>
+MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-memorization.py <new-experiment-directory>
+```
+
+Do not rerun into `experiments/memorization-v1/results/` or overwrite historical evidence. These checks establish sampled zero-thickness validity only, not continuous collision freedom, ranking optimality, or physical performance.
