@@ -48,27 +48,25 @@ Snapshot: 2026-11-05 (evening). The experiment v2 setup is agreed, the request d
 - **Report republished** at the same link: https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
 - **Checks:** `npm test` passed, 40/40.
 
-## Latest (2026-11-05, map r5)
+## Latest (2026-11-05, map r6: answer-key baseline)
 
-- **D26–D29 implemented** (fold budget, spread ranking with a 10% band, lengths-and-angles symmetry). **D30 implemented** (the final shape may turn about the hinge axis; each design stores `placement`). Commits through `7361a6b`.
-- **Codex** updated `scripts/independent-check.js` (commit `1b5be58`): on r4 it agrees with 2,102/2,102 answers. It does **not** yet apply `placement`; the user has a prompt to have Codex add it and run on `results/request-map-2026-11-05-r5.json.gz`.
-- **Map r5 measured** (EXPERIMENT_SPEC.md "Evidence so far"):
-  - 778/784 solved, 0 impossible;
-  - mirror pairs agree on fewest folds 378/378;
-  - fewest folds confirmed 0/174;
-  - spread beaten beyond the band 23/180;
-  - foot panels 14 (was 492);
-  - dead creases common at budget +2 (260/776).
-- **Report:** https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj (version 4).
-- **Checks:** `npm test` passed, 43/43.
+- **Decisions D30–D33:** turn about the hinge axis to fit; roomy boxes keep most spread; no fold-angle rule (near-flat creases are direction switches); keep alternating directions.
+- **Spread search strengthened** (commit `d415963`).
+- **Map r6:**
+  - fewest folds beaten 0/174;
+  - spread beaten beyond the band 8/180;
+  - mirror mismatches 2/1,126;
+  - 778/784 solved.
+- **Report** (version 5): https://claude.ai/artifact/DG4P4RTYrbJixzZAbPjwWj
+- **Codex** must still add `placement` support to `scripts/independent-check.js` and run it on `results/request-map-2026-11-05-r6.json.gz`; the prompt was given to the user.
 
 ## In discussion / open
 
-DECISIONS.md open question 1: keep alternating fold directions for v2 (accepting 1° direction-switch creases; agent recommendation) or allow free mountain/valley directions now. D31 (roomy boxes keep most spread) and D32 (no fold-angle rule) are decided.
+None in DECISIONS.md.
 
 ## Next concrete task
 
-After the user decides fold directions: implement if changed, strengthen the spread search (23/180 beaten; deterministic free-form refinement from family winners), rerun r6 with all checks (including Codex's checker with placement), then generate the v2 dataset.
+Generate the v2 dataset (EXPERIMENT_SPEC.md section 6, with D30 grouping of swapped boxes) into `experiments/learning-v2/`, then run the acceptance checks, then build the review page.
 
 ## Runtime
 

@@ -183,10 +183,21 @@ Observation for the ranking: several one-fold answers stopped at 177–179° rat
 - **Dead creases remain** at budget +2: 260/776 answers contain a fold under 10°. Typical: `[45, 5, 5, 45]` with angles `[89.4°, 1°, 89.4°]`, a U-shape with a fake middle crease. Open question in DECISIONS.md.
 - **Runtime:** map 15.7 min on CPU.
 
+**Revision r6 (stronger spread search, D33 alternation kept, 2026-11-05):** results in `results/*-r6.json*`.
+- **Feasibility:** 778/784 solved, 6 not found.
+- **Fewest folds:** the free-form search beat it 0/174.
+- **Spread:** the free-form search beat it beyond the 10% band in **8/180** (was 23).
+- **Mirror pairs:** fewest folds agree 378/378; the opening angle differs beyond 10% in **2/1,126** (was 28).
+- **Symmetry:** 537/778 at the minimum budget, 776/776 at +1 and +2.
+- **Runtime:** map 21 min on CPU.
+- **Independent check:** Codex's checker has not yet been updated for D30 placement, so it fails turned designs (1,808/2,330); the update is requested.
+
+This is the answer-key baseline for the v2 dataset.
+
 ## Next work items for this instance
 
 1. Done 2026-11-05: 1-panel designs, v2 rules and measures, the reference solver, the map, the completeness check, and the independent check (two revisions).
-2. Resolve the dead-crease/spread question (DECISIONS.md) and strengthen the reference's spread search; re-verify with the spread check and the updated independent checker.
+2. ~~Resolve dead creases and strengthen the spread search~~ (done: D32, D33, r6). Remaining: Codex's checker with placement must pass r6.
 3. Generate the v2 request set from the frozen distribution (section 6) with a fixed seed. Label it with the reference solver, then run section 8: revalidate with `scripts/independent-check.js`, the completeness check, coverage plots, and grouped splits. Keep it in a new `experiments/learning-v2/` directory.
 4. Build the visual review page needed for section 9, ideally reusing the map report's side view.
 5. Only then train.
