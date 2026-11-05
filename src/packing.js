@@ -18,6 +18,8 @@ const RULES = Object.freeze({
   sweepTieTolerance: 0.01, // swept-area differences below 1% of L^2 are ties (D23)
   spreadTieBand: 0.10,     // designs within 10% of the best opening angle count as equally spread
   extraBudgets: 2,         // reference answers for minimum folds .. minimum + 2 (D26)
+  creasesOnWalls: true,    // D34: every crease should rest on a box wall, ranked before spread
+  wallTolerance: 0.005,    // a crease within 0.5% of sheet length of a wall counts as on it
 });
 
 const usable = box => box.map(x => (1 - RULES.margin) * x);
@@ -101,6 +103,20 @@ function motionMetrics(design, steps) {
   return { blockedSamples: blocked, minGap: minGap / L, sweptArea: (hi[0] - lo[0]) * (hi[1] - lo[1]) / (L * L) };
 }
 
+// Creases off every wall at the design's stored placement angle and offset (D34).
+function floatingAt(design, request) {
+  const u = usable(request.targetBox), L = request.length, tol = RULES.wallTolerance * L;
+  const pts = finalSection(design), r = (design.placement ?? 0) * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+  const q = pts.map(([x, z]) => [x * c - z * s, x * s + z * c]);
+  const lx = Math.min(...q.map(p => p[0])), lz = Math.min(...q.map(p => p[1])), [ox, oz] = design.offset ?? [0, 0];
+  let floating = 0;
+  for (let i = 1; i < q.length - 1; i++) {
+    const x = q[i][0] - lx + ox, z = q[i][1] - lz + oz;
+    if (Math.max(0, Math.min(x, u[0] - x, z, u[2] - z)) > tol) floating++;
+  }
+  return floating;
+}
+
 function assess(design, request, { steps = RULES.validationSteps } = {}) {
   const violations = ruleViolations(design, request);
   const dimensions = placedDimensions(design);   // final shape turned by its placement angle (D30)
@@ -112,6 +128,7 @@ function assess(design, request, { steps = RULES.validationSteps } = {}) {
     valid: violations.length === 0 && contactFree, fits, passes: violations.length === 0 && contactFree && fits,
     violations, contactFree, folds: design.angles.length, order: orderScore(design), symmetric: isSymmetric(design),
     spread: spreadOf(design), minGap: motion.minGap, sweptArea: motion.sweptArea, dimensions, placement: design.placement ?? 0,
+    offset: design.offset ?? [0, 0], floatingCreases: floatingAt(design, request),
     sampleCount: steps + 1,
   };
 }
@@ -133,6 +150,15 @@ function compareWithinBand(a, b) {
 // Rank a set of valid, fitting designs (metrics objects). The band is relative to the best in the set,
 // so ranking is transitive. Returns the metrics sorted best first.
 function rankDesigns(list) {
+  if (!list.length) return [];
+  if (!RULES.creasesOnWalls) return rankSpread(list);
+  // D34: fewer creases off the walls first; within each group the spread band and later keys apply.
+  const groups = new Map();
+  for (const m of list) { const k = m.floating ?? Infinity; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(m); }
+  return [...groups.keys()].sort((x, y) => x - y).flatMap(k => rankSpread(groups.get(k)));
+}
+
+function rankSpread(list) {
   if (!list.length) return [];
   const best = Math.max(...list.map(m => m.spread));
   const cut = (1 - RULES.spreadTieBand) * best - 1e-9;
@@ -283,6 +309,73 @@ function overflowOf(design, request) {
   return Math.max(widthOver, (turned[0] - u[0]) / request.length, (turned[2] - u[2]) / request.length, overflow > 0 ? overflow : -Infinity);
 }
 
+/* Creases on walls (D34). The shape (turned by psi) is slid inside the usable box; a crease (an interior
+ * vertex of the side view) is on a wall when it lies within RULES.wallTolerance x L of one. Sliding only
+ * matters at the extremes, so the four corner alignments are tried. Returns the best alignment:
+ * { floating: creases off every wall, distance: summed distance of all creases to their nearest wall,
+ *   offset: [x, z] position of the shape's lower-left corner inside the usable box }. */
+function wallFit(pts, psi, request) {
+  const u = usable(request.targetBox), L = request.length, tol = RULES.wallTolerance * L;
+  const r = psi * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+  const q = pts.map(([x, z]) => [x * c - z * s, x * s + z * c]);
+  let lx = Infinity, hx = -Infinity, lz = Infinity, hz = -Infinity;
+  for (const [x, z] of q) { lx = Math.min(lx, x); hx = Math.max(hx, x); lz = Math.min(lz, z); hz = Math.max(hz, z); }
+  const sx = Math.max(0, u[0] - (hx - lx)), sz = Math.max(0, u[2] - (hz - lz));
+  let best = null;
+  for (const tx of sx > 0 ? [0, sx] : [0]) for (const tz of sz > 0 ? [0, sz] : [0]) {
+    let floating = 0, distance = 0;
+    for (let i = 1; i < q.length - 1; i++) {
+      const x = q[i][0] - lx + tx, z = q[i][1] - lz + tz;
+      const d = Math.max(0, Math.min(x, u[0] - x, z, u[2] - z));
+      distance += d; if (d > tol) floating++;
+    }
+    if (!best || floating < best.floating || (floating === best.floating && distance < best.distance - 1e-12))
+      best = { floating, distance: distance / L, offset: [tx, tz] };
+  }
+  return best;
+}
+
+/* Placement that fits and puts the most creases on walls: tries the fitting angles of bestPlacement's
+ * search set plus a 1-degree grid, refines the best, and records `placement` and `offset` on the design.
+ * Returns { overflow, floating, distance } (overflow <= 0 fits). */
+function wallPlacement(design, request) {
+  const base = overflowOf(design, request);            // also checks width and records a fitting angle
+  if (base > 0) return { overflow: base, floating: Infinity, distance: Infinity };
+  const pts = finalSection(design), u = usable(request.targetBox), L = request.length;
+  if (pts.length <= 2) { design.offset = [0, 0]; return { overflow: base, floating: 0, distance: 0 }; }
+  const fits = psi => { const [dx, dz] = turnedExtents(pts, psi); return dx <= u[0] + 1e-9 * L && dz <= u[2] + 1e-9 * L; };
+  const tries = new Set([design.placement]);
+  for (let t = 0; t < 180; t += 1) tries.add(t);
+  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+    const ang = Math.atan2(pts[j][1] - pts[i][1], pts[j][0] - pts[i][0]) * 180 / Math.PI;
+    for (const t of [-ang, 90 - ang]) tries.add(((t % 180) + 180) % 180);
+  }
+  const better = (a, b) => !b || a.floating < b.floating || (a.floating === b.floating && a.distance < b.distance - 1e-12);
+  let best = null;
+  for (const t of tries) { if (!fits(t)) continue; const w = { psi: t, ...wallFit(pts, t, request) }; if (better(w, best)) best = w; }
+  for (let step = 0.5; step > 1e-4 && best && best.distance > 0; step /= 2) {
+    for (const t of [best.psi - step, best.psi + step]) {
+      const tt = ((t % 180) + 180) % 180; if (!fits(tt)) continue;
+      const w = { psi: tt, ...wallFit(pts, tt, request) }; if (better(w, best)) best = w;
+    }
+  }
+  design.placement = +best.psi.toFixed(6); design.offset = best.offset.map(v => +v.toFixed(6));
+  return { overflow: Math.max(base, ...placedDimensions(design).map((v, i) => i === 1 ? -Infinity : (v - u[i]) / L)), floating: best.floating, distance: best.distance };
+}
+
+// Fit, then all creases onto walls (continuous: summed wall distance), then widest opening.
+function wallScore(family, request) {
+  return p => {
+    const d = family.build(p);
+    if (ruleViolations(d, request).length) return Infinity;
+    const w = wallPlacement(d, request);
+    if (w.overflow > 0) return 100 + w.overflow;
+    if (motionMetrics(d, 30).blockedSamples) return 50;
+    if (w.floating > 0) return w.floating + Math.min(0.9, 10 * w.distance);
+    return -spreadOf(d) / 180;
+  };
+}
+
 // Deterministic pattern search (no randomness). Lower score is better; stops at `goal` or when steps are tiny.
 function patternSearch(family, start, score, goal = -Infinity, budget = 400) {
   const minStep = family.bounds.map(([lo, hi]) => (hi - lo) / 2000);
@@ -396,8 +489,11 @@ function referenceSolveBudgets(request, { maxPanels = RULES.maxPanels, extraBudg
     const key = keyOf(c.design);
     if (!screened.has(key)) {
       const m = motionMetrics(c.design, RULES.screeningSteps);
-      screened.set(key, m.blockedSamples ? null : { folds: c.folds, spread: c.spread, symmetric: c.symmetric, order: c.order,
-        minGap: m.minGap, sweptArea: m.sweptArea, dimensions: placedDimensions(c.design), candidate: c });
+      let wall = null;
+      if (!m.blockedSamples && RULES.creasesOnWalls) wall = wallPlacement(c.design, request);   // records placement + offset
+      screened.set(key, m.blockedSamples || (wall && wall.overflow > 0) ? null : { folds: c.folds, spread: c.spread, symmetric: c.symmetric, order: c.order,
+        minGap: m.minGap, sweptArea: m.sweptArea, dimensions: placedDimensions(c.design), candidate: c,
+        floating: wall ? wall.floating : undefined, wallDistance: wall ? wall.distance : undefined });
     }
     return screened.get(key);
   };
@@ -448,6 +544,31 @@ function referenceSolveBudgets(request, { maxPanels = RULES.maxPanels, extraBudg
       }
     }
     allowed.sort((a, b) => b.spread - a.spread);
+    if (RULES.creasesOnWalls) {
+      // D34: bring creases onto walls, then widen within that constraint; rank by floating creases first.
+      const pool0 = validIn(allowed, 600);
+      if (!pool0.length) continue;
+      const byWall = [...pool0].sort((a, b) => a.floating - b.floating || a.wallDistance - b.wallDistance || b.spread - a.spread);
+      const perFam = new Map();
+      for (const m of byWall) { const f = m.candidate.familyRef; if (!f || !f.bounds.length) continue; const l = perFam.get(f) || []; if (l.length < 3) { l.push(m); perFam.set(f, l); } }
+      const starts = [...[...perFam].flatMap(([f, l]) => l.map(m => [f, m.candidate.params, m])),
+        ...byWall.filter(m => m.folds >= 1).slice(0, 4).map(m => { const f = freeFamily(m.folds + 1, request, false); return [f, f.encode(m.candidate.design), m]; }),
+        ...byWall.filter(m => m.folds >= 2 && m.symmetric).slice(0, 3).map(m => { const f = freeFamily(m.folds + 1, request, true); return [f, f.encode(m.candidate.design), m]; })];
+      for (const [family, params] of starts) {
+        if (!family.bounds.length) continue;
+        const r = patternSearch(family, params, wallScore(family, request), -1, 500);
+        if (r.score >= 50) continue;
+        const design = family.build(r.point);
+        const c = { family: family.name + '+wall-refined', familyRef: family, params: r.point, design,
+          folds: design.angles.length, spread: spreadOf(design), symmetric: isSymmetric(design), order: orderScore(design) };
+        const m = metricsOf(c); if (m) pool0.push(m);
+      }
+      for (const m of rankDesigns(pool0)) {
+        const quality = assess(m.candidate.design, request);
+        if (quality.passes) { answers.push({ budget, family: m.candidate.family, design: m.candidate.design, quality }); break; }
+      }
+      continue;
+    }
     const top = validIn(allowed, 1)[0];
     if (!top) continue;
     const cut = (1 - RULES.spreadTieBand) * top.spread - 1e-9;
@@ -477,5 +598,5 @@ function referenceSolve(request, options = {}) {
 }
 
 module.exports = { RULES, usable, fitsWithMargin, ruleViolations, orderScore, isSymmetric, spreadOf, segmentDistance,
-  motionMetrics, assess, compareWithinBand, rankDesigns, analyticallyInfeasible, handRule, families, quickExtents, finalSection, turnedExtents, placedDimensions, bestPlacement, overflowOf,
+  motionMetrics, assess, compareWithinBand, rankDesigns, analyticallyInfeasible, handRule, families, quickExtents, finalSection, turnedExtents, placedDimensions, bestPlacement, overflowOf, wallFit, wallPlacement, floatingAt,
   fittingCandidates, freeFamily, referenceSolveBudgets, referenceSolve };

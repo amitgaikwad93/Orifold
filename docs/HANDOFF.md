@@ -19,7 +19,7 @@ Snapshot: 2026-11-05 (late). The v2 answer key (reference solver) and v2 dataset
 
 ## In discussion / open
 
-Answer-key review round 1 is done: 42 valid, 6 unsure, 0 not valid. DECISIONS.md open question 1, "hinge at the boundary", needs the user's definition and priority before training. A rule change means relabelling the dataset (about 70 CPU-minutes) and rerunning the checks.
+D34 (creases on walls before spread) is implemented and prototyped; the comparison page is https://claude.ai/artifact/EyGya8SGoTQnLs55GkQYko. Waiting for the user to confirm it visually. After that, relabel the frozen v2 requests as `experiments/learning-v2b/` (about 1–1.5 h on 3 CPU processes) and rerun all acceptance checks. The independent checker needs a floating-crease check (Codex). The v2 dataset predates D34.
 
 ## Next concrete task
 

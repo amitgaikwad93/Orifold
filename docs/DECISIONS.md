@@ -223,10 +223,26 @@ No rule against small fold angles. Evidence supporting this (`scripts/check-swit
 
 Fold directions stay strictly alternating for experiment v2; 1° direction-switch creases are accepted (D32). Free mountain/valley assignment is the first candidate upgrade once v2 has trained successfully.
 
+## D34 — every crease on a box wall, ranked before spread (user decision, 2026-11-05)
+
+From review round answer-key-1 ("prefer hinge at the boundary") and two follow-up answers:
+- every crease, not just one, should rest on a box wall;
+- this ranks before spread.
+
+Measured first: the flagged designs already touched all four walls with their free ends; only the crease floated.
+
+Implementation (`src/packing.js`, `RULES.creasesOnWalls`):
+- **On a wall:** a crease (interior vertex of the side view) counts as on a wall when, at the design's placement angle and slide position (`offset`), it lies within 0.5% of sheet length of a usable-box wall. The 0.5% tolerance is provisional until the user confirms it visually.
+- **Ranking:** fewest floating creases first, then the D29 spread band and the later keys.
+- **Search:** a wall-seeking placement search and a refinement that first moves creases onto walls, then widens within that constraint.
+
+Prototype on 14 training boxes (`scripts/compare-wall-rule.js`; page https://claude.ai/artifact/EyGya8SGoTQnLs55GkQYko):
+- every proposed answer has all creases on walls;
+- opening-angle cost 0–16° (e.g. 151° → 143° for the reviewed 37 × 92 V);
+- about 3–7 s per request.
+
+The v2 dataset (`experiments/learning-v2/`) was labelled before D34 and must be relabelled into a new version before training; v2 stays as a record.
+
 ## Open questions (unresolved; do not treat as decided)
 
-1. **"Prefer hinge at the boundary" (user review round answer-key-1, 2026-11-05).** Verdicts: 42 valid, 6 unsure, 0 not valid (`experiments/learning-v2/acceptance/review-answer-key-1.json`).
-   - 5 of the 6 unsure are one-fold, equal-panel, gentle (24–74°) folds placed at an angle in roomy boxes, with the note "Prefer hinge at the boundary". The crease floats mid-box. This is a consequence of D31 (most spread in roomy boxes).
-   - Putting the crease on a box wall needs a different design and costs much spread (e.g. 151° → about 88° at box 37 × 92), so a tie-break inside the 10% band would rarely apply.
-   - Needs the user to define (a) which hinges must touch the boundary (all, or at least one) and (b) its priority relative to spread.
-   - Other notes: one unsure without a note is the "spacer panel" pattern (`[42.7, 7.3, 7.3, 42.7]`); one valid answer with "would make both panels of same size" (91 + 9 L-shape in a narrow box, where equal panels would open only about 20° vs 110°).
+1. **Confirm D34 visually** (comparison page above) and the 0.5% wall tolerance; then relabel the dataset as `experiments/learning-v2b/` with the same frozen requests and splits.

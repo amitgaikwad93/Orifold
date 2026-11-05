@@ -111,3 +111,15 @@ test('swapping box length and height gives the same fold count and similar sprea
   assert.equal(a.minFolds, b.minFolds);
   a.answers.forEach((x, i) => assert.ok(Math.abs(x.quality.spread - b.answers[i].quality.spread) <= 0.1 * Math.max(x.quality.spread, b.answers[i].quality.spread)));
 });
+
+test('creases on walls (D34): wall placement puts a V-shape crease on a wall', () => {
+  const r = request([37, 12, 92]);
+  const d = { panelLengths: [50, 50], width: 10, angles: [37] };
+  const w = P.wallPlacement(d, r);
+  assert.ok(w.overflow <= 0);
+  assert.equal(w.floating, 0);
+  assert.equal(P.floatingAt(d, r), 0);
+  assert.ok(P.assess(d, r).passes);
+  const mid = { panelLengths: [50, 50], width: 10, angles: [37], placement: 0, offset: [0, 0] };
+  assert.equal(P.floatingAt({ ...mid, angles: [90] }, request([60, 12, 60])), 0);   // L in a corner: crease on the wall
+});
