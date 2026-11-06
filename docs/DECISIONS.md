@@ -300,6 +300,12 @@ The user proposed ML starting designs paired with a deterministic solver, motiva
 
 This is a proposed research direction, not a completed experiment or a physics-perfect guarantee. Separate verified acceptance from solving every request. Current guarantees remain zero-thickness and sampled. Immediate recommended work is diagnosing existing correction failures and quality changes before new training. Acceptance thresholds, correction design and a repair-oriented training objective remain open. Earlier step 5/final testing has not been completed; no new run is launched by this documentation request.
 
+## D44 — consolidate the baseline and start a named research branch (user authorization)
+
+The user authorized the proposed branch transition: merge the complete ccr-d2215757-ddp9pm history into main through milestone PR #2, preserve source commit IDs, tag accordion-baseline-v1, close earlier draft PR #1 as superseded, and start research/learning-assisted-optimization from updated main. The earlier phase-1 branch is already an ancestor, so a separate merge is unnecessary. Preserve historical branches and artifacts; do not delete them as part of this transition.
+
+Main holds reviewed reproducible project state, including informative failed experiments; topic branches hold ongoing work. This milestone does not declare the model complete, expand scope, or authorize final-test use. The next recommended scientific task remains the correction diagnosis in D43.
+
 ## Open questions (unresolved; do not treat as decided)
 
 Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Adam plus correction is the leading neural candidate; L-BFGS is retired from current recipe development. Retrieval/conventional baselines remain necessary. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.

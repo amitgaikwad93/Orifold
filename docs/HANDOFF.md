@@ -12,6 +12,8 @@ Snapshot: 2026-11-06. Latest session recorded the proposed learning-assisted opt
 
 ## Last session
 
+- User authorized consolidation via [milestone PR #2](https://github.com/amitgaikwad93/Orifold/pull/2), preserving commit history, followed by tag `accordion-baseline-v1` and new branch `research/learning-assisted-optimization` (D44). At this pre-merge snapshot the transition is pending; confirm GitHub state before resuming. Python 26/26 and Node 8/8 test files pass. No scientific experiment was rerun.
+
 - Recorded the post-validation discussion, exact current training inputs/targets, proposed hybrid responsibilities, verification limits and six-step roadmap in [LEARNING_ASSISTED_OPTIMIZATION.md](LEARNING_ASSISTED_OPTIMIZATION.md). Documentation only; no experiments or test-set use. Earlier step 5 remains open. “Learning-assisted optimization iteration” avoids conflict with existing v2 experiment names.
 
 ### Previous measured experiment
