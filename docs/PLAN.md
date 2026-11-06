@@ -88,7 +88,11 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - Report strict numerical fit as well as tolerance-based success; the current evaluator uses only numerical tolerance (not the 1% learning target).
 - Export meaningful designs as `.fold`, with validation results and motion metadata kept alongside the file. FOLD serialization alone is not certification.
 
-### Later research
+### Next research iteration — learning-assisted optimization (proposed)
+
+See [the recorded discussion and six-step roadmap](LEARNING_ASSISTED_OPTIMIZATION.md), D43. Immediate recommendation: diagnose existing correction failures and wall/opening quality before changing training. Then compare improved correction under controlled budgets, investigate learning better starting points, and freeze the complete policy before final testing. Existing step 5 remains open. No new experiment has started; existing v2 names and evidence remain unchanged.
+
+## Later research
 
 Investigate Miura-ori or another zero-thickness rigid-foldable family that contracts in two directions, then geometric deployment constraints, compatible unit combinations, variable panel counts, and eventually variable crease connectivity. Re-budget each capability separately. Arbitrary crease generation is not included in the initial estimate. Thickness adaptation is excluded until the user explicitly reopens it.
 

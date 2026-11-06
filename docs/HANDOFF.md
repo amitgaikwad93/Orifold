@@ -1,6 +1,6 @@
 # Orifold handoff
 
-Snapshot: 2026-11-06. Step 4 validation benchmark finished. No overall winner: neural correction maximizes fast-method validity, nearest retrieval preserves more quality, multistart fits all known-solvable cases but opens poorly. Final test untouched. D42 retires L-BFGS from current neural recipe development.
+Snapshot: 2026-11-06. Latest session recorded the proposed learning-assisted optimization iteration (D43); no new run. Step 4 validation benchmark finished. No overall winner: neural correction maximizes fast-method validity, nearest retrieval preserves more quality, multistart fits all known-solvable cases but opens poorly. Final test untouched. D42 retires L-BFGS from current neural recipe development.
 
 ## Current state
 
@@ -11,6 +11,10 @@ Snapshot: 2026-11-06. Step 4 validation benchmark finished. No overall winner: n
 - Corrected normalization remains. Correction now enforces an exact score-call cap including initial score and delegates acceptance to the canonical evaluator. Tolerance metrics include width and use separate placement objectives for sheet vs usable-box denominators. Historical artifacts unchanged; reproduce older search policies at recorded source commits.
 
 ## Last session
+
+- Recorded the post-validation discussion, exact current training inputs/targets, proposed hybrid responsibilities, verification limits and six-step roadmap in [LEARNING_ASSISTED_OPTIMIZATION.md](LEARNING_ASSISTED_OPTIMIZATION.md). Documentation only; no experiments or test-set use. Earlier step 5 remains open. “Learning-assisted optimization iteration” avoids conflict with existing v2 experiment names.
+
+### Previous measured experiment
 
 - User authorized step 4. Pulled latest, fixed policy/accounting issues with regression tests, froze settings and then ran validation.
 - Methods: Adam and Adam/L-BFGS raw/corrected for seeds 17/29/43; nearest training answer raw/corrected; simple budget-count correction; non-neural count-enumerating multistart sharing cap 400; cached target recheck and fresh solver on 24 frozen random requests. All final records retained.
@@ -30,7 +34,7 @@ Training hybrid audit used a legacy correction policy, so its 95.35% versus curr
 
 ## Next concrete task
 
-Step 5: focus on Adam plus correction, retain nearest/conventional baselines, choose explicit quality/speed acceptance and freeze a concrete method. If adding proposal selection or fallback, use observable fit, floating count and opening, not the unavailable reference opening band as an inference oracle. Validate new policies in a new version before final test; do not pick the best seed after seeing results. No next experiment has started.
+Recommended next task: diagnose saved Adam-plus-correction failures and before/after wall/opening quality, with paired visual examples, before designing further correction or training experiments. See D43 and the new iteration roadmap. Earlier step 5 (freeze quality/speed policy before final test) remains open; final test is untouched and no next experiment has started.
 
 ## Runtime
 

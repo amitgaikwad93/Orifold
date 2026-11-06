@@ -294,6 +294,12 @@ The user agreed Adam plus correction looks promising and proposed dropping L-BFG
 
 Validation evidence: Adam+correction 91.45% validity versus 89.84% with L-BFGS; mean resident pipeline time 8.59 versus 9.85 ms/answer. L-BFGS has a small wall/opening quality advantage (38.24% versus 37.20%), which does not clearly justify its extra cost here. Nearest+correction remains a baseline/candidate with stronger quality (46.35%) and lower validity (87.76%). No best seed, final policy or final-test result is selected by this decision.
 
+## D43 — record the proposed learning-assisted optimization iteration (discussion)
+
+The user proposed ML starting designs paired with a deterministic solver, motivated by the need for dependable geometry and lower search cost, and requested that the discussion and next steps be logged. The north star is unchanged. The agent recommends the descriptive name “learning-assisted optimization iteration”; bare “experiment 2” would conflict with existing v2 artifacts. See [discussion and roadmap](LEARNING_ASSISTED_OPTIMIZATION.md).
+
+This is a proposed research direction, not a completed experiment or a physics-perfect guarantee. Separate verified acceptance from solving every request. Current guarantees remain zero-thickness and sampled. Immediate recommended work is diagnosing existing correction failures and quality changes before new training. Acceptance thresholds, correction design and a repair-oriented training objective remain open. Earlier step 5/final testing has not been completed; no new run is launched by this documentation request.
+
 ## Open questions (unresolved; do not treat as decided)
 
 Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Adam plus correction is the leading neural candidate; L-BFGS is retired from current recipe development. Retrieval/conventional baselines remain necessary. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.
