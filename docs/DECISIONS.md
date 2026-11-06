@@ -288,6 +288,12 @@ User authorized step 4. Frozen `17b0822`: corrected tolerance width/objective ha
 
 Means: Adam raw 39.11% validity, Adam+correction 91.45%; Adam/L-BFGS raw 33.16%, +correction 89.84%. Nearest+correction 87.76% validity / 46.35% wall-opening quality versus Adam+correction 91.45% / 37.20%. Multistart fits all 768 reference-found answers but quality only 14.84%. Live reference 72/72 valid and quality-qualified on 24 requests, ~2.60 s/request for three budgets; faster methods are cheaper but less reliable/less open. These are development validation results, not final-test evidence or proof of general optimizer/solver superiority.
 
+## D42 — retire L-BFGS from current neural recipe candidates (user direction)
+
+The user agreed Adam plus correction looks promising and proposed dropping L-BFGS because its additional value was insufficient. Adopt Adam plus bounded correction as the leading neural candidate; retire the L-BFGS training branch from further current-recipe comparisons. Preserve all code, checkpoints and historical results. This is specific to the measured task/recipe, not a general claim about L-BFGS.
+
+Validation evidence: Adam+correction 91.45% validity versus 89.84% with L-BFGS; mean resident pipeline time 8.59 versus 9.85 ms/answer. L-BFGS has a small wall/opening quality advantage (38.24% versus 37.20%), which does not clearly justify its extra cost here. Nearest+correction remains a baseline/candidate with stronger quality (46.35%) and lower validity (87.76%). No best seed, final policy or final-test result is selected by this decision.
+
 ## Open questions (unresolved; do not treat as decided)
 
-Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Current neural methods do not dominate retrieval/conventional search. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.
+Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Adam plus correction is the leading neural candidate; L-BFGS is retired from current recipe development. Retrieval/conventional baselines remain necessary. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.

@@ -1,6 +1,6 @@
 # Orifold handoff
 
-Snapshot: 2026-11-06. Step 4 validation benchmark finished. No overall winner: neural correction maximizes fast-method validity, nearest retrieval preserves more quality, multistart fits all known-solvable cases but opens poorly. Final test untouched.
+Snapshot: 2026-11-06. Step 4 validation benchmark finished. No overall winner: neural correction maximizes fast-method validity, nearest retrieval preserves more quality, multistart fits all known-solvable cases but opens poorly. Final test untouched. D42 retires L-BFGS from current neural recipe development.
 
 ## Current state
 
@@ -24,13 +24,13 @@ Snapshot: 2026-11-06. Step 4 validation benchmark finished. No overall winner: n
 
 ## In discussion / open
 
-No default recipe or best seed selected. L-BFGS training benefit did not generalize in raw validation validity. Neural correction gives a modest fast-method validity advantage over retrieval, while retrieval gives better opening/wall quality. Neither dominates the reference solver on reliability/quality or proves learning necessary.
+D42: Adam plus bounded correction is the leading neural candidate; L-BFGS is retired from current recipe development. Historical code/checkpoints/results stay intact. No best seed or final deployment policy selected. L-BFGS training benefit did not generalize in raw validation validity. Neural correction gives a modest fast-method validity advantage over retrieval, while retrieval gives better opening/wall quality. Neither dominates the reference solver on reliability/quality or proves learning necessary.
 
 Training hybrid audit used a legacy correction policy, so its 95.35% versus current corrected validation 89.84% is not a controlled generalization comparison by itself. The raw-network train/validation comparison is consistent-policy. Validation informed earlier development too; final-test evidence must come later.
 
 ## Next concrete task
 
-Step 5: choose explicit quality/speed acceptance and freeze a concrete method. If adding proposal selection or fallback, use observable fit, floating count and opening, not the unavailable reference opening band as an inference oracle. Validate new policies in a new version before final test; do not pick the best seed after seeing results. No next experiment has started.
+Step 5: focus on Adam plus correction, retain nearest/conventional baselines, choose explicit quality/speed acceptance and freeze a concrete method. If adding proposal selection or fallback, use observable fit, floating count and opening, not the unavailable reference opening band as an inference oracle. Validate new policies in a new version before final test; do not pick the best seed after seeing results. No next experiment has started.
 
 ## Runtime
 

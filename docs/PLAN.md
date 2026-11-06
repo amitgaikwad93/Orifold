@@ -80,7 +80,8 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - [x] D39 step 3: three-seed full-training comparison completed; Adam 43.13% versus Adam + L-BFGS 45.46% mean training sampled validity.
 - [x] D40: audited Claude tolerance/correction and applied legacy correction to all six saved training models with matched-count controls; see correction-audit-v1.
 - [x] D41 step 4: corrected diagnostic/search policies and completed frozen validation benchmark; no method dominates validity, wall/opening quality and cost.
-- [ ] Step 5: decide quality/speed acceptance and freeze a concrete method before final test. No best-seed selection.
+- [x] D42: retire L-BFGS from current recipe development; retain historical evidence. Adam plus correction leads the neural candidates.
+- [ ] Step 5: decide quality/speed acceptance for Adam plus correction versus retrieval/conventional alternatives, then freeze a method before final test. No best-seed selection.
 - [ ] Build the visual review page for the user's verdict (spec section 9).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.
