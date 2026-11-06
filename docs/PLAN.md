@@ -90,6 +90,8 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 
 ### Next research iteration — learning-assisted optimization (proposed)
 
+Branch transition completed: baseline merged in PR #2 and tagged `accordion-baseline-v1`; ongoing work is on `research/learning-assisted-optimization`.
+
 See [the recorded discussion and six-step roadmap](LEARNING_ASSISTED_OPTIMIZATION.md), D43. Immediate recommendation: diagnose existing correction failures and wall/opening quality before changing training. Then compare improved correction under controlled budgets, investigate learning better starting points, and freeze the complete policy before final testing. Existing step 5 remains open. No new experiment has started; existing v2 names and evidence remain unchanged.
 
 ## Later research

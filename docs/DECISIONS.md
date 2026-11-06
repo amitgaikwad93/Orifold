@@ -304,6 +304,8 @@ This is a proposed research direction, not a completed experiment or a physics-p
 
 The user authorized the proposed branch transition: merge the complete ccr-d2215757-ddp9pm history into main through milestone PR #2, preserve source commit IDs, tag accordion-baseline-v1, close earlier draft PR #1 as superseded, and start research/learning-assisted-optimization from updated main. The earlier phase-1 branch is already an ancestor, so a separate merge is unnecessary. Preserve historical branches and artifacts; do not delete them as part of this transition.
 
+Completed: PR #2 merged at `6bcd36a`, annotated tag `accordion-baseline-v1` pushed, and `research/learning-assisted-optimization` created from that merge. GitHub automatically marked ancestor PR #1 merged, rather than requiring manual closure. Historical branches remain.
+
 Main holds reviewed reproducible project state, including informative failed experiments; topic branches hold ongoing work. This milestone does not declare the model complete, expand scope, or authorize final-test use. The next recommended scientific task remains the correction diagnosis in D43.
 
 ## Open questions (unresolved; do not treat as decided)
