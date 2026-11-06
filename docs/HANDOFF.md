@@ -1,39 +1,41 @@
 # Orifold handoff
 
-Snapshot: 2026-11-06. Same-network optimizer/precision experiment completed: best sampled validity improves from 10/32 to 29/32. Constant-feature preprocessing instability and one assessment-bridge tolerance mismatch are documented. No jobs remain active.
+Snapshot: 2026-11-06. Steps 1 and 2 complete: corrected normalization and assessment bridge, repeated the frozen 32-example comparisons. Current best sampled validity is 27/32, stable through float32 conversion. No active jobs.
 
 ## Current state
 
-- Repository https://github.com/amitgaikwad93/Orifold, branch `ccr-d2215757-ddp9pm`; no merge. Earlier draft PR #1 covers prior phases.
-- Rules: EXPERIMENT_SPEC.md and DECISIONS.md D26–D37. Zero thickness, alternating folds, placement/offset allowed, 2% margin, wall ranking before spread. No geometric rule changes.
-- Authoritative v2b dataset: 6,004 independently checked answers with corrected offsets; review round 2 accepted 48/48. Historical datasets and full-data runs 1–4 unchanged.
-- `memorization-v1`: original shared-network 32-request diagnostic passed 12/32 parameter-loss and 10/32 position-loss designs; padded-vertex loss bug corrected before those runs.
-- `independent-outputs-v1`: both losses optimized independent answer values to 32/32 precision and sampled-validity passes after float64 L-BFGS refinement, retained after casting output logits to float32.
-- New [network-optimization-v1 report](../experiments/network-optimization-v1/REPORT.md): unchanged shared network, same examples, optimizer × precision control. Best observed validity **29/32**, no all-32 copying/validity success. No validation/test data used. The v2b test split remains unevaluated.
+- Repository https://github.com/amitgaikwad93/Orifold, branch `ccr-d2215757-ddp9pm`; no merge. Earlier draft PR #1 covers earlier phases.
+- Rules: EXPERIMENT_SPEC.md and DECISIONS.md D26–D38. Zero thickness, alternating folds, final turning/offset allowed, 2% box margin and wall-contact ranking. Geometry rules unchanged.
+- Authoritative dataset: `experiments/learning-v2b/dataset.jsonl.gz`, 6,004 independently checked answers with corrected offsets. Historical datasets/results unchanged. No validation/test examples used in these diagnostics; v2b test remains unevaluated.
+- `learning/v2.py`: stored normalization std <=1e-6 now uses effective scale 1. Other scales preserved. This removes constant-feature rounding amplification and also conservatively handles genuinely tiny scales. Old checkpoints load without new keys, but inference behavior changes for floor-scaled features; reproduce historical runs at their recorded source commits.
+- `scripts/assess-designs.js`: after placement, fit acceptance always comes from the existing underlying assessment. Its numerical tolerance is unchanged. The contradictory positive-overflow prefilter is removed. Solver source was neither read nor modified.
+- Latest [confirmation report](../experiments/network-optimization-v2/REPORT.md): corrected best sampled validity **27/32**, not the old preprocessing version's 29/32. Both float64 L-BFGS networks retain all 27 passes after conversion to float32.
 
 ## Last session
 
-- Pulled branch (already at `2a21f40`); froze code/protocol in `520ba26` before running.
-- Eight runs: two losses × Adam/L-BFGS × float32/float64, starting at each loss's saved 4,000-epoch network. Same 75,554 parameters; fresh optimizer state, maximum nominal 4,000 further objective evaluations. All final iterates saved; no selection/retry by validity.
-- Parameters: Adam32/64 passes **19/24**, L-BFGS32/64 **26/26** (baseline 12). Positions: independent Adam32/64 **19/19**, L-BFGS32/64 **27/29** (baseline 10). Strongest mean shape error reduced **41.5×**. All outputs pass count/rule/contact checks; failures are fit.
-- Copying gates: parameter arms 30,31,30,30; position arms 23,22,29,29. No all-example success. L-BFGS float32 returns early; float64 uses 4,001 evaluations to finish line search. None meets requested gradient tolerance; do not call numerical optimum established.
-- Four float64-model cast controls initially lose fit: strongest goes 29→19. Post-hoc inference-only diagnosis: constant budget coordinate uses std≈1e−6, amplifying encoding difference into normalized input 0 (float32) versus −0.0054186 (float64). Supplying matched normalized inputs recovers all native pass counts with float32 weights/arithmetic, including **29/32**. No training or rule change in this control.
-- One independent/bridge disagreement among 384 primary/cast predictions: position Adam32, `v2-short-0297-b2`, overflow 6.73e−10 L. Bridge rejects positive overflow before assessment; direct underlying assessment agrees with independent tolerance. Bridge reports 18, independent 19. Zero further disagreements in 128 matched-input controls. Evidence preserved; source of `src/packing.js` not read.
-- Validation: **19 Python tests** pass, including optimizer isolation/checkpoint preservation and matched-input forward parity; existing geometry/gradient parity checks included. No solver/geometry implementation changed, so Node tests not rerun. Plot inspected; historical input/dataset hashes and report links checked.
+- User authorized steps 1 and 2. Pulled latest (already current), committed fixes, regression tests and protocol before execution in `5f3ba27`.
+- Repeated the same eight optimizer/precision arms and four casts on the same 32 training requests with original checkpoint hashes, budgets and final-iterate reporting. No new data, architecture changes, fit penalties or geometric repair.
+- Parameter loss: Adam32/64 **19/22**, L-BFGS32/64 **26/27** sampled-valid. Float64 casts: **23/27** respectively.
+- Position loss: Adam32/64 **19/18**, L-BFGS32/64 **27/27** sampled-valid. Float64 casts: **18/27** respectively.
+- All **384/384** independent/bridge decisions agree. Every design passes rule, two-fold count and 721-state contact checks; all failures are box fit. Every valid answer also has zero floating creases and opening within the reference band.
+- Copying targets still not met on all examples: parameter arms 30/32, position Adam 23/32 and position L-BFGS 29/32. No L-BFGS run reaches the requested gradient tolerance; do not claim a proven optimum.
+- Maximum float64-to-float32 cast vertex RMS difference is below 4e-7 sheet lengths in each arm. A single tight Adam fit flips to passing; L-BFGS validity is stable. Numerical sensitivity at walls is not eliminated.
+- Validation: **21 Python tests pass**, `npm test` passes all seven files. New regressions check constant-feature precision, ordinary-scale preservation, the exact prior bridge mismatch, and genuine oversize rejection. A historical normalization parity test initially failed and was updated to assert the new behavior; no training code changed during execution.
+- Dataset, manifest and initial checkpoint hashes unchanged. All histories, checkpoints, predictions, convergence diagnostics, report and plot retained in the new experiment directory. Nothing overwrote historical evidence.
 
 ## In discussion / open
 
-Additional training and better optimization help this architecture substantially; old failures did not establish a capacity limit. Precision comparisons are complicated by the discovered preprocessing instability. Passing copying thresholds does not imply strict fit. One seed/32 examples cannot establish generalization or the unique cause of remaining errors.
+We have a more trustworthy comparison. L-BFGS helps on this subset; higher precision has no clear validity advantage here. The same network can learn substantially more than the first experiment suggested, but no method meets all-example goals and generalization is unknown.
 
-Family-specific output construction, larger models, changed ranking/fit rules and held-out evaluation were not performed. See DECISIONS.md Open questions. No original prediction counts were silently replaced with post-hoc control outcomes.
+No full-data training, held-out evaluation, family-specific representation or larger architecture was performed under this authorization. DECISIONS.md Open questions records the next discussion.
 
 ## Next concrete task
 
-Recommended, not run: fix constant-feature preprocessing and align the bridge's numerical fit prefilter with the underlying evaluator, with regression tests; repeat affected controls as a new recorded version before choosing/scaling a training recipe. Keep the generic architecture and geometric rules unchanged. This correction has not yet been adopted.
+Choose and predeclare a bounded full-training/validation comparison with the corrected pipeline, conventional baselines and network-plus-limited-correction reporting. Keep final test untouched until method selection is frozen. The next experiment has not started.
 
 ## Runtime
 
-No active jobs. CPU `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid compute. All prior evidence preserved.
+No active jobs. CPU-only `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid compute provisioned.
 
 ## Commands
 
@@ -43,12 +45,11 @@ npm test
 node scripts/independent-check.js --self-test
 ```
 
-Reproduction needs a new directory with the frozen config; outputs refuse overwriting:
+Reproducing confirmation requires a new directory with the frozen config, since results refuse overwrite:
 
 ```sh
 .venv/bin/python -m learning.network_optimization <new-experiment-directory>
 MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-network-optimization.py <new-experiment-directory>
-.venv/bin/python -m learning.network_precision_audit <new-experiment-directory>
 ```
 
-The precision audit is separately labeled post-hoc and uses `NormalizedInputNetwork`: its saved weights require pre-standardized inputs for that diagnostic, unlike ordinary `v2.Model`. Do not present this as an unchanged fully-float32 deployment pipeline. These are zero-thickness sampled checks, not proof of continuous collision freedom, ranking optimality, generalization or physical performance.
+The previous `network_precision_audit` script describes the old normalization experiment; do not rerun its old-normalization assumptions against the corrected Model and treat that as historical reproduction. These are sampled zero-thickness checks, not proof of continuous collision freedom, ranking optimality or physical performance.

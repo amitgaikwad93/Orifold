@@ -268,6 +268,10 @@ Completed [network-optimization-v1](../experiments/network-optimization-v1/REPOR
 
 Inference-only follow-up found a constant-feature normalization instability: budget input is constant, its standard deviation is clamped to 1e−6, and float32/64 encoding changes its normalized value from 0 to −0.0054186. Ordinary float32 conversion drops the strongest run to 19/32; matching normalized inputs restores 29/32 with float32 weights/arithmetic. One numerical fit disagreement is in the assessment bridge's positive-overflow prefilter; the underlying assessment agrees with the independent checker. Neither issue was silently fixed or primary evidence rewritten.
 
+## D38 — fix preprocessing and bridge tolerance, repeat the 32-example controls (user authorization)
+
+User authorized steps 1 and 2. Corrected normalization and bridge acceptance; predeclared network-optimization-v2 in 5f3ba27 using the same manifest, checkpoints and budgets. See [confirmation report](../experiments/network-optimization-v2/REPORT.md). Completed: 384/384 bridge/independent decisions agree; corrected L-BFGS float64 sampled validity is 27/32 for both losses and stays 27/32 after float32 conversion. No all-32 success. 21 Python tests and npm test pass. No full-dataset training or held-out evaluation performed in this step.
+
 ## Open questions (unresolved; do not treat as decided)
 
-Recommended next: correct constant-feature preprocessing and bridge numerical-tolerance consistency with regression tests, then repeat affected controls in a fresh recorded experiment before selecting/scaling a training recipe. This has not been run or adopted. The family-specific output proposal and earlier full-data run-5 2×2 comparison remain unrun. Test evaluation and a declared model-plus-correction method remain future work.
+Choose a bounded full-training/validation comparison after reviewing corrected confirmation. Family-specific architecture and final test evaluation remain unrun.

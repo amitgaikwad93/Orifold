@@ -76,7 +76,8 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - [x] D35 training-only 32-request precision diagnostic completed: corrected masking and paired pure-imitation runs; neither passed the copying gate on all 32 ([report](../experiments/memorization-v1/REPORT.md)).
 - [x] D36 independent-output control completed: both losses reach 32/32 precision and sampled-validity passes after float64 L-BFGS refinement, preserved when cast to float32 ([report](../experiments/independent-outputs-v1/REPORT.md)).
 - [x] D37 shared-network optimizer/precision comparison completed: best sampled validity 29/32, large accuracy gains without architecture changes; no arm meets both all-32 goals ([report](../experiments/network-optimization-v1/REPORT.md)).
-- [ ] Next recommendation: correct constant-feature preprocessing and bridge numerical-tolerance consistency, then repeat affected controls with fresh evidence; see HANDOFF.md.
+- [x] D38: corrected preprocessing and bridge tolerance; repeated the frozen 32-example comparisons in network-optimization-v2.
+- [ ] Review confirmation before choosing the full-training/validation comparison.
 - [ ] Build the visual review page for the user's verdict (spec section 9).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.

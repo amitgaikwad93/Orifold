@@ -44,8 +44,9 @@ class MatchedInputAudit(unittest.TestCase):
         original.std.copy_(torch.tensor([.1,.2,1e-6],dtype=torch.float64))
         matched=NormalizedInputNetwork((8,)).double();matched.load_state_dict(original.state_dict())
         x=torch.tensor([[.25,.35,2/11]],dtype=torch.float64)
-        z=(x-original.mean)/original.std
-        self.assertGreater(abs(float(z[0,2])),.005)
+        scale=torch.where(original.std<=1e-6,torch.ones_like(original.std),original.std)
+        z=(x-original.mean)/scale
+        self.assertLess(abs(float(z[0,2])),1e-8)
         for a,b in zip(original(x),matched(z)):torch.testing.assert_close(a,b,rtol=0,atol=0)
 
 

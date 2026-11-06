@@ -1,0 +1,26 @@
+{
+  "parameters-adam-float64": {
+    "nativePasses": 22,
+    "castPasses": 23,
+    "maxCastVertexRmsOverL": 3.224245844343559e-07,
+    "meanCastVertexRmsOverL": 8.227317279847332e-08
+  },
+  "parameters-lbfgs-float64": {
+    "nativePasses": 27,
+    "castPasses": 27,
+    "maxCastVertexRmsOverL": 3.9392613741445364e-07,
+    "meanCastVertexRmsOverL": 1.004876588685832e-07
+  },
+  "positions-adam-float64": {
+    "nativePasses": 18,
+    "castPasses": 18,
+    "maxCastVertexRmsOverL": 3.1658435262734966e-07,
+    "meanCastVertexRmsOverL": 8.150120664866007e-08
+  },
+  "positions-lbfgs-float64": {
+    "nativePasses": 27,
+    "castPasses": 27,
+    "maxCastVertexRmsOverL": 3.459276907711372e-07,
+    "meanCastVertexRmsOverL": 8.812080853796104e-08
+  }
+}

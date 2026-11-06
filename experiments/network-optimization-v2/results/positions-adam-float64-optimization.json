@@ -1,0 +1,19 @@
+{
+  "beforeLoss": 0.0004132285883890942,
+  "finalLoss": 9.08896770719523e-06,
+  "maxAbsGradient": 0.0002810901320093169,
+  "objectiveEvaluations": 4000,
+  "iterations": 4000,
+  "optimizationSeconds": 14.812719935001951,
+  "hitEvaluationBudget": true,
+  "hitIterationLimit": false,
+  "gradientToleranceMet": null,
+  "finalPrecision": {
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.0005881974720854077,
+    "maxVertexRmsOverL": 0.002932048041640808,
+    "meanAngleMaeDegrees": 0.20213715053513148,
+    "maxAngleMaeDegrees": 3.173438895330137,
+    "precisionGateCount": 23
+  }
+}

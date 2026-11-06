@@ -292,3 +292,10 @@ Frozen setup `520ba26`; evidence in `experiments/network-optimization-v1/`. Same
 Parameter loss: baseline 12/32 sampled-valid; Adam 32/64 gives 19/24, L-BFGS 32/64 gives 26/26. Position loss: baseline 10/32; independent counts Adam 32/64 19/19, L-BFGS 32/64 27/29. The bridge gives 18 for position Adam32 because of one numerical-tolerance prefilter disagreement; direct assessment agrees with the independent count. All failures are fit. No arm reaches all-32 copying or validity goals.
 
 Post-hoc inference control: constant budget normalization (standard deviation clamped to 1e−6) amplifies float32/64 encoding differences. Ordinary conversion to float32 drops the strongest model from 29 to 19 passes; feeding matching normalized inputs restores 29 with float32 weights/arithmetic. This is high-precision preprocessing followed by float32 inference, not a corrected full-float32 pipeline. Keep this control separate from the frozen eight training runs. Recommend correcting preprocessing and bridge consistency before further recipe selection. [Full report, convergence limits and evidence](../experiments/network-optimization-v1/REPORT.md).
+
+
+## Corrected pipeline confirmation (D38)
+
+The user authorized preprocessing/tolerance fixes and repetition on the frozen 32 requests. Code and protocol frozen in `5f3ba27`; results in `experiments/network-optimization-v2/`. Same eight optimizer/precision arms, four float64-to-float32 casts, budgets and starting checkpoint hashes as v1. Stored normalization scales at/below the historical 1e-6 floor now use effective scale 1; the bridge delegates acceptance to the existing evaluator after placement. No geometric rule changes.
+
+Parameters: Adam32/64 19/22 sampled-valid, L-BFGS32/64 26/27. Positions: Adam32/64 19/18, L-BFGS32/64 27/27. Both float64 L-BFGS networks retain 27 after casting. No all-32 copying/validity success. All 384 bridge/independent decisions agree; all count/rule/contact checks pass. Corrected best validity is 27/32, not the previous version's 29/32. No held-out examples used. [Report](../experiments/network-optimization-v2/REPORT.md).
