@@ -302,9 +302,9 @@ This is a proposed research direction, not a completed experiment or a physics-p
 
 ## D44 — consolidate the baseline and start a named research branch (user authorization)
 
-The user authorized the proposed branch transition: merge the complete ccr-d2215757-ddp9pm history into main through milestone PR #2, preserve source commit IDs, tag accordion-baseline-v1, close earlier draft PR #1 as superseded, and start research/learning-assisted-optimization from updated main. The earlier phase-1 branch is already an ancestor, so a separate merge is unnecessary. Preserve historical branches and artifacts; do not delete them as part of this transition.
+The user authorized the proposed branch transition: merge the complete ccr-d2215757-ddp9pm history into main through milestone PR #2, preserve source commit IDs, tag accordion-baseline-v1, close earlier draft PR #1 as superseded, and start research/learning-assisted-optimization from updated main. The earlier phase-1 branch is already an ancestor, so a separate merge is unnecessary. The initial transition preserved historical branches and artifacts. The user subsequently explicitly requested retirement of the merged branches; both old remote branches were deleted after verifying they are ancestors of main. Commit history, tags and experiment artifacts remain intact.
 
-Completed: PR #2 merged at `6bcd36a`, annotated tag `accordion-baseline-v1` pushed, and `research/learning-assisted-optimization` created from that merge. GitHub automatically marked ancestor PR #1 merged, rather than requiring manual closure. Historical branches remain.
+Completed: PR #2 merged at `6bcd36a`, annotated tag `accordion-baseline-v1` pushed, and `research/learning-assisted-optimization` created from that merge. GitHub automatically marked ancestor PR #1 merged, rather than requiring manual closure. Merged topic branches `ccr-d2215757-ddp9pm` and `codex/phase-1-accordion` were subsequently retired at the user’s request.
 
 Main holds reviewed reproducible project state, including informative failed experiments; topic branches hold ongoing work. This milestone does not declare the model complete, expand scope, or authorize final-test use. The next recommended scientific task remains the correction diagnosis in D43.
 

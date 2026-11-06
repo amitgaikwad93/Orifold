@@ -4,7 +4,7 @@ Snapshot: 2026-11-06. Baseline consolidated into main through PR #2, tagged acco
 
 ## Current state
 
-- Repository https://github.com/amitgaikwad93/Orifold, active branch `research/learning-assisted-optimization`, created from main merge `6bcd36a`. [PR #2](https://github.com/amitgaikwad93/Orifold/pull/2) merged with full source history; annotated tag `accordion-baseline-v1` marks that merge. GitHub also marked ancestor PR #1 merged. Historical branches remain intact.
+- Repository https://github.com/amitgaikwad93/Orifold, active branch `research/learning-assisted-optimization`, created from main merge `6bcd36a`. [PR #2](https://github.com/amitgaikwad93/Orifold/pull/2) merged with full source history; annotated tag `accordion-baseline-v1` marks that merge. GitHub also marked ancestor PR #1 merged. The two merged source branches were retired at the user’s request; all their commits remain in main and the baseline tag.
 - Rules: EXPERIMENT_SPEC.md / DECISIONS.md D26–D41. Zero-thickness alternating folds, 2% gap, recorded placement/offset and wall-contact ranking. No geometric rule changes.
 - Latest [validation report](../experiments/validation-v1/REPORT.md). Frozen code/protocol `17b0822` before inference, all six step-3 final networks plus conventional baselines. No retraining or best-seed selection.
 - Primary set: 768 reference-found validation answers from 256 requests. Excluded statuses: 10 analytically infeasible, 58 solver-not-found; the latter is not proven infeasibility. Final test rows never retained/evaluated.
@@ -12,7 +12,7 @@ Snapshot: 2026-11-06. Baseline consolidated into main through PR #2, tagged acco
 
 ## Last session
 
-- Completed the user-authorized consolidation (D44): PR #2 merged, annotated baseline tag pushed, new research branch created and pushed. PR #1 was automatically marked merged when its descendant branch merged; no separate merge or branch deletion was needed. Python 26/26 and Node 8/8 test files pass. No scientific experiment was rerun.
+- Completed the user-authorized consolidation (D44): PR #2 merged, annotated baseline tag pushed, new research branch created and pushed. PR #1 was automatically marked merged when its descendant branch merged; no separate merge or branch deletion was needed. Python 26/26 and Node 8/8 test files pass. Subsequently retired the two merged remote source branches after ancestor checks, and removed the old local working branch. No scientific experiment was rerun.
 
 - Recorded the post-validation discussion, exact current training inputs/targets, proposed hybrid responsibilities, verification limits and six-step roadmap in [LEARNING_ASSISTED_OPTIMIZATION.md](LEARNING_ASSISTED_OPTIMIZATION.md). Documentation only; no experiments or test-set use. Earlier step 5 remains open. “Learning-assisted optimization iteration” avoids conflict with existing v2 experiment names.
 
