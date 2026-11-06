@@ -1,0 +1,118 @@
+{
+  "adam-raw": {
+    "methods": [
+      "seed-17-adam-raw",
+      "seed-29-adam-raw",
+      "seed-43-adam-raw"
+    ],
+    "meanPassRate": 0.3910590277777778,
+    "minPassRate": 0.3763020833333333,
+    "maxPassRate": 0.40234375,
+    "meanQualityRate": 0.21744791666666666,
+    "meanPipelineMs": 4.831978800348405,
+    "meanScoreCalls": 0,
+    "maxScoreCalls": 0
+  },
+  "adam-repair": {
+    "methods": [
+      "seed-17-adam-repair",
+      "seed-29-adam-repair",
+      "seed-43-adam-repair"
+    ],
+    "meanPassRate": 0.9144965277777778,
+    "minPassRate": 0.9114583333333334,
+    "maxPassRate": 0.9192708333333334,
+    "meanQualityRate": 0.3719618055555556,
+    "meanPipelineMs": 8.59449257161577,
+    "meanScoreCalls": 28.567274305555557,
+    "maxScoreCalls": 400
+  },
+  "lbfgs-raw": {
+    "methods": [
+      "seed-17-lbfgs-raw",
+      "seed-29-lbfgs-raw",
+      "seed-43-lbfgs-raw"
+    ],
+    "meanPassRate": 0.3315972222222222,
+    "minPassRate": 0.3046875,
+    "maxPassRate": 0.3463541666666667,
+    "meanQualityRate": 0.21614583333333334,
+    "meanPipelineMs": 4.836030242187043,
+    "meanScoreCalls": 0,
+    "maxScoreCalls": 0
+  },
+  "lbfgs-repair": {
+    "methods": [
+      "seed-17-lbfgs-repair",
+      "seed-29-lbfgs-repair",
+      "seed-43-lbfgs-repair"
+    ],
+    "meanPassRate": 0.8984375,
+    "minPassRate": 0.890625,
+    "maxPassRate": 0.90625,
+    "meanQualityRate": 0.3823784722222222,
+    "meanPipelineMs": 9.846925499131496,
+    "meanScoreCalls": 34.506510416666664,
+    "maxScoreCalls": 400
+  },
+  "nearest-raw": {
+    "methods": [
+      "nearest-raw"
+    ],
+    "meanPassRate": 0.5130208333333334,
+    "minPassRate": 0.5130208333333334,
+    "maxPassRate": 0.5130208333333334,
+    "meanQualityRate": 0.3125,
+    "meanPipelineMs": 5.136015856773218,
+    "meanScoreCalls": 0,
+    "maxScoreCalls": 0
+  },
+  "nearest-repair": {
+    "methods": [
+      "nearest-repair"
+    ],
+    "meanPassRate": 0.8776041666666666,
+    "minPassRate": 0.8776041666666666,
+    "maxPassRate": 0.8776041666666666,
+    "meanQualityRate": 0.4635416666666667,
+    "meanPipelineMs": 8.499139881512788,
+    "meanScoreCalls": 20.087239583333332,
+    "maxScoreCalls": 400
+  },
+  "simple-repair": {
+    "methods": [
+      "simple-repair"
+    ],
+    "meanPassRate": 0.7721354166666666,
+    "minPassRate": 0.7721354166666666,
+    "maxPassRate": 0.7721354166666666,
+    "meanQualityRate": 0.061197916666666664,
+    "meanPipelineMs": 9.393474843748834,
+    "meanScoreCalls": 52.149739583333336,
+    "maxScoreCalls": 400
+  },
+  "simple-multistart": {
+    "methods": [
+      "simple-multistart"
+    ],
+    "meanPassRate": 1.0,
+    "minPassRate": 1.0,
+    "maxPassRate": 1.0,
+    "meanQualityRate": 0.1484375,
+    "meanPipelineMs": 36.59736170442706,
+    "meanScoreCalls": 78.79166666666667,
+    "maxScoreCalls": 344
+  },
+  "reference-cached": {
+    "methods": [
+      "reference-cached"
+    ],
+    "meanPassRate": 1.0,
+    "minPassRate": 1.0,
+    "maxPassRate": 1.0,
+    "meanQualityRate": 1.0,
+    "meanPipelineMs": 5.012014976562509,
+    "meanScoreCalls": 0,
+    "maxScoreCalls": 0
+  }
+}

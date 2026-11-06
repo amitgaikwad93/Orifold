@@ -1,53 +1,53 @@
 # Orifold handoff
 
-Snapshot: 2026-11-06. Historical tolerance/correction audit complete; applying the same correction to saved new training designs produces ~95.35% hybrid validity for Adam+L-BFGS, but only 53.21% also meet wall/opening criteria. All jobs finished.
+Snapshot: 2026-11-06. Step 4 validation benchmark finished. No overall winner: neural correction maximizes fast-method validity, nearest retrieval preserves more quality, multistart fits all known-solvable cases but opens poorly. Final test untouched.
 
 ## Current state
 
 - Repository https://github.com/amitgaikwad93/Orifold, branch `ccr-d2215757-ddp9pm`; no merge. Earlier draft PR #1 covers earlier phases.
-- Rules: EXPERIMENT_SPEC.md / DECISIONS.md D26–D40. Zero thickness, alternating folds, 2% margin, recorded placement/offset and wall-contact ranking. No rule changes in the audit.
-- Corrected learning normalization and standard assessment bridge remain in use. Historical scripts/results preserved. Solver source was neither read nor modified.
-- Full-training step 3: 4,359 training answers from 1,453 requests; three seeds. Adam mean validity 43.13%, Adam+L-BFGS 45.46%. See [full-training report](../experiments/full-training-v1/REPORT.md). No unfamiliar-box predictions were made for these models.
-- Latest [correction/tolerance audit](../experiments/correction-audit-v1/REPORT.md), frozen code/protocol `60d1b9e`. Historical run-1 correction and new saved training designs assessed without retraining, changing search or relaxing tolerances. Final test untouched.
+- Rules: EXPERIMENT_SPEC.md / DECISIONS.md D26–D41. Zero-thickness alternating folds, 2% gap, recorded placement/offset and wall-contact ranking. No geometric rule changes.
+- Latest [validation report](../experiments/validation-v1/REPORT.md). Frozen code/protocol `17b0822` before inference, all six step-3 final networks plus conventional baselines. No retraining or best-seed selection.
+- Primary set: 768 reference-found validation answers from 256 requests. Excluded statuses: 10 analytically infeasible, 58 solver-not-found; the latter is not proven infeasibility. Final test rows never retained/evaluated.
+- Corrected normalization remains. Correction now enforces an exact score-call cap including initial score and delegates acceptance to the canonical evaluator. Tolerance metrics include width and use separate placement objectives for sheet vs usable-box denominators. Historical artifacts unchanged; reproduce older search policies at recorded source commits.
 
 ## Last session
 
-- User asked to inspect Claude’s tolerance and run-1 correction and check applicability to new results. Pulled branch, reviewed scripts and historical artifacts; never read `src/packing.js`.
-- Revised run-1 sheet-relative tolerance counts reproduce with independent side-view calculations. Remaining box-relative issues: width omitted (confirmed on an existing width-impossible fixture), and orientation optimized for sheet-relative rather than relative-box overshoot. 5% L gives 87.4%, legacy 5% box-relative gives 57.7%, own relative-box objective gives 62.9%. All relative-box denominators are usable dimensions (98% of physical box). These are diagnostics, not strict pass rates or angle/panel precision.
-- All 720/768 Claude run-1 model-correction successes confirm at their saved poses. Historical budget-count control canonical result 593/768 versus saved 591. Only 311/768 run-1 model corrections are valid+walls+opening band.
-- Applied unchanged `scripts/repair-designs.js 400` to all six saved full-training model outputs: canonical mean validity **92.85% Adam / 95.35% Adam+L-BFGS**. Valid+walls+opening **47.61% / 53.21%**. Correction about 5 ms/answer here, mean score calls 25/18, excludes neural inference and separate audit recheck.
-- Matched-count control uses each model’s predicted count with equal panels and 150-degree angles: ~80.5% validity / 21.7% quality. Deduplicated to 4,365 unique controls. Supports useful continuous geometry initialization on training data; not a fully model-free or held-out comparison.
-- Correction can make substantial edits: L-BFGS p90 max panel edit ~5.4% L, p90 max angle edit 7.16° across all attempts. Do not call corrected success neural precision. Final 721-state assessment retains the original contact policy; search itself screens only 31 states.
-- Legacy search budget is not strict: observed up to 441 score calls on new models. Its final positive-overflow prefilter rejects 31 new-model cases accepted by canonical assessment; all raw flags and rechecks retained. Existing correction/tolerance scripts remain unchanged for this historical-method audit.
-- Validation: 25 Python tests passed, including audit scoring and existing geometry checks. No geometry implementation changed, so Node tests not rerun. Saved inputs/source hashes verified; report plot inspected; raw results and timing preserved. Historical validation work was a recheck of existing saved correction records, not new inference or seed selection.
+- User authorized step 4. Pulled latest, fixed policy/accounting issues with regression tests, froze settings and then ran validation.
+- Methods: Adam and Adam/L-BFGS raw/corrected for seeds 17/29/43; nearest training answer raw/corrected; simple budget-count correction; non-neural count-enumerating multistart sharing cap 400; cached target recheck and fresh solver on 24 frozen random requests. All final records retained.
+- Mean raw validity: **Adam 39.11%, Adam/L-BFGS 33.16%**, versus training 43.13%/45.46%. Extra fitting did not transfer under this recipe; consistent with overfitting/poorer generalization, not a universal optimizer conclusion.
+- Mean corrected validity / quality (valid+zero-floating+reference opening band): **Adam 91.45% / 37.20%**, **Adam/L-BFGS 89.84% / 38.24%**, **nearest 87.76% / 46.35%**. Nearest raw 51.30% / 31.25% exceeds either raw model.
+- Simple budget-count correction 77.21% validity / 6.12% quality. Shared-budget multistart **100% / 14.84%**, illustrating flat-stack feasibility versus opening quality. This is 100% only on known-solvable primary cases, not every box.
+- Mean resident batch-amortized pipeline times per answer: Adam+correction **8.59 ms**, Adam/L-BFGS+correction **9.85 ms**, nearest+correction **8.50 ms**, multistart **36.60 ms**. Includes inference/decoding or retrieval share, search, placement/checking; excludes loading, IPC and diagnostics. Batch wall times also retained. No production single-query latency claim.
+- Fresh reference subset: 24 requests, **72/72 valid and quality-qualified**, mean **2,601.85 ms/request for all three budget answers together**. Same-subset Adam+correction mean 24.46 ms/request with mean 68.67/72 valid across seeds. Cached reference 768/768 quality is a target recheck, not solver timing. Live subset is not a full runtime distribution.
+- All 13,056 primary records match manifest IDs, caps <=400 and requested budgets. Every accepted result has canonical 721-state fit/contact checks; correction preserves all raw neural successes. Source/data/checkpoint hashes unchanged; nearest provenance verified training-only. No solver source read or modified.
+- Tests: **26 Python tests passed**; Node suite all **8 files** passed, including exact cap, canonical-boundary, width, relative-objective and multistart-sharing regressions. Plot inspected. All jobs finished.
 
 ## In discussion / open
 
-Hybrid validity is promising but training-only, and wall/opening quality is substantially lower. The 95.35% new training result cannot be compared directly with Claude’s 93.75% historical validation result to claim improvement in generalization. A competitive model-free solver baseline is still needed.
+No default recipe or best seed selected. L-BFGS training benefit did not generalize in raw validation validity. Neural correction gives a modest fast-method validity advantage over retrieval, while retrieval gives better opening/wall quality. Neither dominates the reference solver on reliability/quality or proves learning necessary.
 
-Tolerance allowances should be stated with denominator and kept separate from strict task satisfaction. Neither correction nor tolerance curves establish ranking optimality or precision of the original neural answer.
+Training hybrid audit used a legacy correction policy, so its 95.35% versus current corrected validation 89.84% is not a controlled generalization comparison by itself. The raw-network train/validation comparison is consistent-policy. Validation informed earlier development too; final-test evidence must come later.
 
 ## Next concrete task
 
-Recommended: correct tolerance width/orientation metrics and correction budget accounting, align legacy correction final acceptance with the evaluator, and freeze step 4 validation comparison of neural-only, neural-plus-correction and competitive non-neural baselines. Retain final test for the frozen method. No such new validation run has started.
+Step 5: choose explicit quality/speed acceptance and freeze a concrete method. If adding proposal selection or fallback, use observable fit, floating count and opening, not the unavailable reference opening band as an inference oracle. Validate new policies in a new version before final test; do not pick the best seed after seeing results. No next experiment has started.
 
 ## Runtime
 
-No active jobs. CPU `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid resources. All original artifacts preserved.
+No active jobs. CPU `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid resources provisioned. Historical artifacts intact.
 
 ## Commands
 
 ```sh
-.venv/bin/python -m unittest discover -s tests -p 'test_*.py'
 npm test
+.venv/bin/python -m unittest discover -s tests -p 'test_*.py'
 ```
 
-Reproduction requires new directories/config copies; result directories refuse overwrite:
+Reproduction requires a new directory containing frozen config/manifest; result paths refuse overwrite:
 
 ```sh
-.venv/bin/python -m learning.correction_audit <new-audit-directory>
-.venv/bin/python scripts/audit-tolerance-metrics.py <new-audit-directory>
-MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-correction-audit.py <new-audit-directory>
+.venv/bin/python -m learning.validation_benchmark <new-experiment-directory>
+MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-validation.py <new-experiment-directory>
 ```
 
-The tolerance audit expects the saved width-fixture input alongside config; source/input hashes pin the historical algorithm. These are sampled zero-thickness checks, not continuous collision proof, ranking optimality or physical certification.
+The old correction audit pins historical scripts by hash, so reproduce it at its source commit rather than bypassing hash checks. All validity is sampled and zero-thickness; no continuous collision proof, ranking optimality, layer-order or manufacturing certification.

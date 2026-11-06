@@ -282,6 +282,12 @@ The user asked whether Claude’s tolerance and run-1 correction were correct, a
 
 Applying the unchanged legacy correction to saved full-training outputs gives mean canonical validity 92.85% Adam and 95.35% Adam+L-BFGS; valid+walls+opening 47.61%/53.21%. Same predicted-count equal-panel/150-degree controls reach about 80.5% validity and 21.7% quality. Correction performs actual geometric optimization with sometimes large edits, not tolerance relaxation. All raw flags, edits, costs and seed results retained. No unfamiliar-box or solver-superiority conclusion.
 
+## D41 — frozen validation benchmark, final test excluded (user authorization)
+
+User authorized step 4. Frozen `17b0822`: corrected tolerance width/objective handling, exact correction score cap and canonical acceptance; all six fixed step-3 networks, nearest-training-answer, simple-start, shared-budget non-neural multistart and reference targets. Fresh reference timing on 24 preselected validation requests. No retraining, seed selection, final-test use or geometry rule change. [Validation report](../experiments/validation-v1/REPORT.md).
+
+Means: Adam raw 39.11% validity, Adam+correction 91.45%; Adam/L-BFGS raw 33.16%, +correction 89.84%. Nearest+correction 87.76% validity / 46.35% wall-opening quality versus Adam+correction 91.45% / 37.20%. Multistart fits all 768 reference-found answers but quality only 14.84%. Live reference 72/72 valid and quality-qualified on 24 requests, ~2.60 s/request for three budgets; faster methods are cheaper but less reliable/less open. These are development validation results, not final-test evidence or proof of general optimizer/solver superiority.
+
 ## Open questions (unresolved; do not treat as decided)
 
-Recommended: fix tolerance width/objective calculations and exact correction-budget enforcement in a new version, then predeclare a validation benchmark of neural-only, neural-plus-correction and competitive non-neural baselines. Historical correction has a stricter positive-overflow prefilter than the canonical evaluator; report both until aligned. Final test remains untouched; family-specific architecture remains unrun.
+Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Current neural methods do not dominate retrieval/conventional search. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.
