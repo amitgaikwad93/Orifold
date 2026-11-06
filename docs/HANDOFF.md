@@ -51,3 +51,12 @@ MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-memorization.py <n
 ```
 
 Do not rerun into `experiments/memorization-v1/results/` or overwrite historical evidence. These checks establish sampled zero-thickness validity only, not continuous collision freedom, ranking optimality, or physical performance.
+
+## Review of Codex work (2026-11-06)
+
+- Verified `33da2b3` and `87eb6e3`: `npm test` 54/54 and Python 12/12 pass.
+- The padded position-loss fix is correct; run 4a was affected.
+- Memorization-v1 result: 10–12/32 strict fit on 32 training examples, so precision is poor even when memorizing.
+- The placement-reporting flaw is real. My tolerance curves were recomputed with a dense best-turn sweep (EXPERIMENT_SPEC.md correction note).
+- Codex's proposed family-specific `[a, L−2a, a]` / `[θ, θ]` output is close to the box-relative idea the user rejected as non-scaling. Treat it as a diagnostic only, subject to user decision.
+

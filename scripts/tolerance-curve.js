@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Analysis only (the rules are unchanged): how would a run's pass rate change if a design could poke out of the
+// Analysis only (the rules are unchanged). Revised 2026-11-06: best-turn overshoot by dense sweep. how would a run's pass rate change if a design could poke out of the
 // usable box by a tolerance? For each predicted design: best-placement overshoot (fraction of sheet length and of
 // the box side), collisions at 721 motion states, and panel rules. Usage: node scripts/tolerance-curve.js <predictions.jsonl>
 const fs = require('fs'), zlib = require('zlib');
@@ -10,7 +10,15 @@ const rows = new Map(zlib.gunzipSync(fs.readFileSync('experiments/learning-v2b/d
 const recs = preds.map(p => {
   const r = rows.get(p.request), req = r.request, d = { ...p.proposed }; delete d.placement; delete d.offset;
   const rulesOk = P.ruleViolations(d, req).length === 0;
-  const over = Math.max(0, P.overflowOf(d, req));                    // fraction of sheet length, best placement
+  // Best-turn overshoot by a dense sweep (0.05 degrees, then local refinement). P.overflowOf can report the
+  // overshoot at an arbitrary turn for shapes that cannot fit (memorization-v1 report), so it is not used here.
+  const pts = P.finalSection(d), u0 = P.usable(req.targetBox), L = req.length;
+  const ov = psi => { const [dx, dz] = P.turnedExtents(pts, psi); return Math.max((dx - u0[0]) / L, (dz - u0[2]) / L); };
+  let bp = 0, bo = Infinity;
+  for (let t = 0; t < 180; t += 0.05) { const o = ov(t); if (o < bo) { bo = o; bp = t; } }
+  for (let st = 0.025; st > 1e-6; st /= 2) for (const t of [bp - st, bp + st]) { const o = ov(t); if (o < bo) { bo = o; bp = t; } }
+  d.placement = ((bp % 180) + 180) % 180;
+  const over = Math.max(0, bo, (req.width - u0[1]) / L);
   const dims = P.placedDimensions(d), u = P.usable(req.targetBox);
   const overBox = Math.max(0, (dims[0] - u[0]) / u[0], (dims[2] - u[2]) / u[2]);   // fraction of the box side
   const contactFree = evaluateAccordion(d, req.targetBox.map(x => x * 10), { steps: 720 }).noBlockedContactsAtSamples;

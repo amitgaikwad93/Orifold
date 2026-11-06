@@ -242,6 +242,15 @@ Configs are in `experiments/learning-v2b/train-config*.json` and evidence is in 
 
 Nearest-neighbour copy: 51.3%. Imitation ceiling: 99.6%.
 
+**Correction (2026-11-06, found by Codex in memorization-v1).** The tolerance columns above used `P.overflowOf`, which can report overshoot at an arbitrary turn for shapes that cannot fit, overstating misses. Recomputed with a dense best-turn sweep (`scripts/tolerance-curve.js`, revised; `run-*/validation-tolerance-curve-sweep.txt`), pass at 1% / 5% / 10% of sheet:
+- run 1: 57.4 / 87.4 / 94.5%
+- run 2: 87.1 / 95.1 / 98.2%
+- run 3: 62.0 / 82.7 / 95.6%
+- run 4a: 51.7 / 70.6 / 81.8%
+- run 4b: 47.7 / 67.2 / 81.9%
+
+The conclusion at small tolerances holds: run 1 is not precise enough. But most of run 1's misses are within 3–5% of the sheet, not far off. Also, Codex found that the run-4a position loss counted padded vertices (fixed in `33da2b3`), a second confound for 4a.
+
 **Run 4 lesson (agent design error).** The run-3 "do-not-fold-tighter" penalty is one-sided: over-opening folds costs nothing. Runs 4a and 4b exploited this: fold angles drift 19–33° open with very large scatter, and 61 and 68 validation designs collide. The opening-angle measure looks only at the most-closed fold and hid it. So run 4 does not fairly test shape imitation or capacity. From now on, bias and scatter are reported over all fold angles, and precision is tested first without aim-adjusting penalties (proposed run 5).
 
 Reading:
