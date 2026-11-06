@@ -1,0 +1,34 @@
+{
+  "dataset": "experiments/learning-v2b/dataset.jsonl.gz",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "correctionBudget": 400,
+  "tolerances": [
+    0,
+    0.0025,
+    0.005,
+    0.01,
+    0.02,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "sourceHashes": {
+    "experiments/learning-v2b/dataset.jsonl.gz": "e40c80136a6c7e7134f4bc6791e5162c4fc4a0dcd666c6dc64858cf994afa27f",
+    "scripts/repair-designs.js": "dd654011924f6438f78c6ddc03640e34afd56a01bcb2ffa5b394bced66c044a6",
+    "scripts/tolerance-metrics.js": "fd55cca4d0d7831ac4d613eaee0a3f99d546f6e556ec08077677df9b610ea4e5",
+    "scripts/validation-pipeline.js": "0287df67e8378883a064fd7f7d917a11e0a522f51fcb86c02281d1af72fd472e",
+    "experiments/full-training-v1/results/seed-17/adam/checkpoint.pt": "aeefc0555a80b755b4ea06fa528c7dd9024e157fb081f58a6c54d054903692cc",
+    "experiments/full-training-v1/results/seed-17/lbfgs/checkpoint.pt": "6e235a2d27726cffec714c8c9afb2cb103b61855735f8ed31a7df514979120be",
+    "experiments/full-training-v1/results/seed-29/adam/checkpoint.pt": "35f88234b7d36a67704f8853d9ec5d77d4e76849ed078809910da92596621a75",
+    "experiments/full-training-v1/results/seed-29/lbfgs/checkpoint.pt": "86960ea0269bfa161078b588183c2b87fd5ce726b3249e4d71a45f0a50a9dcd1",
+    "experiments/full-training-v1/results/seed-43/adam/checkpoint.pt": "ff1cd5ffb1c20dfc522de2c70a081568e1dabc5715a7cd69b4884f28c4e8cf98",
+    "experiments/full-training-v1/results/seed-43/lbfgs/checkpoint.pt": "7df6e7ddbb6c8e2375086f3e18dbee5b3831802d515f12865bbc8b5c0c1fdd13"
+  },
+  "checkpointSelection": "all six fixed final step-3 checkpoints; no retraining or best-seed selection",
+  "testUse": "none",
+  "liveReference": "24 preselected found validation requests, all requested budgets per solve call; other reference records cached-target assessment only"
+}

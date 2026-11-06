@@ -1,35 +1,54 @@
 #!/usr/bin/env node
-// "Model + correction" (development experiment): start from a proposed design and run a short deterministic
-// search (free-form pattern search over all panel lengths and angles, same fold count) until it fits and is
-// contact-free; then place it on the walls and assess. Reads/writes JSON lines like assess-designs.js.
-// Reports the search effort so the correction can be compared with solving from scratch.
-const readline = require('readline');
+// Version 2: exact score-call budget, canonical final acceptance, and reusable search.
+// Final fit/contact assessment remains the evaluator's original 2% / 721-state policy.
 const P = require('../src/packing');
-const rl = readline.createInterface({ input: process.stdin });
-const budgetArg = Number(process.argv[2] || 400);
-rl.on('line', line => {
-  if (!line.trim()) return;
-  const { id, request, design } = JSON.parse(line);
-  const t = Date.now(); let d = design, evaluations = 0, repaired = false;
-  const n = design.panelLengths.length;
-  if (n >= 2 && P.overflowOf({ ...design }, request) > 0) {
-    const fam = P.freeFamily(n, request, false);
-    const score = (s => p => { evaluations++; return s(p); })(((family) => p => {
-      const x = family.build(p); if (P.ruleViolations(x, request).length) return Infinity;
-      const o = P.overflowOf(x, request); if (o > 0) return o; return P.motionMetrics(x, 30).blockedSamples ? 1e-6 : 0; })(fam));
-    const start = fam.encode(design).map(v => Math.min(1, Math.max(0, v)));
-    // patternSearch expects a family with bounds; reuse the free family.
-    const r = (function search() { const minStep = fam.bounds.map(() => 1 / 2000);
-      let point = start, best = score(point), step = fam.bounds.map(() => 0.02), used = 0;
-      while (best > 0 && step.some((s, i) => s >= minStep[i]) && used < budgetArg) { let moved = false;
-        for (let i = 0; i < point.length && !moved; i++) for (const sg of [1, -1]) { const tr = point.map((x, k) => k === i ? Math.min(1, Math.max(0, x + sg * step[i])) : x);
-          const v = score(tr); used++; if (v < best) { point = tr; best = v; moved = true; break; } }
-        if (!moved) step = step.map(s => s / 2); }
-      return { point, best }; })();
-    d = fam.build(r.point); repaired = true;
+const { performance } = require('node:perf_hooks');
+
+function repair(design, request, budget = 400) {
+  if (!Number.isInteger(budget) || budget < 0) throw Error('budget must be a nonnegative integer');
+  const started = performance.now();
+  let d = structuredClone(design), evaluations = 0, repaired = false;
+  P.wallPlacement(d, request);
+  let q = P.assess(d, request);
+  if (!q.passes && d.panelLengths.length >= 2 && budget > 0 && !P.ruleViolations(d, request).length) {
+    const fam = P.freeFamily(d.panelLengths.length, request, false);
+    const score = point => {
+      if (evaluations >= budget) throw Error('score budget exhausted');
+      evaluations++;
+      const x = fam.build(point);
+      if (P.ruleViolations(x, request).length) return Infinity;
+      const over = P.overflowOf(x, request);
+      return over > 0 ? over : (P.motionMetrics(x, 30).blockedSamples ? 1e-6 : 0);
+    };
+    let point = fam.encode(d).map(x => Math.min(1, Math.max(0, x)));
+    let best = score(point), step = fam.bounds.map(() => .02);
+    const minimum = 1 / 2000;
+    while (best > 0 && step.some(x => x >= minimum) && evaluations < budget) {
+      let moved = false;
+      for (let i = 0; i < point.length && !moved && evaluations < budget; i++) {
+        for (const sign of [1, -1]) {
+          if (evaluations >= budget) break;
+          const trial = point.map((x, j) => j === i ? Math.min(1, Math.max(0, x + sign * step[i])) : x);
+          const value = score(trial);
+          if (value < best) { point = trial; best = value; moved = true; break; }
+        }
+      }
+      if (!moved) step = step.map(x => x / 2);
+    }
+    d = fam.build(point); repaired = true;
+    P.wallPlacement(d, request); q = P.assess(d, request);
   }
-  const w = P.wallPlacement(d, request);
-  const q = w.overflow > 0 ? null : P.assess(d, request);
-  process.stdout.write(JSON.stringify({ id, passes: !!q && q.passes, repaired, evaluations, ms: Date.now() - t,
-    floating: q ? P.floatingAt(d, request) : null, spread: q ? q.spread : null, design: d }) + '\n');
-});
+  return { passes: q.passes, repaired, evaluations, ms: performance.now() - started,
+    floating: P.floatingAt(d, request), spread: q.spread, folds: q.folds, quality: q, design: d };
+}
+
+module.exports = { repair };
+if (require.main === module) {
+  const readline = require('node:readline');
+  const budget = process.argv[2] === undefined ? 400 : Number(process.argv[2]);
+  readline.createInterface({ input: process.stdin }).on('line', line => {
+    if (!line.trim()) return;
+    const { id, request, design } = JSON.parse(line);
+    process.stdout.write(JSON.stringify({ id, ...repair(design, request, budget) }) + '\n');
+  });
+}

@@ -1,30 +1,24 @@
 #!/usr/bin/env node
-// Analysis only (the rules are unchanged). Revised 2026-11-06: best-turn overshoot by dense sweep. how would a run's pass rate change if a design could poke out of the
-// usable box by a tolerance? For each predicted design: best-placement overshoot (fraction of sheet length and of
-// the box side), collisions at 721 motion states, and panel rules. Usage: node scripts/tolerance-curve.js <predictions.jsonl>
-const fs = require('fs'), zlib = require('zlib');
+// Analysis only: extra allowance beyond 98% usable dimensions. Not strict evaluator validity.
+// V3: each denominator has its own placement objective, and every axis includes width.
+const fs = require('node:fs'), zlib = require('node:zlib');
 const P = require('../src/packing');
 const { evaluateAccordion } = require('../src/accordion');
-const preds = fs.readFileSync(process.argv[2], 'utf8').trim().split('\n').map(JSON.parse);
-const rows = new Map(zlib.gunzipSync(fs.readFileSync('experiments/learning-v2b/dataset.jsonl.gz')).toString().trim().split('\n').map(l => { const r = JSON.parse(l); return [r.id, r]; }));
-const recs = preds.map(p => {
-  const r = rows.get(p.request), req = r.request, d = { ...p.proposed }; delete d.placement; delete d.offset;
-  const rulesOk = P.ruleViolations(d, req).length === 0;
-  // Best-turn overshoot by a dense sweep (0.05 degrees, then local refinement). P.overflowOf can report the
-  // overshoot at an arbitrary turn for shapes that cannot fit (memorization-v1 report), so it is not used here.
-  const pts = P.finalSection(d), u0 = P.usable(req.targetBox), L = req.length;
-  const ov = psi => { const [dx, dz] = P.turnedExtents(pts, psi); return Math.max((dx - u0[0]) / L, (dz - u0[2]) / L); };
-  let bp = 0, bo = Infinity;
-  for (let t = 0; t < 180; t += 0.05) { const o = ov(t); if (o < bo) { bo = o; bp = t; } }
-  for (let st = 0.025; st > 1e-6; st /= 2) for (const t of [bp - st, bp + st]) { const o = ov(t); if (o < bo) { bo = o; bp = t; } }
-  d.placement = ((bp % 180) + 180) % 180;
-  const over = Math.max(0, bo, (req.width - u0[1]) / L);
-  const dims = P.placedDimensions(d), u = P.usable(req.targetBox);
-  const overBox = Math.max(0, (dims[0] - u[0]) / u[0], (dims[2] - u[2]) / u[2]);   // fraction of the box side
-  const contactFree = evaluateAccordion(d, req.targetBox.map(x => x * 10), { steps: 720 }).noBlockedContactsAtSamples;
-  return { rulesOk, contactFree, over, overBox };
-});
-const tol = [0, 0.0025, 0.005, 0.01, 0.02, 0.03, 0.05, 0.10];
-const ok = r => r.rulesOk && r.contactFree;
-console.log('answers', recs.length, '| rules + collision-free', recs.filter(ok).length);
-for (const t of tol) console.log(`tolerance ${(t * 100).toFixed(2).padStart(6)}%  of sheet: pass ${(recs.filter(r => ok(r) && r.over <= t + 1e-12).length / recs.length * 100).toFixed(1)}%   | of box side: pass ${(recs.filter(r => ok(r) && r.overBox <= t + 1e-12).length / recs.length * 100).toFixed(1)}%`);
+const { toleranceMetrics } = require('./tolerance-metrics');
+if (require.main === module) {
+  const bytes=fs.readFileSync(process.argv[2]);
+  const text=(bytes[0]===31&&bytes[1]===139?zlib.gunzipSync(bytes):bytes).toString();
+  const preds=text.trim().split('\n').filter(Boolean).map(JSON.parse);
+  const rows=new Map(zlib.gunzipSync(fs.readFileSync('experiments/learning-v2b/dataset.jsonl.gz')).toString().trim().split('\n').map(l=>{const r=JSON.parse(l);return[r.id,r];}));
+  const recs=preds.map(p=>{
+    const req=p.request&&typeof p.request==='object'?p.request:rows.get(p.request).request;
+    const d=p.proposed||p.design;
+    const rulesOk=P.ruleViolations(d,req).length===0&&(p.budget===undefined||d.angles.length<=p.budget);
+    const metrics=toleranceMetrics(d,req);
+    const contactFree=evaluateAccordion(d,req.targetBox.map(x=>x*10),{steps:720}).noBlockedContactsAtSamples;
+    return{rulesOk,contactFree,over:metrics.sheet.overflow,overBox:metrics.box.overflow};
+  });
+  const ok=r=>r.rulesOk&&r.contactFree;
+  console.log('answers',recs.length,'| rules + collision-free',recs.filter(ok).length);
+  for(const t of [0,.0025,.005,.01,.02,.03,.05,.1])console.log(`tolerance ${(100*t).toFixed(2)}% of sheet: pass ${(100*recs.filter(r=>ok(r)&&r.over<=t+1e-12).length/recs.length).toFixed(1)}% | of usable box side: pass ${(100*recs.filter(r=>ok(r)&&r.overBox<=t+1e-12).length/recs.length).toFixed(1)}%`);
+}
