@@ -260,6 +260,14 @@ The user agreed to optimizing each of the same 32 training examples independentl
 
 Frozen setup: `5c17779`; [independent-outputs-v1 report](../experiments/independent-outputs-v1/REPORT.md). Same-schedule independent Adam passed 1/32 (parameters) and 3/32 (positions). Separate float64 L-BFGS refinement reached 32/32 precision and sampled-validity passes for both losses, preserved after casting logits to float32. All refined answers also have zero floating creases and opening within the reference band. These results establish attainability on this subset, not a unique cause of network failure or a generalization result.
 
+## D37 — optimizer/precision comparison on the unchanged shared network (user authorization, 2026-11-06)
+
+The user authorized the next experiment and requested a simple explanation. Frozen code/protocol `520ba26`: same 32 training examples, same generic 256×256 network, Adam/L-BFGS × float32/float64 for each existing loss, starting from the respective saved network checkpoints. No architecture, geometry-rule, dataset or family-specific-output change.
+
+Completed [network-optimization-v1](../experiments/network-optimization-v1/REPORT.md): best observed sampled validity 29/32 with position L-BFGS float64 (starting baseline 10/32); parameter L-BFGS reaches 26/32 (baseline 12/32). Continued Adam also improves strongly. No arm meets the all-32 copying or validity goal. No held-out evaluation.
+
+Inference-only follow-up found a constant-feature normalization instability: budget input is constant, its standard deviation is clamped to 1e−6, and float32/64 encoding changes its normalized value from 0 to −0.0054186. Ordinary float32 conversion drops the strongest run to 19/32; matching normalized inputs restores 29/32 with float32 weights/arithmetic. One numerical fit disagreement is in the assessment bridge's positive-overflow prefilter; the underlying assessment agrees with the independent checker. Neither issue was silently fixed or primary evidence rewritten.
+
 ## Open questions (unresolved; do not treat as decided)
 
-Recommended next: test optimization/precision on the same generic shared network and the same 32 examples before scaling. This comparison has not been run or approved. The family-specific output proposal and earlier full-data run-5 2×2 comparison remain unrun. Test evaluation and a declared model-plus-correction method remain future work.
+Recommended next: correct constant-feature preprocessing and bridge numerical-tolerance consistency with regression tests, then repeat affected controls in a fresh recorded experiment before selecting/scaling a training recipe. This has not been run or adopted. The family-specific output proposal and earlier full-data run-5 2×2 comparison remain unrun. Test evaluation and a declared model-plus-correction method remain future work.

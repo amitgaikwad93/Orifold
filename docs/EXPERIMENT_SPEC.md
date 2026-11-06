@@ -283,3 +283,12 @@ Protocol/code frozen in `5c17779`, before optimization; evidence in `experiments
 Same-schedule float32 Adam: parameter/position losses pass 1/32 and 3/32; neither reaches the copying gate. Per-request float64 L-BFGS refinement: both reach **32/32** copying, sampled validity, zero floating creases and opening within the reference band. Casting refined logits to float32 retains all passes. All 192 independent/reference overall decisions agree. Saved reference poses are more sensitive: refined passes 29/32 and 31/32 before re-placement. The finite 0.01° sweep misses one known-fitting pose and must not be used to infer infeasibility.
 
 This establishes that both losses can optimize the existing format to suitable answers individually. Refinement changes optimizer and precision together; it does not prove a specific cause of network failure. Recommended next, not yet adopted: optimizer/precision controls on the unchanged shared network. [Complete results and limitations](../experiments/independent-outputs-v1/REPORT.md). No held-out examples used; no active run remains.
+
+
+## Shared-network optimizer/precision control (D37, 2026-11-06)
+
+Frozen setup `520ba26`; evidence in `experiments/network-optimization-v1/`. Same 32 training examples and generic 256×256 network, common checkpoint within each loss, Adam/L-BFGS × float32/float64. No rules, architecture, targets or penalties changed. No held-out data.
+
+Parameter loss: baseline 12/32 sampled-valid; Adam 32/64 gives 19/24, L-BFGS 32/64 gives 26/26. Position loss: baseline 10/32; independent counts Adam 32/64 19/19, L-BFGS 32/64 27/29. The bridge gives 18 for position Adam32 because of one numerical-tolerance prefilter disagreement; direct assessment agrees with the independent count. All failures are fit. No arm reaches all-32 copying or validity goals.
+
+Post-hoc inference control: constant budget normalization (standard deviation clamped to 1e−6) amplifies float32/64 encoding differences. Ordinary conversion to float32 drops the strongest model from 29 to 19 passes; feeding matching normalized inputs restores 29 with float32 weights/arithmetic. This is high-precision preprocessing followed by float32 inference, not a corrected full-float32 pipeline. Keep this control separate from the frozen eight training runs. Recommend correcting preprocessing and bridge consistency before further recipe selection. [Full report, convergence limits and evidence](../experiments/network-optimization-v1/REPORT.md).

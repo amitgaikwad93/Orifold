@@ -35,4 +35,18 @@ class NetworkOptimization(unittest.TestCase):
                 for name,t in original.state_dict().items(): torch.testing.assert_close(t,frozen[name],rtol=0,atol=0)
 
 
+class MatchedInputAudit(unittest.TestCase):
+    def test_preprocessed_forward_matches_original_without_second_normalization(self):
+        from learning.network_precision_audit import NormalizedInputNetwork
+        torch.manual_seed(3)
+        original=v2.Model((8,)).double()
+        original.mean.copy_(torch.tensor([.2,.3,.1818181872367859],dtype=torch.float64))
+        original.std.copy_(torch.tensor([.1,.2,1e-6],dtype=torch.float64))
+        matched=NormalizedInputNetwork((8,)).double();matched.load_state_dict(original.state_dict())
+        x=torch.tensor([[.25,.35,2/11]],dtype=torch.float64)
+        z=(x-original.mean)/original.std
+        self.assertGreater(abs(float(z[0,2])),.005)
+        for a,b in zip(original(x),matched(z)):torch.testing.assert_close(a,b,rtol=0,atol=0)
+
+
 if __name__=='__main__': unittest.main()

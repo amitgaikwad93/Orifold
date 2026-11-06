@@ -1,0 +1,79 @@
+[
+  {
+    "objectiveEvaluation": 1,
+    "evaluatedLoss": 0.00011437443026807159,
+    "maxAbsGradient": 5.938391404924914e-05,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.005295667331665754,
+    "maxVertexRmsOverL": 0.02845039777457714,
+    "meanAngleMaeDegrees": 0.8912148475646973,
+    "maxAngleMaeDegrees": 6.648947715759277,
+    "precisionGateCount": 1
+  },
+  {
+    "objectiveEvaluation": 100,
+    "evaluatedLoss": 1.0962185115204193e-05,
+    "maxAbsGradient": 3.140465196338482e-05,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.002761520678177476,
+    "maxVertexRmsOverL": 0.006669435650110245,
+    "meanAngleMaeDegrees": 0.31381872296333313,
+    "maxAngleMaeDegrees": 1.4067702293395996,
+    "precisionGateCount": 1
+  },
+  {
+    "objectiveEvaluation": 200,
+    "evaluatedLoss": 1.4603847375838086e-06,
+    "maxAbsGradient": 1.0062422006740235e-05,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.0009386538295075297,
+    "maxVertexRmsOverL": 0.0018646683311089873,
+    "meanAngleMaeDegrees": 0.12361522018909454,
+    "maxAngleMaeDegrees": 0.34066855907440186,
+    "precisionGateCount": 12
+  },
+  {
+    "objectiveEvaluation": 300,
+    "evaluatedLoss": 6.524176114908187e-07,
+    "maxAbsGradient": 6.127879260020563e-06,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.0005517561221495271,
+    "maxVertexRmsOverL": 0.001384919392876327,
+    "meanAngleMaeDegrees": 0.08472420275211334,
+    "maxAngleMaeDegrees": 0.2859033942222595,
+    "precisionGateCount": 23
+  },
+  {
+    "objectiveEvaluation": 400,
+    "evaluatedLoss": 2.9532327516790247e-07,
+    "maxAbsGradient": 4.846547653869493e-06,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.0003722847905009985,
+    "maxVertexRmsOverL": 0.0009168216492980719,
+    "meanAngleMaeDegrees": 0.046791285276412964,
+    "maxAngleMaeDegrees": 0.1840549111366272,
+    "precisionGateCount": 27
+  },
+  {
+    "objectiveEvaluation": 500,
+    "evaluatedLoss": 1.7307486643858283e-07,
+    "maxAbsGradient": 2.842947651515715e-06,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.00027065249742008746,
+    "maxVertexRmsOverL": 0.0008413526811636984,
+    "meanAngleMaeDegrees": 0.029768239706754684,
+    "maxAngleMaeDegrees": 0.12875095009803772,
+    "precisionGateCount": 30
+  },
+  {
+    "objectiveEvaluation": 600,
+    "evaluatedLoss": 1.2648990832531126e-07,
+    "maxAbsGradient": 1.2943145293320413e-06,
+    "foldAccuracy": 1.0,
+    "meanVertexRmsOverL": 0.00021351010946091264,
+    "maxVertexRmsOverL": 0.0007960866205394268,
+    "meanAngleMaeDegrees": 0.019845686852931976,
+    "maxAngleMaeDegrees": 0.12808412313461304,
+    "precisionGateCount": 30
+  }
+]

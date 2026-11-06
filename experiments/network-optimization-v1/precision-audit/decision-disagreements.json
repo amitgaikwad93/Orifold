@@ -1,0 +1,76 @@
+[
+  {
+    "file": "experiments/network-optimization-v1/results/positions-adam-float32-predictions.json",
+    "id": "v2-short-0297-b2",
+    "independent": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        6.725734998734838e-10
+      ],
+      "maxOverflowOverL": 6.725734998734838e-10,
+      "vertexRmsOverL": 4.595941118894211e-05,
+      "creasePositionRmsOverL": 3.740351204119738e-05,
+      "angleMaeDegrees": 0.009967702627193376,
+      "openingErrorDegrees": -0.014240729808818742,
+      "spread": 42.22325927019119,
+      "withinReferenceSpreadBand": true
+    },
+    "bridge": {
+      "id": "v2-short-0297-b2",
+      "passes": false,
+      "reason": "does-not-fit",
+      "overflow": 6.725734998734838e-10,
+      "design": {
+        "panelLengths": [
+          4.113145940926536,
+          5.142850534785166,
+          4.1121819417288
+        ],
+        "width": 5.242091054574442,
+        "angles": [
+          137.76819467544556,
+          137.7767407298088
+        ],
+        "placement": 179.964111,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "directAssessment": {
+      "valid": true,
+      "fits": true,
+      "passes": true,
+      "violations": [],
+      "contactFree": true,
+      "folds": 2,
+      "order": 3,
+      "symmetric": true,
+      "spread": 42.22325927019119,
+      "minGap": 0.2585322255699172,
+      "sweptArea": 0.3847081295529026,
+      "dimensions": [
+        4.419562705528454,
+        5.242091054574442,
+        3.4590574719581317
+      ],
+      "placement": 179.964111,
+      "offset": [
+        0,
+        0
+      ],
+      "floatingCreases": 0,
+      "sampleCount": 721
+    }
+  }
+]
