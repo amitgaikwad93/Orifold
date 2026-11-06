@@ -1,37 +1,41 @@
 # Orifold handoff
 
-Snapshot: 2026-11-05. The 32-request training-only precision diagnostic is complete; neither pure-imitation arm copied all examples accurately enough. All jobs are finished.
+Snapshot: 2026-11-06. Independent-output optimization succeeds on all 32 training requests after refinement, for both imitation losses. All jobs are finished.
 
 ## Current state
 
-- Repository: https://github.com/amitgaikwad93/Orifold, working branch `ccr-d2215757-ddp9pm`. This work stays on that branch; no merge. Earlier draft PR #1 covers prior phases.
-- Rules: EXPERIMENT_SPEC.md and DECISIONS.md D26–D35. Zero-thickness, 0–11 alternating folds, final rotation/offset allowed, 2% box margin, wall-contact ranking before spread.
-- Authoritative training dataset: `experiments/learning-v2b/dataset.jsonl.gz`, 6,004 independently checked answers with corrected full-precision offsets. Earlier v2 and label shards are historical. Review round 2 accepted 48/48.
-- Full-data runs 1–4 are preserved in `experiments/learning-v2b/run-*`. Run 2 improved fit by folding much tighter; run 4's one-sided penalty allowed over-opening/collisions. Run 4a additionally used a position loss that counted padded endpoints repeatedly. Its recorded results have not been rewritten.
-- New evidence: [memorization-v1 report](../experiments/memorization-v1/REPORT.md), with frozen setup/manifest, checkpoints, histories, all predictions and a plot. No held-out examples used in this diagnostic. The v2b test split remains unevaluated.
-- Independent checker and FOLD export remain available; FOLD import into Origami Simulator was confirmed by the user previously. No certification is implied.
+- Repository https://github.com/amitgaikwad93/Orifold, branch `ccr-d2215757-ddp9pm`. No merge. Earlier draft PR #1 covers prior phases.
+- Rules: EXPERIMENT_SPEC.md and DECISIONS.md D26–D36. Zero thickness, 0–11 alternating folds, placement/offset allowed, 2% box margin, wall-contact ranking before spread. No rule changes in this diagnostic.
+- Authoritative dataset: `experiments/learning-v2b/dataset.jsonl.gz`, 6,004 independently checked answers with corrected offsets, review round 2 accepted 48/48. Historical datasets and runs remain unchanged.
+- Full-data runs 1–4 remain preserved. Run 2 traded opening for fit; run 4 used a one-sided penalty that allowed over-opening. Run 4a also counted padded endpoint copies in its position loss, fixed in `33da2b3`.
+- The 32-request shared-network diagnostic in `experiments/memorization-v1/` reached only 12/32 and 10/32 sampled-valid designs. Its two losses failed the all-example precision gate.
+- New [independent-output report](../experiments/independent-outputs-v1/REPORT.md): each of those same requests has independent generic output logits. Both losses reach **32/32** precision and sampled validity after float64 L-BFGS refinement, retained after casting logits to float32. No built-in family shape was used.
+- No held-out examples were used in either diagnostic; the v2b test split remains unevaluated. Independent checker/FOLD export remain available; FOLD is serialization, not certification.
 
 ## Last session
 
-- Pulled through `f2d4330`, then froze the diagnostic/code in `33da2b3` before training.
-- Corrected real-vertex masking in `learning/v2.py`, made differentiable kinematics preserve dtype/device, and made extent calculations share that implementation. Did not read `src/packing.js`, change solver source, modify datasets or overwrite historical results.
-- Trained identical 75,554-parameter models from the same initialization on 32 unique training requests, exact family `symmetric-ends-one-angle+spread-refined`, budget/count 2. Fixed 4,000 epochs; no fit/tighter penalties or early checkpoint selection.
-- Parameters / positions: sampled validity **12/32 / 10/32**; correct folds **32/32 each**; no sampled collisions; all failures are box fit. Mean per-example vertex RMS **0.530% / 0.353% L**; angle MAE **0.891° / 1.311°**. Copying gate met by **1/32 / 5/32**, so both fail the all-32 gate.
-- Float32 reference round trips pass 29/32 at saved placement, 32/32 after placement search. All 160 independent/reference overall comparisons agree.
-- Discovered returned overflow on failed placement search can use a 0° fallback pose. Separate post-hoc 0.01° sweep gives mean best-found overflow 0.228% / 0.223% L; it does not alter primary pass counts or prove infeasibility.
-- Validation: 12 Python unit tests passed; `npm test` passed all 7 test files. Plot inspected. Source/gradient/round-trip tests are in `tests/test_v2_learning.py`; diagnostic placement/contact tests in `tests/test_memorization.py`.
+- Pulled latest `68c11fa` first. It confirms the padding/overflow findings and corrects historical tolerance curves with a rotation sweep. Preserved those updates.
+- User approved only the independent-output experiment (D36). Setup, code and tests frozen in `5c17779` before execution. Same manifest and initial checkpoint pinned by hashes.
+- Same-schedule float32 Adam on independent logits: parameters **1/32**, positions **3/32** sampled-valid; neither reaches the copying gate. Then separate float64 L-BFGS optimizers per request: **32/32** passes for both losses, all zero floating, all within the reference opening band. Cast-to-float32 control retains **32/32** for both.
+- All 192 new outputs pass panel/angle rules, correct fold count and 721-state contact checks. Independent/reference overall validity disagreements: **0/192**.
+- Placement matters: refined saved-reference poses pass 29/32 and 31/32; re-searching placement gives all 32 without altering shape. The 0.01° rotation grid misses one known-fitting orientation; grid failure is not infeasibility.
+- Refinement changes optimizer and precision together. Seven request/loss runs reached evaluation limits; four finished their line search at 1,251 evaluations against a 1,250 setting. Final results retained; do not claim all gradient tolerances converged.
+- Optimization CPU time excluding evaluation: 1.53 + 10.11 s parameter arm; 10.50 + 37.49 s position arm. No paid compute.
+- Validation: all **16 Python tests** passed, including independent gradient equivalence, exact initial-output parity, synthetic optimization recovery and existing geometry parity. No solver/geometry implementation changed, so Node tests were not rerun. Plot inspected; report links and frozen input hashes checked. `src/packing.js` source was not read.
 
 ## In discussion / open
 
-See DECISIONS.md Open questions. The user authorized this small diagnostic (D35), not a generalization winner or a larger model. The earlier full-data run-5 2×2 proposal remains unrun. Pure position loss does not control angle precision equally across short/long panels. No decision to weaken fit, add material thickness, or change ranking.
+The generic format and losses can reach suitable answers on this subset. The original Adam schedule still fails even without a network, so optimization settings are part of the investigation. Success does not establish capacity/interference as the unique cause of shared-network failure. Casting successful results to float32 does not test float32 optimization trajectories.
+
+The family-specific decoder is outside the approved experiment. Larger models, full-data run 5, changed rules and held-out testing remain unapproved next steps. See DECISIONS.md Open questions.
 
 ## Next concrete task
 
-Recommended, not run: optimize independent output parameters per request to isolate loss/representation optimization from learning a shared request-to-design mapping. Then compare a two-parameter symmetric-family head with the generic head on the same 32 examples, under a newly frozen budget. Investigate this before scaling; neither 4,000 epochs nor one seed establishes a capacity limit.
+Recommended, not run: predeclare an optimizer/precision comparison on the **same generic shared network and same 32 examples**, with convergence measurements, before scaling or altering architecture. This tests whether output-level optimization success transfers to learning the shared request-to-design mapping.
 
 ## Runtime
 
-No active jobs. CPU-only `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid compute provisioned. Original datasets and prior results unchanged.
+No active jobs. CPU-only `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5, Matplotlib 3.10.8. No paid resources provisioned. All historical evidence preserved.
 
 ## Commands
 
@@ -39,24 +43,13 @@ No active jobs. CPU-only `.venv`: Python 3.12.14, PyTorch 2.9.1+cpu, NumPy 2.3.5
 .venv/bin/python -m unittest discover -s tests -p 'test_*.py'
 npm test
 node scripts/independent-check.js --self-test
-node scripts/dataset-as-map.js <dataset.jsonl.gz> <new-map.json.gz>
-node scripts/independent-check.js <new-map.json.gz>
 ```
 
-Diagnostic reproduction requires a **new experiment directory** with the frozen config/manifest; the runner refuses existing results:
+To reproduce the independent-output diagnostic, use a **new directory** containing the frozen config; results refuse overwrite:
 
 ```sh
-.venv/bin/python -m learning.memorization <new-experiment-directory>
-MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-memorization.py <new-experiment-directory>
+.venv/bin/python -m learning.independent_outputs <new-experiment-directory>
+MPLCONFIGDIR=/tmp/orifold-mpl .venv/bin/python scripts/report-independent-outputs.py <new-experiment-directory>
 ```
 
-Do not rerun into `experiments/memorization-v1/results/` or overwrite historical evidence. These checks establish sampled zero-thickness validity only, not continuous collision freedom, ranking optimality, or physical performance.
-
-## Review of Codex work (2026-11-06)
-
-- Verified `33da2b3` and `87eb6e3`: `npm test` 54/54 and Python 12/12 pass.
-- The padded position-loss fix is correct; run 4a was affected.
-- Memorization-v1 result: 10–12/32 strict fit on 32 training examples, so precision is poor even when memorizing.
-- The placement-reporting flaw is real. My tolerance curves were recomputed with a dense best-turn sweep (EXPERIMENT_SPEC.md correction note).
-- Codex's proposed family-specific `[a, L−2a, a]` / `[θ, θ]` output is close to the box-relative idea the user rejected as non-scaling. Treat it as a diagnostic only, subject to user decision.
-
+The config references the frozen memorization-v1 manifest and initial checkpoint. These checks establish sampled zero-thickness validity only, not continuous collision freedom, ranking optimality, generalization, or physical performance.

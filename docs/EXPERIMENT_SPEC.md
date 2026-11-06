@@ -274,3 +274,12 @@ The user authorized the small diagnostic before further scaling. Frozen setup an
 Two identical 256×256 models trained on 32 training requests, two folds and one exact family, for 4,000 fixed full-batch epochs without fit/tighter penalties. Neither met the all-32 copying gate. Parameter/position imitation respectively: 12/32 and 10/32 sampled-valid, 0 sampled collisions, mean per-example vertex RMS 0.530%/0.353% L, angle MAE 0.891°/1.311°. Float32 reference round trips pass 29/32 at saved placement and 32/32 after placement search. Failed-search overflow can describe an unturned fallback pose; the separate placement sweep is labeled post-hoc. No validation or test examples were used.
 
 [Complete results, limitations and next recommendation](../experiments/memorization-v1/REPORT.md). This diagnostic does not choose a generalization winner or authorize the proposed full-data run 5.
+
+
+## Independent-output control (D36, 2026-11-06)
+
+Protocol/code frozen in `5c17779`, before optimization; evidence in `experiments/independent-outputs-v1/`. Same 32 training examples, same initial outputs and generic decoder, each request owns separate logits. No family-specific shape, fit penalty, geometric repair or rule change. Both existing imitation losses are reused.
+
+Same-schedule float32 Adam: parameter/position losses pass 1/32 and 3/32; neither reaches the copying gate. Per-request float64 L-BFGS refinement: both reach **32/32** copying, sampled validity, zero floating creases and opening within the reference band. Casting refined logits to float32 retains all passes. All 192 independent/reference overall decisions agree. Saved reference poses are more sensitive: refined passes 29/32 and 31/32 before re-placement. The finite 0.01° sweep misses one known-fitting pose and must not be used to infer infeasibility.
+
+This establishes that both losses can optimize the existing format to suitable answers individually. Refinement changes optimizer and precision together; it does not prove a specific cause of network failure. Recommended next, not yet adopted: optimizer/precision controls on the unchanged shared network. [Complete results and limitations](../experiments/independent-outputs-v1/REPORT.md). No held-out examples used; no active run remains.

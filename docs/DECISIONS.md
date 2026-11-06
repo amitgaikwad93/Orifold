@@ -254,6 +254,12 @@ After the audit, the user authorized proceeding with a controlled 32-request dia
 
 Completed evidence: [memorization-v1 report](../experiments/memorization-v1/REPORT.md). Neither arm met the copying gate on all 32 examples. Parameters: 12/32 sampled-valid; positions: 10/32. Position error improved on average while some angle errors worsened. This is not a decision to scale the model, weaken the box rules, or replace the ranking.
 
+## D36 — independent-output optimization control only (user authorization, 2026-11-06)
+
+The user agreed to optimizing each of the same 32 training examples independently, with the existing output format and losses, and then said "Proceed". The family-specific `[a, L−2a, a]` / `[θ, θ]` decoder is **not** part of this authorization. Failure would require investigating optimizer/loss/precision as well as representation; it would not prove that the format is wrong.
+
+Frozen setup: `5c17779`; [independent-outputs-v1 report](../experiments/independent-outputs-v1/REPORT.md). Same-schedule independent Adam passed 1/32 (parameters) and 3/32 (positions). Separate float64 L-BFGS refinement reached 32/32 precision and sampled-validity passes for both losses, preserved after casting logits to float32. All refined answers also have zero floating creases and opening within the reference band. These results establish attainability on this subset, not a unique cause of network failure or a generalization result.
+
 ## Open questions (unresolved; do not treat as decided)
 
-The next training experiment remains open. Agent recommendation after D35: optimize independent outputs per request as a control, then test a family-specific two-parameter output representation on the same training-only subset. This has not been run or approved. The earlier proposed full-data run-5 2×2 comparison is also unrun. Test evaluation and a declared model-plus-correction method remain future work.
+Recommended next: test optimization/precision on the same generic shared network and the same 32 examples before scaling. This comparison has not been run or approved. The family-specific output proposal and earlier full-data run-5 2×2 comparison remain unrun. Test evaluation and a declared model-plus-correction method remain future work.
