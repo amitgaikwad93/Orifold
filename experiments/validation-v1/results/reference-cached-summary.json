@@ -1,0 +1,65 @@
+{
+  "answers": 768,
+  "passes": 768,
+  "passRate": 1.0,
+  "validWallsOpening": 768,
+  "qualityRate": 1.0,
+  "passingZeroFloating": 768,
+  "meanPipelineMs": 5.012014976562509,
+  "medianPipelineMs": 4.511989999999997,
+  "p90PipelineMs": 7.445981700000022,
+  "meanScoreCalls": 0,
+  "maxScoreCalls": 0,
+  "foldCountMatches": 768,
+  "precisionGateCount": 768,
+  "medianOpeningAmongPassing": 88.426171875,
+  "failureReasons": {
+    "budget": 0,
+    "rules": 0,
+    "contacts": 0,
+    "fit": 0
+  },
+  "nodeBatchWallSecondsIncludingIpc": 4.000738717000786,
+  "toleranceCurves": [
+    {
+      "tolerance": 0,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.0025,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.005,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.01,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.02,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.03,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.05,
+      "sheet": 768,
+      "usableBox": 768
+    },
+    {
+      "tolerance": 0.1,
+      "sheet": 768,
+      "usableBox": 768
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "manifest": "experiments/memorization-v1/manifest.json",
+  "manifestSha256": "d93b66dd431dafea3443edccf05ed8844520e31406348f74249f83fc23ffe1e7",
+  "initialCheckpoint": "experiments/memorization-v1/results/initial-state.pt",
+  "initialCheckpointSha256": "35bed23c8b09cef7b29db2ddaea31f43464ba2833d6c8dad35590868fcc8804f",
+  "losses": [
+    "parameters",
+    "positions"
+  ],
+  "positionWeight": 10,
+  "fitPenalty": 0,
+  "tighterPenalty": 0,
+  "foldCount": "learned logits; true count for shape loss",
+  "adam": {
+    "dtype": "float32",
+    "steps": 4000,
+    "schedule": [
+      {
+        "fromStep": 1,
+        "learningRate": 0.001
+      },
+      {
+        "fromStep": 2001,
+        "learningRate": 0.0001
+      }
+    ]
+  },
+  "lbfgs": {
+    "lr": 1.0,
+    "max_iter": 1000,
+    "max_eval": 1250,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-16,
+    "history_size": 50,
+    "line_search_fn": "strong_wolfe"
+  },
+  "refinement": "one separate float64 LBFGS optimizer per request, initialized from final Adam outputs; targets freshly encoded in float64",
+  "castControl": "cast refined logits to float32, then sigmoid/decode; no further optimization",
+  "checkpointSelection": "fixed Adam final step, final LBFGS iterate, no selection by validity",
+  "precisionGate": {
+    "vertexRmsOverL": 0.001,
+    "angleMaeDegrees": 0.1,
+    "all32Required": true
+  },
+  "geometry": "unchanged 2% margin, 721 states; existing placement search; saved reference pose also evaluated; 0.01-degree sweep overflow reported separately, not used to change primary pass decisions",
+  "heldOutUse": "none"
+}

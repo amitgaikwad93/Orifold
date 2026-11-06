@@ -1,0 +1,13 @@
+{
+  "config": "experiments/learning-v2b/train-config.json",
+  "parameters": 75554,
+  "trainExamples": 4359,
+  "validationExamples": 768,
+  "selectedEpoch": 750,
+  "validationPassRate": 0.453125,
+  "validationLoss": 0.08333968371152878,
+  "stoppedAtEpoch": 1350,
+  "trainingSeconds": 141.3,
+  "torch": "2.9.1+cpu",
+  "python": "3.13.18"
+}

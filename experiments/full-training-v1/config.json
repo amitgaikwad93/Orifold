@@ -1,0 +1,47 @@
+{
+  "dataset": "experiments/learning-v2b/dataset.jsonl.gz",
+  "datasetSha256": "e40c80136a6c7e7134f4bc6791e5162c4fc4a0dcd666c6dc64858cf994afa27f",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "hidden": [
+    256,
+    256
+  ],
+  "precision": "float32",
+  "loss": "existing parameter imitation plus count cross-entropy; no fit or opening penalties",
+  "prefix": {
+    "epochs": 1500,
+    "batchSize": 128,
+    "schedule": [
+      {
+        "fromEpoch": 1,
+        "learningRate": 0.001
+      },
+      {
+        "fromEpoch": 1001,
+        "learningRate": 0.0001
+      }
+    ]
+  },
+  "adam": {
+    "steps": 2000,
+    "learningRate": 0.0001
+  },
+  "lbfgs": {
+    "lr": 1.0,
+    "max_iter": 2000,
+    "max_eval": 2000,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-16,
+    "history_size": 50,
+    "line_search_fn": "strong_wolfe"
+  },
+  "checkpointSelection": "fixed final iterate; no early stopping, geometric selection or seed selection",
+  "evaluation": "all training answers only, existing bridge at 721 states after placement; per-answer records retained",
+  "heldOutEvaluation": "none; step 4 remains separate",
+  "budget": "shared minibatch Adam prefix; two branches up to 2000 full-batch objective evaluations; report actual evaluations/time",
+  "memory": "separate fresh worker per stage; peak process RSS includes runtime and data, excludes Node assessor child"
+}

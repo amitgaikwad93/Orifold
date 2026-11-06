@@ -1,0 +1,14 @@
+{
+  "adam": {
+    "meanPassRate": 0.43129158063776096,
+    "meanValidWallsOpeningRate": 0.2814865794907089,
+    "meanTrainingSecondsIncludingPrefix": 207.08927169533368,
+    "meanPeakProcessRssMiB": 324.0885416666667
+  },
+  "lbfgs": {
+    "meanPassRate": 0.4546149728531009,
+    "meanValidWallsOpeningRate": 0.31666284315974613,
+    "meanTrainingSecondsIncludingPrefix": 221.62815875933543,
+    "meanPeakProcessRssMiB": 367.58984375
+  }
+}

@@ -1,0 +1,754 @@
+{
+  "checkpointSha256": "3d49f0da5dee2405d35f89568b1f8e56c10ad32e13ca5e652873b676763b97ea",
+  "datasetSha256": "1633841dee6736bb01a28ba7b5938c69a7978a38d08127f07cc13f559d6f025d",
+  "configSha256": "1fedb56b2ad7fb0b3523e01e12a8b69150a6de4131aad19a87f214f5d303080a",
+  "rawEvaluationSha256": "ba8e2a9b97f063532365852ce4dca0336eed523f894d44fa7f5752ee6258a429",
+  "generatedAt": "2026-11-04T18:18:08.296Z",
+  "node": "v24.22.1",
+  "elapsedSeconds": 55.633846805000005,
+  "summary": {
+    "network": {
+      "requests": 150,
+      "strictPasses": 0,
+      "passesWithin1Pct": 3,
+      "collisionFailures": 0,
+      "fitFailuresAt1Pct": 147,
+      "medianElapsedMs": 2.36199150000037,
+      "p95ElapsedMs": 3.615299500000431,
+      "medianMaxRelativeOverflow": 0.33840157622178824,
+      "meanRotationOnStrictSuccesses": null,
+      "byGroup": {
+        "wide-box": {
+          "count": 75,
+          "strictPasses": 0,
+          "passesWithin1Pct": 0
+        },
+        "narrow-tall-box": {
+          "count": 75,
+          "strictPasses": 0,
+          "passesWithin1Pct": 3
+        }
+      }
+    },
+    "equal-panels": {
+      "requests": 150,
+      "strictPasses": 75,
+      "passesWithin1Pct": 75,
+      "collisionFailures": 0,
+      "fitFailuresAt1Pct": 75,
+      "medianElapsedMs": 2.4832989999995334,
+      "p95ElapsedMs": 4.106719999999768,
+      "medianMaxRelativeOverflow": 0.04883084905559021,
+      "meanRotationOnStrictSuccesses": 1,
+      "byGroup": {
+        "wide-box": {
+          "count": 75,
+          "strictPasses": 75,
+          "passesWithin1Pct": 75
+        },
+        "narrow-tall-box": {
+          "count": 75,
+          "strictPasses": 0,
+          "passesWithin1Pct": 0
+        }
+      }
+    },
+    "random-search": {
+      "requests": 150,
+      "strictPasses": 134,
+      "passesWithin1Pct": 134,
+      "collisionFailures": 0,
+      "fitFailuresAt1Pct": 16,
+      "medianElapsedMs": 127.98438400000305,
+      "p95ElapsedMs": 160.55774200000087,
+      "medianMaxRelativeOverflow": 0,
+      "meanRotationOnStrictSuccesses": 0.24118398472519623,
+      "byGroup": {
+        "wide-box": {
+          "count": 75,
+          "strictPasses": 75,
+          "passesWithin1Pct": 75
+        },
+        "narrow-tall-box": {
+          "count": 75,
+          "strictPasses": 59,
+          "passesWithin1Pct": 59
+        }
+      }
+    },
+    "optimizer-full": {
+      "requests": 150,
+      "strictPasses": 150,
+      "passesWithin1Pct": 150,
+      "collisionFailures": 0,
+      "fitFailuresAt1Pct": 0,
+      "medianElapsedMs": 128.72677499999554,
+      "p95ElapsedMs": 153.7247150000003,
+      "medianMaxRelativeOverflow": 0,
+      "meanRotationOnStrictSuccesses": 0.1457687723995195,
+      "byGroup": {
+        "wide-box": {
+          "count": 75,
+          "strictPasses": 75,
+          "passesWithin1Pct": 75
+        },
+        "narrow-tall-box": {
+          "count": 75,
+          "strictPasses": 75,
+          "passesWithin1Pct": 75
+        }
+      }
+    },
+    "optimizer-short": {
+      "requests": 150,
+      "strictPasses": 138,
+      "passesWithin1Pct": 138,
+      "collisionFailures": 2,
+      "fitFailuresAt1Pct": 11,
+      "medianElapsedMs": 49.08793800000058,
+      "p95ElapsedMs": 62.98501200000101,
+      "medianMaxRelativeOverflow": 0,
+      "meanRotationOnStrictSuccesses": 0.26483144053181584,
+      "byGroup": {
+        "wide-box": {
+          "count": 75,
+          "strictPasses": 75,
+          "passesWithin1Pct": 75
+        },
+        "narrow-tall-box": {
+          "count": 75,
+          "strictPasses": 63,
+          "passesWithin1Pct": 63
+        }
+      }
+    },
+    "network-initialized-short": {
+      "requests": 150,
+      "strictPasses": 140,
+      "passesWithin1Pct": 142,
+      "collisionFailures": 0,
+      "fitFailuresAt1Pct": 8,
+      "medianElapsedMs": 49.321334499997306,
+      "p95ElapsedMs": 59.39470000000127,
+      "medianMaxRelativeOverflow": 0,
+      "meanRotationOnStrictSuccesses": 0.24233358194240884,
+      "byGroup": {
+        "wide-box": {
+          "count": 75,
+          "strictPasses": 75,
+          "passesWithin1Pct": 75
+        },
+        "narrow-tall-box": {
+          "count": 75,
+          "strictPasses": 65,
+          "passesWithin1Pct": 67
+        }
+      }
+    }
+  },
+  "diagnostic": {
+    "count": 100,
+    "rejectedByWidthInvariant": 100,
+    "note": "These rejections follow a geometric invariant, not a learned feasibility classifier."
+  },
+  "networkMedianInferenceMs": 0.0302055,
+  "failureExamples": [
+    {
+      "id": "learning-11-request-026",
+      "group": "wide-box",
+      "request": {
+        "length": 99.20527808601037,
+        "width": 6.875620544888079,
+        "targetBox": [
+          83.32689849209204,
+          6.979455414236498,
+          3.5047431323489007
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            64.66750777970668,
+            11.48697457406461,
+            8.392999787713627,
+            14.657795944525455
+          ],
+          "width": 6.875620544888079,
+          "angles": [
+            112.4919855594635,
+            48.62832069396973,
+            45.16057848930359
+          ]
+        },
+        "parameters": [
+          0.7523193955421448,
+          0.33203020691871643,
+          0.2614368498325348,
+          0.6249554753303528,
+          0.2701573371887207,
+          0.25089210271835327
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            64.66750777970668,
+            6.875620544888079,
+            32.00519550996235
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            8.131966110312987
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.17550039339624135,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0305515,
+        "validationMs": 2.2772580000018934,
+        "elapsedMs": 2.3078095000018934
+      }
+    },
+    {
+      "id": "learning-7-request-019",
+      "group": "wide-box",
+      "request": {
+        "length": 62.47481931000948,
+        "width": 16.07169752358459,
+        "targetBox": [
+          50.4500412530954,
+          16.53579654982103,
+          2.485600096309585
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            38.239676888611314,
+            8.317590231449715,
+            5.795944912675686,
+            10.121607277272775
+          ],
+          "width": 16.07169752358459,
+          "angles": [
+            118.3493185043335,
+            57.43797183036804,
+            57.74043917655945
+          ]
+        },
+        "parameters": [
+          0.7026017904281616,
+          0.34942662715911865,
+          0.276337593793869,
+          0.6574962139129639,
+          0.3190998435020447,
+          0.3207802176475525
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            38.239676888611314,
+            16.07169752358459,
+            21.267162715546444
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            7.556148170062507
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.21234197648897415,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.029804999999999998,
+        "validationMs": 1.983764999999039,
+        "elapsedMs": 2.013569999999039
+      }
+    },
+    {
+      "id": "learning-2-request-011",
+      "group": "wide-box",
+      "request": {
+        "length": 45.00635036965832,
+        "width": 29.054214742500335,
+        "targetBox": [
+          37.75816724280001,
+          29.41905188195264,
+          1.7971155915791808
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            27.97236166731406,
+            5.702308903670793,
+            4.2310384826929,
+            7.100641315980575
+          ],
+          "width": 29.054214742500335,
+          "angles": [
+            106.05071425437927,
+            91.12711787223816,
+            86.35180950164795
+          ]
+        },
+        "parameters": [
+          0.7144004106521606,
+          0.3356976807117462,
+          0.2899587154388428,
+          0.5891706347465515,
+          0.5062617659568787,
+          0.4797322750091553
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            30.484067152892862,
+            29.054214742500335,
+            13.533229858205155
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            6.53052832083722
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.2778553560676305,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0303965,
+        "validationMs": 4.37303299999985,
+        "elapsedMs": 4.4034294999998504
+      }
+    },
+    {
+      "id": "learning-4-request-018",
+      "group": "wide-box",
+      "request": {
+        "length": 29.804630768485367,
+        "width": 14.521119628334418,
+        "targetBox": [
+          22.566610430841404,
+          14.746117878931118,
+          1.711843505402751
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            16.581113989795334,
+            4.610568814051786,
+            3.098951007811287,
+            5.513996956826964
+          ],
+          "width": 14.521119628334418,
+          "angles": [
+            125.61704277992249,
+            67.04245269298553,
+            77.26809561252594
+          ]
+        },
+        "parameters": [
+          0.6329084634780884,
+          0.3564949929714203,
+          0.2856145203113556,
+          0.6978724598884583,
+          0.3724580705165863,
+          0.42926719784736633
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            16.581113989795334,
+            14.521119628334418,
+            10.233674452787628
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            4.978160048210668
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.27000710390381205,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0301605,
+        "validationMs": 1.9636949999985518,
+        "elapsedMs": 1.9938554999985518
+      }
+    },
+    {
+      "id": "learning-6-request-027",
+      "group": "wide-box",
+      "request": {
+        "length": 72.72782887099311,
+        "width": 5.166002043988556,
+        "targetBox": [
+          61.808201291761684,
+          5.268426096177501,
+          3.9142463459140413
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            48.631200736210566,
+            7.902670795534183,
+            5.855993690163043,
+            10.337963649085323
+          ],
+          "width": 5.166002043988556,
+          "angles": [
+            105.19032597541809,
+            43.37831228971481,
+            41.67339026927948
+          ]
+        },
+        "parameters": [
+          0.7733423709869385,
+          0.32351046800613403,
+          0.2488015741109848,
+          0.5843906998634338,
+          0.24099062383174896,
+          0.23151883482933044
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            49.326665742864364,
+            5.166002043988556,
+            22.840984339583713
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            4.835346659626239
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.1510633139141401,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0297595,
+        "validationMs": 2.4223070000007283,
+        "elapsedMs": 2.4520665000007282
+      }
+    },
+    {
+      "id": "learning-8-request-007",
+      "group": "wide-box",
+      "request": {
+        "length": 65.28863813960925,
+        "width": 11.012625177390873,
+        "targetBox": [
+          54.31646354228832,
+          11.183935365809711,
+          3.959156516638248
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            42.540073476135184,
+            7.5735052891102965,
+            5.466054420957696,
+            9.709004953406078
+          ],
+          "width": 11.012625177390873,
+          "angles": [
+            107.11397409439087,
+            45.58951735496521,
+            46.29811942577362
+          ]
+        },
+        "parameters": [
+          0.7519616484642029,
+          0.33261165022850037,
+          0.254634827375412,
+          0.595077633857727,
+          0.2532750964164734,
+          0.2572117745876312
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            42.91751717526131,
+            11.012625177390873,
+            21.285993931499434
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            4.376396169751214
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.1614745205896678,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.031693,
+        "validationMs": 2.2863219999999274,
+        "elapsedMs": 2.3180149999999276
+      }
+    },
+    {
+      "id": "learning-3-request-030",
+      "group": "wide-box",
+      "request": {
+        "length": 12.605085887480527,
+        "width": 19.398048911243677,
+        "targetBox": [
+          10.711562156827329,
+          19.728033284038865,
+          0.8626014079592408
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            7.381262944131502,
+            1.5708158602504998,
+            1.276799828722984,
+            2.3762072543755424
+          ],
+          "width": 19.398048911243677,
+          "angles": [
+            86.18011057376862,
+            96.555415391922,
+            88.53983223438263
+          ]
+        },
+        "parameters": [
+          0.6694726943969727,
+          0.28219160437583923,
+          0.27023863792419434,
+          0.4787783920764923,
+          0.5364189743995667,
+          0.4918879568576813
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            9.229199192336209,
+            19.398048911243677,
+            3.6630711239921783
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            3.2465396997882756
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.2529759423056195,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0308465,
+        "validationMs": 2.412191999999777,
+        "elapsedMs": 2.443038499999777
+      }
+    },
+    {
+      "id": "learning-7-request-010",
+      "group": "wide-box",
+      "request": {
+        "length": 54.033764482010156,
+        "width": 16.964037641882896,
+        "targetBox": [
+          40.73589364786909,
+          17.153974707252,
+          4.907249363396556
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            31.377036880001086,
+            7.7330155114099,
+            5.172870422005839,
+            9.750841668593335
+          ],
+          "width": 16.964037641882896,
+          "angles": [
+            119.13119316101074,
+            42.481403052806854,
+            57.2012722492218
+          ]
+        },
+        "parameters": [
+          0.663366436958313,
+          0.3457561731338501,
+          0.25956881046295166,
+          0.6618399620056152,
+          0.23600779473781586,
+          0.31778484582901
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            31.377036880001086,
+            16.964037641882896,
+            18.819681273086957
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            2.8350774292140115
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.1982396742410563,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.034472,
+        "validationMs": 2.6519240000002355,
+        "elapsedMs": 2.6863960000002356
+      }
+    },
+    {
+      "id": "learning-8-request-018",
+      "group": "wide-box",
+      "request": {
+        "length": 88.27381481882185,
+        "width": 22.460393608780578,
+        "targetBox": [
+          68.24643567552218,
+          22.98994976801018,
+          8.662670720933326
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            53.622497797689206,
+            11.639541929457526,
+            7.94949487426906,
+            15.062280217406066
+          ],
+          "width": 22.460393608780578,
+          "angles": [
+            112.62373566627502,
+            37.3473197221756,
+            50.33312201499939
+          ]
+        },
+        "parameters": [
+          0.6968205571174622,
+          0.33749502897262573,
+          0.24927425384521484,
+          0.6256874203681946,
+          0.2074851095676422,
+          0.2796284556388855
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            53.622497797689206,
+            22.460393608780578,
+            30.678040867571717
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            2.5414067850274273
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.17090896396743016,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0409565,
+        "validationMs": 2.30901700000004,
+        "elapsedMs": 2.34997350000004
+      }
+    },
+    {
+      "id": "learning-8-request-021",
+      "group": "wide-box",
+      "request": {
+        "length": 83.06024139514193,
+        "width": 7.6539906044490635,
+        "targetBox": [
+          71.24414045805229,
+          7.750528272352376,
+          7.567066005708742
+        ]
+      },
+      "network": {
+        "design": {
+          "panelLengths": [
+            57.337521303835544,
+            8.242996235331443,
+            6.233534939940092,
+            11.24618891603486
+          ],
+          "width": 7.6539906044490635,
+          "angles": [
+            92.64122486114502,
+            34.533497393131256,
+            36.713218688964844
+          ]
+        },
+        "parameters": [
+          0.8003906011581421,
+          0.3083595931529999,
+          0.2267921268939972,
+          0.5146734714508057,
+          0.19185276329517365,
+          0.2039623260498047
+        ],
+        "quality": {
+          "accepted": false,
+          "strictPass": false,
+          "dimensions": [
+            60.250994701227874,
+            7.6539906044490635,
+            24.73318053520468
+          ],
+          "relativeOverflow": [
+            0,
+            0,
+            2.2685297731704055
+          ],
+          "blockedSampleCount": 0,
+          "firstBlockedProgress": null,
+          "sampleCount": 721,
+          "normalizedRotation": 0.11443229848228802,
+          "idealStackContact": false
+        },
+        "inferenceMs": 0.0325845,
+        "validationMs": 2.2755960000031337,
+        "elapsedMs": 2.3081805000031337
+      }
+    }
+  ],
+  "notes": [
+    "Test set first evaluated after validation-selected checkpoint was frozen; no post-test tuning in this experiment.",
+    "Raw network latency and checked network latency are separate. Model load excluded; hybrid latency includes network inference.",
+    "Full searches score 984 candidates; paired short searches score 264. The neural seed replaces one random population member with equal random draws and budgets.",
+    "All acceptance metrics use the original Node geometry reference at 721 states. Sampling is not continuous collision proof.",
+    "Timing varies with hardware and runtime; these are within-distribution synthetic test requests."
+  ]
+}

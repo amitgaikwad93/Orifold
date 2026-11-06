@@ -1,0 +1,55 @@
+{
+  "manifest": "experiments/memorization-v1/manifest.json",
+  "manifestSha256": "d93b66dd431dafea3443edccf05ed8844520e31406348f74249f83fc23ffe1e7",
+  "starts": {
+    "parameters": {
+      "path": "experiments/memorization-v1/results/parameters.pt",
+      "sha256": "74ee7c49fc7507fa24047689fee550ac2b8150436773bbab5198043f80cd97d8"
+    },
+    "positions": {
+      "path": "experiments/memorization-v1/results/positions.pt",
+      "sha256": "8db12b900475cf57c0c2d65d94b946b91564f78de1e69c1697015fa9b1c7df51"
+    }
+  },
+  "losses": [
+    "parameters",
+    "positions"
+  ],
+  "hidden": [
+    256,
+    256
+  ],
+  "parameters": 75554,
+  "positionWeight": 10,
+  "fitPenalty": 0,
+  "tighterPenalty": 0,
+  "adam": {
+    "steps": 4000,
+    "learningRate": 0.0001
+  },
+  "lbfgs": {
+    "lr": 1.0,
+    "max_iter": 4000,
+    "max_eval": 4000,
+    "tolerance_grad": 1e-12,
+    "tolerance_change": 1e-16,
+    "history_size": 50,
+    "line_search_fn": "strong_wolfe"
+  },
+  "precisions": [
+    "float32",
+    "float64"
+  ],
+  "optimizerState": "fresh in every arm; old checkpoints do not contain optimizer moments",
+  "normalization": "Effective scale is 1 for stored scales <=1e-6, including historical constant-feature checkpoints. Other scales preserved.",
+  "castControl": "cast complete float64 trained network weights and buffers to float32; fresh float32 forward pass without retraining",
+  "checkpointSelection": "final iterate; no selection by geometric validity or precision gate",
+  "precisionGate": {
+    "vertexRmsOverL": 0.001,
+    "angleMaeDegrees": 0.1,
+    "all32Required": true
+  },
+  "evaluation": "same 721 states, 2% gap, placement search and independent checks; saved pose and grid-only rotation-sweep diagnostics separate",
+  "heldOutUse": "none",
+  "seeds": "single inherited training seed 17, shared start within each loss; no new random initialization"
+}

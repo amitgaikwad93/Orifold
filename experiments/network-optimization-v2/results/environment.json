@@ -1,0 +1,20 @@
+{
+  "python": "3.12.14",
+  "torch": "2.9.1+cpu",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "threads": 1,
+  "sourceCommit": "5f3ba2718179e4967b73f8f70d0ac74dc9b55cb8",
+  "configSha256": "a2bc669e91c52e2ecd9c83dc83c3c5c4ecc9ad8ddf7f812f20291c3e85d352d4",
+  "manifestSha256": "d93b66dd431dafea3443edccf05ed8844520e31406348f74249f83fc23ffe1e7",
+  "starts": {
+    "parameters": {
+      "path": "experiments/memorization-v1/results/parameters.pt",
+      "sha256": "74ee7c49fc7507fa24047689fee550ac2b8150436773bbab5198043f80cd97d8"
+    },
+    "positions": {
+      "path": "experiments/memorization-v1/results/positions.pt",
+      "sha256": "8db12b900475cf57c0c2d65d94b946b91564f78de1e69c1697015fa9b1c7df51"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "requests": 24,
+  "unit": "milliseconds per request including all three requested budget answers",
+  "mean": 2601.851866583333,
+  "median": 2566.438576499999,
+  "p90": 3995.8935165999956,
+  "min": 795.7938710000017,
+  "max": 4791.024458
+}

@@ -1,0 +1,289 @@
+[
+  {
+    "epoch": 1,
+    "lossBeforeStep": 3.9389994144439697,
+    "vertexMseAfterStep": 0.08837853372097015,
+    "foldAccuracy": 0.65625,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 100,
+    "lossBeforeStep": 0.11302980780601501,
+    "vertexMseAfterStep": 0.01097387820482254,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 200,
+    "lossBeforeStep": 0.028498193249106407,
+    "vertexMseAfterStep": 0.002746155019849539,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 300,
+    "lossBeforeStep": 0.01430006604641676,
+    "vertexMseAfterStep": 0.0013897657627239823,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 400,
+    "lossBeforeStep": 0.009304693900048733,
+    "vertexMseAfterStep": 0.0009060896700248122,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 500,
+    "lossBeforeStep": 0.0061530680395662785,
+    "vertexMseAfterStep": 0.0005975706735625863,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 600,
+    "lossBeforeStep": 0.004361412953585386,
+    "vertexMseAfterStep": 0.0004222652642056346,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 700,
+    "lossBeforeStep": 0.0032725383061915636,
+    "vertexMseAfterStep": 0.0003160947817377746,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 800,
+    "lossBeforeStep": 0.002586656715720892,
+    "vertexMseAfterStep": 0.00024964293697848916,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 900,
+    "lossBeforeStep": 0.0021330814342945814,
+    "vertexMseAfterStep": 0.00020591910288203508,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1000,
+    "lossBeforeStep": 0.0017972792265936732,
+    "vertexMseAfterStep": 0.0001735929399728775,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1100,
+    "lossBeforeStep": 0.001634884742088616,
+    "vertexMseAfterStep": 0.00015438620175700635,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1200,
+    "lossBeforeStep": 0.0013365393970161676,
+    "vertexMseAfterStep": 0.00012925223563797772,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1300,
+    "lossBeforeStep": 0.0011685134377330542,
+    "vertexMseAfterStep": 0.00011307960812700912,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1400,
+    "lossBeforeStep": 0.0010370307136327028,
+    "vertexMseAfterStep": 0.00010028993710875511,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1500,
+    "lossBeforeStep": 0.00090866006212309,
+    "vertexMseAfterStep": 8.796836482360959e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1600,
+    "lossBeforeStep": 0.002502757590264082,
+    "vertexMseAfterStep": 0.0001557068171678111,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1700,
+    "lossBeforeStep": 0.0007227727328427136,
+    "vertexMseAfterStep": 6.99591328157112e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1800,
+    "lossBeforeStep": 0.0006508561782538891,
+    "vertexMseAfterStep": 6.300465611275285e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 1900,
+    "lossBeforeStep": 0.0006018312415108085,
+    "vertexMseAfterStep": 7.277850818354636e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 2000,
+    "lossBeforeStep": 0.0005383863463066518,
+    "vertexMseAfterStep": 5.212770338403061e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.001
+  },
+  {
+    "epoch": 2100,
+    "lossBeforeStep": 0.0005331410793587565,
+    "vertexMseAfterStep": 5.166325354366563e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2200,
+    "lossBeforeStep": 0.0005281769554130733,
+    "vertexMseAfterStep": 5.118300032336265e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2300,
+    "lossBeforeStep": 0.0005230351234786212,
+    "vertexMseAfterStep": 5.0686259783105925e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2400,
+    "lossBeforeStep": 0.0005177038256078959,
+    "vertexMseAfterStep": 5.017279181629419e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2500,
+    "lossBeforeStep": 0.0005122357979416847,
+    "vertexMseAfterStep": 4.964318941347301e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2600,
+    "lossBeforeStep": 0.0005065827281214297,
+    "vertexMseAfterStep": 4.909794370178133e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2700,
+    "lossBeforeStep": 0.000500765279866755,
+    "vertexMseAfterStep": 4.8537600378040224e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2800,
+    "lossBeforeStep": 0.0004948026034981012,
+    "vertexMseAfterStep": 4.796225039171986e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 2900,
+    "lossBeforeStep": 0.0004887034883722663,
+    "vertexMseAfterStep": 4.737282870337367e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3000,
+    "lossBeforeStep": 0.0004824617353733629,
+    "vertexMseAfterStep": 4.676946991821751e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3100,
+    "lossBeforeStep": 0.0004760777810588479,
+    "vertexMseAfterStep": 4.615272700903006e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3200,
+    "lossBeforeStep": 0.0004695395764429122,
+    "vertexMseAfterStep": 4.552358586806804e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3300,
+    "lossBeforeStep": 0.00046288425801321864,
+    "vertexMseAfterStep": 4.488201375352219e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3400,
+    "lossBeforeStep": 0.0004561604291666299,
+    "vertexMseAfterStep": 4.4229047489352524e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3500,
+    "lossBeforeStep": 0.00044926858390681446,
+    "vertexMseAfterStep": 4.356439603725448e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3600,
+    "lossBeforeStep": 0.00044222234282642603,
+    "vertexMseAfterStep": 4.288922355044633e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3700,
+    "lossBeforeStep": 0.0004351197276264429,
+    "vertexMseAfterStep": 4.220391929266043e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3800,
+    "lossBeforeStep": 0.0004279125714674592,
+    "vertexMseAfterStep": 4.150869062868878e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 3900,
+    "lossBeforeStep": 0.00042062418651767075,
+    "vertexMseAfterStep": 4.080412327311933e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  },
+  {
+    "epoch": 4000,
+    "lossBeforeStep": 0.0004132511676289141,
+    "vertexMseAfterStep": 4.00903845729772e-05,
+    "foldAccuracy": 1.0,
+    "learningRate": 0.0001
+  }
+]

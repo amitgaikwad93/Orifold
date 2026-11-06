@@ -1,0 +1,895 @@
+{
+  "experiment": "experiments/learning-v1",
+  "auditSeed": 12345,
+  "split": "train",
+  "summary": {
+    "requests": 40,
+    "reseededSolved": 40,
+    "medianRmsParameterDifference": 0.3448578620927601,
+    "fractionRmsAbove0_1": 0.9,
+    "reseedLowerRotation": 24,
+    "reseedHigherRotation": 15
+  },
+  "records": [
+    {
+      "id": "learning-0-request-007",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.26823896907702166,
+      "original": {
+        "angles": [
+          180,
+          180,
+          180
+        ],
+        "normalizedRotation": 1
+      },
+      "reseeded": {
+        "angles": [
+          166.76082590044996,
+          167.80241210738785,
+          113.0135294600972
+        ],
+        "normalizedRotation": 0.7071901276243423
+      }
+    },
+    {
+      "id": "learning-10-request-008",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.15810596636389657,
+      "original": {
+        "angles": [
+          93.19530686390713,
+          0,
+          40.282989756965314
+        ],
+        "normalizedRotation": 0.10605025190553075
+      },
+      "reseeded": {
+        "angles": [
+          102.4923905093208,
+          0,
+          33.14956497667999
+        ],
+        "normalizedRotation": 0.11937843385245106
+      }
+    },
+    {
+      "id": "learning-12-request-011",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.20536049924842262,
+      "original": {
+        "angles": [
+          135.8203974254988,
+          143.57501989724022,
+          13.220850297626972
+        ],
+        "normalizedRotation": 0.4036600573858604
+      },
+      "reseeded": {
+        "angles": [
+          133.01788913614064,
+          145.87574974495303,
+          43.43664129531366
+        ],
+        "normalizedRotation": 0.4203727880751493
+      }
+    },
+    {
+      "id": "learning-5-request-023",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3922254332086287,
+      "original": {
+        "angles": [
+          30.907132200000003,
+          7.432261365292374,
+          148.75000072160285
+        ],
+        "normalizedRotation": 0.2380355148611846
+      },
+      "reseeded": {
+        "angles": [
+          139.91461782947243,
+          0,
+          38.36279483299763
+        ],
+        "normalizedRotation": 0.21654119660253082
+      }
+    },
+    {
+      "id": "learning-0-request-023",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3059040751977063,
+      "original": {
+        "angles": [
+          128.03220666810435,
+          107.91075264648093,
+          100.05774904656911
+        ],
+        "normalizedRotation": 0.39144577803806974
+      },
+      "reseeded": {
+        "angles": [
+          95.32239504149632,
+          0,
+          138.52469340201554
+        ],
+        "normalizedRotation": 0.2908996880511265
+      }
+    },
+    {
+      "id": "learning-2-request-002",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.22029640622960195,
+      "original": {
+        "angles": [
+          166.15381918815763,
+          91.37437580589206,
+          119.05915674350864
+        ],
+        "normalizedRotation": 0.5157556686131968
+      },
+      "reseeded": {
+        "angles": [
+          130.0715170594979,
+          150.6911628651032,
+          142.698392915756
+        ],
+        "normalizedRotation": 0.6171734306227962
+      }
+    },
+    {
+      "id": "learning-5-request-030",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3895968314912795,
+      "original": {
+        "angles": [
+          8.952560443226242,
+          120.47144817496812,
+          67.30614694682562
+        ],
+        "normalizedRotation": 0.1967452220235734
+      },
+      "reseeded": {
+        "angles": [
+          94.94347415743087,
+          5.521161857537987,
+          16.606065291998423
+        ],
+        "normalizedRotation": 0.09588999915454723
+      }
+    },
+    {
+      "id": "learning-0-request-006",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.2410502545043576,
+      "original": {
+        "angles": [
+          88.115975305213,
+          0,
+          80.42272551871734
+        ],
+        "normalizedRotation": 0.14642222102724134
+      },
+      "reseeded": {
+        "angles": [
+          114.80646689848143,
+          0,
+          31.427323280345863
+        ],
+        "normalizedRotation": 0.14576338981769016
+      }
+    },
+    {
+      "id": "learning-4-request-014",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.1317231865306355,
+      "original": {
+        "angles": [
+          133.4729944468613,
+          116.9253735405707,
+          0
+        ],
+        "normalizedRotation": 0.32393604140137716
+      },
+      "reseeded": {
+        "angles": [
+          139.79235262339975,
+          125.70163741029542,
+          0
+        ],
+        "normalizedRotation": 0.363609089502205
+      }
+    },
+    {
+      "id": "learning-10-request-037",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.23541067307804575,
+      "original": {
+        "angles": [
+          150.41594681695102,
+          0,
+          0
+        ],
+        "normalizedRotation": 0.2327670479098749
+      },
+      "reseeded": {
+        "angles": [
+          123.58258575834367,
+          0,
+          47.39306919176516
+        ],
+        "normalizedRotation": 0.18023414105075933
+      }
+    },
+    {
+      "id": "learning-7-request-013",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3448578620927601,
+      "original": {
+        "angles": [
+          0,
+          92.28757094075671,
+          0
+        ],
+        "normalizedRotation": 0.08762341306733747
+      },
+      "reseeded": {
+        "angles": [
+          95.10014107955443,
+          0,
+          32.850293802221145
+        ],
+        "normalizedRotation": 0.10414792835641364
+      }
+    },
+    {
+      "id": "learning-5-request-001",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.14019922478837568,
+      "original": {
+        "angles": [
+          81.12214652034136,
+          1.6840406507139436,
+          6.694513120438751
+        ],
+        "normalizedRotation": 0.06819398307511025
+      },
+      "reseeded": {
+        "angles": [
+          84.77761863394369,
+          0,
+          0
+        ],
+        "normalizedRotation": 0.07394284589755552
+      }
+    },
+    {
+      "id": "learning-5-request-012",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.5518539087051627,
+      "original": {
+        "angles": [
+          0,
+          0,
+          169.2422152619366
+        ],
+        "normalizedRotation": 0.29468032332065525
+      },
+      "reseeded": {
+        "angles": [
+          0,
+          163.55960019399447,
+          0
+        ],
+        "normalizedRotation": 0.27522369151871723
+      }
+    },
+    {
+      "id": "learning-11-request-006",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.24992589881280736,
+      "original": {
+        "angles": [
+          118.18547696648879,
+          0,
+          0
+        ],
+        "normalizedRotation": 0.14370171775510757
+      },
+      "reseeded": {
+        "angles": [
+          92.79076021021388,
+          3.4570986320975,
+          42.828831700993305
+        ],
+        "normalizedRotation": 0.10757598288285462
+      }
+    },
+    {
+      "id": "learning-11-request-003",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.13783377594934915,
+      "original": {
+        "angles": [
+          95.25747134793255,
+          8.88079436838861,
+          89.68794737945684
+        ],
+        "normalizedRotation": 0.1769216282032512
+      },
+      "reseeded": {
+        "angles": [
+          103.12564369888915,
+          0,
+          67.73941311208729
+        ],
+        "normalizedRotation": 0.15662064276831542
+      }
+    },
+    {
+      "id": "learning-0-request-021",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.7539009264748818,
+      "original": {
+        "angles": [
+          139.6506089000114,
+          0,
+          40.696424836799224
+        ],
+        "normalizedRotation": 0.21767995432758427
+      },
+      "reseeded": {
+        "angles": [
+          0,
+          0,
+          153.78064096517193
+        ],
+        "normalizedRotation": 0.24329717629278924
+      }
+    },
+    {
+      "id": "learning-1-request-037",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.44673848999918275,
+      "original": {
+        "angles": [
+          153.6618463224083,
+          163.65625285919253,
+          169.9056698811308
+        ],
+        "normalizedRotation": 0.8154657281160409
+      },
+      "reseeded": {
+        "angles": [
+          177.688388434123,
+          152.6641011524043,
+          0
+        ],
+        "normalizedRotation": 0.5646038185698283
+      }
+    },
+    {
+      "id": "learning-2-request-015",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.41840668164665396,
+      "original": {
+        "angles": [
+          98.01635550468832,
+          109.27753872501167,
+          2.127389915731568
+        ],
+        "normalizedRotation": 0.2217418951036155
+      },
+      "reseeded": {
+        "angles": [
+          116.30335569368758,
+          16.291945343837142,
+          0
+        ],
+        "normalizedRotation": 0.14189195502776739
+      }
+    },
+    {
+      "id": "learning-9-request-010",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.2814699568796963,
+      "original": {
+        "angles": [
+          84.77229597973522,
+          0,
+          12.09240993855573
+        ],
+        "normalizedRotation": 0.07543794798146003
+      },
+      "reseeded": {
+        "angles": [
+          79.99947227144297,
+          0,
+          19.575832516896142
+        ],
+        "normalizedRotation": 0.06978527553949528
+      }
+    },
+    {
+      "id": "learning-12-request-009",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.0911260720466359,
+      "original": {
+        "angles": [
+          84.47400523589288,
+          0,
+          77.8742946246834
+        ],
+        "normalizedRotation": 0.13580517822927626
+      },
+      "reseeded": {
+        "angles": [
+          75.36452197723591,
+          0,
+          82.9290476676727
+        ],
+        "normalizedRotation": 0.12918763497864616
+      }
+    },
+    {
+      "id": "learning-8-request-006",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3380775256321554,
+      "original": {
+        "angles": [
+          109.94122065439332,
+          47.62197607569042,
+          103.68485112882311
+        ],
+        "normalizedRotation": 0.258286758826521
+      },
+      "reseeded": {
+        "angles": [
+          125.415411760186,
+          76.84475735235849,
+          0
+        ],
+        "normalizedRotation": 0.22257347983045117
+      }
+    },
+    {
+      "id": "learning-6-request-009",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.03118971254501529,
+      "original": {
+        "angles": [
+          85.58015779364943,
+          0,
+          53.1511363409416
+        ],
+        "normalizedRotation": 0.10441364920081582
+      },
+      "reseeded": {
+        "angles": [
+          86.88934434389729,
+          0,
+          44.62707899804045
+        ],
+        "normalizedRotation": 0.09816187593014093
+      }
+    },
+    {
+      "id": "learning-11-request-009",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.36933650021959874,
+      "original": {
+        "angles": [
+          165.76440696415665,
+          0,
+          50.68446631068746
+        ],
+        "normalizedRotation": 0.30912298087837203
+      },
+      "reseeded": {
+        "angles": [
+          150.9237916276398,
+          0,
+          23.2139309770701
+        ],
+        "normalizedRotation": 0.23988557068591984
+      }
+    },
+    {
+      "id": "learning-9-request-009",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.31791071531751647,
+      "original": {
+        "angles": [
+          155.23425634519035,
+          0,
+          10.198768193060078
+        ],
+        "normalizedRotation": 0.24898857217798398
+      },
+      "reseeded": {
+        "angles": [
+          151.8659325620459,
+          0,
+          27.097309391869146
+        ],
+        "normalizedRotation": 0.24483051079442963
+      }
+    },
+    {
+      "id": "learning-3-request-029",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.05321236342997159,
+      "original": {
+        "angles": [
+          77.67573586721018,
+          0,
+          46.73009677954813
+        ],
+        "normalizedRotation": 0.08453931983064338
+      },
+      "reseeded": {
+        "angles": [
+          90.16978115523335,
+          0,
+          28.558418722995317
+        ],
+        "normalizedRotation": 0.09203881392531486
+      }
+    },
+    {
+      "id": "learning-6-request-022",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.4685152640072236,
+      "original": {
+        "angles": [
+          180,
+          180,
+          180
+        ],
+        "normalizedRotation": 1
+      },
+      "reseeded": {
+        "angles": [
+          0,
+          173.25567731593097,
+          160.9706579937743
+        ],
+        "normalizedRotation": 0.5754020828924964
+      }
+    },
+    {
+      "id": "learning-2-request-019",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.5320503303183816,
+      "original": {
+        "angles": [
+          0,
+          168.00459961097425,
+          33.767826707102365
+        ],
+        "normalizedRotation": 0.30211740340498633
+      },
+      "reseeded": {
+        "angles": [
+          155.97027824959895,
+          0,
+          24.283471864246597
+        ],
+        "normalizedRotation": 0.2563417150518413
+      }
+    },
+    {
+      "id": "learning-6-request-006",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.09518360595108515,
+      "original": {
+        "angles": [
+          58.5569779656667,
+          2.6249852214817273,
+          71.38467602503884
+        ],
+        "normalizedRotation": 0.08777347929099104
+      },
+      "reseeded": {
+        "angles": [
+          74.9070152797542,
+          0,
+          37.49248450824929
+        ],
+        "normalizedRotation": 0.07218875856710538
+      }
+    },
+    {
+      "id": "learning-7-request-033",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.6891819506869685,
+      "original": {
+        "angles": [
+          0,
+          164.37517218796546,
+          113.77133694095535
+        ],
+        "normalizedRotation": 0.41114315165798027
+      },
+      "reseeded": {
+        "angles": [
+          101.45116099406876,
+          84.09660472199545,
+          163.72778158842132
+        ],
+        "normalizedRotation": 0.4544378956448334
+      }
+    },
+    {
+      "id": "learning-4-request-003",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.41935145185173167,
+      "original": {
+        "angles": [
+          138.97967231407307,
+          0,
+          29.237280405962846
+        ],
+        "normalizedRotation": 0.20751201524757226
+      },
+      "reseeded": {
+        "angles": [
+          126.50923223949411,
+          0,
+          37.083414439454224
+        ],
+        "normalizedRotation": 0.17880417148471786
+      }
+    },
+    {
+      "id": "learning-5-request-011",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3987994826607322,
+      "original": {
+        "angles": [
+          94.15802620264488,
+          1.8107963901632091,
+          44.847621742349915
+        ],
+        "normalizedRotation": 0.1119374697313733
+      },
+      "reseeded": {
+        "angles": [
+          113.84501838178039,
+          0,
+          0.9224624869627327
+        ],
+        "normalizedRotation": 0.13334916818300174
+      }
+    },
+    {
+      "id": "learning-4-request-026",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.47537674766510024,
+      "original": {
+        "angles": [
+          0,
+          174.99890650504375,
+          124.90115963809505
+        ],
+        "normalizedRotation": 0.4755649892685386
+      },
+      "reseeded": {
+        "angles": [
+          180,
+          180,
+          180
+        ],
+        "normalizedRotation": 1
+      }
+    },
+    {
+      "id": "learning-5-request-035",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.538408056483077,
+      "original": {
+        "angles": [
+          5.273877802683531,
+          103.73943521045842,
+          0
+        ],
+        "normalizedRotation": 0.11100498153150762
+      },
+      "reseeded": {
+        "angles": [
+          79.79999696739853,
+          0,
+          76.75601146289027
+        ],
+        "normalizedRotation": 0.126126798474158
+      }
+    },
+    {
+      "id": "learning-0-request-024",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.5802609054181397,
+      "original": {
+        "angles": [
+          109.37547866474488,
+          0,
+          130.62423014602984
+        ],
+        "normalizedRotation": 0.2986181567323563
+      },
+      "reseeded": {
+        "angles": [
+          130.69189469417086,
+          119.06930101651037,
+          0
+        ],
+        "normalizedRotation": 0.3215830224620638
+      }
+    },
+    {
+      "id": "learning-9-request-038",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.4207176848434127,
+      "original": {
+        "angles": [
+          82.84907662908996,
+          0.4437899356984413,
+          11.26572510667923
+        ],
+        "normalizedRotation": 0.07192472232488797
+      },
+      "reseeded": {
+        "angles": [
+          84.9897732991622,
+          0,
+          9.020227493944775
+        ],
+        "normalizedRotation": 0.0751504739659002
+      }
+    },
+    {
+      "id": "learning-3-request-011",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.3411600847335211,
+      "original": {
+        "angles": [
+          155.05615694983626,
+          0,
+          0
+        ],
+        "normalizedRotation": 0.24734991572070222
+      },
+      "reseeded": {
+        "angles": [
+          133.43445386153272,
+          13.37937885278938,
+          58.9497741744552
+        ],
+        "normalizedRotation": 0.2207699293315971
+      }
+    },
+    {
+      "id": "learning-2-request-035",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.41987127418518266,
+      "original": {
+        "angles": [
+          147.48487618241782,
+          1.8786766885478614,
+          26.50642571719287
+        ],
+        "normalizedRotation": 0.23104844375457076
+      },
+      "reseeded": {
+        "angles": [
+          117.25143965326255,
+          0,
+          53.391619402862254
+        ],
+        "normalizedRotation": 0.17076713089735354
+      }
+    },
+    {
+      "id": "learning-4-request-017",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.29131767423013666,
+      "original": {
+        "angles": [
+          0,
+          0,
+          160.04100103220182
+        ],
+        "normalizedRotation": 0.26350948571388094
+      },
+      "reseeded": {
+        "angles": [
+          1.6702763990928398,
+          0,
+          164.72058112673076
+        ],
+        "normalizedRotation": 0.27917345339482774
+      }
+    },
+    {
+      "id": "learning-12-request-020",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.5419787406935883,
+      "original": {
+        "angles": [
+          0,
+          160.4602125613019,
+          0
+        ],
+        "normalizedRotation": 0.2648917676462776
+      },
+      "reseeded": {
+        "angles": [
+          150.4441583703812,
+          0,
+          16.33251187975647
+        ],
+        "normalizedRotation": 0.23559872152340247
+      }
+    },
+    {
+      "id": "learning-4-request-029",
+      "group": "wide-box",
+      "status": "solved-sampled",
+      "rmsParameterDifference": 0.5136908605910726,
+      "original": {
+        "angles": [
+          135.48838801093743,
+          31.630157125245294,
+          1.414845801058322
+        ],
+        "normalizedRotation": 0.1991725505577244
+      },
+      "reseeded": {
+        "angles": [
+          63.635167688897326,
+          0,
+          84.65220444651538
+        ],
+        "normalizedRotation": 0.11538508523095392
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "reference": {
+    "requests": 24,
+    "meanMsPerRequestAllBudgets": 2601.8518665833335,
+    "passes": 72,
+    "answers": 72,
+    "batchWallSeconds": 62.54611235500124
+  },
+  "methods": {
+    "seed-17-adam-raw": {
+      "answers": 72,
+      "passes": 37,
+      "meanMsPerRequestAllBudgets": 14.099716727871588
+    },
+    "seed-17-adam-repair": {
+      "answers": 72,
+      "passes": 67,
+      "meanMsPerRequestAllBudgets": 22.249534394538305
+    },
+    "seed-17-lbfgs-raw": {
+      "answers": 72,
+      "passes": 27,
+      "meanMsPerRequestAllBudgets": 13.175965130206118
+    },
+    "seed-17-lbfgs-repair": {
+      "answers": 72,
+      "passes": 66,
+      "meanMsPerRequestAllBudgets": 25.84484571353953
+    },
+    "seed-29-adam-raw": {
+      "answers": 72,
+      "passes": 36,
+      "meanMsPerRequestAllBudgets": 15.06663981771203
+    },
+    "seed-29-adam-repair": {
+      "answers": 72,
+      "passes": 70,
+      "meanMsPerRequestAllBudgets": 23.84314990104538
+    },
+    "seed-29-lbfgs-raw": {
+      "answers": 72,
+      "passes": 30,
+      "meanMsPerRequestAllBudgets": 14.273899154948031
+    },
+    "seed-29-lbfgs-repair": {
+      "answers": 72,
+      "passes": 65,
+      "meanMsPerRequestAllBudgets": 28.31024273828129
+    },
+    "seed-43-adam-raw": {
+      "answers": 72,
+      "passes": 38,
+      "meanMsPerRequestAllBudgets": 13.756323350260395
+    },
+    "seed-43-adam-repair": {
+      "answers": 72,
+      "passes": 69,
+      "meanMsPerRequestAllBudgets": 27.275858891927026
+    },
+    "seed-43-lbfgs-raw": {
+      "answers": 72,
+      "passes": 30,
+      "meanMsPerRequestAllBudgets": 15.162868824216794
+    },
+    "seed-43-lbfgs-repair": {
+      "answers": 72,
+      "passes": 62,
+      "meanMsPerRequestAllBudgets": 30.418321532550333
+    },
+    "nearest-raw": {
+      "answers": 72,
+      "passes": 48,
+      "meanMsPerRequestAllBudgets": 15.53084868229893
+    },
+    "nearest-repair": {
+      "answers": 72,
+      "passes": 65,
+      "meanMsPerRequestAllBudgets": 21.458822932298716
+    },
+    "simple-repair": {
+      "answers": 72,
+      "passes": 58,
+      "meanMsPerRequestAllBudgets": 23.45615029817341
+    },
+    "simple-multistart": {
+      "answers": 72,
+      "passes": 72,
+      "meanMsPerRequestAllBudgets": 95.8355606666663
+    }
+  }
+}

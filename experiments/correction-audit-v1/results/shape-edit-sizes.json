@@ -1,0 +1,80 @@
+{
+  "seed-17-adam": {
+    "shapeEdited": 2474,
+    "maxPanelChangeOverL": {
+      "median": 0.013513212474268052,
+      "p90": 0.09000000000000011,
+      "max": 0.5981840083847946
+    },
+    "maxAngleChangeDegrees": {
+      "median": 0.0,
+      "p90": 7.160000000000011,
+      "max": 60.86000000000004
+    }
+  },
+  "seed-17-lbfgs": {
+    "shapeEdited": 2400,
+    "maxPanelChangeOverL": {
+      "median": 1.5008326150869724e-16,
+      "p90": 0.05400000000000012,
+      "max": 0.5536447537985287
+    },
+    "maxAngleChangeDegrees": {
+      "median": 0.0,
+      "p90": 7.159999999999997,
+      "max": 60.860000000000056
+    }
+  },
+  "seed-29-adam": {
+    "shapeEdited": 2463,
+    "maxPanelChangeOverL": {
+      "median": 0.01399999999999998,
+      "p90": 0.08500000000000009,
+      "max": 0.6090711663134988
+    },
+    "maxAngleChangeDegrees": {
+      "median": 0.0,
+      "p90": 7.160000000000011,
+      "max": 60.860000000000056
+    }
+  },
+  "seed-29-lbfgs": {
+    "shapeEdited": 2348,
+    "maxPanelChangeOverL": {
+      "median": 7.330815238355627e-17,
+      "p90": 0.05400000000000005,
+      "max": 0.5490548199211646
+    },
+    "maxAngleChangeDegrees": {
+      "median": 0.0,
+      "p90": 7.159999999999997,
+      "max": 73.72562500000006
+    }
+  },
+  "seed-43-adam": {
+    "shapeEdited": 2496,
+    "maxPanelChangeOverL": {
+      "median": 0.014486858664751053,
+      "p90": 0.09000000000000012,
+      "max": 0.621864188032689
+    },
+    "maxAngleChangeDegrees": {
+      "median": 0.0,
+      "p90": 7.160000000000011,
+      "max": 66.23000000000005
+    }
+  },
+  "seed-43-lbfgs": {
+    "shapeEdited": 2383,
+    "maxPanelChangeOverL": {
+      "median": 1.086843608543562e-16,
+      "p90": 0.05400000000000009,
+      "max": 0.5677764626813707
+    },
+    "maxAngleChangeDegrees": {
+      "median": 0.0,
+      "p90": 7.159999999999997,
+      "max": 64.88750000000005
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Install CPU PyTorch separately with the official CPU wheel index (see docs/LEARNING.md).
+torch==2.9.1
+numpy==2.3.5
+matplotlib==3.10.8

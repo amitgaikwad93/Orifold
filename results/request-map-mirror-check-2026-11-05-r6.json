@@ -1,0 +1,33 @@
+{
+  "pairs": 378,
+  "statusDiff": 0,
+  "foldDiff": 0,
+  "budgetsCompared": 1126,
+  "spreadOutsideBand": 2,
+  "examples": [
+    {
+      "a": [
+        0.28,
+        0.44
+      ],
+      "budget": 1,
+      "issue": "spread",
+      "v": [
+        3.7281250000000057,
+        4.337500000000119
+      ]
+    },
+    {
+      "a": [
+        0.04,
+        0.56
+      ],
+      "budget": 1,
+      "issue": "spread",
+      "v": [
+        4.96796875000004,
+        4.469531250000017
+      ]
+    }
+  ]
+}

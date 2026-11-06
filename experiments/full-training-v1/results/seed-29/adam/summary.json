@@ -1,0 +1,44 @@
+{
+  "seed": 29,
+  "stage": "adam",
+  "optimization": {
+    "beforeLoss": 0.02050243690609932,
+    "finalLoss": 0.01140014361590147,
+    "maxAbsGradient": 0.00016939567285589874,
+    "objectiveEvaluations": 2000,
+    "iterations": 2000,
+    "optimizationSeconds": 102.50124960599715,
+    "hitEvaluationBudget": true,
+    "hitIterationLimit": false,
+    "gradientToleranceMet": null,
+    "finalPrecision": {
+      "foldAccuracy": 0.9990823583390686,
+      "meanVertexRmsOverL": 0.0373871847987175,
+      "maxVertexRmsOverL": 0.8641074895858765,
+      "meanAngleMaeDegrees": 2.3761472702026367,
+      "maxAngleMaeDegrees": 73.75064849853516,
+      "precisionGateCount": 786
+    },
+    "startCheckpointSha256": "7746fccc77718bd0abb78d834748117db080f9962f4c115580ed59b22053802c"
+  },
+  "training": {
+    "examples": 4359,
+    "passes": 1895,
+    "passRate": 0.43473273686625374,
+    "foldCountMatches": 4355,
+    "precisionGateCount": 786,
+    "validWallsOpening": 1242,
+    "zeroFloating": 3094,
+    "meanVertexRmsOverLAmongMatchingCounts": 0.03731016205526047,
+    "meanAngleMaeDegreesAmongMatchingCounts": 2.355685874878702,
+    "failureReasons": {
+      "fit": 2464
+    },
+    "assessmentSeconds": 19.55845988600049
+  },
+  "trainingPeakProcessRssMiB": 324.89453125,
+  "endPeakProcessRssMiB": 324.89453125,
+  "memoryDefinition": "Linux process high-water RSS, includes imports, data, model, optimizer; child Node assessor memory excluded",
+  "parameters": 75554,
+  "trainingRequests": 1453
+}

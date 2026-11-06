@@ -1,0 +1,444 @@
+{
+  "round": "answer-key-1",
+  "page": "https://claude.ai/artifact/4Qr8nQDonaJSsWnYCG5FdA",
+  "items": 48,
+  "counts": {
+    "valid": 42,
+    "invalid": 0,
+    "unsure": 6
+  },
+  "verdicts": [
+    {
+      "budget": 3,
+      "item": "v2-long-0066-b3",
+      "note": "",
+      "request": "v2-long-0066",
+      "reviewedAt": "2026-11-05T16:10:36.652Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0080-b2",
+      "note": "Prefer hinge at the boundary",
+      "request": "v2-long-0080",
+      "reviewedAt": "2026-11-05T16:03:35.004Z",
+      "round": "answer-key-1",
+      "verdict": "unsure"
+    },
+    {
+      "budget": 3,
+      "item": "v2-long-0082-b3",
+      "note": "",
+      "request": "v2-long-0082",
+      "reviewedAt": "2026-11-05T16:10:18.898Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-long-0213-b1",
+      "note": "",
+      "request": "v2-long-0213",
+      "reviewedAt": "2026-11-05T16:08:01.597Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-long-0252-b3",
+      "note": "",
+      "request": "v2-long-0252",
+      "reviewedAt": "2026-11-05T16:10:26.221Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0348-b2",
+      "note": "",
+      "request": "v2-long-0348",
+      "reviewedAt": "2026-11-05T16:02:46.924Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0380-b2",
+      "note": "",
+      "request": "v2-long-0380",
+      "reviewedAt": "2026-11-05T16:10:43.900Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-long-0395-b1",
+      "note": "Prefer hinge at the boundary",
+      "request": "v2-long-0395",
+      "reviewedAt": "2026-11-05T16:01:33.152Z",
+      "round": "answer-key-1",
+      "verdict": "unsure"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0453-b2",
+      "note": "",
+      "request": "v2-long-0453",
+      "reviewedAt": "2026-11-05T16:14:58.991Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-long-0488-b2",
+      "note": "",
+      "request": "v2-long-0488",
+      "reviewedAt": "2026-11-05T16:02:53.422Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0082-b1",
+      "note": "Prefer hinge at the boundary",
+      "request": "v2-short-0082",
+      "reviewedAt": "2026-11-05T16:01:47.301Z",
+      "round": "answer-key-1",
+      "verdict": "unsure"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-0175-b4",
+      "note": "",
+      "request": "v2-short-0175",
+      "reviewedAt": "2026-11-05T16:08:20.193Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0190-b3",
+      "note": "",
+      "request": "v2-short-0190",
+      "reviewedAt": "2026-11-05T16:10:29.832Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0191-b3",
+      "note": "",
+      "request": "v2-short-0191",
+      "reviewedAt": "2026-11-05T16:08:52.505Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 0,
+      "item": "v2-short-0238-b0",
+      "note": "",
+      "request": "v2-short-0238",
+      "reviewedAt": "2026-11-05T15:59:14.435Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0259-b3",
+      "note": "",
+      "request": "v2-short-0259",
+      "reviewedAt": "2026-11-05T15:58:30.054Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0283-b3",
+      "note": "",
+      "request": "v2-short-0283",
+      "reviewedAt": "2026-11-05T16:04:14.241Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0295-b2",
+      "note": "",
+      "request": "v2-short-0295",
+      "reviewedAt": "2026-11-05T15:59:08.266Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0317-b2",
+      "note": "",
+      "request": "v2-short-0317",
+      "reviewedAt": "2026-11-05T16:15:17.918Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0327-b1",
+      "note": "Prefer hinge at the boundary",
+      "request": "v2-short-0327",
+      "reviewedAt": "2026-11-05T16:01:06.040Z",
+      "round": "answer-key-1",
+      "verdict": "unsure"
+    },
+    {
+      "budget": 0,
+      "item": "v2-short-0390-b0",
+      "note": "",
+      "request": "v2-short-0390",
+      "reviewedAt": "2026-11-05T15:59:18.499Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0447-b1",
+      "note": "",
+      "request": "v2-short-0447",
+      "reviewedAt": "2026-11-05T16:05:03.194Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0477-b3",
+      "note": "",
+      "request": "v2-short-0477",
+      "reviewedAt": "2026-11-05T16:09:08.973Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0610-b3",
+      "note": "",
+      "request": "v2-short-0610",
+      "reviewedAt": "2026-11-05T16:04:34.470Z",
+      "round": "answer-key-1",
+      "verdict": "unsure"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-0634-b2",
+      "note": "",
+      "request": "v2-short-0634",
+      "reviewedAt": "2026-11-05T16:10:48.148Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 0,
+      "item": "v2-short-0702-b0",
+      "note": "",
+      "request": "v2-short-0702",
+      "reviewedAt": "2026-11-05T15:59:27.295Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 1,
+      "item": "v2-short-0736-b1",
+      "note": "Would make both panels of same size",
+      "request": "v2-short-0736",
+      "reviewedAt": "2026-11-05T15:57:06.501Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 5,
+      "item": "v2-short-0789-b5",
+      "note": "",
+      "request": "v2-short-0789",
+      "reviewedAt": "2026-11-05T15:59:00.800Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0838-b3",
+      "note": "",
+      "request": "v2-short-0838",
+      "reviewedAt": "2026-11-05T16:09:00.376Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0875-b3",
+      "note": "",
+      "request": "v2-short-0875",
+      "reviewedAt": "2026-11-05T16:08:27.936Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 5,
+      "item": "v2-short-0887-b5",
+      "note": "",
+      "request": "v2-short-0887",
+      "reviewedAt": "2026-11-05T16:08:10.453Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 8,
+      "item": "v2-short-0944-b8",
+      "note": "",
+      "request": "v2-short-0944",
+      "reviewedAt": "2026-11-05T16:15:04.238Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-0947-b3",
+      "note": "",
+      "request": "v2-short-0947",
+      "reviewedAt": "2026-11-05T15:59:36.294Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1067-b2",
+      "note": "",
+      "request": "v2-short-1067",
+      "reviewedAt": "2026-11-05T16:03:05.723Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1102-b2",
+      "note": "",
+      "request": "v2-short-1102",
+      "reviewedAt": "2026-11-05T15:41:07.926Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1127-b2",
+      "note": "",
+      "request": "v2-short-1127",
+      "reviewedAt": "2026-11-05T15:59:44.978Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1152-b2",
+      "note": "",
+      "request": "v2-short-1152",
+      "reviewedAt": "2026-11-05T15:58:36.989Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-1187-b3",
+      "note": "",
+      "request": "v2-short-1187",
+      "reviewedAt": "2026-11-05T16:07:52.532Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-1191-b3",
+      "note": "",
+      "request": "v2-short-1191",
+      "reviewedAt": "2026-11-05T16:08:36.433Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 7,
+      "item": "v2-short-1239-b7",
+      "note": "",
+      "request": "v2-short-1239",
+      "reviewedAt": "2026-11-05T15:40:40.829Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1240-b2",
+      "note": "",
+      "request": "v2-short-1240",
+      "reviewedAt": "2026-11-05T16:01:52.524Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1260-b2",
+      "note": "",
+      "request": "v2-short-1260",
+      "reviewedAt": "2026-11-05T16:03:10.052Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1288-b2",
+      "note": "Prefer hinge at the boundary",
+      "request": "v2-short-1288",
+      "reviewedAt": "2026-11-05T16:03:21.937Z",
+      "round": "answer-key-1",
+      "verdict": "unsure"
+    },
+    {
+      "budget": 5,
+      "item": "v2-short-1306-b5",
+      "note": "",
+      "request": "v2-short-1306",
+      "reviewedAt": "2026-11-05T16:14:52.885Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 2,
+      "item": "v2-short-1379-b2",
+      "note": "",
+      "request": "v2-short-1379",
+      "reviewedAt": "2026-11-05T16:10:40.532Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-1401-b4",
+      "note": "",
+      "request": "v2-short-1401",
+      "reviewedAt": "2026-11-05T15:58:47.139Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 3,
+      "item": "v2-short-1450-b3",
+      "note": "",
+      "request": "v2-short-1450",
+      "reviewedAt": "2026-11-05T16:09:13.480Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    },
+    {
+      "budget": 4,
+      "item": "v2-short-1495-b4",
+      "note": "",
+      "request": "v2-short-1495",
+      "reviewedAt": "2026-11-05T16:09:04.948Z",
+      "round": "answer-key-1",
+      "verdict": "valid"
+    }
+  ]
+}

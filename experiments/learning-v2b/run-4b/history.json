@@ -1,0 +1,134 @@
+[
+ {
+  "epoch": 50,
+  "trainLoss": 0.9657554626464844,
+  "validationLoss": 1.2916234731674194,
+  "validationPassRate": 0.34765625
+ },
+ {
+  "epoch": 100,
+  "trainLoss": 1.1575779914855957,
+  "validationLoss": 1.6783807277679443,
+  "validationPassRate": 0.17447916666666666
+ },
+ {
+  "epoch": 150,
+  "trainLoss": 0.9047499299049377,
+  "validationLoss": 1.3201301097869873,
+  "validationPassRate": 0.3125
+ },
+ {
+  "epoch": 200,
+  "trainLoss": 0.9402452111244202,
+  "validationLoss": 1.3344292640686035,
+  "validationPassRate": 0.23177083333333334
+ },
+ {
+  "epoch": 250,
+  "trainLoss": 0.8046563863754272,
+  "validationLoss": 1.2395011186599731,
+  "validationPassRate": 0.3489583333333333
+ },
+ {
+  "epoch": 300,
+  "trainLoss": 0.7834647297859192,
+  "validationLoss": 1.2029211521148682,
+  "validationPassRate": 0.2903645833333333
+ },
+ {
+  "epoch": 350,
+  "trainLoss": 0.6905043125152588,
+  "validationLoss": 1.1384683847427368,
+  "validationPassRate": 0.3151041666666667
+ },
+ {
+  "epoch": 400,
+  "trainLoss": 0.7779074311256409,
+  "validationLoss": 1.2806545495986938,
+  "validationPassRate": 0.3229166666666667
+ },
+ {
+  "epoch": 450,
+  "trainLoss": 0.8185909390449524,
+  "validationLoss": 1.304309368133545,
+  "validationPassRate": 0.20703125
+ },
+ {
+  "epoch": 500,
+  "trainLoss": 0.727338433265686,
+  "validationLoss": 1.2204293012619019,
+  "validationPassRate": 0.39453125
+ },
+ {
+  "epoch": 550,
+  "trainLoss": 0.760385274887085,
+  "validationLoss": 1.2609220743179321,
+  "validationPassRate": 0.2682291666666667
+ },
+ {
+  "epoch": 600,
+  "trainLoss": 0.8178532719612122,
+  "validationLoss": 1.2308963537216187,
+  "validationPassRate": 0.28125
+ },
+ {
+  "epoch": 650,
+  "trainLoss": 0.7111744284629822,
+  "validationLoss": 1.1964796781539917,
+  "validationPassRate": 0.2786458333333333
+ },
+ {
+  "epoch": 700,
+  "trainLoss": 0.6645524501800537,
+  "validationLoss": 1.2514744997024536,
+  "validationPassRate": 0.2864583333333333
+ },
+ {
+  "epoch": 750,
+  "trainLoss": 0.6627649068832397,
+  "validationLoss": 1.2087960243225098,
+  "validationPassRate": 0.25
+ },
+ {
+  "epoch": 800,
+  "trainLoss": 0.6217446327209473,
+  "validationLoss": 1.0816822052001953,
+  "validationPassRate": 0.3463541666666667
+ },
+ {
+  "epoch": 850,
+  "trainLoss": 0.616900622844696,
+  "validationLoss": 1.2653956413269043,
+  "validationPassRate": 0.3033854166666667
+ },
+ {
+  "epoch": 900,
+  "trainLoss": 0.6889705061912537,
+  "validationLoss": 1.2718487977981567,
+  "validationPassRate": 0.24088541666666666
+ },
+ {
+  "epoch": 950,
+  "trainLoss": 0.6828579902648926,
+  "validationLoss": 1.1916179656982422,
+  "validationPassRate": 0.3736979166666667
+ },
+ {
+  "epoch": 1000,
+  "trainLoss": 0.6263161897659302,
+  "validationLoss": 1.2044366598129272,
+  "validationPassRate": 0.30078125
+ },
+ {
+  "epoch": 1050,
+  "trainLoss": 0.681326687335968,
+  "validationLoss": 1.2778213024139404,
+  "validationPassRate": 0.234375
+ },
+ {
+  "epoch": 1100,
+  "trainLoss": 0.5656083822250366,
+  "validationLoss": 1.1595654487609863,
+  "validationPassRate": 0.3385416666666667
+ }
+]

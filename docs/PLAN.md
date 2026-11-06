@@ -1,0 +1,109 @@
+# Orifold project plan
+
+Recorded 2026-11-04. This is the working plan agreed in discussion; estimates are planning assumptions, not measured runtimes or guarantees.
+
+## Goal
+
+Train a small model from scratch that proposes mechanical folding designs given a sheet and packing requirements. Ultimately export useful designs as `.fold` files. Preserve this goal while testing progressively more capable geometry. The original Gemini conversation is historical context, not an authoritative specification: a fixed mathematical evaluator is not a GAN discriminator, local flat-foldability rules do not prove global rigid foldability, and low training loss does not certify a physical design.
+
+Current scope is zero-thickness rigid flat panels only. Thickness adaptation, hinge hardware, axis shifts, panel trimming for thickness, and continuously bending panels are excluded until the user explicitly changes that decision. See DECISIONS.md for rationale and HANDOFF.md for the next executable task.
+
+## First AI capability contract
+
+| Item | Initial scope |
+| --- | --- |
+| Sheet | Rectangle; zero thickness; four rigid panels with three parallel hinges |
+| Design family | Accordion with alternating signed hinge rotations |
+| Inputs | Sheet length/width and target-box length/width/height |
+| Outputs | Three ordered interior crease positions and three final angle magnitudes in [0°, 180°] |
+| Constraints | Positive panel widths, preserved geometry, final box fit, and no prohibited intersections at sampled configurations |
+| Prescribed motion | All hinges advance linearly from 0 to their final angles using one normalized progress variable |
+| Generalization | Held-out requests within a declared dimension and aspect-ratio range; out-of-range cases reported separately |
+| Exclusions | Thickness, stress/fatigue, arbitrary crease graphs, continuous collision proof, layer-order proof, and guaranteed one-actuator deployment |
+
+The progress variable prescribes a coordinated trajectory; it does not establish a one-degree-of-freedom mechanism. Target boxes have fixed axes and permit translation of the final configuration, but no search over rotations. Final fit does not require the motion to remain inside that box. Accordion width cannot contract.
+
+Target length, width, and height are separate upper bounds for packing, not a scalar volume objective or an exact target shape. Material volume is zero; enclosing-box volume may be positive. Fully flat-folded height zero is allowed. Maintain a fixed panel/crease budget so unlimited subdivision cannot trivialize the task.
+
+## Milestones and completion criteria
+
+### Phase 1 — forward geometry implemented; broader physical validation open
+
+- [x] One-hinge reference demo and rigid-distance tests.
+- [x] Compose a chain of parallel hinges and evaluate four-panel designs.
+- [x] Return vertices, panel faces, material area, and axis-aligned bounds.
+- [x] Detect crossings, overlap, and non-adjacent contact in the x-z cross-section.
+- [x] Evaluate a prescribed motion at configurable sample resolution; report final fit separately.
+- [x] Document terminal flat-stack contact and numerical tolerances explicitly.
+- [x] Add automated analytic examples and an interactive accordion view.
+- [x] Compare a paper accordion’s closed footprint: user reports 5 × 10 cm, matching the prediction; evidence and limits are recorded in VALIDATION.md.
+- Optional: compare intermediate configurations as a geometric sanity check. Additional physical measurements are not a prerequisite for the zero-thickness learning experiment; material/thickness modeling is excluded.
+- [x] Review contact policy for the restricted numerical pilot; decision and limits recorded in OPTIMIZATION.md. No broader physical certification is implied.
+
+Contact is conservative: ordinary adjacent hinge contact is allowed; other touch/overlap is blocked, except contact at the exactly fully folded, ideal flat-stack endpoint. That exception does not validate layer order or finite-thickness packing. Sampling may miss events between samples. Passing these checks means passing this evaluator, not a manufacturing guarantee.
+
+### Phase 2 — inverse-design baseline and budgeting pilot (complete for this scope)
+
+- [x] Define a 5% minimum panel length, target generation ranges, strict default fit, and secondary squared-rotation objective.
+- [x] Search crease positions and hinge angles using bounded differential evolution. Preserve total sheet length by construction.
+- [x] Run 100 reproducible requests on recorded hardware; retain settings, designs, timings, quality, and failures.
+- [x] Include 80 witness-validated requests and 20 analytically impossible width requests. Optimizer failure alone is not proof of infeasibility.
+- [x] Compare against an equal-panel flat stack and random search with a matched search budget.
+- [x] Run both 1% and strict-fit comparisons; use strict-validated labels for future training. The subsequent learning experiment is recorded in LEARNING.md.
+
+Results: strict differential evolution solved 80/80 feasible pilot requests; random search 72/80; equal-panel stack 40/80. All methods rejected 20 impossible-width requests. Solver mean was 142.50 ms and median 133.89 ms per feasible request on the recorded CPU. See PILOT_RESULTS.md for distributions, limitations, and raw reports.
+
+### Phase 3 — first trained neural model (experiment complete; performance target missed)
+
+- [x] Train a 17,926-parameter MLP from scratch on CPU; 700 training and 150 validation examples, with checkpoint selection by validation only.
+- [x] Add Python/PyTorch training and an independent geometry port; verify parity on 8 named and 32 random fixtures. Official acceptance still uses the Node reference.
+- [x] Normalize dimensions using training statistics and enforce positive, length-preserving panel widths and bounded angles by construction.
+- [x] Generate 1,000 strict-validated labels and evaluate 150 frozen test requests geometrically. Network-only results: 0/150 strict, 3/150 at 1%; do not call the model usable.
+- [x] Save the dataset, split manifest, configuration, seeds, checkpoint, curves, and complete comparison records under experiments/learning-v1.
+- [x] Check normalized request uniqueness across splits and the old pilot. Keep 100 impossible-width diagnostics separate; rejections are analytical, not learned. Broader out-of-distribution evaluation remains future work.
+
+### Phase 4 — experiment setup, visualisation and export (in discussion)
+
+- [x] Compare all methods on 150 held-out requests: full optimizer 150/150 strict, short optimizer 138/150, network-initialized short optimizer 140/150. The paired hybrid gain is only 6 wins versus 4 losses, not an established reliable benefit.
+- [x] Audit v1 labels: inconsistent across seeds (DECISIONS.md D10). v1 validated the pipeline, not the approach.
+- [x] Experiment specification agreed in principle: [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md) (DECISIONS.md D13–D21). Parallel creases, 0–11 folds, 2% margin, strict ranking, success judged by the user on a visual review page.
+- [x] Visualisation approach chosen: built on demand (D15).
+- [x] Evaluator handles 0 folds; v2 rules, ranking measures and a deterministic reference solver in `src/packing.js`. Request-space map of 729 requests published, with an independent completeness check (EXPERIMENT_SPEC.md, "Evidence so far").
+- [x] Reference misses fixed (0/218 beaten); ranking ties (D23) and short-box weighting (D24) decided; request distribution frozen; Codex independent checker agrees on all 701 designs (D25).
+- [x] v2 dataset generated and labelled (2,200 requests, 6,004 answers); acceptance checks passed except the visual review (EXPERIMENT_SPEC.md, "v2 dataset"). Review page built.
+- [x] Review round 1 (42 valid, 6 unsure, 0 not valid) led to D34 (creases on walls); dataset relabelled as v2b, all checks rerun.
+- [x] Review round 2 accepted v2b (48/48); full-data runs 1–4 completed on validation, with historical results preserved.
+- [x] D35 training-only 32-request precision diagnostic completed: corrected masking and paired pure-imitation runs; neither passed the copying gate on all 32 ([report](../experiments/memorization-v1/REPORT.md)).
+- [x] D36 independent-output control completed: both losses reach 32/32 precision and sampled-validity passes after float64 L-BFGS refinement, preserved when cast to float32 ([report](../experiments/independent-outputs-v1/REPORT.md)).
+- [x] D37 shared-network optimizer/precision comparison completed: best sampled validity 29/32, large accuracy gains without architecture changes; no arm meets both all-32 goals ([report](../experiments/network-optimization-v1/REPORT.md)).
+- [x] D38: corrected preprocessing and bridge tolerance; repeated the frozen 32-example comparisons in network-optimization-v2.
+- [x] D39 step 3: three-seed full-training comparison completed; Adam 43.13% versus Adam + L-BFGS 45.46% mean training sampled validity.
+- [x] D40: audited Claude tolerance/correction and applied legacy correction to all six saved training models with matched-count controls; see correction-audit-v1.
+- [x] D41 step 4: corrected diagnostic/search policies and completed frozen validation benchmark; no method dominates validity, wall/opening quality and cost.
+- [x] D42: retire L-BFGS from current recipe development; retain historical evidence. Adam plus correction leads the neural candidates.
+- [ ] Step 5: decide quality/speed acceptance for Adam plus correction versus retrieval/conventional alternatives, then freeze a method before final test. No best-seed selection.
+- [ ] Build the visual review page for the user's verdict (spec section 9).
+- Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
+- Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.
+- Report strict numerical fit as well as tolerance-based success; the current evaluator uses only numerical tolerance (not the 1% learning target).
+- Export meaningful designs as `.fold`, with validation results and motion metadata kept alongside the file. FOLD serialization alone is not certification.
+
+### Next research iteration — learning-assisted optimization (proposed)
+
+See [the recorded discussion and six-step roadmap](LEARNING_ASSISTED_OPTIMIZATION.md), D43. Immediate recommendation: diagnose existing correction failures and wall/opening quality before changing training. Then compare improved correction under controlled budgets, investigate learning better starting points, and freeze the complete policy before final testing. Existing step 5 remains open. No new experiment has started; existing v2 names and evidence remain unchanged.
+
+## Later research
+
+Investigate Miura-ori or another zero-thickness rigid-foldable family that contracts in two directions, then geometric deployment constraints, compatible unit combinations, variable panel counts, and eventually variable crease connectivity. Re-budget each capability separately. Arbitrary crease generation is not included in the initial estimate. Thickness adaptation is excluded until the user explicitly reopens it.
+
+## Time and compute budget
+
+Original planning envelope: 2–4 weeks part-time at roughly 5–10 hours/week, with a proposed maximum of $50 for compute experiments. These were initial estimates, not commitments or authorization to spend. The software geometry and optimizer pilot are now implemented and the CPU solver is benchmarked; the first learning experiment has also been measured; future iterations remain uncertain.
+
+Use local CPU first. The first small MLP training loop took 1.62 seconds; dataset generation took 133.52 seconds and test comparison 55.63 seconds. Setup/import overhead is separate. Paid GPU time is not necessary to begin. No additional paid compute resource has been provisioned.
+
+The original unmeasured scenarios were 14–167 CPU-hours for 10,000 solves. The completed restricted pilot measured 142.50 ms/solve: approximately 24 sequential CPU-minutes for 10,000 comparable solves, or 2.4 minutes for 1,000, before other dataset work. This is an extrapolation and does not cover richer geometry. The first training-loop runtime is now measured at 1.62 seconds; this does not forecast richer models. Reserve paid compute for measured bottlenecks, with explicit approval before provisioning billable resources.
+
+## Decision gate
+
+Proceed to a larger design family only after the first experiment shows reproducible geometry, usable baseline designs, and measured model behavior. If the network does not improve inference or optimization, record that result and revise the approach rather than increase model size blindly.

@@ -1,0 +1,15 @@
+{
+  "config": "experiments/learning-v2b/train-config-run3.json",
+  "fitWeight": 100.0,
+  "tighterWeight": 10.0,
+  "parameters": 75554,
+  "trainExamples": 4359,
+  "validationExamples": 768,
+  "selectedEpoch": 500,
+  "validationPassRate": 0.6497395833333334,
+  "validationLoss": 0.6769900918006897,
+  "stoppedAtEpoch": 1100,
+  "trainingSeconds": 280.0,
+  "torch": "2.9.1+cpu",
+  "python": "3.13.18"
+}

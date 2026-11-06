@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orifold · One hinge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><span class="eyebrow">ORIFOLD / EXPERIMENT 001</span><h1>A sheet. A hinge. A beginning.</h1><p>Explore how a single crease transforms a flat sheet into a folded configuration.</p></header>
+  <div class="layout">
+    <section class="controls" aria-label="Sheet controls">
+      <h2>Define the sheet</h2>
+      <label for="length">Length <span>cm</span></label><input id="length" type="number" min="1" max="100" step="1" value="20">
+      <label for="width">Width <span>cm</span></label><input id="width" type="number" min="1" max="100" step="1" value="10">
+      <label for="crease">Crease position <output id="crease-value"></output></label><input id="crease" type="range" min="5" max="95" step="1" value="50">
+      <p class="hint">Measured from the fixed edge along the sheet’s length.</p>
+      <label for="angle">Fold angle <output id="angle-value"></output></label><input id="angle" type="range" min="0" max="180" step="1" value="60">
+      <div class="presets"><button data-angle="0">Flat · 0°</button><button data-angle="90">Upright · 90°</button><button data-angle="180">Closed · 180°</button></div>
+      <button id="play" class="primary" aria-pressed="false">Play fold</button>
+      <p id="error" role="alert"></p>
+    </section>
+    <section class="scene" aria-label="Fold visualization">
+      <div class="scene-heading"><h2>Rigid-panel geometry</h2><span>All dimensions in cm</span></div>
+      <svg id="view" viewBox="0 0 760 420" role="img" aria-label="Projected 3D view of two panels connected by a hinge"></svg>
+      <div class="legend"><span class="fixed">Fixed panel</span><span class="moving">Moving panel</span><span>Dashed line: hinge</span></div>
+      <div class="metrics"><div><small>Bounding box · L × W × H</small><strong id="bounds"></strong></div><div><small>Material area</small><strong id="area"></strong></div></div>
+      <h3>Side profile · looking along the hinge</h3><svg id="profile" viewBox="0 0 760 200" role="img" aria-label="Side profile showing the fold angle and panel positions"></svg>
+    </section>
+  </div>
+  <section class="notes"><div><h2>What this experiment models</h2><p>Two rigid panels, one ideal hinge, and a sheet with zero thickness. Panel lengths and material area stay constant as the hinge rotates. At 180°, the panels are allowed to lie on top of each other.</p></div><div><h2>Endpoint versus motion</h2><p>The box describes the current configuration. A panel sweeps through space while folding; fitting the final box does not mean the entire motion fits inside it. This experiment does not model thickness, forces, or collision with an enclosure.</p></div></section>
+  <footer>Forward geometry first. Inverse design next. Learning after we can measure success.</footer>
+</main>
+<script src="geometry.js"></script><script src="app.js"></script>
+</body></html>

@@ -1,0 +1,1403 @@
+{
+  "map": "artifacts/request-map-v5/map.json",
+  "summary": {
+    "sampled": 174,
+    "seedsPerCell": 3,
+    "referenceBeaten": 0,
+    "elapsedMs": 3526
+  },
+  "records": [
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.02,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.02,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.02,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.02,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.02,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.02,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.02,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.02,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.02,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.02,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.04,
+      "referenceFolds": 11,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.04,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.04,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.04,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.04,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.04,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.04,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.04,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.04,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.04,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.04,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.08,
+      "referenceFolds": 11,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.08,
+      "referenceFolds": 9,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.08,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.08,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.08,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.08,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.08,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.08,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.08,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.08,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.08,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.08,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.12,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.12,
+      "referenceFolds": 8,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.12,
+      "referenceFolds": 7,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.12,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.12,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.12,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.12,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.12,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.12,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.12,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.12,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.12,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.12,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.16,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.16,
+      "referenceFolds": 6,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.16,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.16,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.16,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.16,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.16,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.16,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.16,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.16,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.16,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.16,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.16,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.2,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.2,
+      "referenceFolds": 5,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.2,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.2,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.2,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.2,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.2,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.2,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.2,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.2,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.2,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.2,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.24,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.24,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.24,
+      "referenceFolds": 4,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.24,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.24,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.24,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.24,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.24,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.24,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.24,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.24,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.24,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.28,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.28,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.28,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.28,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.28,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.28,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.28,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.28,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.28,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.28,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.28,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.32,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.32,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.32,
+      "referenceFolds": 3,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.32,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.36,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.4,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.44,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.02,
+      "boxHeight": 0.48,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.48,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.08,
+      "boxHeight": 0.48,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.48,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.48,
+      "referenceFolds": 2,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.02,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.88,
+      "boxHeight": 0.02,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.72,
+      "boxHeight": 0.04,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.56,
+      "boxHeight": 0.08,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.08,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.12,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.16,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.96,
+      "boxHeight": 0.16,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.2,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.56,
+      "boxHeight": 0.24,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.24,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.72,
+      "boxHeight": 0.28,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.32,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.32,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.36,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.4,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.4,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.44,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.72,
+      "boxHeight": 0.44,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.48,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.48,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.52,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.48,
+      "boxHeight": 0.52,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.52,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.56,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.56,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.16,
+      "boxHeight": 0.6,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.6,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.04,
+      "boxHeight": 0.64,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.4,
+      "boxHeight": 0.64,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.64,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.32,
+      "boxHeight": 0.68,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.68,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.24,
+      "boxHeight": 0.72,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.72,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.76,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.56,
+      "boxHeight": 0.76,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.8,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.56,
+      "boxHeight": 0.8,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.84,
+      "referenceFolds": 1,
+      "fewerFoldsFound": false,
+      "seedsFinding": [],
+      "example": null
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "dataset": "experiments/learning-v2b/dataset.jsonl.gz",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "correction": "unchanged scripts/repair-designs.js 400",
+  "control": "equal panels and 150-degree angles, same predicted fold count; deduplicate identical controls",
+  "evaluation": "raw legacy flags and canonical assessment at saved corrected pose, explicit budget check; opening band and floating creases",
+  "heldOut": "only audit existing historical run1 correction records; no new held-out predictions",
+  "sourceHashes": {
+    "scripts/repair-designs.js": "bf392c3e031fa1d68b0289fb9c031d53c2f13ed2eeedc4d0903cbe0498d26ac9",
+    "scripts/tolerance-curve.js": "6782519b04ba3ec86ba7535636d45db1b3f99829129e7f4fe09710de1bb5b2a9",
+    "experiments/learning-v2b/dataset.jsonl.gz": "e40c80136a6c7e7134f4bc6791e5162c4fc4a0dcd666c6dc64858cf994afa27f",
+    "experiments/full-training-v1/results/seed-17/adam/training-predictions.jsonl.gz": "30f9d7335eb41832e1a612259c5f55aa39b15d65056d5f38c6eed163ef177388",
+    "experiments/full-training-v1/results/seed-17/lbfgs/training-predictions.jsonl.gz": "5e1b6b5fdbbfc10039f4135a4bc88486792e88bc6b5fd7f9b4565795816d77ab",
+    "experiments/full-training-v1/results/seed-29/adam/training-predictions.jsonl.gz": "7e8c8b86f075a53d80014d165bb1cf2f3d24dad96d472fb89041807069b1ef46",
+    "experiments/full-training-v1/results/seed-29/lbfgs/training-predictions.jsonl.gz": "a7642eb8745bd1eb52e528fe390f7b5384504c07aef352fd9f5eeca07ff94127",
+    "experiments/full-training-v1/results/seed-43/adam/training-predictions.jsonl.gz": "4b99f7028e109902d78b7a78f4ff4d132780853ef53a75e41244410179d8e84f",
+    "experiments/full-training-v1/results/seed-43/lbfgs/training-predictions.jsonl.gz": "f339f98a6fea917deed839a71d3e12e35e36177cfbf532f78e96a44c6cf88d32"
+  }
+}

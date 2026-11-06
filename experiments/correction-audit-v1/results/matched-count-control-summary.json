@@ -1,0 +1,56 @@
+{
+  "uniqueControls": {
+    "examples": 4365,
+    "passes": 3510,
+    "passRate": 0.8041237113402062,
+    "legacyPasses": 3509,
+    "validWallsOpening": 946,
+    "passingWithZeroFloating": 2416,
+    "flagDisagreements": 1,
+    "medianOpeningAmongPassing": 30.0,
+    "meanCorrectionMs": 3.6416953035509736,
+    "p90CorrectionMs": 6.0,
+    "meanEvaluations": 44.370675830469644,
+    "maxEvaluations": 436,
+    "overNominal400": 148
+  },
+  "processSeconds": 16.23094080699957,
+  "byModelGroup": {
+    "seed-17-adam": {
+      "examples": 4359,
+      "passes": 3508,
+      "validWallsOpening": 946,
+      "meanCorrectionMs": 3.6421197522367517
+    },
+    "seed-17-lbfgs": {
+      "examples": 4359,
+      "passes": 3508,
+      "validWallsOpening": 946,
+      "meanCorrectionMs": 3.6439550355586143
+    },
+    "seed-29-adam": {
+      "examples": 4359,
+      "passes": 3508,
+      "validWallsOpening": 946,
+      "meanCorrectionMs": 3.6421197522367517
+    },
+    "seed-29-lbfgs": {
+      "examples": 4359,
+      "passes": 3508,
+      "validWallsOpening": 946,
+      "meanCorrectionMs": 3.6439550355586143
+    },
+    "seed-43-adam": {
+      "examples": 4359,
+      "passes": 3509,
+      "validWallsOpening": 946,
+      "meanCorrectionMs": 3.6441844459738473
+    },
+    "seed-43-lbfgs": {
+      "examples": 4359,
+      "passes": 3508,
+      "validWallsOpening": 946,
+      "meanCorrectionMs": 3.6439550355586143
+    }
+  }
+}

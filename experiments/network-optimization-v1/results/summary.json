@@ -1,0 +1,1114 @@
+{
+  "parameters-adam-float32": {
+    "examples": 32,
+    "passes": 19,
+    "fits": 19,
+    "contactFree": 32,
+    "zeroFloating": 29,
+    "validZeroFloatingInSpreadBand": 19,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.00041596535458634354,
+      "median": 0.00034313365357316165,
+      "maxAbs": 0.0016850815809106795
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.0001980230354799789,
+      "median": 0.00012131001675523117,
+      "maxAbs": 0.0012526472384694367
+    },
+    "angleMaeDegrees": {
+      "mean": 0.03639482618308465,
+      "median": 0.03228279054162897,
+      "maxAbs": 0.09190610647198127
+    },
+    "maxOverflowOverL": {
+      "mean": 0.02199481725389528,
+      "median": 0.0,
+      "maxAbs": 0.3145563480394676
+    },
+    "openingErrorDegrees": {
+      "mean": 0.020279035624107156,
+      "median": 0.020160424709288804,
+      "maxAbs": 0.08762774467464851
+    },
+    "precisionGateCount": 30,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 5,
+      "fits": 5,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 5,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.00041596535458634354,
+        "median": 0.00034313365357316165,
+        "maxAbs": 0.0016850815809106795
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.0001980230354799789,
+        "median": 0.00012131001675523117,
+        "maxAbs": 0.0012526472384694367
+      },
+      "angleMaeDegrees": {
+        "mean": 0.03639482618308465,
+        "median": 0.03228279054162897,
+        "maxAbs": 0.09190610647198127
+      },
+      "maxOverflowOverL": {
+        "mean": 0.0003354713735635953,
+        "median": 0.0002408529470503038,
+        "maxAbs": 0.001175618958181031
+      },
+      "openingErrorDegrees": {
+        "mean": 0.020279035624107156,
+        "median": 0.020160424709288804,
+        "maxAbs": 0.08762774467464851
+      },
+      "precisionGateCount": 30
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.00041598701500333846,
+      "maxVertexRmsOverL": 0.0016850695246830583,
+      "meanAngleMaeDegrees": 0.03639562427997589,
+      "maxAngleMaeDegrees": 0.09190475940704346,
+      "precisionGateCount": 30
+    },
+    "meanSweepOverflowOverL": 0.0001231515513502085,
+    "maxSweepOverflowOverL": 0.0010131295339195143,
+    "optimization": {
+      "beforeLoss": 0.00011437443026807159,
+      "finalLoss": 3.605065330702928e-07,
+      "maxAbsGradient": 3.251410453231074e-05,
+      "objectiveEvaluations": 4000,
+      "iterations": 4000,
+      "optimizationSeconds": 6.2603485849995195,
+      "hitEvaluationBudget": true,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": null,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 0.00041598701500333846,
+        "maxVertexRmsOverL": 0.0016850695246830583,
+        "meanAngleMaeDegrees": 0.03639562427997589,
+        "maxAngleMaeDegrees": 0.09190475940704346,
+        "precisionGateCount": 30
+      }
+    }
+  },
+  "parameters-adam-float64": {
+    "examples": 32,
+    "passes": 24,
+    "fits": 24,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 24,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.0002574531555175584,
+      "median": 0.00013338300855668454,
+      "maxAbs": 0.001812627273273646
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00015363560748583323,
+      "median": 5.644222013985675e-05,
+      "maxAbs": 0.0012383640663869578
+    },
+    "angleMaeDegrees": {
+      "mean": 0.02041169736989301,
+      "median": 0.009490045071348874,
+      "maxAbs": 0.0712330993299446
+    },
+    "maxOverflowOverL": {
+      "mean": 0.009899075695128611,
+      "median": 0.0,
+      "maxAbs": 0.3144041387013632
+    },
+    "openingErrorDegrees": {
+      "mean": -0.012243619515371673,
+      "median": -0.005079625397925724,
+      "maxAbs": 0.09096738949921246
+    },
+    "precisionGateCount": 31,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 15,
+      "fits": 15,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 15,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.0002574531555175584,
+        "median": 0.00013338300855668454,
+        "maxAbs": 0.001812627273273646
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00015363560748583323,
+        "median": 5.644222013985675e-05,
+        "maxAbs": 0.0012383640663869578
+      },
+      "angleMaeDegrees": {
+        "mean": 0.02041169736989301,
+        "median": 0.009490045071348874,
+        "maxAbs": 0.0712330993299446
+      },
+      "maxOverflowOverL": {
+        "mean": 0.00014837810028305387,
+        "median": 8.641990144593299e-06,
+        "maxAbs": 0.0011088868461085989
+      },
+      "openingErrorDegrees": {
+        "mean": -0.012243619515371673,
+        "median": -0.005079625397925724,
+        "maxAbs": 0.09096738949921246
+      },
+      "precisionGateCount": 31
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.00025745315551756133,
+      "maxVertexRmsOverL": 0.0018126272732736297,
+      "meanAngleMaeDegrees": 0.020411697369892137,
+      "maxAngleMaeDegrees": 0.07123309932993988,
+      "precisionGateCount": 31
+    },
+    "meanSweepOverflowOverL": 9.329856275641884e-05,
+    "maxSweepOverflowOverL": 0.0010528059642764057,
+    "optimization": {
+      "beforeLoss": 0.00011439776889773507,
+      "finalLoss": 3.5101449698244617e-07,
+      "maxAbsGradient": 5.911585077263275e-06,
+      "objectiveEvaluations": 4000,
+      "iterations": 4000,
+      "optimizationSeconds": 7.30736259600053,
+      "hitEvaluationBudget": true,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": null,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 0.00025745315551756133,
+        "maxVertexRmsOverL": 0.0018126272732736297,
+        "meanAngleMaeDegrees": 0.020411697369892137,
+        "maxAngleMaeDegrees": 0.07123309932993988,
+        "precisionGateCount": 31
+      }
+    }
+  },
+  "parameters-adam-float64-cast32": {
+    "examples": 32,
+    "passes": 22,
+    "fits": 22,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 22,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.0003200185177043539,
+      "median": 0.0002583215436548584,
+      "maxAbs": 0.0017975538307089794
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00018357937760409858,
+      "median": 0.00010103993709141147,
+      "maxAbs": 0.0014023661293397112
+    },
+    "angleMaeDegrees": {
+      "mean": 0.02642802367918451,
+      "median": 0.017483881115907707,
+      "maxAbs": 0.07055894136428265
+    },
+    "maxOverflowOverL": {
+      "mean": 0.011657326888469264,
+      "median": 0.0,
+      "maxAbs": 0.31448718764600203
+    },
+    "openingErrorDegrees": {
+      "mean": -0.021333717554817166,
+      "median": -0.015425801277153539,
+      "maxAbs": 0.11801568269731888
+    },
+    "precisionGateCount": 30,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 14,
+      "fits": 14,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 14,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.0003200185177043539,
+        "median": 0.0002583215436548584,
+        "maxAbs": 0.0017975538307089794
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00018357937760409858,
+        "median": 0.00010103993709141147,
+        "maxAbs": 0.0014023661293397112
+      },
+      "angleMaeDegrees": {
+        "mean": 0.02642802367918451,
+        "median": 0.017483881115907707,
+        "maxAbs": 0.07055894136428265
+      },
+      "maxOverflowOverL": {
+        "mean": 0.0001700613842684448,
+        "median": 2.9330752283572254e-05,
+        "maxAbs": 0.0011064467276884636
+      },
+      "openingErrorDegrees": {
+        "mean": -0.021333717554817166,
+        "median": -0.015425801277153539,
+        "maxAbs": 0.11801568269731888
+      },
+      "precisionGateCount": 30
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.0003200234496034682,
+      "maxVertexRmsOverL": 0.001797567238099873,
+      "meanAngleMaeDegrees": 0.02642814628779888,
+      "maxAngleMaeDegrees": 0.07055562734603882,
+      "precisionGateCount": 30
+    },
+    "meanSweepOverflowOverL": 0.00010670020598088918,
+    "maxSweepOverflowOverL": 0.001054621137975463
+  },
+  "parameters-lbfgs-float32": {
+    "examples": 32,
+    "passes": 26,
+    "fits": 26,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 26,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.0002025451172756872,
+      "median": 0.00014551571360731455,
+      "maxAbs": 0.0007908806651057255
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00013260019502638366,
+      "median": 0.00010967248388935991,
+      "maxAbs": 0.0005146378554614713
+    },
+    "angleMaeDegrees": {
+      "mean": 0.01819273652509157,
+      "median": 0.008465361595170862,
+      "maxAbs": 0.11523418426511967
+    },
+    "maxOverflowOverL": {
+      "mean": 0.00983561978009379,
+      "median": 0.0,
+      "maxAbs": 0.3137508159828965
+    },
+    "openingErrorDegrees": {
+      "mean": -0.008710683137187925,
+      "median": -0.008375024795554964,
+      "maxAbs": 0.11112209558487507
+    },
+    "precisionGateCount": 30,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 13,
+      "fits": 13,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 13,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.0002025451172756872,
+        "median": 0.00014551571360731455,
+        "maxAbs": 0.0007908806651057255
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00013260019502638366,
+        "median": 0.00010967248388935991,
+        "maxAbs": 0.0005146378554614713
+      },
+      "angleMaeDegrees": {
+        "mean": 0.01819273652509157,
+        "median": 0.008465361595170862,
+        "maxAbs": 0.11523418426511967
+      },
+      "maxOverflowOverL": {
+        "mean": 8.323353673233782e-05,
+        "median": 7.909905956108508e-06,
+        "maxAbs": 0.0005448059341671336
+      },
+      "openingErrorDegrees": {
+        "mean": -0.008710683137187925,
+        "median": -0.008375024795554964,
+        "maxAbs": 0.11112209558487507
+      },
+      "precisionGateCount": 30
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.00020254227274563164,
+      "maxVertexRmsOverL": 0.000790919060818851,
+      "meanAngleMaeDegrees": 0.01819295808672905,
+      "maxAngleMaeDegrees": 0.11523836851119995,
+      "precisionGateCount": 30
+    },
+    "meanSweepOverflowOverL": 3.280127420557063e-05,
+    "maxSweepOverflowOverL": 0.00042594744186324335,
+    "optimization": {
+      "beforeLoss": 0.00011437443026807159,
+      "finalLoss": 1.152302644413794e-07,
+      "maxAbsGradient": 6.723684577991662e-07,
+      "objectiveEvaluations": 671,
+      "iterations": 595,
+      "optimizationSeconds": 4.781957094999598,
+      "hitEvaluationBudget": false,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": false,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 0.00020254227274563164,
+        "maxVertexRmsOverL": 0.000790919060818851,
+        "meanAngleMaeDegrees": 0.01819295808672905,
+        "maxAngleMaeDegrees": 0.11523836851119995,
+        "precisionGateCount": 30
+      }
+    }
+  },
+  "parameters-lbfgs-float64": {
+    "examples": 32,
+    "passes": 26,
+    "fits": 26,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 26,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.0001859430515674898,
+      "median": 0.00012299231218754078,
+      "maxAbs": 0.0007773808543514126
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00012235302013174928,
+      "median": 0.00010108601390646885,
+      "maxAbs": 0.0005260712036789184
+    },
+    "angleMaeDegrees": {
+      "mean": 0.016662292186317762,
+      "median": 0.008999559466431606,
+      "maxAbs": 0.11224238108759721
+    },
+    "maxOverflowOverL": {
+      "mean": 0.009832442943295945,
+      "median": 0.0,
+      "maxAbs": 0.313743117550382
+    },
+    "openingErrorDegrees": {
+      "mean": -0.007631647709252398,
+      "median": -0.005747416170834185,
+      "maxAbs": 0.1138512824911686
+    },
+    "precisionGateCount": 30,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 12,
+      "fits": 12,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 12,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.0001859430515674898,
+        "median": 0.00012299231218754078,
+        "maxAbs": 0.0007773808543514126
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00012235302013174928,
+        "median": 0.00010108601390646885,
+        "maxAbs": 0.0005260712036789184
+      },
+      "angleMaeDegrees": {
+        "mean": 0.016662292186317762,
+        "median": 0.008999559466431606,
+        "maxAbs": 0.11224238108759721
+      },
+      "maxOverflowOverL": {
+        "mean": 7.934166569137114e-05,
+        "median": 1.0241481202321712e-05,
+        "maxAbs": 0.000505486437778454
+      },
+      "openingErrorDegrees": {
+        "mean": -0.007631647709252398,
+        "median": -0.005747416170834185,
+        "maxAbs": 0.1138512824911686
+      },
+      "precisionGateCount": 30
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.00018594305156749728,
+      "maxVertexRmsOverL": 0.0007773808543514224,
+      "meanAngleMaeDegrees": 0.016662292186319178,
+      "maxAngleMaeDegrees": 0.11224238108758189,
+      "precisionGateCount": 30
+    },
+    "meanSweepOverflowOverL": 2.949793916492494e-05,
+    "maxSweepOverflowOverL": 0.00042010523104393793,
+    "optimization": {
+      "beforeLoss": 0.00011439776889773507,
+      "finalLoss": 1.0977173504721293e-07,
+      "maxAbsGradient": 2.360153922354026e-07,
+      "objectiveEvaluations": 4001,
+      "iterations": 2272,
+      "optimizationSeconds": 26.450325376001274,
+      "hitEvaluationBudget": true,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": false,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 0.00018594305156749728,
+        "maxVertexRmsOverL": 0.0007773808543514224,
+        "meanAngleMaeDegrees": 0.016662292186319178,
+        "maxAngleMaeDegrees": 0.11224238108758189,
+        "precisionGateCount": 30
+      }
+    }
+  },
+  "parameters-lbfgs-float64-cast32": {
+    "examples": 32,
+    "passes": 22,
+    "fits": 22,
+    "contactFree": 32,
+    "zeroFloating": 30,
+    "validZeroFloatingInSpreadBand": 22,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.00029830407283547116,
+      "median": 0.0002519923308288767,
+      "maxAbs": 0.0008254771595446317
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00016482522962074907,
+      "median": 0.00013184701076776297,
+      "maxAbs": 0.0007445926687332815
+    },
+    "angleMaeDegrees": {
+      "mean": 0.024690509215004486,
+      "median": 0.017979001998895683,
+      "maxAbs": 0.11490433812141987
+    },
+    "maxOverflowOverL": {
+      "mean": 0.012689711040868749,
+      "median": 0.0,
+      "maxAbs": 0.3139438797657744
+    },
+    "openingErrorDegrees": {
+      "mean": -0.012093246262530055,
+      "median": -0.01584946811200183,
+      "maxAbs": 0.11930539608002277
+    },
+    "precisionGateCount": 30,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 10,
+      "fits": 10,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 10,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.00029830407283547116,
+        "median": 0.0002519923308288767,
+        "maxAbs": 0.0008254771595446317
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00016482522962074907,
+        "median": 0.00013184701076776297,
+        "maxAbs": 0.0007445926687332815
+      },
+      "angleMaeDegrees": {
+        "mean": 0.024690509215004486,
+        "median": 0.017979001998895683,
+        "maxAbs": 0.11490433812141987
+      },
+      "maxOverflowOverL": {
+        "mean": 0.00016270894766417181,
+        "median": 0.00010902556834228657,
+        "maxAbs": 0.0005629379833790311
+      },
+      "openingErrorDegrees": {
+        "mean": -0.012093246262530055,
+        "median": -0.01584946811200183,
+        "maxAbs": 0.11930539608002277
+      },
+      "precisionGateCount": 30
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.00029830585117451847,
+      "maxVertexRmsOverL": 0.0008255065185949206,
+      "meanAngleMaeDegrees": 0.024690601974725723,
+      "maxAngleMaeDegrees": 0.11490228772163391,
+      "precisionGateCount": 30
+    },
+    "meanSweepOverflowOverL": 3.67684733519418e-05,
+    "maxSweepOverflowOverL": 0.0004104546800950126
+  },
+  "positions-adam-float32": {
+    "examples": 32,
+    "passes": 19,
+    "fits": 19,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 19,
+    "checkerDisagreements": 1,
+    "vertexRmsOverL": {
+      "mean": 0.0005529269339615548,
+      "median": 0.0002598877900535357,
+      "maxAbs": 0.002923344249531135
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00038471604606329197,
+      "median": 0.00016821441732967302,
+      "maxAbs": 0.002533445604965288
+    },
+    "angleMaeDegrees": {
+      "mean": 0.1999909551814194,
+      "median": 0.0338684499263735,
+      "maxAbs": 3.156988203525515
+    },
+    "maxOverflowOverL": {
+      "mean": 0.011442445573787938,
+      "median": 0.0,
+      "maxAbs": 0.3530114079321878
+    },
+    "openingErrorDegrees": {
+      "mean": 0.02326658712699059,
+      "median": -0.015044516325033896,
+      "maxAbs": 2.8866725564002707
+    },
+    "precisionGateCount": 23,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 8,
+      "fits": 8,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 8,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.0005529269339615548,
+        "median": 0.0002598877900535357,
+        "maxAbs": 0.002923344249531135
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00038471604606329197,
+        "median": 0.00016821441732967302,
+        "maxAbs": 0.002533445604965288
+      },
+      "angleMaeDegrees": {
+        "mean": 0.1999909551814194,
+        "median": 0.0338684499263735,
+        "maxAbs": 3.156988203525515
+      },
+      "maxOverflowOverL": {
+        "mean": 0.0006026922521907415,
+        "median": 8.183885695419574e-05,
+        "maxAbs": 0.004507407432631735
+      },
+      "openingErrorDegrees": {
+        "mean": 0.02326658712699059,
+        "median": -0.015044516325033896,
+        "maxAbs": 2.8866725564002707
+      },
+      "precisionGateCount": 23
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.0005529263871721923,
+      "maxVertexRmsOverL": 0.002923349617049098,
+      "meanAngleMaeDegrees": 0.199990913271904,
+      "maxAngleMaeDegrees": 3.156982898712158,
+      "precisionGateCount": 23
+    },
+    "meanSweepOverflowOverL": 0.0004193510512072495,
+    "maxSweepOverflowOverL": 0.0044526374548836956,
+    "optimization": {
+      "beforeLoss": 0.0004131745081394911,
+      "finalLoss": 8.927994713303633e-06,
+      "maxAbsGradient": 4.795909990207292e-05,
+      "objectiveEvaluations": 4000,
+      "iterations": 4000,
+      "optimizationSeconds": 12.271884584000873,
+      "hitEvaluationBudget": true,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": null,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 0.0005529263871721923,
+        "maxVertexRmsOverL": 0.002923349617049098,
+        "meanAngleMaeDegrees": 0.199990913271904,
+        "maxAngleMaeDegrees": 3.156982898712158,
+        "precisionGateCount": 23
+      }
+    }
+  },
+  "positions-adam-float64": {
+    "examples": 32,
+    "passes": 19,
+    "fits": 19,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 19,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.0006633732189077022,
+      "median": 0.0003045494583298264,
+      "maxAbs": 0.003733094054528411
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.00042498982450042406,
+      "median": 0.00017015878032182447,
+      "maxAbs": 0.0027122086127477135
+    },
+    "angleMaeDegrees": {
+      "mean": 0.23056531881586328,
+      "median": 0.037302611933895946,
+      "maxAbs": 3.4883690283188997
+    },
+    "maxOverflowOverL": {
+      "mean": 0.012335513809425247,
+      "median": 0.0,
+      "maxAbs": 0.3531004767950043
+    },
+    "openingErrorDegrees": {
+      "mean": 0.02235966389025501,
+      "median": -0.022973826257398855,
+      "maxAbs": 3.192486798572986
+    },
+    "precisionGateCount": 22,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 11,
+      "fits": 11,
+      "contactFree": 32,
+      "zeroFloating": 31,
+      "validZeroFloatingInSpreadBand": 11,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.0006633732189077022,
+        "median": 0.0003045494583298264,
+        "maxAbs": 0.003733094054528411
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.00042498982450042406,
+        "median": 0.00017015878032182447,
+        "maxAbs": 0.0027122086127477135
+      },
+      "angleMaeDegrees": {
+        "mean": 0.23056531881586328,
+        "median": 0.037302611933895946,
+        "maxAbs": 3.4883690283188997
+      },
+      "maxOverflowOverL": {
+        "mean": 0.000713812595473289,
+        "median": 4.8903098868892744e-05,
+        "maxAbs": 0.006086365132000291
+      },
+      "openingErrorDegrees": {
+        "mean": 0.02235966389025501,
+        "median": -0.022973826257398855,
+        "maxAbs": 3.192486798572986
+      },
+      "precisionGateCount": 22
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.0006633732189076991,
+      "maxVertexRmsOverL": 0.003733094054528409,
+      "meanAngleMaeDegrees": 0.23056531881586328,
+      "maxAngleMaeDegrees": 3.488369028318896,
+      "precisionGateCount": 22
+    },
+    "meanSweepOverflowOverL": 0.000486920500864862,
+    "maxSweepOverflowOverL": 0.004876262901112198,
+    "optimization": {
+      "beforeLoss": 0.0004134009824366086,
+      "finalLoss": 1.3208722538363265e-05,
+      "maxAbsGradient": 8.198010366330825e-05,
+      "objectiveEvaluations": 4000,
+      "iterations": 4000,
+      "optimizationSeconds": 13.386035923998861,
+      "hitEvaluationBudget": true,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": null,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 0.0006633732189076991,
+        "maxVertexRmsOverL": 0.003733094054528409,
+        "meanAngleMaeDegrees": 0.23056531881586328,
+        "maxAngleMaeDegrees": 3.488369028318896,
+        "precisionGateCount": 22
+      }
+    }
+  },
+  "positions-adam-float64-cast32": {
+    "examples": 32,
+    "passes": 16,
+    "fits": 16,
+    "contactFree": 32,
+    "zeroFloating": 31,
+    "validZeroFloatingInSpreadBand": 16,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.000742507149945518,
+      "median": 0.0003727535987618499,
+      "maxAbs": 0.0036907445907135347
+    },
+    "creasePositionRmsOverL": {
+      "mean": 0.0004591344654984983,
+      "median": 0.00017808027265075343,
+      "maxAbs": 0.0029950615757670294
+    },
+    "angleMaeDegrees": {
+      "mean": 0.23515032255091262,
+      "median": 0.042394262552249984,
+      "maxAbs": 3.4892760813235952
+    },
+    "maxOverflowOverL": {
+      "mean": 0.013256779936926633,
+      "median": 1.4220146390392615e-05,
+      "maxAbs": 0.35299706024932426
+    },
+    "openingErrorDegrees": {
+      "mean": 0.01507870219646934,
+      "median": -0.0339166462421332,
+      "maxAbs": 3.2027271986007406
+    },
+    "precisionGateCount": 21,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 12,
+      "fits": 12,
+      "contactFree": 32,
+      "zeroFloating": 31,
+      "validZeroFloatingInSpreadBand": 12,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.000742507149945518,
+        "median": 0.0003727535987618499,
+        "maxAbs": 0.0036907445907135347
+      },
+      "creasePositionRmsOverL": {
+        "mean": 0.0004591344654984983,
+        "median": 0.00017808027265075343,
+        "maxAbs": 0.0029950615757670294
+      },
+      "angleMaeDegrees": {
+        "mean": 0.23515032255091262,
+        "median": 0.042394262552249984,
+        "maxAbs": 3.4892760813235952
+      },
+      "maxOverflowOverL": {
+        "mean": 0.0007293707553852283,
+        "median": 0.00018882510038932603,
+        "maxAbs": 0.005926487366260052
+      },
+      "openingErrorDegrees": {
+        "mean": 0.01507870219646934,
+        "median": -0.0339166462421332,
+        "maxAbs": 3.2027271986007406
+      },
+      "precisionGateCount": 21
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.0007425072253681719,
+      "maxVertexRmsOverL": 0.0036907794419676065,
+      "meanAngleMaeDegrees": 0.23514996469020844,
+      "maxAngleMaeDegrees": 3.4892706871032715,
+      "precisionGateCount": 21
+    },
+    "meanSweepOverflowOverL": 0.0004919193679606428,
+    "maxSweepOverflowOverL": 0.004860051553405659
+  },
+  "positions-lbfgs-float32": {
+    "examples": 32,
+    "passes": 27,
+    "fits": 27,
+    "contactFree": 32,
+    "zeroFloating": 32,
+    "validZeroFloatingInSpreadBand": 27,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 9.781558043370454e-05,
+      "median": 3.9563593000472064e-05,
+      "maxAbs": 0.0006184216655683579
+    },
+    "creasePositionRmsOverL": {
+      "mean": 5.1823909204707556e-05,
+      "median": 3.4626695845482665e-05,
+      "maxAbs": 0.00025870085937899776
+    },
+    "angleMaeDegrees": {
+      "mean": 0.027981310850005325,
+      "median": 0.009023502469062805,
+      "maxAbs": 0.21946606039998073
+    },
+    "maxOverflowOverL": {
+      "mean": 4.027443827025208e-05,
+      "median": 0.0,
+      "maxAbs": 0.0007942005318645878
+    },
+    "openingErrorDegrees": {
+      "mean": -0.0037019791081642772,
+      "median": -0.004141753912023205,
+      "maxAbs": 0.19751411676404018
+    },
+    "precisionGateCount": 29,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 15,
+      "fits": 15,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 15,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 9.781558043370454e-05,
+        "median": 3.9563593000472064e-05,
+        "maxAbs": 0.0006184216655683579
+      },
+      "creasePositionRmsOverL": {
+        "mean": 5.1823909204707556e-05,
+        "median": 3.4626695845482665e-05,
+        "maxAbs": 0.00025870085937899776
+      },
+      "angleMaeDegrees": {
+        "mean": 0.027981310850005325,
+        "median": 0.009023502469062805,
+        "maxAbs": 0.21946606039998073
+      },
+      "maxOverflowOverL": {
+        "mean": 6.967786998244991e-05,
+        "median": 8.75546932742262e-06,
+        "maxAbs": 0.000887185420232773
+      },
+      "openingErrorDegrees": {
+        "mean": -0.0037019791081642772,
+        "median": -0.004141753912023205,
+        "maxAbs": 0.19751411676404018
+      },
+      "precisionGateCount": 29
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 9.781544213183224e-05,
+      "maxVertexRmsOverL": 0.0006184318335726857,
+      "meanAngleMaeDegrees": 0.027981603518128395,
+      "maxAngleMaeDegrees": 0.21946075558662415,
+      "precisionGateCount": 29
+    },
+    "meanSweepOverflowOverL": 4.092619901624353e-05,
+    "maxSweepOverflowOverL": 0.0007942005318645889,
+    "optimization": {
+      "beforeLoss": 0.0004131745081394911,
+      "finalLoss": 3.0523656846526137e-07,
+      "maxAbsGradient": 2.462528073010617e-06,
+      "objectiveEvaluations": 1522,
+      "iterations": 1296,
+      "optimizationSeconds": 13.438132199999018,
+      "hitEvaluationBudget": false,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": false,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 9.781544213183224e-05,
+        "maxVertexRmsOverL": 0.0006184318335726857,
+        "meanAngleMaeDegrees": 0.027981603518128395,
+        "maxAngleMaeDegrees": 0.21946075558662415,
+        "precisionGateCount": 29
+      }
+    }
+  },
+  "positions-lbfgs-float64": {
+    "examples": 32,
+    "passes": 29,
+    "fits": 29,
+    "contactFree": 32,
+    "zeroFloating": 32,
+    "validZeroFloatingInSpreadBand": 29,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 8.520059955480519e-05,
+      "median": 2.9897362610123255e-05,
+      "maxAbs": 0.0006136966590578778
+    },
+    "creasePositionRmsOverL": {
+      "mean": 4.3528996077162816e-05,
+      "median": 1.6032267874096092e-05,
+      "maxAbs": 0.0002472784031851628
+    },
+    "angleMaeDegrees": {
+      "mean": 0.028120969007177976,
+      "median": 0.006271999557501573,
+      "maxAbs": 0.31133582274489413
+    },
+    "maxOverflowOverL": {
+      "mean": 3.8112732532152196e-05,
+      "median": 0.0,
+      "maxAbs": 0.0007031478138236356
+    },
+    "openingErrorDegrees": {
+      "mean": 0.00020693423193662852,
+      "median": -0.004594527111350999,
+      "maxAbs": 0.286468858081804
+    },
+    "precisionGateCount": 29,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 18,
+      "fits": 18,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 18,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 8.520059955480519e-05,
+        "median": 2.9897362610123255e-05,
+        "maxAbs": 0.0006136966590578778
+      },
+      "creasePositionRmsOverL": {
+        "mean": 4.3528996077162816e-05,
+        "median": 1.6032267874096092e-05,
+        "maxAbs": 0.0002472784031851628
+      },
+      "angleMaeDegrees": {
+        "mean": 0.028120969007177976,
+        "median": 0.006271999557501573,
+        "maxAbs": 0.31133582274489413
+      },
+      "maxOverflowOverL": {
+        "mean": 5.767168655281404e-05,
+        "median": 0.0,
+        "maxAbs": 0.0007961252811848792
+      },
+      "openingErrorDegrees": {
+        "mean": 0.00020693423193662852,
+        "median": -0.004594527111350999,
+        "maxAbs": 0.286468858081804
+      },
+      "precisionGateCount": 29
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 8.520059955480696e-05,
+      "maxVertexRmsOverL": 0.0006136966590578807,
+      "meanAngleMaeDegrees": 0.028120969007175763,
+      "maxAngleMaeDegrees": 0.3113358227448818,
+      "precisionGateCount": 29
+    },
+    "meanSweepOverflowOverL": 3.958763264672884e-05,
+    "maxSweepOverflowOverL": 0.0007031478138236208,
+    "optimization": {
+      "beforeLoss": 0.0004134009824366086,
+      "finalLoss": 3.0429338742124133e-07,
+      "maxAbsGradient": 1.2848466061012762e-06,
+      "objectiveEvaluations": 4001,
+      "iterations": 2628,
+      "optimizationSeconds": 38.7195134370013,
+      "hitEvaluationBudget": true,
+      "hitIterationLimit": false,
+      "gradientToleranceMet": false,
+      "finalPrecision": {
+        "foldAccuracy": 1.0,
+        "meanVertexRmsOverL": 8.520059955480696e-05,
+        "maxVertexRmsOverL": 0.0006136966590578807,
+        "meanAngleMaeDegrees": 0.028120969007175763,
+        "maxAngleMaeDegrees": 0.3113358227448818,
+        "precisionGateCount": 29
+      }
+    }
+  },
+  "positions-lbfgs-float64-cast32": {
+    "examples": 32,
+    "passes": 19,
+    "fits": 19,
+    "contactFree": 32,
+    "zeroFloating": 32,
+    "validZeroFloatingInSpreadBand": 19,
+    "checkerDisagreements": 0,
+    "vertexRmsOverL": {
+      "mean": 0.00018903476415314628,
+      "median": 0.00015702412718138133,
+      "maxAbs": 0.0006019894652372247
+    },
+    "creasePositionRmsOverL": {
+      "mean": 8.305472438129237e-05,
+      "median": 6.992179306610587e-05,
+      "maxAbs": 0.0003710725344619419
+    },
+    "angleMaeDegrees": {
+      "mean": 0.040089341020208114,
+      "median": 0.019843730330443066,
+      "maxAbs": 0.2999494075774862
+    },
+    "maxOverflowOverL": {
+      "mean": 0.0017972957118115205,
+      "median": 0.0,
+      "maxAbs": 0.05552286311992381
+    },
+    "openingErrorDegrees": {
+      "mean": 0.01099872142075542,
+      "median": 0.006108441948889265,
+      "maxAbs": 0.28620743751523037
+    },
+    "precisionGateCount": 29,
+    "savedPlacement": {
+      "examples": 32,
+      "passes": 10,
+      "fits": 10,
+      "contactFree": 32,
+      "zeroFloating": 32,
+      "validZeroFloatingInSpreadBand": 10,
+      "checkerDisagreements": 0,
+      "vertexRmsOverL": {
+        "mean": 0.00018903476415314628,
+        "median": 0.00015702412718138133,
+        "maxAbs": 0.0006019894652372247
+      },
+      "creasePositionRmsOverL": {
+        "mean": 8.305472438129237e-05,
+        "median": 6.992179306610587e-05,
+        "maxAbs": 0.0003710725344619419
+      },
+      "angleMaeDegrees": {
+        "mean": 0.040089341020208114,
+        "median": 0.019843730330443066,
+        "maxAbs": 0.2999494075774862
+      },
+      "maxOverflowOverL": {
+        "mean": 0.00014741388188785288,
+        "median": 0.00011874570790228824,
+        "maxAbs": 0.000795437150714186
+      },
+      "openingErrorDegrees": {
+        "mean": 0.01099872142075542,
+        "median": 0.006108441948889265,
+        "maxAbs": 0.28620743751523037
+      },
+      "precisionGateCount": 29
+    },
+    "precision": {
+      "foldAccuracy": 1.0,
+      "meanVertexRmsOverL": 0.00018903343880083412,
+      "maxVertexRmsOverL": 0.0006019941647537053,
+      "meanAngleMaeDegrees": 0.0400899276137352,
+      "maxAngleMaeDegrees": 0.29994410276412964,
+      "precisionGateCount": 29
+    },
+    "meanSweepOverflowOverL": 6.309292883576768e-05,
+    "maxSweepOverflowOverL": 0.0007024629129518262
+  }
+}

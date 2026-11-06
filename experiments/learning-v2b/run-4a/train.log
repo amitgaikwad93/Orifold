@@ -1,0 +1,41 @@
+train examples 4359, validation 768, parameters 75554
+epoch 50: train 2.2243 val 2.8834 val pass 0.272 *
+epoch 100: train 1.9518 val 2.6302 val pass 0.276 *
+epoch 150: train 1.8109 val 2.4804 val pass 0.276 *
+epoch 200: train 1.8331 val 2.6068 val pass 0.281 *
+epoch 250: train 1.7796 val 2.5064 val pass 0.270
+epoch 300: train 1.2948 val 2.1379 val pass 0.335 *
+epoch 350: train 1.1790 val 1.9715 val pass 0.345 *
+epoch 400: train 1.1279 val 1.9787 val pass 0.309
+epoch 450: train 1.1558 val 2.0044 val pass 0.292
+epoch 500: train 1.0721 val 1.9331 val pass 0.337
+epoch 550: train 1.0547 val 1.9200 val pass 0.301
+epoch 600: train 1.0253 val 1.9055 val pass 0.306
+epoch 650: train 1.0198 val 1.9775 val pass 0.361 *
+epoch 700: train 1.0092 val 1.9599 val pass 0.350
+epoch 750: train 1.0231 val 2.0372 val pass 0.335
+epoch 800: train 0.9768 val 1.9257 val pass 0.293
+epoch 850: train 1.0648 val 2.0378 val pass 0.263
+epoch 900: train 0.9647 val 1.9715 val pass 0.327
+epoch 950: train 0.9485 val 1.9679 val pass 0.374 *
+epoch 1000: train 0.9472 val 1.9805 val pass 0.349
+epoch 1050: train 0.9513 val 2.0571 val pass 0.311
+epoch 1100: train 0.9381 val 2.0461 val pass 0.366
+epoch 1150: train 0.9300 val 2.0113 val pass 0.305
+epoch 1200: train 0.9451 val 2.0698 val pass 0.355
+epoch 1250: train 0.9261 val 2.0361 val pass 0.329
+epoch 1300: train 0.9031 val 2.0343 val pass 0.350
+epoch 1350: train 0.9616 val 2.2251 val pass 0.383 *
+epoch 1400: train 0.8763 val 2.0886 val pass 0.294
+epoch 1450: train 0.9006 val 2.1185 val pass 0.289
+epoch 1500: train 0.8736 val 2.1403 val pass 0.309
+epoch 1550: train 0.8315 val 2.1082 val pass 0.354
+epoch 1600: train 0.8733 val 2.1365 val pass 0.333
+epoch 1650: train 0.8718 val 2.1748 val pass 0.293
+epoch 1700: train 0.8625 val 2.2141 val pass 0.288
+epoch 1750: train 0.8206 val 2.0787 val pass 0.297
+epoch 1800: train 0.8197 val 2.1126 val pass 0.357
+epoch 1850: train 0.9644 val 2.2339 val pass 0.323
+epoch 1900: train 0.8473 val 2.1686 val pass 0.305
+epoch 1950: train 0.7965 val 2.1637 val pass 0.335
+selected epoch 1350: validation pass 0.383

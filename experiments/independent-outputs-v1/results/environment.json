@@ -1,0 +1,11 @@
+{
+  "python": "3.12.14",
+  "torch": "2.9.1+cpu",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "threads": 1,
+  "sourceCommit": "5c177792f14536631824649bc516c062191fcfb2",
+  "configSha256": "131d2bc0e182a98bc9092d21b8d4e04c76528f487817aba3fbd48fa105d937ef",
+  "manifestSha256": "d93b66dd431dafea3443edccf05ed8844520e31406348f74249f83fc23ffe1e7",
+  "initialCheckpointSha256": "35bed23c8b09cef7b29db2ddaea31f43464ba2833d6c8dad35590868fcc8804f"
+}

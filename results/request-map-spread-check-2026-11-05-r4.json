@@ -1,0 +1,3700 @@
+{
+  "map": "artifacts/request-map-v4/map.json",
+  "summary": {
+    "cellBudgetsChecked": 180,
+    "freeFoundValid": 176,
+    "referenceWiderOrEqual": 15,
+    "freeWiderWithinBand": 115,
+    "freeWiderBeyondBand": 46,
+    "seeds": 3,
+    "elapsedMs": 278267
+  },
+  "records": [
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.02,
+      "budget": 8,
+      "referenceSpread": 2.5195312500000284,
+      "freeSpread": null,
+      "beyondBand": false,
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.02,
+      "budget": 9,
+      "referenceSpread": 2.5195312500000284,
+      "freeSpread": null,
+      "beyondBand": false,
+      "example": null
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.02,
+      "budget": 10,
+      "referenceSpread": 2.5195312500000284,
+      "freeSpread": null,
+      "beyondBand": false,
+      "example": null
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.02,
+      "budget": 1,
+      "referenceSpread": 2.239843750000034,
+      "freeSpread": 2.2905719233048387,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.95999999999684,
+          49.04000000000316
+        ],
+        "width": 10,
+        "angles": [
+          177.70942807669516
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.02,
+      "budget": 2,
+      "referenceSpread": 4.419531250000006,
+      "freeSpread": 2.1886499664308587,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.95999940291155,
+          44.04000059708845,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          177.81135003356914,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.02,
+      "budget": 3,
+      "referenceSpread": 10.139843750000011,
+      "freeSpread": 3.1527931422640165,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.914276787421834,
+          28.575094872565483,
+          5.350601207818995,
+          15.160027132193699
+        ],
+        "width": 10,
+        "angles": [
+          176.84720685773598,
+          1,
+          176.73530714242693
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.02,
+      "budget": 1,
+      "referenceSpread": 11.3984375,
+      "freeSpread": 11.489420565090512,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          90.15999999999764,
+          9.840000000002377
+        ],
+        "width": 10,
+        "angles": [
+          168.5105794349095
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.02,
+      "budget": 2,
+      "referenceSpread": 18.775781250000023,
+      "freeSpread": 10.803582802646417,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          90,
+          5,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          169.19641719735358,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.02,
+      "budget": 3,
+      "referenceSpread": 18.775781250000023,
+      "freeSpread": 22.01736268419873,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          84.71128191670745,
+          5.115706534133879,
+          5.094990333325864,
+          5.078021215832818
+        ],
+        "width": 10,
+        "angles": [
+          157.47842970562496,
+          157.98263731580127,
+          1.0033022312599045
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.06,
+      "budget": 2,
+      "referenceSpread": 10.139843750000011,
+      "freeSpread": 10.38227890761192,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          33.728440358398004,
+          32.62736793829078,
+          33.644191703311215
+        ],
+        "width": 10,
+        "angles": [
+          169.61771827139304,
+          169.61772109238808
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.06,
+      "budget": 3,
+      "referenceSpread": 10.139843750000011,
+      "freeSpread": 9.641189703706772,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          29.7503484739626,
+          30.126392481880814,
+          35.11967086364159,
+          5.003588180514996
+        ],
+        "width": 10,
+        "angles": [
+          169.32546597613333,
+          170.35881029629323,
+          170.30590365803678
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.06,
+      "budget": 4,
+      "referenceSpread": 10.139843750000011,
+      "freeSpread": 13.140818080568096,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          25.074116309256382,
+          25.195517046457987,
+          28.099317133048,
+          5.551452239098713,
+          16.079597272138912
+        ],
+        "width": 10,
+        "angles": [
+          166.71729720994142,
+          166.8591819194319,
+          1.5501858117286513,
+          166.3505551490562
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.06,
+      "budget": 1,
+      "referenceSpread": 13.216406250000006,
+      "freeSpread": 13.321065539100516,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          74.47999999999672,
+          25.52000000000329
+        ],
+        "width": 10,
+        "angles": [
+          166.67893446089948
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.06,
+      "budget": 2,
+      "referenceSpread": 25.69921875,
+      "freeSpread": 13.125471148722994,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          74.47999999317359,
+          20.520000006826404,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          166.874528851277,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.06,
+      "budget": 3,
+      "referenceSpread": 30.55937499999999,
+      "freeSpread": 35.51679623835952,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          65.94011954367114,
+          5,
+          5,
+          24.05988045632887
+        ],
+        "width": 10,
+        "angles": [
+          144.48320376164048,
+          1,
+          41.67188413201999
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.1,
+      "budget": 4,
+      "referenceSpread": 2.657031250000017,
+      "freeSpread": 7.9847745511855805,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          19.52524504943227,
+          20.566806854856534,
+          19.630321872291685,
+          20.521353185042727,
+          19.756273038376793
+        ],
+        "width": 10,
+        "angles": [
+          160.92034230778856,
+          172.01507746414592,
+          172.01522544881442,
+          168.3028460465268
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.1,
+      "budget": 5,
+      "referenceSpread": 11.279687499999994,
+      "freeSpread": 11.04356577739253,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          17.911129414150057,
+          17.956726552605396,
+          18.017418127151135,
+          17.240809802813136,
+          17.763155629779604,
+          11.11076047350067
+        ],
+        "width": 10,
+        "angles": [
+          168.24578625070274,
+          166.6562514980348,
+          168.95643422260747,
+          167.4399761880008,
+          168.56847383113927
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.1,
+      "budget": 6,
+      "referenceSpread": 13.287500000000023,
+      "freeSpread": 12.42679746087697,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          18.508178340627246,
+          18.94548103951393,
+          16.662082715922498,
+          16.87554762518463,
+          13.604898684786129,
+          5.563024836401648,
+          9.840786757563915
+        ],
+        "width": 10,
+        "angles": [
+          166.8695303228174,
+          167.32140478771157,
+          164.6475400640826,
+          167.57320253912303,
+          164.46230853581756,
+          167.07533887408178
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.1,
+      "budget": 1,
+      "referenceSpread": 13.216406250000006,
+      "freeSpread": 13.760510712637,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          58.7999999999927,
+          41.2000000000073
+        ],
+        "width": 10,
+        "angles": [
+          166.239489287363
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.1,
+      "budget": 2,
+      "referenceSpread": 26.3984375,
+      "freeSpread": 26.753316962300374,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          46.54464256002989,
+          21.765623274741515,
+          31.689734165228593
+        ],
+        "width": 10,
+        "angles": [
+          153.24668303769963,
+          153.2441164560621
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.1,
+      "budget": 3,
+      "referenceSpread": 78.18203125,
+      "freeSpread": 78.03240834847516,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.19325711175212,
+          5,
+          5,
+          39.80674288824789
+        ],
+        "width": 10,
+        "angles": [
+          101.96759165152484,
+          1,
+          83.56007856166757
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.1,
+      "budget": 1,
+      "referenceSpread": 155.8390625,
+      "freeSpread": 156.93075869269074,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          74.99000000003082,
+          25.009999999969185
+        ],
+        "width": 10,
+        "angles": [
+          23.069241307309266
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.1,
+      "budget": 2,
+      "referenceSpread": 155.8390625,
+      "freeSpread": 156.73774444088235,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          74.98237823885255,
+          20.017621761147446,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          23.262255559117637,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.1,
+      "budget": 3,
+      "referenceSpread": 155.8390625,
+      "freeSpread": 166.48864511140374,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          72.78719163361859,
+          5.003285572946238,
+          5.006359646896185,
+          17.20316314653899
+        ],
+        "width": 10,
+        "angles": [
+          13.511354888596266,
+          1.005343415503666,
+          13.50769811685229
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.14,
+      "budget": 2,
+      "referenceSpread": 24.279687499999994,
+      "freeSpread": 27.11858313314704,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          38.55148604524691,
+          30.095219712889254,
+          31.35329424186384
+        ],
+        "width": 10,
+        "angles": [
+          152.88141686685296,
+          152.88110979009898
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.14,
+      "budget": 3,
+      "referenceSpread": 46.15312499999999,
+      "freeSpread": 26.975467673826415,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          33.03188628827626,
+          30.100632705319878,
+          31.860300113692524,
+          5.007180892711334
+        ],
+        "width": 10,
+        "angles": [
+          152.89900296526872,
+          153.02453232617358,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.14,
+      "budget": 4,
+      "referenceSpread": 46.15312499999999,
+      "freeSpread": 38.172783911092324,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          22.8298702825079,
+          21.688662108762074,
+          29.996072789261824,
+          5.258873460340932,
+          20.226521359127265
+        ],
+        "width": 10,
+        "angles": [
+          141.5923072199233,
+          141.82435100288785,
+          1.2845679957037184,
+          141.82721608890768
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.14,
+      "budget": 1,
+      "referenceSpread": 50.83906249999998,
+      "freeSpread": 50.89742838306023,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          82.31999999999896,
+          17.680000000001055
+        ],
+        "width": 10,
+        "angles": [
+          129.10257161693977
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.14,
+      "budget": 2,
+      "referenceSpread": 73.95,
+      "freeSpread": 75.61535338124231,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          76.7315414353399,
+          14.16329829215891,
+          9.10516027250118
+        ],
+        "width": 10,
+        "angles": [
+          104.38086550642785,
+          104.38464661875769
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.14,
+      "budget": 3,
+      "referenceSpread": 91.8390625,
+      "freeSpread": 101.41043843674197,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          80.25579273832581,
+          5.000072990226585,
+          5,
+          9.74413427144761
+        ],
+        "width": 10,
+        "angles": [
+          78.58956156325803,
+          1,
+          78.58941503155015
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.18,
+      "budget": 3,
+      "referenceSpread": 20.839062499999983,
+      "freeSpread": 22.896296100037006,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          27.403220679273105,
+          29.718384241071,
+          27.347303425626368,
+          15.531091654029527
+        ],
+        "width": 10,
+        "angles": [
+          157.103703899963,
+          157.07578452691922,
+          157.06754558365373
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.18,
+      "budget": 4,
+      "referenceSpread": 26.53828125000001,
+      "freeSpread": 26.774700770706488,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          24.15420892835161,
+          26.4903088412987,
+          22.640711623614013,
+          12.473849787104948,
+          14.240920819630729
+        ],
+        "width": 10,
+        "angles": [
+          153.14628264746568,
+          153.2252992292935,
+          152.9796044986763,
+          153.05275767750297
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.18,
+      "budget": 5,
+      "referenceSpread": 26.53828125000001,
+      "freeSpread": 31.967348474989507,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          21.584070964537517,
+          21.321791927163787,
+          20.31400975320406,
+          5.004335438734634,
+          5.014684298164536,
+          26.761107618195467
+        ],
+        "width": 10,
+        "angles": [
+          147.5925933410511,
+          148.0326515250105,
+          147.757576076098,
+          109.69484616495994,
+          146.73621311312993
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.18,
+      "budget": 1,
+      "referenceSpread": 31.817968750000006,
+      "freeSpread": 31.92285737509775,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          66.63999999999976,
+          33.36000000000025
+        ],
+        "width": 10,
+        "angles": [
+          148.07714262490225
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.18,
+      "budget": 2,
+      "referenceSpread": 53.6015625,
+      "freeSpread": 55.72883987900494,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          63.670843519274115,
+          21.34334355387096,
+          14.98581292685493
+        ],
+        "width": 10,
+        "angles": [
+          124.27116012099506,
+          124.2701280074075
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.18,
+      "budget": 3,
+      "referenceSpread": 94.37734375,
+      "freeSpread": 98.5719365486212,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          65.06317983803999,
+          5.000001536449221,
+          5,
+          24.936818625510803
+        ],
+        "width": 10,
+        "angles": [
+          81.42804147920138,
+          1,
+          81.4280634513788
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.22,
+      "budget": 4,
+      "referenceSpread": 1.2796874999999943,
+      "freeSpread": 4.671156296122547,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          9.21507388803669,
+          23.365416462308293,
+          24.410249850114628,
+          23.222277848679777,
+          19.786981950860614
+        ],
+        "width": 10,
+        "angles": [
+          113.2031330712743,
+          175.12418025993048,
+          174.2795873807249,
+          175.32884370387745
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.22,
+      "budget": 5,
+      "referenceSpread": 10.279687499999994,
+      "freeSpread": 10.04473738950793,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          20.069912513945198,
+          20.87783887759417,
+          18.840990377937455,
+          17.066617661623003,
+          18.144640568900172
+        ],
+        "width": 10,
+        "angles": [
+          102.12045564198202,
+          168.93438218391634,
+          169.95526261049207,
+          169.22299200743475,
+          159.7739203161098
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.22,
+      "budget": 6,
+      "referenceSpread": 9.817968750000006,
+      "freeSpread": null,
+      "beyondBand": false,
+      "example": null
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.22,
+      "budget": 1,
+      "referenceSpread": 25.51953125000003,
+      "freeSpread": 26.08098474414632,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.959999999999475,
+          49.04000000000053
+        ],
+        "width": 10,
+        "angles": [
+          153.91901525585368
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.22,
+      "budget": 2,
+      "referenceSpread": 43.076562499999994,
+      "freeSpread": 47.462257909852894,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          45.99133296696094,
+          29.25910821985369,
+          24.749558813185363
+        ],
+        "width": 10,
+        "angles": [
+          132.5377420901471,
+          132.53714566600536
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.22,
+      "budget": 3,
+      "referenceSpread": 96.89453124999999,
+      "freeSpread": 97.87115051152037,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          49.503573772433136,
+          5.0007160744930506,
+          5,
+          40.495710153073816
+        ],
+        "width": 10,
+        "angles": [
+          82.12821628827842,
+          1,
+          82.12884948847963
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.22,
+      "budget": 1,
+      "referenceSpread": 130.41953125,
+      "freeSpread": 130.936017501825,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          71.46040650415722,
+          28.53959349584278
+        ],
+        "width": 10,
+        "angles": [
+          49.063982498174994
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.22,
+      "budget": 2,
+      "referenceSpread": 128.6359375,
+      "freeSpread": 130.76357188234044,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          71.45859371152044,
+          23.54112604244836,
+          5.0002802460312035
+        ],
+        "width": 10,
+        "angles": [
+          49.23642811765954,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.22,
+      "budget": 3,
+      "referenceSpread": 128.6359375,
+      "freeSpread": 152.28866968766135,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          69.1160208949069,
+          5.0003506438998935,
+          5,
+          20.883628461193222
+        ],
+        "width": 10,
+        "angles": [
+          27.71133031233864,
+          1.0012742502460372,
+          27.710755900758254
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.26,
+      "budget": 2,
+      "referenceSpread": 42.09765625,
+      "freeSpread": 42.97801527574126,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          31.278631912582206,
+          37.37558541617905,
+          31.345782671238737
+        ],
+        "width": 10,
+        "angles": [
+          137.02198472425874,
+          137.0218259122785
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.26,
+      "budget": 3,
+      "referenceSpread": 50.55937499999999,
+      "freeSpread": 42.82680914362035,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          35.13462672866607,
+          37.350357356054815,
+          22.51501591527912,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          137.160951892732,
+          137.17319085637965,
+          1.0074955111776347
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.26,
+      "budget": 4,
+      "referenceSpread": 50.55937499999999,
+      "freeSpread": 66.00269462431764,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          15.470026740750559,
+          27.399288166252678,
+          20.91729796663974,
+          9.360358912046232,
+          26.853028214310793
+        ],
+        "width": 10,
+        "angles": [
+          113.84781076556824,
+          113.99730537568236,
+          1.9003026324916723,
+          111.00196595500469
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.26,
+      "budget": 1,
+      "referenceSpread": 86.6859375,
+      "freeSpread": 86.79163305527449,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          74.47999999999851,
+          25.52000000000149
+        ],
+        "width": 10,
+        "angles": [
+          93.20836694472551
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.26,
+      "budget": 2,
+      "referenceSpread": 89.1953125,
+      "freeSpread": 89.906313443346,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          68.27194143650117,
+          25.47937925824367,
+          6.248679305255157
+        ],
+        "width": 10,
+        "angles": [
+          90.093686556654,
+          90.09096596648592
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.26,
+      "budget": 3,
+      "referenceSpread": 99.55156249999999,
+      "freeSpread": 117.25641836699376,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          69.8230106775462,
+          5,
+          5,
+          20.176989322453814
+        ],
+        "width": 10,
+        "angles": [
+          62.7435412896413,
+          1.0000476678511192,
+          62.743581633006244
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.3,
+      "budget": 3,
+      "referenceSpread": 11.678124999999994,
+      "freeSpread": 23.242773019209125,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5.33872268215988,
+          29.71527414561315,
+          35.18102761308,
+          29.76497555914698
+        ],
+        "width": 10,
+        "angles": [
+          100.45984843564806,
+          156.75722698079088,
+          155.44115740970346
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.3,
+      "budget": 4,
+      "referenceSpread": 21.817968750000006,
+      "freeSpread": 36.77500485895817,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          16.048486736331252,
+          23.33937985097572,
+          19.062297805333266,
+          23.703043962223564,
+          17.84679164513619
+        ],
+        "width": 10,
+        "angles": [
+          142.3247499488675,
+          142.98087173181773,
+          143.22499514104183,
+          140.77047098227203
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.3,
+      "budget": 5,
+      "referenceSpread": 29.055468750000017,
+      "freeSpread": 28.71959233144821,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          19.1802953327064,
+          22.94420588720542,
+          18.00892254466209,
+          19.124852038856382,
+          15.741724196569706,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          141.5319250421178,
+          148.06483752165417,
+          151.2804076685518,
+          144.38321429413185,
+          121.1183682969567
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.3,
+      "budget": 1,
+      "referenceSpread": 45.525000000000006,
+      "freeSpread": 45.52794603416925,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          58.79999999999958,
+          41.20000000000043
+        ],
+        "width": 10,
+        "angles": [
+          134.47205396583075
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.3,
+      "budget": 2,
+      "referenceSpread": 69.33515625,
+      "freeSpread": 71.01790873577785,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          52.98335886361835,
+          31.088194387634697,
+          15.928446748746955
+        ],
+        "width": 10,
+        "angles": [
+          108.98209126422215,
+          108.97931264588101
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.3,
+      "budget": 3,
+      "referenceSpread": 102.37734375,
+      "freeSpread": 107.23830866151279,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          55.75341081067867,
+          5,
+          5,
+          34.246589189321334
+        ],
+        "width": 10,
+        "angles": [
+          72.76169133848721,
+          1,
+          72.76166631755837
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.3,
+      "budget": 1,
+      "referenceSpread": 163.728125,
+      "freeSpread": 168.22242974641694,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          11.777570253583075
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.3,
+      "budget": 2,
+      "referenceSpread": 163.728125,
+      "freeSpread": 168.17188748583763,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          11.828112514162369,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.3,
+      "budget": 3,
+      "referenceSpread": 163.728125,
+      "freeSpread": 173.36393199211886,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          6.636068007881141,
+          1,
+          6.636068007558117
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.34,
+      "budget": 2,
+      "referenceSpread": 60.034375,
+      "freeSpread": 60.72207028707939,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          38.19081723153811,
+          38.199301692981116,
+          23.609881075480775
+        ],
+        "width": 10,
+        "angles": [
+          119.27714354794531,
+          119.27792971292061
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.34,
+      "budget": 3,
+      "referenceSpread": 98.4328125,
+      "freeSpread": 103.50423702595934,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          40.53459695252376,
+          5.589428311635429,
+          5.083560863514762,
+          48.79241387232604
+        ],
+        "width": 10,
+        "angles": [
+          76.49576297404066,
+          1.0053892432371343,
+          76.44500622599858
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.34,
+      "budget": 4,
+      "referenceSpread": 98.4328125,
+      "freeSpread": 102.92716813642387,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          40.41781887035149,
+          5.813776100566773,
+          5.546648692851855,
+          39.66012334378852,
+          8.56163299244136
+        ],
+        "width": 10,
+        "angles": [
+          77.07283186357613,
+          1.105577023135892,
+          76.9880888344472,
+          1.5180605251889066
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.34,
+      "budget": 1,
+      "referenceSpread": 120.97890625,
+      "freeSpread": 124.09806194411178,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          59.762307692378236,
+          40.23769230762177
+        ],
+        "width": 10,
+        "angles": [
+          55.90193805588823
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.34,
+      "budget": 2,
+      "referenceSpread": 118,
+      "freeSpread": 123.97559724162204,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          59.76079087592723,
+          35.2392062513846,
+          5.000002872688171
+        ],
+        "width": 10,
+        "angles": [
+          56.02440275837795,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.34,
+      "budget": 3,
+      "referenceSpread": 118,
+      "freeSpread": 149.51258787574506,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          57.28828180636598,
+          5.000635320094156,
+          5.000087244604465,
+          32.71099562893541
+        ],
+        "width": 10,
+        "angles": [
+          30.486774802816537,
+          1.0022614665650649,
+          30.48741212425494
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.38,
+      "budget": 2,
+      "referenceSpread": 52.7625,
+      "freeSpread": 54.33483530323315,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          27.136515398543043,
+          45.83606502037361,
+          27.027419581083343
+        ],
+        "width": 10,
+        "angles": [
+          125.66488594420665,
+          125.66516469676685
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.38,
+      "budget": 3,
+      "referenceSpread": 52.7625,
+      "freeSpread": 52.25072262983112,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          27.127196936439386,
+          42.02022117315765,
+          25.852581890402966,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          127.73642588562493,
+          127.74927737016888,
+          127.37839928950672
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.38,
+      "budget": 4,
+      "referenceSpread": 52.7625,
+      "freeSpread": 73.18453055806037,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          9.651226989625847,
+          32.94478834095717,
+          7.580925434476835,
+          13.278672383937959,
+          36.544386851002194
+        ],
+        "width": 10,
+        "angles": [
+          106.81546944193963,
+          104.71581446669515,
+          4.275679643430914,
+          102.27843621340426
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.38,
+      "budget": 1,
+      "referenceSpread": 94.82578125,
+      "freeSpread": 96.29133754340232,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          62.53436450839727,
+          37.46563549160274
+        ],
+        "width": 10,
+        "angles": [
+          83.70866245659768
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.38,
+      "budget": 2,
+      "referenceSpread": 89.93906249999999,
+      "freeSpread": 96.27717490528215,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          36.103552875373516,
+          37.46429168032835,
+          26.43215544429813
+        ],
+        "width": 10,
+        "angles": [
+          83.72226943159083,
+          83.72282509471785
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.38,
+      "budget": 3,
+      "referenceSpread": 108.53046875,
+      "freeSpread": 130.91669204035637,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          60.02467447877897,
+          5.000137830457072,
+          5.000222396192424,
+          29.974965294571543
+        ],
+        "width": 10,
+        "angles": [
+          49.083307959643626,
+          1.0001653575444442,
+          49.0828579488645
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.42,
+      "budget": 3,
+      "referenceSpread": 12.237500000000011,
+      "freeSpread": 17.837585832015833,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5.012244485343905,
+          41.45638280137148,
+          28.009290364813005,
+          25.52208234847161
+        ],
+        "width": 10,
+        "angles": [
+          96.88318625914478,
+          162.16241416798417,
+          160.04353802912036
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.42,
+      "budget": 4,
+      "referenceSpread": 13.076562499999994,
+      "freeSpread": 26.533005628547983,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          10.729372532362518,
+          15.376290162108955,
+          12.982699126706216,
+          25.49894099925932,
+          35.41269717956298
+        ],
+        "width": 10,
+        "angles": [
+          90.23076339935645,
+          1,
+          153.32191327591013,
+          153.46699437145202
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.42,
+      "budget": 5,
+      "referenceSpread": 13.076562499999994,
+      "freeSpread": 21.9166916683767,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          30.37783553603927,
+          20.93704893695151,
+          18.816858877985442,
+          9.828052631373449,
+          15.040204017650321
+        ],
+        "width": 10,
+        "angles": [
+          97.58767199305922,
+          158.0833083316233,
+          154.1665402447512,
+          10.22898744741187,
+          154.6290605062954
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.42,
+      "budget": 1,
+      "referenceSpread": 55.94453125,
+      "freeSpread": 57.06783951610166,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.95999999999704,
+          49.04000000000296
+        ],
+        "width": 10,
+        "angles": [
+          122.93216048389834
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.42,
+      "budget": 2,
+      "referenceSpread": 78.77578125,
+      "freeSpread": 80.01053430358,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          47.46157841618789,
+          41.79087353046927,
+          10.747548053342838
+        ],
+        "width": 10,
+        "angles": [
+          99.98946569642,
+          99.98104995889129
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.42,
+      "budget": 3,
+      "referenceSpread": 112.09765625,
+      "freeSpread": 113.49032091575624,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          46.89421265738853,
+          5.000012091734874,
+          5.000091875832406,
+          43.105683375044194
+        ],
+        "width": 10,
+        "angles": [
+          66.50967908424376,
+          1.0000097651512634,
+          66.50961968149228
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.42,
+      "budget": 1,
+      "referenceSpread": 143.41953125,
+      "freeSpread": 153.10963989411516,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          8.995365853898532,
+          91.00463414610147
+        ],
+        "width": 10,
+        "angles": [
+          26.89036010588484
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.42,
+      "budget": 2,
+      "referenceSpread": 143.41953125,
+      "freeSpread": 153.05659894026516,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          8.98871104811012,
+          86.01128895188988,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          26.94340105973484,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.42,
+      "budget": 3,
+      "referenceSpread": 151.11875,
+      "freeSpread": 165.636452068113,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          6.685467596270563,
+          5,
+          5.073437208450791,
+          83.24109519527866
+        ],
+        "width": 10,
+        "angles": [
+          14.363547931887004,
+          1,
+          14.357210708981096
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.46,
+      "budget": 2,
+      "referenceSpread": 68.74140624999998,
+      "freeSpread": 69.71609347347277,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          25.242818774169223,
+          48.05963570743308,
+          26.697545518397693
+        ],
+        "width": 10,
+        "angles": [
+          110.28390652652723,
+          110.28251799975357
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.46,
+      "budget": 3,
+      "referenceSpread": 94.51718749999999,
+      "freeSpread": 99.13398028963448,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          29.85310424100448,
+          24.757957694250578,
+          7.9003057266194,
+          37.48863233812555
+        ],
+        "width": 10,
+        "angles": [
+          80.86601971036552,
+          1.406742221607498,
+          80.5996718410384
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.46,
+      "budget": 4,
+      "referenceSpread": 94.51718749999999,
+      "freeSpread": 103.91298895857615,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5.023708259314899,
+          42.26570513683791,
+          5.054162769352881,
+          5.049182316412329,
+          42.607241518081985
+        ],
+        "width": 10,
+        "angles": [
+          61.50931363930978,
+          76.06622167015124,
+          1,
+          76.08701104142385
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.46,
+      "budget": 1,
+      "referenceSpread": 119.2796875,
+      "freeSpread": 120.97119129169837,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          47.42404388718073,
+          52.57595611281928
+        ],
+        "width": 10,
+        "angles": [
+          59.02880870830163
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.46,
+      "budget": 2,
+      "referenceSpread": 119.2796875,
+      "freeSpread": 120.87742113485578,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          47.42262458724784,
+          47.577375412752154,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          59.12257886514422,
+          1.0000173857390957
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.46,
+      "budget": 3,
+      "referenceSpread": 119.2796875,
+      "freeSpread": 148.3918927854727,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          44.88833975698407,
+          5,
+          5,
+          45.11166024301593
+        ],
+        "width": 10,
+        "angles": [
+          31.608107214527294,
+          1.0011144808554135,
+          31.607043727332535
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.5,
+      "budget": 2,
+      "referenceSpread": 17.796875,
+      "freeSpread": 19.543297087351448,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          49.254413535953006,
+          45.74558646404699
+        ],
+        "width": 10,
+        "angles": [
+          95.82629420296949,
+          160.45670291264855
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.5,
+      "budget": 3,
+      "referenceSpread": 50,
+      "freeSpread": 46.19690021665693,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          19.560965789411917,
+          40.64188922351041,
+          19.676681038003146,
+          20.12046394907453
+        ],
+        "width": 10,
+        "angles": [
+          118.7762037101327,
+          133.80309978334307,
+          130.71827097339263
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.5,
+      "budget": 4,
+      "referenceSpread": 50,
+      "freeSpread": 61.840572065627626,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          13.667723121066121,
+          28.11707918291781,
+          15.769511759483285,
+          26.592656526910886,
+          15.853029409621906
+        ],
+        "width": 10,
+        "angles": [
+          117.83160128600905,
+          116.83407264573516,
+          118.15942793437237,
+          117.15556104459854
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.5,
+      "budget": 1,
+      "referenceSpread": 99.58046875,
+      "freeSpread": 99.88465820948979,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.261650485451106,
+          49.738349514548894
+        ],
+        "width": 10,
+        "angles": [
+          80.11534179051021
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.5,
+      "budget": 2,
+      "referenceSpread": 97.59375,
+      "freeSpread": 99.78507593441938,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          50.26082354793887,
+          44.73917645206113,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          80.21492406558062,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.5,
+      "budget": 3,
+      "referenceSpread": 121.53828125,
+      "freeSpread": 137.1008706871267,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          47.568250501990825,
+          5,
+          5,
+          42.43174949800918
+        ],
+        "width": 10,
+        "angles": [
+          42.898779195007386,
+          1,
+          42.89912931287331
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.5,
+      "budget": 1,
+      "referenceSpread": 163.69921875,
+      "freeSpread": 168.22242974641694,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          11.77757025358306
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.5,
+      "budget": 2,
+      "referenceSpread": 163.69921875,
+      "freeSpread": 168.17188748583763,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          11.828112514162372,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.5,
+      "budget": 3,
+      "referenceSpread": 163.69921875,
+      "freeSpread": 173.36393199171715,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          6.63606800828285,
+          1,
+          6.636068007570832
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.54,
+      "budget": 1,
+      "referenceSpread": 68.21875,
+      "freeSpread": 68.49408812808628,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          43.119999999998626,
+          56.880000000001374
+        ],
+        "width": 10,
+        "angles": [
+          111.50591187191372
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.54,
+      "budget": 2,
+      "referenceSpread": 85.559375,
+      "freeSpread": 85.86668846704201,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          40.60487291018431,
+          53.056794908658745,
+          6.338332181156943
+        ],
+        "width": 10,
+        "angles": [
+          94.13331153295799,
+          94.1244806431702
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.54,
+      "budget": 3,
+      "referenceSpread": 105.17421875,
+      "freeSpread": 118.80761127001857,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          38.224950831081856,
+          5.000180594658972,
+          5,
+          51.77486857425918
+        ],
+        "width": 10,
+        "angles": [
+          61.192084542584006,
+          1,
+          61.19238872998143
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.54,
+      "budget": 1,
+      "referenceSpread": 130.23984374999998,
+      "freeSpread": 143.05216659713406,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          11.959592760281506,
+          88.0404072397185
+        ],
+        "width": 10,
+        "angles": [
+          36.94783340286593
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.54,
+      "budget": 2,
+      "referenceSpread": 130.23984374999998,
+      "freeSpread": 143.05121266658753,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          6.962726414453389,
+          88.03727358554661,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          36.94878733341246,
+          36.944860285709105
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.54,
+      "budget": 3,
+      "referenceSpread": 141.25859375,
+      "freeSpread": 160.46026976001048,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          9.497105294279553,
+          5,
+          5,
+          80.50289470572045
+        ],
+        "width": 10,
+        "angles": [
+          19.539730239989538,
+          1.0009448189827648,
+          19.538830266625663
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.58,
+      "budget": 2,
+      "referenceSpread": 75.559375,
+      "freeSpread": 76.14519625751237,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          23.061056992152963,
+          58.5415559784392,
+          18.397387029407845
+        ],
+        "width": 10,
+        "angles": [
+          103.85480374248763,
+          103.85256979810228
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.58,
+      "budget": 3,
+      "referenceSpread": 92.2796875,
+      "freeSpread": 96.20949530753123,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          21.560941211434503,
+          41.36687028069218,
+          9.001505056034697,
+          28.07068345183863
+        ],
+        "width": 10,
+        "angles": [
+          83.79050469246877,
+          1.02859747817788,
+          83.56969729278562
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.58,
+      "budget": 4,
+      "referenceSpread": 92.2796875,
+      "freeSpread": 101.4372283496216,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5.148487760973587,
+          30.446682488666077,
+          5.002881681609917,
+          5,
+          54.40194806875043
+        ],
+        "width": 10,
+        "angles": [
+          66.10768744994796,
+          78.4227393776551,
+          1.0102440438595977,
+          78.5627716503784
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.58,
+      "budget": 1,
+      "referenceSpread": 109.41953124999999,
+      "freeSpread": 119.18174915244937,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          34.89695443649103,
+          65.10304556350897
+        ],
+        "width": 10,
+        "angles": [
+          60.81825084755063
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.58,
+      "budget": 2,
+      "referenceSpread": 109.41953124999999,
+      "freeSpread": 119.10600670179832,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          34.89558243753035,
+          60.10441756246965,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          60.89399329820168,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.58,
+      "budget": 3,
+      "referenceSpread": 130.13984375,
+      "freeSpread": 147.7906291376691,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          32.32414366155666,
+          5,
+          5,
+          57.675856338443346
+        ],
+        "width": 10,
+        "angles": [
+          32.209370862330886,
+          1.0000561038131568,
+          32.2091542675589
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.62,
+      "budget": 2,
+      "referenceSpread": 8.139843750000011,
+      "freeSpread": 15.509070380198125,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5.0011916667046545,
+          60.96521213391386,
+          34.033596199381485
+        ],
+        "width": 10,
+        "angles": [
+          94.7057150061122,
+          164.49092961980188
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.62,
+      "budget": 3,
+      "referenceSpread": 12.237500000000011,
+      "freeSpread": 35.33848137471915,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          10.889947696331854,
+          57.39090929904369,
+          16.1524256837722,
+          15.566717320852263
+        ],
+        "width": 10,
+        "angles": [
+          101.2613104259091,
+          144.66151862528085,
+          136.7448027557872
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.62,
+      "budget": 4,
+      "referenceSpread": 13.076562499999994,
+      "freeSpread": 78.55938006053486,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          56.78270937183729,
+          5,
+          5.868612983396801,
+          27.34867764476591
+        ],
+        "width": 10,
+        "angles": [
+          99.0851911968176,
+          101.44061993946514,
+          6.021059524246319,
+          94.1958260034705
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.62,
+      "budget": 1,
+      "referenceSpread": 101.3984375,
+      "freeSpread": 102.18531143103338,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          37.83952691680779,
+          62.160473083192215
+        ],
+        "width": 10,
+        "angles": [
+          77.81468856896662
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.62,
+      "budget": 2,
+      "referenceSpread": 100.69921875,
+      "freeSpread": 102.10567839338215,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          37.8386393096344,
+          57.16136069036559,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          77.89432160661785,
+          1.0000000182739697
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.62,
+      "budget": 3,
+      "referenceSpread": 122.65703124999999,
+      "freeSpread": 138.81871375156885,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          35.135898532709106,
+          5,
+          5,
+          54.864101467290894
+        ],
+        "width": 10,
+        "angles": [
+          41.18126823307798,
+          1.0006817344649233,
+          41.18128624843116
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.62,
+      "budget": 1,
+      "referenceSpread": 143.41953125,
+      "freeSpread": 153.6915469334573,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          26.308453066542725
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.62,
+      "budget": 2,
+      "referenceSpread": 143.41953125,
+      "freeSpread": 153.63979769969643,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          26.360202300303577,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.62,
+      "budget": 3,
+      "referenceSpread": 152.93671875,
+      "freeSpread": 165.7861950425963,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          14.213804896833738,
+          1,
+          14.213804957403717
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.66,
+      "budget": 1,
+      "referenceSpread": 87.94453124999998,
+      "freeSpread": 87.98548390284036,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          35.27999999999996,
+          64.72000000000004
+        ],
+        "width": 10,
+        "angles": [
+          92.01451609715964
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.66,
+      "budget": 2,
+      "referenceSpread": 88.8390625,
+      "freeSpread": 89.96239951341745,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          28.62795608558755,
+          64.67759983424855,
+          6.694444080163904
+        ],
+        "width": 10,
+        "angles": [
+          90.03760048658255,
+          90.02327060612491
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.66,
+      "budget": 3,
+      "referenceSpread": 101.29296875,
+      "freeSpread": 124.075157176642,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          29.60083508328869,
+          5.005495247123069,
+          5,
+          60.393669669588256
+        ],
+        "width": 10,
+        "angles": [
+          55.91830781309658,
+          1.0034916815104753,
+          55.92484282335801
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.66,
+      "budget": 1,
+      "referenceSpread": 135.97890625,
+      "freeSpread": 136.93579778464797,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5.274827586311332,
+          94.72517241368867
+        ],
+        "width": 10,
+        "angles": [
+          43.064202215352026
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.66,
+      "budget": 2,
+      "referenceSpread": 135.69921875,
+      "freeSpread": 136.88412305970698,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5.272150137070713,
+          89.72784986292929,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          43.11587694029303,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.66,
+      "budget": 3,
+      "referenceSpread": 135.69921875,
+      "freeSpread": 157.06357087127822,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5.000001498682846,
+          5,
+          84.99999850131717
+        ],
+        "width": 10,
+        "angles": [
+          22.936424230333415,
+          1.0000078206222773,
+          22.93642912872178
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.7,
+      "budget": 2,
+      "referenceSpread": 80.13984375,
+      "freeSpread": 80.94073943049348,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          16.779718736639417,
+          69.46426965271505,
+          13.75601161064553
+        ],
+        "width": 10,
+        "angles": [
+          99.05926056950652,
+          99.05653564185255
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.7,
+      "budget": 3,
+      "referenceSpread": 80.13984375,
+      "freeSpread": 92.8196964681846,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          15.579815282679682,
+          44.660774051584944,
+          20.684052631410854,
+          19.07535803432452
+        ],
+        "width": 10,
+        "angles": [
+          87.1803035318154,
+          1.052310867147297,
+          86.91720177375079
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.7,
+      "budget": 4,
+      "referenceSpread": 80.13984375,
+      "freeSpread": 96.87935885041257,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5.000692407532538,
+          17.759752791559226,
+          5.004326642458475,
+          5,
+          67.23522815844977
+        ],
+        "width": 10,
+        "angles": [
+          75.17958333776811,
+          83.12064114958743,
+          1,
+          83.08605601253291
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.7,
+      "budget": 1,
+      "referenceSpread": 115.8390625,
+      "freeSpread": 118.02336925389118,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          22.288834951459506,
+          77.7111650485405
+        ],
+        "width": 10,
+        "angles": [
+          61.976630746108825
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.7,
+      "budget": 2,
+      "referenceSpread": 116.25859374999999,
+      "freeSpread": 117.9599057153981,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          22.287491955316924,
+          72.71250804468308,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          62.0400942846019,
+          1.0000007771632036
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.7,
+      "budget": 3,
+      "referenceSpread": 131.9578125,
+      "freeSpread": 147.41743935570696,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          19.68449216056512,
+          5,
+          5,
+          70.31550783943489
+        ],
+        "width": 10,
+        "angles": [
+          32.582560644293046,
+          1,
+          32.58183657346426
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.7,
+      "budget": 1,
+      "referenceSpread": 163.728125,
+      "freeSpread": 168.22242974641694,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          11.777570253583077
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.7,
+      "budget": 2,
+      "referenceSpread": 163.728125,
+      "freeSpread": 168.17188748583763,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          11.828112514162372,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.7,
+      "budget": 3,
+      "referenceSpread": 163.728125,
+      "freeSpread": 173.36393199287522,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          6.6360680071247655,
+          1,
+          6.636068007102393
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.74,
+      "budget": 1,
+      "referenceSpread": 103.6015625,
+      "freeSpread": 103.78331163592152,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          25.329774964845985,
+          74.67022503515402
+        ],
+        "width": 10,
+        "angles": [
+          76.21668836407848
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.74,
+      "budget": 2,
+      "referenceSpread": 102.65703124999999,
+      "freeSpread": 103.71704891028666,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          25.32884241314846,
+          69.67115758685154,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          76.28295108971334,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.74,
+      "budget": 3,
+      "referenceSpread": 102.65703124999999,
+      "freeSpread": 139.96964455806443,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          22.620719960610934,
+          5,
+          5,
+          67.37928003938907
+        ],
+        "width": 10,
+        "angles": [
+          40.03020608597626,
+          1.0000231072399348,
+          40.030355441935555
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.74,
+      "budget": 1,
+      "referenceSpread": 130.23984374999998,
+      "freeSpread": 144.4782221191652,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          35.52177788083482
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.74,
+      "budget": 2,
+      "referenceSpread": 130.23984374999998,
+      "freeSpread": 144.42620233184252,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          89.99999999999997,
+          5.000000000000034
+        ],
+        "width": 10,
+        "angles": [
+          35.57379766815749,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.74,
+      "budget": 3,
+      "referenceSpread": 143.35625,
+      "freeSpread": 160.97454286783903,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5.000000011217307,
+          5,
+          5.00000049126651,
+          84.9999994975162
+        ],
+        "width": 10,
+        "angles": [
+          19.02545704175112,
+          1,
+          19.025457132160977
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.78,
+      "budget": 1,
+      "referenceSpread": 92.69921875,
+      "freeSpread": 92.98332075622513,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          23.456262403529426,
+          76.54373759647058
+        ],
+        "width": 10,
+        "angles": [
+          87.01667924377487
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.78,
+      "budget": 2,
+      "referenceSpread": 91.9234375,
+      "freeSpread": 92.97934026348238,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          16.12292572426227,
+          76.5400924711797,
+          7.336981804558025
+        ],
+        "width": 10,
+        "angles": [
+          87.02065973651762,
+          87.00277788998118
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.78,
+      "budget": 3,
+      "referenceSpread": 91.9234375,
+      "freeSpread": 131.92468429882445,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          20.671656739384463,
+          5,
+          5,
+          69.32834326061554
+        ],
+        "width": 10,
+        "angles": [
+          48.051526038367705,
+          1,
+          48.075315701175555
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.78,
+      "budget": 1,
+      "referenceSpread": 130.41953125,
+      "freeSpread": 130.4543583568606,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          49.5456416431394
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.78,
+      "budget": 2,
+      "referenceSpread": 128.915625,
+      "freeSpread": 130.40210007035122,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5.000000000000041,
+          89.99999999999996,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          49.597899929648776,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.78,
+      "budget": 3,
+      "referenceSpread": 128.915625,
+      "freeSpread": 153.6332595703101,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5.0000000183084,
+          84.99999998169162
+        ],
+        "width": 10,
+        "angles": [
+          26.366740429689916,
+          1.0000006695798016,
+          26.366739978352758
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.82,
+      "budget": 2,
+      "referenceSpread": 84.3640625,
+      "freeSpread": 84.6446490758968,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          9.464082166821552,
+          80.70758477417046,
+          9.828333059007994
+        ],
+        "width": 10,
+        "angles": [
+          95.3553509241032,
+          95.34253955545752
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.82,
+      "budget": 3,
+      "referenceSpread": 84.3640625,
+      "freeSpread": 89.94619454421375,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          10.194489971516859,
+          29.85675150390169,
+          48.88947163084144,
+          11.059286893740019
+        ],
+        "width": 10,
+        "angles": [
+          90.05380545578625,
+          1,
+          83.3616628821686
+        ]
+      }
+    },
+    {
+      "boxLength": 0.12,
+      "boxHeight": 0.82,
+      "budget": 4,
+      "referenceSpread": 84.3640625,
+      "freeSpread": 87.68271860423037,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          80,
+          5,
+          5,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          92.31728139576963,
+          91.00728495795657,
+          1,
+          92.31324156784056
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.82,
+      "budget": 1,
+      "referenceSpread": 116.25859374999999,
+      "freeSpread": 117.21241924301026,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          9.6385481239858,
+          90.36145187601421
+        ],
+        "width": 10,
+        "angles": [
+          62.78758075698973
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.82,
+      "budget": 2,
+      "referenceSpread": 115.69921875,
+      "freeSpread": 117.15783557584183,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          9.637224379128668,
+          85.36276837846766,
+          5.000007242403677
+        ],
+        "width": 10,
+        "angles": [
+          62.84216442415818,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.52,
+      "boxHeight": 0.82,
+      "budget": 3,
+      "referenceSpread": 115.69921875,
+      "freeSpread": 147.16111467463915,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          7.016708867859843,
+          5,
+          5,
+          82.98329113214017
+        ],
+        "width": 10,
+        "angles": [
+          32.83756325858697,
+          1,
+          32.83888532536085
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.82,
+      "budget": 1,
+      "referenceSpread": 143.41953125,
+      "freeSpread": 153.6915469334573,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          26.308453066542715
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.82,
+      "budget": 2,
+      "referenceSpread": 143.41953125,
+      "freeSpread": 153.63979769969646,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          89.99999999999993,
+          5.000000000000067
+        ],
+        "width": 10,
+        "angles": [
+          26.360202300303545,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.92,
+      "boxHeight": 0.82,
+      "budget": 3,
+      "referenceSpread": 152.93671875,
+      "freeSpread": 165.78619540185144,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          14.213804597897896,
+          1,
+          14.213804598148554
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.86,
+      "budget": 1,
+      "referenceSpread": 104.72031249999999,
+      "freeSpread": 104.95749577952724,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          12.764239802237126,
+          87.23576019776289
+        ],
+        "width": 10,
+        "angles": [
+          75.04250422047276
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.86,
+      "budget": 2,
+      "referenceSpread": 103.6359375,
+      "freeSpread": 104.90079689425251,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          12.763272174180996,
+          82.23672782581902,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          75.09920310574749,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.36,
+      "boxHeight": 0.86,
+      "budget": 3,
+      "referenceSpread": 103.6359375,
+      "freeSpread": 140.79359188023864,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          10.051345076756363,
+          5,
+          5.0005968498616005,
+          79.94805807338204
+        ],
+        "width": 10,
+        "angles": [
+          39.20619382036202,
+          1.0009121874820048,
+          39.20640811976136
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.86,
+      "budget": 1,
+      "referenceSpread": 136.9578125,
+      "freeSpread": 137.00123661759838,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          42.99876338240162
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.86,
+      "budget": 2,
+      "referenceSpread": 135.69921875,
+      "freeSpread": 136.94907393228775,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          43.050926067712254,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.76,
+      "boxHeight": 0.86,
+      "budget": 3,
+      "referenceSpread": 135.69921875,
+      "freeSpread": 157.06357761553218,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5.00000001263624,
+          5,
+          84.99999998736378
+        ],
+        "width": 10,
+        "angles": [
+          22.93642238446781,
+          1,
+          22.93642238413643
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.9,
+      "budget": 1,
+      "referenceSpread": 95,
+      "freeSpread": 95.29761151891299,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          11.421641791051737,
+          88.57835820894827
+        ],
+        "width": 10,
+        "angles": [
+          84.70238848108701
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.9,
+      "budget": 2,
+      "referenceSpread": 94.86015625,
+      "freeSpread": 95.24167709470329,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          11.420850156837043,
+          83.57914984316295,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          84.75832290529671,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.2,
+      "boxHeight": 0.9,
+      "budget": 3,
+      "referenceSpread": 94.86015625,
+      "freeSpread": 135.80644411832986,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          8.649551354557602,
+          5.008472663325556,
+          5,
+          81.34197598211685
+        ],
+        "width": 10,
+        "angles": [
+          44.19355588167012,
+          1,
+          44.191324827059915
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.9,
+      "budget": 1,
+      "referenceSpread": 124.475,
+      "freeSpread": 124.4937120529967,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          55.506287947003294
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.9,
+      "budget": 2,
+      "referenceSpread": 122.796875,
+      "freeSpread": 124.44138171725234,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          55.55861828274766,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.6,
+      "boxHeight": 0.9,
+      "budget": 3,
+      "referenceSpread": 122.796875,
+      "freeSpread": 150.50422900786396,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          29.49577099213606,
+          1,
+          29.495770931279214
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.9,
+      "budget": 1,
+      "referenceSpread": 163.728125,
+      "freeSpread": 168.22242974641694,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          11.777570253583075
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.9,
+      "budget": 2,
+      "referenceSpread": 163.728125,
+      "freeSpread": 168.17188748583763,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          11.828112514162376,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 1,
+      "boxHeight": 0.9,
+      "budget": 3,
+      "referenceSpread": 163.728125,
+      "freeSpread": 173.3639319921657,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5.000000001397846,
+          5,
+          5,
+          84.99999999860216
+        ],
+        "width": 10,
+        "angles": [
+          6.63606800768786,
+          1,
+          6.636068007834311
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.94,
+      "budget": 1,
+      "referenceSpread": 113.6359375,
+      "freeSpread": 113.65716835593969,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          66.34283164406031
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.94,
+      "budget": 2,
+      "referenceSpread": 111.57265625,
+      "freeSpread": 113.60472965752086,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          66.39527034247914,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.44,
+      "boxHeight": 0.94,
+      "budget": 3,
+      "referenceSpread": 111.57265625,
+      "freeSpread": 144.7973345900299,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          35.20266529475044,
+          1,
+          35.20266540997011
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.94,
+      "budget": 1,
+      "referenceSpread": 130.23984374999998,
+      "freeSpread": 144.4782221191652,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          35.52177788083481
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.94,
+      "budget": 2,
+      "referenceSpread": 130.23984374999998,
+      "freeSpread": 144.4262023318425,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          35.57379766815751,
+          1.0000000000001978
+        ]
+      }
+    },
+    {
+      "boxLength": 0.84,
+      "boxHeight": 0.94,
+      "budget": 3,
+      "referenceSpread": 143.35625,
+      "freeSpread": 160.9745429832853,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          19.025457016714704,
+          1,
+          19.025457010322576
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.98,
+      "budget": 1,
+      "referenceSpread": 103.6359375,
+      "freeSpread": 103.66298989565607,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          76.33701010434393
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.98,
+      "budget": 2,
+      "referenceSpread": 101.153125,
+      "freeSpread": 103.61046635420276,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          76.38953364579724,
+          1
+        ]
+      }
+    },
+    {
+      "boxLength": 0.28,
+      "boxHeight": 0.98,
+      "budget": 3,
+      "referenceSpread": 101.153125,
+      "freeSpread": 139.50651004872296,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5,
+          85.00000000000001
+        ],
+        "width": 10,
+        "angles": [
+          40.49348995127704,
+          1,
+          40.49348995072318
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.98,
+      "budget": 1,
+      "referenceSpread": 130.41953125,
+      "freeSpread": 130.4543583568606,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          95
+        ],
+        "width": 10,
+        "angles": [
+          49.5456416431394
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.98,
+      "budget": 2,
+      "referenceSpread": 128.915625,
+      "freeSpread": 130.40210007035122,
+      "beyondBand": false,
+      "example": {
+        "panelLengths": [
+          5,
+          90,
+          5
+        ],
+        "width": 10,
+        "angles": [
+          49.59789992964877,
+          1.0000000000000446
+        ]
+      }
+    },
+    {
+      "boxLength": 0.68,
+      "boxHeight": 0.98,
+      "budget": 3,
+      "referenceSpread": 128.915625,
+      "freeSpread": 153.6332601953642,
+      "beyondBand": true,
+      "example": {
+        "panelLengths": [
+          5,
+          5,
+          5.0000000056570775,
+          84.99999999434293
+        ],
+        "width": 10,
+        "angles": [
+          26.36673980463582,
+          1,
+          26.36673979040698
+        ]
+      }
+    }
+  ]
+}

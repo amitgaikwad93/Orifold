@@ -1,0 +1,2330 @@
+[
+  {
+    "id": "v2-short-0022-b2",
+    "design": {
+      "panelLengths": [
+        17.177992895231586,
+        14.104408840579422,
+        17.159538423725888
+      ],
+      "width": 7.675666766228967,
+      "angles": [
+        151.5328127820446,
+        151.51500066287184
+      ],
+      "placement": 179.982188
+    },
+    "metrics": {
+      "fits": false,
+      "rules": true,
+      "contactFree": true,
+      "passes": false,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        0.00035787558044329034
+      ],
+      "maxOverflowOverL": 0.00035787558044329034,
+      "vertexRmsOverL": 0.000461090286151356,
+      "creasePositionRmsOverL": 0.00019763850171898898,
+      "angleMaeDegrees": 0.1198432775417615,
+      "openingErrorDegrees": 0.11093721795538158,
+      "spread": 28.4671872179554,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0022-b2",
+      "passes": false,
+      "reason": "fit",
+      "overflow": 0.0003578755804433637,
+      "floating": 0,
+      "spread": 28.4671872179554,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          17.177992895231586,
+          14.104408840579422,
+          17.159538423725888
+        ],
+        "width": 7.675666766228967,
+        "angles": [
+          151.5328127820446,
+          151.51500066287184
+        ],
+        "placement": 179.982188
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 179.98,
+      "overflowOverL": 0.0003676475256569889
+    }
+  },
+  {
+    "id": "v2-short-1161-b2",
+    "design": {
+      "panelLengths": [
+        22.73910543893797,
+        38.204512950219716,
+        22.766590478984533
+      ],
+      "width": 6.974049008086025,
+      "angles": [
+        109.71848316984476,
+        109.66694368107805
+      ],
+      "placement": 0.126343,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.0002649661025477421,
+      "creasePositionRmsOverL": 0.00016439085468161293,
+      "angleMaeDegrees": 0.025769744383353554,
+      "openingErrorDegrees": -0.03488941984474536,
+      "spread": 70.28151683015524,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1161-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -3.3831698602496587e-07,
+      "floating": 0,
+      "spread": 70.28151683015524,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          22.73910543893797,
+          38.204512950219716,
+          22.766590478984533
+        ],
+        "width": 6.974049008086025,
+        "angles": [
+          109.71848316984476,
+          109.66694368107805
+        ],
+        "placement": 0.126343,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.19,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0993-b2",
+    "design": {
+      "panelLengths": [
+        3.1463072817793174,
+        5.058417898739564,
+        3.1422053992291232
+      ],
+      "width": 2.3187096688479114,
+      "angles": [
+        115.6960709086413,
+        115.74607853240549
+      ],
+      "placement": 179.989624,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.0002752857670343149,
+      "creasePositionRmsOverL": 0.00018090189881297652,
+      "angleMaeDegrees": 0.025003811882093885,
+      "openingErrorDegrees": -0.012484782405479677,
+      "spread": 64.25392146759451,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0993-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -3.877110480413733e-07,
+      "floating": 0,
+      "spread": 64.25392146759451,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          3.1463072817793174,
+          5.058417898739564,
+          3.1422053992291232
+        ],
+        "width": 2.3187096688479114,
+        "angles": [
+          115.6960709086413,
+          115.74607853240549
+        ],
+        "placement": 179.989624,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1107-b2",
+    "design": {
+      "panelLengths": [
+        14.650620213130432,
+        57.95435493000375,
+        14.64354338202294
+      ],
+      "width": 9.398499722023752,
+      "angles": [
+        40.62745840147693,
+        40.6311071151825
+      ],
+      "placement": 57.26031,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 4.952129710620656e-05,
+      "creasePositionRmsOverL": 4.109230522665331e-05,
+      "angleMaeDegrees": 0.0018243568527864795,
+      "openingErrorDegrees": -0.0006383651824819481,
+      "spread": 139.3688928848175,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1107-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -9.026209021629996e-07,
+      "floating": 0,
+      "spread": 139.3688928848175,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          14.650620213130432,
+          57.95435493000375,
+          14.64354338202294
+        ],
+        "width": 9.398499722023752,
+        "angles": [
+          40.62745840147693,
+          40.6311071151825
+        ],
+        "placement": 57.26031,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 57.24,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0070-b2",
+    "design": {
+      "panelLengths": [
+        19.02426069909387,
+        9.596842273541863,
+        19.02966163518865
+      ],
+      "width": 16.726599268296734,
+      "angles": [
+        140.10688768297103,
+        140.1043450352713
+      ],
+      "placement": 89.99172,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 3.730311002043964e-05,
+      "creasePositionRmsOverL": 5.680290200216343e-05,
+      "angleMaeDegrees": 0.0012713238498633928,
+      "openingErrorDegrees": -0.001418932971034792,
+      "spread": 39.893112317028965,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0070-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -6.214642677377135e-08,
+      "floating": 0,
+      "spread": 39.893112317028965,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          19.02426069909387,
+          9.596842273541863,
+          19.02966163518865
+        ],
+        "width": 16.726599268296734,
+        "angles": [
+          140.10688768297103,
+          140.1043450352713
+        ],
+        "placement": 89.99172,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1224-b2",
+    "design": {
+      "panelLengths": [
+        13.318388414406792,
+        13.946544129075091,
+        13.33050073080212
+      ],
+      "width": 7.067055015023693,
+      "angles": [
+        156.0213548405863,
+        155.98816225790424
+      ],
+      "placement": 179.933726,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00016361328734046369,
+      "creasePositionRmsOverL": 0.00015009056658552727,
+      "angleMaeDegrees": 0.016596291341031133,
+      "openingErrorDegrees": -0.008073590586320734,
+      "spread": 23.978645159413702,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1224-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -4.678463303743272e-07,
+      "floating": 0,
+      "spread": 23.978645159413702,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          13.318388414406792,
+          13.946544129075091,
+          13.33050073080212
+        ],
+        "width": 7.067055015023693,
+        "angles": [
+          156.0213548405863,
+          155.98816225790424
+        ],
+        "placement": 179.933726,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 179.97,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0863-b2",
+    "design": {
+      "panelLengths": [
+        21.175080510238505,
+        18.304075755627757,
+        21.195257002122446
+      ],
+      "width": 14.86250589743636,
+      "angles": [
+        147.7663810122867,
+        147.7683838314116
+      ],
+      "placement": 89.899414,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00012049395394029336,
+      "creasePositionRmsOverL": 0.00016627868805837867,
+      "angleMaeDegrees": 0.004882421849131902,
+      "openingErrorDegrees": -0.005883831411580331,
+      "spread": 32.2316161685884,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0863-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -3.815483827205562e-07,
+      "floating": 0,
+      "spread": 32.2316161685884,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          21.175080510238505,
+          18.304075755627757,
+          21.195257002122446
+        ],
+        "width": 14.86250589743636,
+        "angles": [
+          147.7663810122867,
+          147.7683838314116
+        ],
+        "placement": 89.899414,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-long-0449-b2",
+    "design": {
+      "panelLengths": [
+        16.657393357476906,
+        10.356110283256667,
+        16.63455823032939
+      ],
+      "width": 17.77175548586432,
+      "angles": [
+        146.18599862969523,
+        146.17550674016118
+      ],
+      "placement": 179.984137,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00019382526075446287,
+      "creasePositionRmsOverL": 0.00026158376065331585,
+      "angleMaeDegrees": 0.00909106507178592,
+      "openingErrorDegrees": 0.00384512030476003,
+      "spread": 33.814001370304766,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-long-0449-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -2.4265210014212134e-07,
+      "floating": 0,
+      "spread": 33.814001370304766,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          16.657393357476906,
+          10.356110283256667,
+          16.63455823032939
+        ],
+        "width": 17.77175548586432,
+        "angles": [
+          146.18599862969523,
+          146.17550674016118
+        ],
+        "placement": 179.984137,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 179.99,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0518-b2",
+    "design": {
+      "panelLengths": [
+        25.995820285838118,
+        10.714841478004447,
+        26.005543826562
+      ],
+      "width": 26.139012479502817,
+      "angles": [
+        153.35747996478355,
+        153.3445241375418
+      ],
+      "placement": 89.983016,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 6.393040106195285e-05,
+      "creasePositionRmsOverL": 7.783192081906287e-05,
+      "angleMaeDegrees": 0.006477913620869913,
+      "openingErrorDegrees": -0.0012299647835618543,
+      "spread": 26.64252003521645,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0518-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -3.138524642003248e-07,
+      "floating": 0,
+      "spread": 26.64252003521645,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          25.995820285838118,
+          10.714841478004447,
+          26.005543826562
+        ],
+        "width": 26.139012479502817,
+        "angles": [
+          153.35747996478355,
+          153.3445241375418
+        ],
+        "placement": 89.983016,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 89.99,
+      "overflowOverL": 2.4659663186571423e-06
+    }
+  },
+  {
+    "id": "v2-short-0875-b2",
+    "design": {
+      "panelLengths": [
+        24.48129849965331,
+        19.576376085456435,
+        24.477515381095753
+      ],
+      "width": 13.132924113772917,
+      "angles": [
+        157.51357800755187,
+        157.51933657602007
+      ],
+      "placement": 89.968872,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00020575627143427949,
+      "creasePositionRmsOverL": 5.861232296075248e-05,
+      "angleMaeDegrees": 0.03510520821404839,
+      "openingErrorDegrees": 0.03222592397995072,
+      "spread": 22.480663423979934,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0875-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -4.039366159827222e-07,
+      "floating": 0,
+      "spread": 22.480663423979934,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          24.48129849965331,
+          19.576376085456435,
+          24.477515381095753
+        ],
+        "width": 13.132924113772917,
+        "angles": [
+          157.51357800755187,
+          157.51933657602007
+        ],
+        "placement": 89.968872,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0904-b2",
+    "design": {
+      "panelLengths": [
+        12.190713181463785,
+        22.464861580932045,
+        12.17917423030057
+      ],
+      "width": 16.816762595338574,
+      "angles": [
+        108.21910099274014,
+        108.26753825467414
+      ],
+      "placement": 90.721411,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00023791902999352596,
+      "creasePositionRmsOverL": 0.00012335466604753331,
+      "angleMaeDegrees": 0.024218630966998944,
+      "openingErrorDegrees": -0.016757004674133213,
+      "spread": 71.73246174532586,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0904-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -2.0429809123499326e-07,
+      "floating": 0,
+      "spread": 71.73246174532586,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          12.190713181463785,
+          22.464861580932045,
+          12.17917423030057
+        ],
+        "width": 16.816762595338574,
+        "angles": [
+          108.21910099274014,
+          108.26753825467414
+        ],
+        "placement": 90.721411,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.73,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0087-b2",
+    "design": {
+      "panelLengths": [
+        29.908379077313924,
+        29.415202579936334,
+        29.918726512818747
+      ],
+      "width": 33.13250166825992,
+      "angles": [
+        144.17849791636448,
+        144.15460740034172
+      ],
+      "placement": 179.914586,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00012384416293936422,
+      "creasePositionRmsOverL": 6.119678639688273e-05,
+      "angleMaeDegrees": 0.011945258011380133,
+      "openingErrorDegrees": -0.01756041636448913,
+      "spread": 35.82150208363552,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0087-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -2.319948988429236e-07,
+      "floating": 0,
+      "spread": 35.82150208363552,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          29.908379077313924,
+          29.415202579936334,
+          29.918726512818747
+        ],
+        "width": 33.13250166825992,
+        "angles": [
+          144.17849791636448,
+          144.15460740034172
+        ],
+        "placement": 179.914586,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 179.98,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0533-b2",
+    "design": {
+      "panelLengths": [
+        3.923154873107358,
+        47.20655184147726,
+        3.955918512490457
+      ],
+      "width": 11.451534331204794,
+      "angles": [
+        86.71382387219946,
+        86.71399320848467
+      ],
+      "placement": 8.04957,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.0002711114862678085,
+      "creasePositionRmsOverL": 0.0003046088649320303,
+      "angleMaeDegrees": 0.0009352096579675617,
+      "openingErrorDegrees": 0.0008505415153621243,
+      "spread": 93.28600679151533,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0533-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -2.2767813886240096e-07,
+      "floating": 0,
+      "spread": 93.28600679151533,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          3.923154873107358,
+          47.20655184147726,
+          3.955918512490457
+        ],
+        "width": 11.451534331204794,
+        "angles": [
+          86.71382387219946,
+          86.71399320848467
+        ],
+        "placement": 8.04957,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 8.040000000000001,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1261-b2",
+    "design": {
+      "panelLengths": [
+        5.323997980958868,
+        4.383181600229295,
+        5.329488160181293
+      ],
+      "width": 0.7983207903963656,
+      "angles": [
+        154.69529759237804,
+        154.70593380278856
+      ],
+      "placement": 0
+    },
+    "metrics": {
+      "fits": false,
+      "rules": true,
+      "contactFree": true,
+      "passes": false,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        5.324610977584225e-05
+      ],
+      "maxOverflowOverL": 5.324610977584225e-05,
+      "vertexRmsOverL": 0.0006369933755346104,
+      "creasePositionRmsOverL": 0.0002873628272474613,
+      "angleMaeDegrees": 0.014678197583336328,
+      "openingErrorDegrees": -0.01999630278859854,
+      "spread": 25.294066197211436,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1261-b2",
+      "passes": false,
+      "reason": "fit",
+      "overflow": 5.324610977584225e-05,
+      "floating": 0,
+      "spread": 25.294066197211436,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          5.323997980958868,
+          4.383181600229295,
+          5.329488160181293
+        ],
+        "width": 0.7983207903963656,
+        "angles": [
+          154.69529759237804,
+          154.70593380278856
+        ],
+        "placement": 0
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.0,
+      "overflowOverL": 5.3246109775834105e-05
+    }
+  },
+  {
+    "id": "v2-short-0283-b2",
+    "design": {
+      "panelLengths": [
+        29.123716702948755,
+        30.309762397177874,
+        29.121815177485487
+      ],
+      "width": 27.652966864817458,
+      "angles": [
+        151.86198624460673,
+        151.85651976350013
+      ],
+      "placement": 89.956203,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00011175609469125838,
+      "creasePositionRmsOverL": 4.1823079059683146e-05,
+      "angleMaeDegrees": 0.006909254053439895,
+      "openingErrorDegrees": -0.009642494606737273,
+      "spread": 28.138013755393274,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0283-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -8.939662573121908e-08,
+      "floating": 0,
+      "spread": 28.138013755393274,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          29.123716702948755,
+          30.309762397177874,
+          29.121815177485487
+        ],
+        "width": 27.652966864817458,
+        "angles": [
+          151.86198624460673,
+          151.85651976350013
+        ],
+        "placement": 89.956203,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1416-b2",
+    "design": {
+      "panelLengths": [
+        14.87392060411514,
+        18.179649212709815,
+        14.86892221977098
+      ],
+      "width": 6.542218650915206,
+      "angles": [
+        158.3408714610929,
+        158.3538196195904
+      ],
+      "placement": 163.181407,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 8.163531048497795e-05,
+      "creasePositionRmsOverL": 5.307690529369295e-05,
+      "angleMaeDegrees": 0.00656070965840172,
+      "openingErrorDegrees": 8.663040964052016e-05,
+      "spread": 21.64618038040959,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1416-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -1.0461922355847858e-06,
+      "floating": 0,
+      "spread": 21.64618038040959,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          14.87392060411514,
+          18.179649212709815,
+          14.86892221977098
+        ],
+        "width": 6.542218650915206,
+        "angles": [
+          158.3408714610929,
+          158.3538196195904
+        ],
+        "placement": 163.181407,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 163.18,
+      "overflowOverL": 3.3854295838908754e-07
+    }
+  },
+  {
+    "id": "v2-short-0966-b2",
+    "design": {
+      "panelLengths": [
+        5.38915966163521,
+        9.073972659449998,
+        5.389322662544077
+      ],
+      "width": 6.836961470714519,
+      "angles": [
+        124.8897968630347,
+        124.89799150222242
+      ],
+      "placement": 89.939575,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 2.5364354759957467e-05,
+      "creasePositionRmsOverL": 4.1226460887741615e-06,
+      "angleMaeDegrees": 0.0040973195938605045,
+      "openingErrorDegrees": -0.003460252222438953,
+      "spread": 55.102008497777575,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0966-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -3.4139677647792454e-08,
+      "floating": 0,
+      "spread": 55.102008497777575,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          5.38915966163521,
+          9.073972659449998,
+          5.389322662544077
+        ],
+        "width": 6.836961470714519,
+        "angles": [
+          124.8897968630347,
+          124.89799150222242
+        ],
+        "placement": 89.939575,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1044-b2",
+    "design": {
+      "panelLengths": [
+        19.94083984380096,
+        22.304909663643233,
+        19.931318450374313
+      ],
+      "width": 20.297270276708293,
+      "angles": [
+        150.59032826191162,
+        150.60375612306117
+      ],
+      "placement": 179.978394,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00012283451128454354,
+      "creasePositionRmsOverL": 8.186948946356278e-05,
+      "angleMaeDegrees": 0.006713930574775873,
+      "openingErrorDegrees": -0.010006123061202743,
+      "spread": 29.396243876938826,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1044-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -6.090253917862641e-07,
+      "floating": 0,
+      "spread": 29.396243876938826,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          19.94083984380096,
+          22.304909663643233,
+          19.931318450374313
+        ],
+        "width": 20.297270276708293,
+        "angles": [
+          150.59032826191162,
+          150.60375612306117
+        ],
+        "placement": 179.978394,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1369-b2",
+    "design": {
+      "panelLengths": [
+        26.241521363569948,
+        31.540817548113623,
+        26.239317673708037
+      ],
+      "width": 12.256203978441826,
+      "angles": [
+        134.5446991465877,
+        134.54277668068912
+      ],
+      "placement": 89.94339,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 9.983692412131276e-06,
+      "creasePositionRmsOverL": 1.3172471689046693e-05,
+      "angleMaeDegrees": 0.0009612329492938443,
+      "openingErrorDegrees": -0.000949146587714722,
+      "spread": 45.4553008534123,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1369-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -1.9556490420825333e-07,
+      "floating": 0,
+      "spread": 45.4553008534123,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          26.241521363569948,
+          31.540817548113623,
+          26.239317673708037
+        ],
+        "width": 12.256203978441826,
+        "angles": [
+          134.5446991465877,
+          134.54277668068912
+        ],
+        "placement": 89.94339,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1065-b2",
+    "design": {
+      "panelLengths": [
+        23.478021088871998,
+        19.576728950391587,
+        23.458841180873147
+      ],
+      "width": 15.521550338097464,
+      "angles": [
+        144.1875055978572,
+        144.20294421482825
+      ],
+      "placement": 90.016293,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00015982902698498895,
+      "creasePositionRmsOverL": 0.00014618502220538508,
+      "angleMaeDegrees": 0.007719308485519605,
+      "openingErrorDegrees": -0.007631714828278291,
+      "spread": 35.79705578517175,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1065-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -1.1842794317806123e-07,
+      "floating": 0,
+      "spread": 35.79705578517175,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          23.478021088871998,
+          19.576728950391587,
+          23.458841180873147
+        ],
+        "width": 15.521550338097464,
+        "angles": [
+          144.1875055978572,
+          144.20294421482825
+        ],
+        "placement": 90.016293,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.03,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0562-b2",
+    "design": {
+      "panelLengths": [
+        34.61818781836169,
+        21.623646054470285,
+        34.64481261305549
+      ],
+      "width": 16.58137768657523,
+      "angles": [
+        149.0282285958299,
+        149.04896298718478
+      ],
+      "placement": 89.958252,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.0001332537082079838,
+      "creasePositionRmsOverL": 0.00014657280503895675,
+      "angleMaeDegrees": 0.017502041507327704,
+      "openingErrorDegrees": -0.027869237184773965,
+      "spread": 30.95103701281522,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0562-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -3.1604722284888393e-07,
+      "floating": 0,
+      "spread": 30.95103701281522,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          34.61818781836169,
+          21.623646054470285,
+          34.64481261305549
+        ],
+        "width": 16.58137768657523,
+        "angles": [
+          149.0282285958299,
+          149.04896298718478
+        ],
+        "placement": 89.958252,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1447-b2",
+    "design": {
+      "panelLengths": [
+        31.860051864185305,
+        23.720712330339754,
+        31.890556800138924
+      ],
+      "width": 35.78659950895069,
+      "angles": [
+        146.08646853872278,
+        146.09411215138044
+      ],
+      "placement": 89.944946,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00016569263251632228,
+      "creasePositionRmsOverL": 0.00017607867155756984,
+      "angleMaeDegrees": 0.005915345051647591,
+      "openingErrorDegrees": -0.009737151380477371,
+      "spread": 33.90588784861956,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1447-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -4.508991741941339e-07,
+      "floating": 0,
+      "spread": 33.90588784861956,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          31.860051864185305,
+          23.720712330339754,
+          31.890556800138924
+        ],
+        "width": 35.78659950895069,
+        "angles": [
+          146.08646853872278,
+          146.09411215138044
+        ],
+        "placement": 89.944946,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1122-b2",
+    "design": {
+      "panelLengths": [
+        13.8481186573693,
+        11.44911429403253,
+        13.838085237526238
+      ],
+      "width": 16.97583323256607,
+      "angles": [
+        153.29436229882052,
+        153.29228746032624
+      ],
+      "placement": 0
+    },
+    "metrics": {
+      "fits": false,
+      "rules": true,
+      "contactFree": true,
+      "passes": false,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 1,
+      "overflowByAxisOverL": [
+        0.313740381793595,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": 0.313740381793595,
+      "vertexRmsOverL": 0.0007040191745772851,
+      "creasePositionRmsOverL": 0.00027913024287947607,
+      "angleMaeDegrees": 0.11129362957338174,
+      "openingErrorDegrees": -0.11233104882052203,
+      "spread": 26.705637701179484,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1122-b2",
+      "passes": false,
+      "reason": "fit",
+      "overflow": 0.313740381793595,
+      "floating": 1,
+      "spread": 26.705637701179484,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          13.8481186573693,
+          11.44911429403253,
+          13.838085237526238
+        ],
+        "width": 16.97583323256607,
+        "angles": [
+          153.29436229882052,
+          153.29228746032624
+        ],
+        "placement": 0
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.11,
+      "overflowOverL": 2.98026454905731e-05
+    }
+  },
+  {
+    "id": "v2-short-0304-b2",
+    "design": {
+      "panelLengths": [
+        21.2813402787813,
+        22.33093099535154,
+        21.273472982765917
+      ],
+      "width": 27.48084253564801,
+      "angles": [
+        172.71201369479425,
+        172.7592440508629
+      ],
+      "placement": 162.696479,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00012190342712481988,
+      "creasePositionRmsOverL": 6.160956028688123e-05,
+      "angleMaeDegrees": 0.02361517803431923,
+      "openingErrorDegrees": -0.031119050862940867,
+      "spread": 7.24075594913711,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0304-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -5.154249610651025e-05,
+      "floating": 0,
+      "spread": 7.24075594913711,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          21.2813402787813,
+          22.33093099535154,
+          21.273472982765917
+        ],
+        "width": 27.48084253564801,
+        "angles": [
+          172.71201369479425,
+          172.7592440508629
+        ],
+        "placement": 162.696479,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 162.71,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0123-b2",
+    "design": {
+      "panelLengths": [
+        2.601839249555144,
+        15.91993849416343,
+        2.5967087077321613
+      ],
+      "width": 6.325696124598616,
+      "angles": [
+        127.02820936438799,
+        127.03079337871493
+      ],
+      "placement": 151.188368
+    },
+    "metrics": {
+      "fits": false,
+      "rules": true,
+      "contactFree": true,
+      "passes": false,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        0.00010567259588406651,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": 0.00010567259588406651,
+      "vertexRmsOverL": 0.00013477667914214223,
+      "creasePositionRmsOverL": 0.00012590734003351857,
+      "angleMaeDegrees": 0.0029388715514500063,
+      "openingErrorDegrees": -0.004230878714921005,
+      "spread": 52.96920662128507,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0123-b2",
+      "passes": false,
+      "reason": "fit",
+      "overflow": 0.00010567259588406651,
+      "floating": 0,
+      "spread": 52.96920662128507,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          2.601839249555144,
+          15.91993849416343,
+          2.5967087077321613
+        ],
+        "width": 6.325696124598616,
+        "angles": [
+          127.02820936438799,
+          127.03079337871493
+        ],
+        "placement": 151.188368
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 151.19,
+      "overflowOverL": 0.00010736377389709839
+    }
+  },
+  {
+    "id": "v2-short-1372-b2",
+    "design": {
+      "panelLengths": [
+        15.231105548927626,
+        56.334663983000645,
+        15.237611743457343
+      ],
+      "width": 21.468007749196403,
+      "angles": [
+        75.21417405100901,
+        75.2106958594418
+      ],
+      "placement": 28.555686,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 5.037744871649306e-05,
+      "creasePositionRmsOverL": 3.770076042155628e-05,
+      "angleMaeDegrees": 0.0017390957836056486,
+      "openingErrorDegrees": -0.0032365510089960026,
+      "spread": 104.78582594899099,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1372-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -4.084924498442332e-07,
+      "floating": 0,
+      "spread": 104.78582594899099,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          15.231105548927626,
+          56.334663983000645,
+          15.237611743457343
+        ],
+        "width": 21.468007749196403,
+        "angles": [
+          75.21417405100901,
+          75.2106958594418
+        ],
+        "placement": 28.555686,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 28.53,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-long-0102-b2",
+    "design": {
+      "panelLengths": [
+        38.62324331061566,
+        4.1255348832664875,
+        38.561229094238534
+      ],
+      "width": 4.523835379514511,
+      "angles": [
+        139.6848062111512,
+        139.68439817347493
+      ],
+      "placement": 179.999592
+    },
+    "metrics": {
+      "fits": false,
+      "rules": true,
+      "contactFree": true,
+      "passes": false,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        0.00042292361860574667
+      ],
+      "maxOverflowOverL": 0.00042292361860574667,
+      "vertexRmsOverL": 0.0007838379337702345,
+      "creasePositionRmsOverL": 0.0005307639470395219,
+      "angleMaeDegrees": 0.0010084423130933828,
+      "openingErrorDegrees": -0.0012124611512263073,
+      "spread": 40.3151937888488,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-long-0102-b2",
+      "passes": false,
+      "reason": "fit",
+      "overflow": 0.00042292361860574667,
+      "floating": 0,
+      "spread": 40.3151937888488,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          38.62324331061566,
+          4.1255348832664875,
+          38.561229094238534
+        ],
+        "width": 4.523835379514511,
+        "angles": [
+          139.6848062111512,
+          139.68439817347493
+        ],
+        "placement": 179.999592
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.0,
+      "overflowOverL": 0.0004260252293658423
+    }
+  },
+  {
+    "id": "v2-short-0297-b2",
+    "design": {
+      "panelLengths": [
+        4.112689683831054,
+        5.142600513989399,
+        4.112888219620051
+      ],
+      "width": 5.242091054574442,
+      "angles": [
+        137.75860578578076,
+        137.76595496305282
+      ],
+      "placement": 179.971191,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 1.701786569029911e-05,
+      "creasePositionRmsOverL": 7.449793509168991e-06,
+      "angleMaeDegrees": 0.0036745886360307622,
+      "openingErrorDegrees": -0.003454963052831772,
+      "spread": 42.23404503694718,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0297-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -1.1348104359312441e-07,
+      "floating": 0,
+      "spread": 42.23404503694718,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          4.112689683831054,
+          5.142600513989399,
+          4.112888219620051
+        ],
+        "width": 5.242091054574442,
+        "angles": [
+          137.75860578578076,
+          137.76595496305282
+        ],
+        "placement": 179.971191,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0221-b2",
+    "design": {
+      "panelLengths": [
+        21.13723674088074,
+        26.584513098258746,
+        21.14432451385134
+      ],
+      "width": 32.24947632547102,
+      "angles": [
+        161.72119616049596,
+        161.70541457670848
+      ],
+      "placement": 63.83812,
+      "offset": [
+        0,
+        0.031964196165336745
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        5.158873526883717e-17
+      ],
+      "maxOverflowOverL": 5.158873526883717e-17,
+      "vertexRmsOverL": 6.723246006211717e-05,
+      "creasePositionRmsOverL": 5.203662635524597e-05,
+      "angleMaeDegrees": 0.007890791893743199,
+      "openingErrorDegrees": -0.008696160496015182,
+      "spread": 18.278803839504036,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0221-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -0.0004641501126011047,
+      "floating": 0,
+      "spread": 18.278803839504036,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          21.13723674088074,
+          26.584513098258746,
+          21.14432451385134
+        ],
+        "width": 32.24947632547102,
+        "angles": [
+          161.72119616049596,
+          161.70541457670848
+        ],
+        "placement": 63.83812,
+        "offset": [
+          0,
+          0.031964196165336745
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 63.83,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-0333-b2",
+    "design": {
+      "panelLengths": [
+        15.533592941700096,
+        26.09510701904954,
+        15.548281689077575
+      ],
+      "width": 13.329897352506052,
+      "angles": [
+        116.67893180077607,
+        116.62766680859991
+      ],
+      "placement": 179.956177,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 0.00025105805693562377,
+      "creasePositionRmsOverL": 0.0001286521569940592,
+      "angleMaeDegrees": 0.025632496088078938,
+      "openingErrorDegrees": -0.03752555077606701,
+      "spread": 63.32106819922393,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-0333-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -1.6393940570850474e-07,
+      "floating": 0,
+      "spread": 63.32106819922393,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          15.533592941700096,
+          26.09510701904954,
+          15.548281689077575
+        ],
+        "width": 13.329897352506052,
+        "angles": [
+          116.67893180077607,
+          116.62766680859991
+        ],
+        "placement": 179.956177,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 0.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-short-1404-b2",
+    "design": {
+      "panelLengths": [
+        37.26519863432095,
+        21.099928980894717,
+        37.252009246913296
+      ],
+      "width": 21.98312212878562,
+      "angles": [
+        160.03769591335782,
+        160.0504217202781
+      ],
+      "placement": 89.972656,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": -0.0,
+      "vertexRmsOverL": 6.506982837492528e-05,
+      "creasePositionRmsOverL": 6.905690184919138e-05,
+      "angleMaeDegrees": 0.009683816818011337,
+      "openingErrorDegrees": -0.01604672027815468,
+      "spread": 19.94957827972189,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-short-1404-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -1.744224271330316e-07,
+      "floating": 0,
+      "spread": 19.94957827972189,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          37.26519863432095,
+          21.099928980894717,
+          37.252009246913296
+        ],
+        "width": 21.98312212878562,
+        "angles": [
+          160.03769591335782,
+          160.0504217202781
+        ],
+        "placement": 89.972656,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 90.0,
+      "overflowOverL": 0
+    }
+  },
+  {
+    "id": "v2-long-0218-b2",
+    "design": {
+      "panelLengths": [
+        8.981267434690901,
+        43.71436788900413,
+        8.981561284229961
+      ],
+      "width": 20.64025038067039,
+      "angles": [
+        129.37064268358347,
+        129.36332428086502
+      ],
+      "placement": 60.979162,
+      "offset": [
+        0.013618790960329363,
+        0
+      ]
+    },
+    "metrics": {
+      "fits": true,
+      "rules": true,
+      "contactFree": true,
+      "passes": true,
+      "firstBlockedStep": null,
+      "blockedStateCount": 0,
+      "folds": 2,
+      "floatingCreases": 0,
+      "overflowByAxisOverL": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "maxOverflowOverL": 0.0,
+      "vertexRmsOverL": 2.1196089585933136e-05,
+      "creasePositionRmsOverL": 5.818242654780683e-06,
+      "angleMaeDegrees": 0.003659201359226927,
+      "openingErrorDegrees": -0.001111433583531607,
+      "spread": 50.62935731641653,
+      "withinReferenceSpreadBand": true
+    },
+    "referenceChecker": {
+      "id": "v2-long-0218-b2",
+      "passes": true,
+      "reason": null,
+      "overflow": -7.846133241705283e-05,
+      "floating": 0,
+      "spread": 50.62935731641653,
+      "symmetric": true,
+      "folds": 2,
+      "design": {
+        "panelLengths": [
+          8.981267434690901,
+          43.71436788900413,
+          8.981561284229961
+        ],
+        "width": 20.64025038067039,
+        "angles": [
+          129.37064268358347,
+          129.36332428086502
+        ],
+        "placement": 60.979162,
+        "offset": [
+          0.013618790960329363,
+          0
+        ]
+      }
+    },
+    "checkerDisagreement": false,
+    "rotationSweep": {
+      "angleDegrees": 60.980000000000004,
+      "overflowOverL": 0
+    }
+  }
+]
