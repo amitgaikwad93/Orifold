@@ -63,7 +63,8 @@ class Model(nn.Module):
         self.register_buffer('mean', torch.zeros(3)); self.register_buffer('std', torch.ones(3))
 
     def forward(self, x):
-        h = self.body((x - self.mean) / self.std)
+        scale = torch.where(self.std <= 1e-6, torch.ones_like(self.std), self.std)
+        h = self.body((x - self.mean) / scale)
         s = torch.sigmoid(self.shape(h))
         return self.folds(h), s[:, :MAX_FOLDS], s[:, MAX_FOLDS:]
 

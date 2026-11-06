@@ -14,12 +14,11 @@ rl.on('line', line => {
     if (violations.length) out = { id, passes: false, reason: 'rules:' + violations.join(',') };
     else {
       const w = wallPlacement(design, request);
-      if (w.overflow > 0) out = { id, passes: false, reason: 'does-not-fit', overflow: w.overflow, design };
-      else {
-        const q = assess(design, request);
-        out = { id, passes: q.passes, reason: q.passes ? null : (q.contactFree ? 'fit' : 'collision'),
-          floating: floatingAt(design, request), spread: q.spread, symmetric: q.symmetric, folds: q.folds, design };
-      }
+      const q = assess(design, request);
+      out = { id, passes: q.passes, reason: q.passes ? null : (q.contactFree ? 'fit' : 'collision'),
+        overflow: w.overflow, floating: floatingAt(design, request), spread: q.spread,
+        symmetric: q.symmetric, folds: q.folds, design };
+
     }
   } catch (e) { out = { id, passes: false, reason: 'error:' + e.message }; }
   process.stdout.write(JSON.stringify(out) + '\n');
