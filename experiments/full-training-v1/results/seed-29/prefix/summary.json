@@ -1,0 +1,29 @@
+{
+  "seed": 29,
+  "stage": "prefix",
+  "optimization": {
+    "updates": 52500,
+    "optimizationSeconds": 106.98527535600078,
+    "finalLoss": 0.02050243690609932
+  },
+  "training": {
+    "examples": 4359,
+    "passes": 1828,
+    "passRate": 0.4193622390456527,
+    "foldCountMatches": 4339,
+    "precisionGateCount": 783,
+    "validWallsOpening": 1140,
+    "zeroFloating": 3042,
+    "meanVertexRmsOverLAmongMatchingCounts": 0.04235354818302954,
+    "meanAngleMaeDegreesAmongMatchingCounts": 2.818503878313526,
+    "failureReasons": {
+      "fit": 2531
+    },
+    "assessmentSeconds": 19.465249132997997
+  },
+  "trainingPeakProcessRssMiB": 309.91796875,
+  "endPeakProcessRssMiB": 315.3203125,
+  "memoryDefinition": "Linux process high-water RSS, includes imports, data, model, optimizer; child Node assessor memory excluded",
+  "parameters": 75554,
+  "trainingRequests": 1453
+}

@@ -1,0 +1,12 @@
+{
+  "python": "3.12.14",
+  "torch": "2.9.1+cpu",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "sourceCommit": "3f212ef919d237679ed77cf9ecafd1996d67107f",
+  "configSha256": "f9574f2f399c679d71da026dfdcffb2f7f00c30cb582105c4908d006b0c71908",
+  "manifestSha256": "84a6a9ce59690d18550ae046494bacebd42a1ced73a5bfd85c63aeedafa1b854",
+  "validationAndTestEvaluated": false,
+  "cpuOnly": true,
+  "workerThreads": 1
+}

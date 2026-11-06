@@ -272,6 +272,10 @@ Inference-only follow-up found a constant-feature normalization instability: bud
 
 User authorized steps 1 and 2. Corrected normalization and bridge acceptance; predeclared network-optimization-v2 in 5f3ba27 using the same manifest, checkpoints and budgets. See [confirmation report](../experiments/network-optimization-v2/REPORT.md). Completed: 384/384 bridge/independent decisions agree; corrected L-BFGS float64 sampled validity is 27/32 for both losses and stays 27/32 after float32 conversion. No all-32 success. 21 Python tests and npm test pass. No full-dataset training or held-out evaluation performed in this step.
 
+## D39 — full training split, paired optimizer recipes (user authorization)
+
+The user authorized step 3: Adam-only versus Adam followed by L-BFGS, ordinary precision, matching starts and a small number of repeated seeds. Frozen protocol/code `3f212ef`, [full-training-v1](../experiments/full-training-v1/README.md): seeds 17/29/43, all 4,359 training answers from 1,453 requests, existing generic network and parameter-imitation loss. Each seed shares a fixed Adam prefix before the two refinement branches. Final iterates and all seeds are retained, including time and process peak memory. Completed: mean training sampled validity 43.13% Adam versus 45.46% Adam + L-BFGS, gain in all three seeds. Mean optimization time including prefix 207.1/221.6 s; process peak memory 324.1/367.6 MiB. Reference fold counts are nearly perfect but geometric precision/fit remain weak. No validation/test evaluation or geometry/architecture change was performed. [Full report](../experiments/full-training-v1/REPORT.md).
+
 ## Open questions (unresolved; do not treat as decided)
 
-Choose a bounded full-training/validation comparison after reviewing corrected confirmation. Family-specific architecture and final test evaluation remain unrun.
+Review the full-training results before predeclaring validation comparisons with conventional baselines and model-plus-limited-correction. Final test and family-specific architecture remain unrun.

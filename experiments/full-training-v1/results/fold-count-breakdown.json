@@ -1,0 +1,134 @@
+{
+  "17-adam": {
+    "4+": {
+      "examples": 487,
+      "passes": 109,
+      "precisionGate": 0
+    },
+    "1": {
+      "examples": 1016,
+      "passes": 424,
+      "precisionGate": 0
+    },
+    "2-3": {
+      "examples": 2073,
+      "passes": 568,
+      "precisionGate": 0
+    },
+    "0": {
+      "examples": 783,
+      "passes": 783,
+      "precisionGate": 783
+    }
+  },
+  "17-lbfgs": {
+    "4+": {
+      "examples": 487,
+      "passes": 131,
+      "precisionGate": 0
+    },
+    "1": {
+      "examples": 1016,
+      "passes": 450,
+      "precisionGate": 1
+    },
+    "2-3": {
+      "examples": 2073,
+      "passes": 595,
+      "precisionGate": 1
+    },
+    "0": {
+      "examples": 783,
+      "passes": 783,
+      "precisionGate": 783
+    }
+  },
+  "29-adam": {
+    "4+": {
+      "examples": 487,
+      "passes": 108,
+      "precisionGate": 0
+    },
+    "1": {
+      "examples": 1016,
+      "passes": 444,
+      "precisionGate": 3
+    },
+    "2-3": {
+      "examples": 2073,
+      "passes": 560,
+      "precisionGate": 0
+    },
+    "0": {
+      "examples": 783,
+      "passes": 783,
+      "precisionGate": 783
+    }
+  },
+  "29-lbfgs": {
+    "4+": {
+      "examples": 487,
+      "passes": 125,
+      "precisionGate": 0
+    },
+    "1": {
+      "examples": 1016,
+      "passes": 470,
+      "precisionGate": 0
+    },
+    "2-3": {
+      "examples": 2073,
+      "passes": 632,
+      "precisionGate": 0
+    },
+    "0": {
+      "examples": 783,
+      "passes": 783,
+      "precisionGate": 783
+    }
+  },
+  "43-adam": {
+    "4+": {
+      "examples": 487,
+      "passes": 91,
+      "precisionGate": 0
+    },
+    "1": {
+      "examples": 1016,
+      "passes": 418,
+      "precisionGate": 0
+    },
+    "2-3": {
+      "examples": 2073,
+      "passes": 569,
+      "precisionGate": 0
+    },
+    "0": {
+      "examples": 783,
+      "passes": 783,
+      "precisionGate": 783
+    }
+  },
+  "43-lbfgs": {
+    "4+": {
+      "examples": 487,
+      "passes": 124,
+      "precisionGate": 0
+    },
+    "1": {
+      "examples": 1016,
+      "passes": 434,
+      "precisionGate": 2
+    },
+    "2-3": {
+      "examples": 2073,
+      "passes": 635,
+      "precisionGate": 0
+    },
+    "0": {
+      "examples": 783,
+      "passes": 783,
+      "precisionGate": 783
+    }
+  }
+}
