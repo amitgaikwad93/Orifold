@@ -1,0 +1,32 @@
+{
+  "model": {
+    "examples": 768,
+    "passes": 720,
+    "passRate": 0.9375,
+    "legacyPasses": 720,
+    "validWallsOpening": 311,
+    "passingWithZeroFloating": 552,
+    "flagDisagreements": 0,
+    "medianOpeningAmongPassing": 76.33112066149712,
+    "meanCorrectionMs": 5.467447916666667,
+    "p90CorrectionMs": 9.0,
+    "meanEvaluations": 23.1796875,
+    "maxEvaluations": 401,
+    "overNominal400": 1
+  },
+  "dumb-start": {
+    "examples": 768,
+    "passes": 593,
+    "passRate": 0.7721354166666666,
+    "legacyPasses": 591,
+    "validWallsOpening": 47,
+    "passingWithZeroFloating": 326,
+    "flagDisagreements": 2,
+    "medianOpeningAmongPassing": 30.0,
+    "meanCorrectionMs": 5.283854166666667,
+    "p90CorrectionMs": 9.0,
+    "meanEvaluations": 52.294270833333336,
+    "maxEvaluations": 416,
+    "overNominal400": 20
+  }
+}

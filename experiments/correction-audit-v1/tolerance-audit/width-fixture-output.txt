@@ -1,0 +1,9 @@
+answers 1 | rules + collision-free 1
+tolerance   0.00%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance   0.25%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance   0.50%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance   1.00%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance   2.00%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance   3.00%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance   5.00%  of sheet: pass 0.0%   | of box side: pass 100.0%
+tolerance  10.00%  of sheet: pass 0.0%   | of box side: pass 100.0%

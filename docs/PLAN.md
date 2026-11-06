@@ -78,7 +78,8 @@ Results: strict differential evolution solved 80/80 feasible pilot requests; ran
 - [x] D37 shared-network optimizer/precision comparison completed: best sampled validity 29/32, large accuracy gains without architecture changes; no arm meets both all-32 goals ([report](../experiments/network-optimization-v1/REPORT.md)).
 - [x] D38: corrected preprocessing and bridge tolerance; repeated the frozen 32-example comparisons in network-optimization-v2.
 - [x] D39 step 3: three-seed full-training comparison completed; Adam 43.13% versus Adam + L-BFGS 45.46% mean training sampled validity.
-- [ ] Step 4: predeclare validation comparisons with conventional baselines and model-plus-limited-correction. Final test stays untouched.
+- [x] D40: audited Claude tolerance/correction and applied legacy correction to all six saved training models with matched-count controls; see correction-audit-v1.
+- [ ] Correct diagnostic/search accounting issues, then predeclare step 4 validation comparisons with conventional baselines and model-plus-limited-correction. Final test stays untouched.
 - [ ] Build the visual review page for the user's verdict (spec section 9).
 - Measure evaluator pass rate, per-axis overflow, latency distributions, solver refinement time, and failure categories.
 - Proposed acceptance target: >=95% evaluator pass rate on held-out known-feasible requests, using an explicitly reported fit tolerance no greater than 1% per target dimension. These are experiment targets, not promised outcomes.
