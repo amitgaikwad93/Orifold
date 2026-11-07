@@ -55,3 +55,20 @@ For the project owner and any agent explaining the work. Each entry: what it is,
 
 - **Predeclared** — targets, settings and the test set are fixed *before* seeing results, so we cannot fool ourselves after the fact.
 - **Experiment specification** — the written contract for one experiment: task, validity rules, quality objective, how requests are sampled, how labels are made and checked, metrics, success target, baselines, and what a failure would mean. See [EXPERIMENT_SPEC.md](EXPERIMENT_SPEC.md).
+
+## Terms from the learning-assisted work (added 2026-11-07)
+
+- **Correction (repair)**: a short, capped search that starts from a proposed design (from the model or from retrieval) and nudges panel lengths and angles until the design fits and passes the checker. It improves validity; at present it does not aim for creases on walls or wide openings.
+- **Retrieval (nearest training answer)**: answering a new box by copying the answer of the most similar training box. A strong baseline whenever the question has few numbers.
+- **Multistart search**: run a search from several simple starting designs and keep the first that passes. No model involved.
+- **Learning-assisted optimization**: the model proposes a starting design, a search repairs and improves it, a checker verifies the result. See LEARNING_ASSISTED_OPTIMIZATION.md.
+- **Score call**: one evaluation of a candidate design during correction. The correction has a cap (400) so its cost is bounded.
+- **Adam / L-BFGS**: two ways of adjusting a network's weights during training. Adam takes many small adaptive steps; L-BFGS takes fewer, more precise steps using curvature estimates. Here L-BFGS fitted training data better but generalized worse (D39, D42).
+- **Generalization**: performing well on boxes the model never trained on. Fitting training data better while getting worse on validation is overfitting.
+- **Normalization**: rescaling each input to a standard range before the network sees it. A constant input (always the same value) must be handled specially; mishandling it caused precision instability (D37–D38).
+- **Precision vs accuracy**: accuracy is whether answers are right on average (no bias); precision is how tightly they cluster (small scatter). Our tight answers need both.
+- **Bias / scatter**: the average error (bias) and the spread of errors (scatter, standard deviation) of a model's outputs compared with the answer key.
+- **Tolerance curve**: pass rate if designs were allowed to poke out of the box by a small amount. Analysis only; it shows how close the misses are.
+- **Quality (in reports)**: valid, every crease on a wall, and opening at least 90% of the answer key's. A partial measure, not a full aesthetic judgment.
+- **Seed (training)**: the number fixing random choices in training. Results are reported over several seeds to show how much they vary.
+- **Final test split**: boxes held back for one final evaluation. Never used for tuning.

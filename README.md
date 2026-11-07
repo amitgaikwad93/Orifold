@@ -4,27 +4,34 @@ An experimental project to train small neural models from scratch for mechanical
 
 ## Continuing in a new chat
 
-Start with [AGENTS.md](AGENTS.md), then [the current handoff](docs/HANDOFF.md) and [project decisions](docs/DECISIONS.md). The handoff records completed work, verification, runtime status, and concrete next steps. Update it after each substantive session.
+Start with [AGENTS.md](AGENTS.md), then [STATUS.md](docs/STATUS.md) (plain-language status), [the handoff](docs/HANDOFF.md) and [project decisions](docs/DECISIONS.md) (index at the top).
 
-Implementation is not yet on `main`; see the handoff for the current branch and PR.
+The accordion baseline is merged into `main` (tag `accordion-baseline-v1`). Ongoing research is on `research/learning-assisted-optimization`.
 
-Scope: **zero-thickness rigid flat-panel designs only**. No thickness adaptation or hardware until the user explicitly reopens that scope. Target-box dimensions are separate upper bounds for packing, with a limited panel budget; scalar volume minimization is not the objective.
+Scope: **zero-thickness rigid flat-panel designs only**. No thickness adaptation or hardware until the user explicitly reopens that scope. Target-box dimensions are separate upper bounds for packing, with a fold budget; scalar volume minimization is not the objective.
 
 ## Current stage
 
-Phases 1–3: geometry, numerical optimization, and the first CPU-trained neural model are implemented. The first network is not a usable generator (0/150 strict, 3/150 within 1%; the optimizer passed 150/150). A later audit showed its training labels were inconsistent, so that experiment tested the pipeline rather than the approach. The current stage is designing the experimental setup: validity, objectives, dataset criteria and success targets (DECISIONS.md D10–D11).
+The parallel-crease accordion family is fully specified. It has:
+- a deterministic answer key (reference solver);
+- an accepted, independently checked dataset (v2b);
+- a validation benchmark of trained models against conventional baselines.
 
+The model alone is valid on 39% of validation answers. Model + correction reaches 91% but with lower design quality than retrieval or the reference. Current direction: learning-assisted optimization. See [STATUS.md](docs/STATUS.md).
+
+- [Status in plain language](docs/STATUS.md)
+- [Learning-assisted optimization: direction and roadmap](docs/LEARNING_ASSISTED_OPTIMIZATION.md)
+- [Experiment specification and results](docs/EXPERIMENT_SPEC.md)
 - [What a passing result means: limitations](docs/LIMITATIONS.md)
 - [Plain-language glossary](docs/GLOSSARY.md)
-- [Experiment specification (next experiment)](docs/EXPERIMENT_SPEC.md)
-- [Project plan, capability contract, milestones, and budget](docs/PLAN.md)
-- [Geometry equations, contact policy, and limitations](docs/GEOMETRY.md)
-- [Validation results and user-reported paper comparison](docs/VALIDATION.md)
-- [Optimizer design and contact-policy review](docs/OPTIMIZATION.md)
-- [Measured pilot results and compute estimate](docs/PILOT_RESULTS.md)
-- [First trained model: results, failure analysis, and reproduction](docs/LEARNING.md)
-- [Four-panel accordion experiment](demo/accordion.html)
-- [Original one-hinge experiment](demo/index.html)
+- [Project plan and milestones](docs/PLAN.md)
+- [Geometry equations and contact policy](docs/GEOMETRY.md)
+- [Validation record](docs/VALIDATION.md)
+- [Optimizer design](docs/OPTIMIZATION.md) and [first pilot results](docs/PILOT_RESULTS.md)
+- [First (v1) trained model](docs/LEARNING.md)
+- Experiments with reports: `experiments/*/REPORT.md` (latest: [validation-v1](experiments/validation-v1/REPORT.md))
+- Example FOLD files: [examples/fold](examples/fold/README.md)
+- Interactive demos: [accordion](demo/accordion.html), [one hinge](demo/index.html)
 
 ## Run locally
 

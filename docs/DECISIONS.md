@@ -2,6 +2,58 @@
 
 Current as of 2026-11-04. Later explicit user decisions supersede this record; keep the record synchronized when that happens. Distinguish agreed scope from implementation recommendations.
 
+## Index
+
+Status: **active** = in force; **amended** = in force with a later change noted; **superseded** = replaced; **record** = historical outcome or completed experiment.
+
+| ID | Decision | Status |
+| --- | --- | --- |
+| D01 | Purpose: learn model training through useful mechanical origami | active |
+| D02 | Zero-thickness rigid flat panels only | active |
+| D03 | Pack into a target envelope (separate upper bounds), not minimum volume | amended by D30 |
+| D04 | Four panels, three parallel hinges | superseded by D13/D19/D21 |
+| D05 | Strict labels, transparent metrics (v1) | record; fit margin now D18 |
+| D06 | Incremental learning approach | record |
+| D07 | Evidence and budget (CPU first, no paid compute without approval) | active |
+| D08 | Collaboration and repository continuity | active |
+| D09 | Preserve the failed v1 baseline | record |
+| D10 | v1 dataset not a valid test (inconsistent labels) | record |
+| D11 | Design the experimental setup first | record (setup completed) |
+| D12 | Plain-language communication and visuals | active |
+| D13 | Variable fold count | amended by D26 |
+| D14 | Quality measures: geometric aesthetics and function | active |
+| D15 | Visualisation built on demand | active |
+| D16 | Strict ranking order | superseded by D26–D29, D34 |
+| D17 | General geometry model; requests not application-specific | active |
+| D18 | 2% fit margin | active |
+| D19 | Complexity only after the pipeline is proven | active |
+| D20 | Success = the model alone outputs valid fold patterns | **open question** (see below) |
+| D21 | 0–11 folds (1–12 panels) | active |
+| D22 | Proposed sub-definitions accepted | active |
+| D23 | Swept-area ties | active |
+| D24 | Weight requests toward short boxes | active |
+| D25 | Independent verification by Codex | active |
+| D25b | Near-parallel panels diagnosis and symmetry test | record |
+| D26 | Fold budget is a request input | active |
+| D27 | Spread (smallest opening angle) before order | active |
+| D28 | Any symmetry counts (mirror or rotational) | active |
+| D29 | 10% spread tie band | active |
+| D30 | Final shape may turn about the hinge axis | active |
+| D31 | Roomy boxes keep most spread | active |
+| D32 | No minimum fold-angle rule | active |
+| D33 | Keep alternating fold directions for v2 | active |
+| D34 | Every crease on a box wall, before spread | active |
+| D35 | 32-example memorization diagnostic | record |
+| D36 | Independent-output control (32/32 reachable) | record |
+| D37 | Shared-network optimizer comparison | record |
+| D38 | Normalization and bridge fixes, repeated controls | record |
+| D39 | Full-training optimizer comparison | record |
+| D40 | Audit of tolerance and correction work | record |
+| D41 | Frozen validation benchmark | record |
+| D42 | Adam + correction leads; L-BFGS retired | active |
+| D43 | Learning-assisted optimization direction | active (direction; roadmap not yet executed) |
+| D44 | Baseline merged to main; research branch workflow | active |
+
 ## D01 — purpose and problem (agreed)
 
 Orifold is a personal learning/research project: train a small model from scratch to propose useful mechanical folding designs, and measure its contribution against conventional methods. The user explicitly moved away from artistic text-to-animal generation. The scientific question is whether learning can propose good designs or initialize optimization faster, not whether any AI output automatically constitutes progress.
@@ -311,3 +363,9 @@ Main holds reviewed reproducible project state, including informative failed exp
 ## Open questions (unresolved; do not treat as decided)
 
 Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Adam plus correction is the leading neural candidate; L-BFGS is retired from current recipe development. Retrieval/conventional baselines remain necessary. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.
+
+D20 status (raised 2026-11-07 in a documentation review). D20 made "the model alone outputs valid fold patterns" the success criterion. Current evidence: model alone 39% valid on validation. D43 moved the working direction to learning-assisted optimization, but D20 was not formally changed. The user should choose:
+- keep D20 as a separate open question;
+- replace it with a learning-assisted acceptance goal;
+- or define both and report both.
+

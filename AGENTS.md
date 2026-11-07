@@ -42,14 +42,14 @@ Chats end; the repository is the project's memory. Follow this every session.
 
 ### At the start
 
-1. Read this file, then `docs/HANDOFF.md`, then `docs/DECISIONS.md` (including **Open questions**). Read `docs/PLAN.md` and the topic docs relevant to the task.
+1. Read this file, then `docs/STATUS.md` (plain-language status), `docs/HANDOFF.md`, then `docs/DECISIONS.md` (index at the top, then **Open questions**). Read `docs/PLAN.md` and the topic docs relevant to the task.
 2. Check the real state: `git status`, `git log --oneline -5`, current branch, and open PRs. HANDOFF.md is a dated snapshot; where it disagrees with the checkout, trust the checkout and fix the handoff.
 3. Restore the environment only if the task needs it (`npm test` needs only Node; Python setup is in docs/LEARNING.md). Do not rerun finished experiments just to confirm state.
 4. If the user's request conflicts with a recorded decision, point out the conflict and ask; do not silently pick one.
 
 ### Before ending a substantive session
 
-1. Rewrite `docs/HANDOFF.md` to the template below. Replace stale state; do not append a second status summary.
+1. Rewrite `docs/HANDOFF.md` to the template below. Replace stale state; do not append a second status summary. Update `docs/STATUS.md` when results or open decisions change, in plain language for the owner.
 2. Add or amend entries in `docs/DECISIONS.md` for anything the user decided, and move unresolved topics to **Open questions**. Mark agent recommendations as recommendations.
 3. Update `docs/PLAN.md` if a milestone changed.
 4. Run the relevant checks (tests, or link/consistency check for docs-only work) and report the result.
