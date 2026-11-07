@@ -43,7 +43,7 @@ Two questions are tracked separately (D45):
 
 ## Open decisions for you
 
-1. **What quality is good enough** for a fast answer, and how much search time may it use before falling back to the slower solver?
+1. **Speed vs quality policy.** Aim for 100% quality (D46); the fallback and time policy will be decided after measuring quality against time.
 2. **When to move to a richer fold family** (free mountain/valley folds first), where learning should beat lookup.
 
 ## Next step

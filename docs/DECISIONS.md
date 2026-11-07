@@ -54,6 +54,7 @@ Status: **active** = in force; **amended** = in force with a later change noted;
 | D43 | Learning-assisted optimization direction | active (direction; roadmap not yet executed) |
 | D44 | Baseline merged to main; research branch workflow | active |
 | D45 | Keep D20 (model alone) as a separate open question beside the learning-assisted goal | active |
+| D46 | Aim for 100% quality; measure quality against time instead of fixing a threshold now | active |
 
 ## D01 — purpose and problem (agreed)
 
@@ -364,6 +365,10 @@ Main holds reviewed reproducible project state, including informative failed exp
 ## D45 — keep D20 as a separate, still-open question (user decision, 2026-11-07)
 
 The original success question, D20 ("can the model alone output valid fold patterns?"), is neither replaced nor closed. It is tracked separately from the learning-assisted optimization goal (D43). Reports should state the model-alone result alongside any model + search result, so the two answers are never merged. Current model-alone evidence: 39% valid on validation (validation-v1), so the answer is not yet.
+
+## D46 — aim for 100% quality; measure, do not fix a threshold yet (user direction, 2026-11-07)
+
+The goal for fast methods is the answer key's quality (100%: valid, every crease on a wall, full opening). Do not choose a "good enough" threshold now. Measure quality against time and search effort for each method, then decide with evidence. Agent refinement, accepted with the direction: 100% is the aim, not a pass bar, so the key measurement is how fast each method approaches it.
 
 ## Open questions (unresolved; do not treat as decided)
 
