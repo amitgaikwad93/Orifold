@@ -1,0 +1,408 @@
+{
+  "answers": 768,
+  "methods": {
+    "adam-17": {
+      "transitions": {
+        "invalid -> invalid": 68,
+        "invalid -> quality": 117,
+        "invalid -> valid-no-quality": 280,
+        "quality -> quality": 172,
+        "valid-no-quality -> valid-no-quality": 131
+      },
+      "rawSuccessesLost": 0,
+      "invalidAfterCorrection": {
+        "pokes out": 67,
+        "stopped early (< cap)": 68,
+        "collision": 1
+      },
+      "invalidBestTurnOvershootPctL": {
+        "median": 1.47,
+        "max": 12.9,
+        "within1pct": 23,
+        "n": 68
+      },
+      "validButNoQuality": {
+        "floating creases": 103,
+        "low opening": 228,
+        "floating + low opening": 80
+      },
+      "lowOpeningAttribution": {
+        "opening not reduced": 144,
+        "raw start had enough opening": 145,
+        "not corrected (raw already valid)": 131,
+        "raw start already below 90% opening": 135,
+        "opening reduced by correction": 136
+      },
+      "editsMedian": {
+        "endedWithQuality": {
+          "panelPctL": 5.4,
+          "angleDeg": 3.58
+        },
+        "endedWithout": {
+          "panelPctL": 6.43,
+          "angleDeg": 3.58
+        }
+      },
+      "qualityRateBy": {
+        "folds": {
+          "0": [
+            96,
+            100.0
+          ],
+          "1": [
+            204,
+            61.8
+          ],
+          "2": [
+            303,
+            13.5
+          ],
+          "3": [
+            112,
+            23.2
+          ],
+          "4": [
+            52,
+            0.0
+          ],
+          "5": [
+            1,
+            0.0
+          ]
+        },
+        "kind": {
+          "long": [
+            174,
+            55.7
+          ],
+          "short": [
+            594,
+            32.3
+          ]
+        },
+        "step": {
+          "0": [
+            256,
+            50.4
+          ],
+          "1": [
+            256,
+            34.4
+          ],
+          "2": [
+            256,
+            28.1
+          ]
+        }
+      }
+    },
+    "adam-29": {
+      "transitions": {
+        "invalid -> invalid": 62,
+        "invalid -> quality": 129,
+        "invalid -> valid-no-quality": 288,
+        "quality -> quality": 161,
+        "valid-no-quality -> valid-no-quality": 128
+      },
+      "rawSuccessesLost": 0,
+      "invalidAfterCorrection": {
+        "pokes out": 60,
+        "hit cap": 4,
+        "stopped early (< cap)": 58,
+        "collision": 2
+      },
+      "invalidBestTurnOvershootPctL": {
+        "median": 1.0,
+        "max": 13.87,
+        "within1pct": 31,
+        "n": 62
+      },
+      "validButNoQuality": {
+        "floating creases": 89,
+        "low opening": 230,
+        "floating + low opening": 97
+      },
+      "lowOpeningAttribution": {
+        "not corrected (raw already valid)": 128,
+        "opening not reduced": 146,
+        "raw start had enough opening": 138,
+        "opening reduced by correction": 142,
+        "raw start already below 90% opening": 150
+      },
+      "editsMedian": {
+        "endedWithQuality": {
+          "panelPctL": 5.4,
+          "angleDeg": 0.0
+        },
+        "endedWithout": {
+          "panelPctL": 6.0,
+          "angleDeg": 3.58
+        }
+      },
+      "qualityRateBy": {
+        "folds": {
+          "0": [
+            96,
+            100.0
+          ],
+          "1": [
+            204,
+            62.3
+          ],
+          "2": [
+            303,
+            12.5
+          ],
+          "3": [
+            112,
+            24.1
+          ],
+          "4": [
+            52,
+            3.8
+          ],
+          "5": [
+            1,
+            0.0
+          ]
+        },
+        "kind": {
+          "long": [
+            174,
+            64.4
+          ],
+          "short": [
+            594,
+            30.0
+          ]
+        },
+        "step": {
+          "0": [
+            256,
+            53.9
+          ],
+          "1": [
+            256,
+            30.9
+          ],
+          "2": [
+            256,
+            28.5
+          ]
+        }
+      }
+    },
+    "adam-43": {
+      "transitions": {
+        "invalid -> invalid": 67,
+        "invalid -> quality": 110,
+        "invalid -> valid-no-quality": 282,
+        "quality -> quality": 168,
+        "valid-no-quality -> valid-no-quality": 141
+      },
+      "rawSuccessesLost": 0,
+      "invalidAfterCorrection": {
+        "pokes out": 61,
+        "stopped early (< cap)": 63,
+        "hit cap": 4,
+        "collision": 6
+      },
+      "invalidBestTurnOvershootPctL": {
+        "median": 1.18,
+        "max": 14.12,
+        "within1pct": 31,
+        "n": 67
+      },
+      "validButNoQuality": {
+        "floating creases": 105,
+        "low opening": 249,
+        "floating + low opening": 69
+      },
+      "lowOpeningAttribution": {
+        "not corrected (raw already valid)": 141,
+        "opening not reduced": 137,
+        "raw start had enough opening": 141,
+        "opening reduced by correction": 145,
+        "raw start already below 90% opening": 141
+      },
+      "editsMedian": {
+        "endedWithQuality": {
+          "panelPctL": 3.6,
+          "angleDeg": 3.58
+        },
+        "endedWithout": {
+          "panelPctL": 6.4,
+          "angleDeg": 3.58
+        }
+      },
+      "qualityRateBy": {
+        "folds": {
+          "0": [
+            96,
+            100.0
+          ],
+          "1": [
+            204,
+            50.5
+          ],
+          "2": [
+            303,
+            14.2
+          ],
+          "3": [
+            112,
+            32.1
+          ],
+          "4": [
+            52,
+            0.0
+          ],
+          "5": [
+            1,
+            0.0
+          ]
+        },
+        "kind": {
+          "long": [
+            174,
+            55.7
+          ],
+          "short": [
+            594,
+            30.5
+          ]
+        },
+        "step": {
+          "0": [
+            256,
+            46.1
+          ],
+          "1": [
+            256,
+            31.6
+          ],
+          "2": [
+            256,
+            30.9
+          ]
+        }
+      }
+    },
+    "nearest": {
+      "transitions": {
+        "invalid -> invalid": 94,
+        "invalid -> quality": 116,
+        "invalid -> valid-no-quality": 164,
+        "quality -> quality": 240,
+        "valid-no-quality -> valid-no-quality": 154
+      },
+      "rawSuccessesLost": 0,
+      "invalidAfterCorrection": {
+        "pokes out": 93,
+        "stopped early (< cap)": 93,
+        "collision": 1,
+        "hit cap": 1
+      },
+      "invalidBestTurnOvershootPctL": {
+        "median": 1.03,
+        "max": 3.22,
+        "within1pct": 47,
+        "n": 94
+      },
+      "validButNoQuality": {
+        "low opening": 181,
+        "floating creases": 94,
+        "floating + low opening": 43
+      },
+      "lowOpeningAttribution": {
+        "opening reduced by correction": 135,
+        "raw start had enough opening": 137,
+        "not corrected (raw already valid)": 154,
+        "raw start already below 90% opening": 27,
+        "opening not reduced": 29
+      },
+      "editsMedian": {
+        "endedWithQuality": {
+          "panelPctL": 1.8,
+          "angleDeg": 3.58
+        },
+        "endedWithout": {
+          "panelPctL": 2.24,
+          "angleDeg": 3.58
+        }
+      },
+      "qualityRateBy": {
+        "folds": {
+          "0": [
+            96,
+            100.0
+          ],
+          "1": [
+            204,
+            52.5
+          ],
+          "2": [
+            303,
+            24.1
+          ],
+          "3": [
+            112,
+            65.2
+          ],
+          "4": [
+            52,
+            13.5
+          ],
+          "5": [
+            1,
+            0.0
+          ]
+        },
+        "kind": {
+          "long": [
+            174,
+            66.1
+          ],
+          "short": [
+            594,
+            40.6
+          ]
+        },
+        "step": {
+          "0": [
+            256,
+            50.0
+          ],
+          "1": [
+            256,
+            39.1
+          ],
+          "2": [
+            256,
+            50.0
+          ]
+        }
+      }
+    }
+  },
+  "qualityAfterCorrection_adamVsNearest": {
+    "adam-17": {
+      "both": 205,
+      "onlyAdam": 84,
+      "onlyNearest": 151,
+      "neither": 328
+    },
+    "adam-29": {
+      "both": 212,
+      "onlyAdam": 78,
+      "onlyNearest": 144,
+      "neither": 334
+    },
+    "adam-43": {
+      "both": 197,
+      "onlyAdam": 81,
+      "onlyNearest": 159,
+      "neither": 331
+    }
+  }
+}

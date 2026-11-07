@@ -1,0 +1,43 @@
+{
+ "adam-17": {
+  "repairedValidWithLowOpening": {
+   "raw start low / correction did not close": 114,
+   "raw start fine / correction closed folds": 104,
+   "raw start low / correction closed folds": 21
+  },
+  "repairedValidFloating": {
+   "floating after correction": 115
+  }
+ },
+ "adam-29": {
+  "repairedValidWithLowOpening": {
+   "raw start low / correction did not close": 125,
+   "raw start fine / correction closed folds": 106,
+   "raw start low / correction closed folds": 25
+  },
+  "repairedValidFloating": {
+   "floating after correction": 116
+  }
+ },
+ "adam-43": {
+  "repairedValidWithLowOpening": {
+   "raw start low / correction closed folds": 37,
+   "raw start fine / correction closed folds": 97,
+   "raw start low / correction did not close": 104,
+   "raw start fine / correction did not close": 1
+  },
+  "repairedValidFloating": {
+   "floating after correction": 109
+  }
+ },
+ "nearest": {
+  "repairedValidWithLowOpening": {
+   "raw start fine / correction closed folds": 118,
+   "raw start low / correction closed folds": 4,
+   "raw start low / correction did not close": 23
+  },
+  "repairedValidFloating": {
+   "floating after correction": 55
+  }
+ }
+}

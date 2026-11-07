@@ -13,17 +13,16 @@ Snapshot: 2026-11-07. Accordion baseline merged to `main` (PR #2, tag `accordion
 
 ## Last session (2026-11-07)
 
-Documentation only, no experiments:
-- added `docs/STATUS.md` (plain-language status for the owner);
-- trimmed this handoff;
-- added a decision index to DECISIONS.md;
-- extended GLOSSARY.md;
-- updated README.md and AGENTS.md;
-- D45: the user kept D20 as a separate, still-open question.
-
-Checks: link check and tests (see commit).
-
-Earlier work since the merge is summarized in DECISIONS.md D35–D44 and each experiment's `REPORT.md` (memorization-v1, independent-outputs-v1, network-optimization-v1/v2, full-training-v1, correction-audit-v1, validation-v1).
+- **Docs pass:** STATUS.md, decision index, glossary, README and AGENTS. Decisions D45 (keep D20 separate and open) and D46 (aim for 100% quality, measure quality vs time).
+- **Correction diagnosis v1:** plan predeclared in `f7fd9b7`; [report](../experiments/correction-diagnosis-v1/REPORT.md); `scripts/diagnose-correction.py`; saved validation-v1 records only. Measured:
+  - correction only targets fit and skips designs that already fit;
+  - it closes folds to fit (about 100 model answers; 118/145 retrieval low-opening answers);
+  - model starts are often too closed;
+  - floating creases are left after correction;
+  - invalid results are stalls (median 1.0–1.5% L overshoot), not cap exhaustion;
+  - two-fold answers reach 13–24% quality;
+  - model and retrieval starts are complementary (union about 57%).
+  - Visual page: https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp
 
 ## In discussion / open
 
@@ -35,7 +34,14 @@ Roadmap: [LEARNING_ASSISTED_OPTIMIZATION.md](LEARNING_ASSISTED_OPTIMIZATION.md).
 
 ## Next concrete task
 
-**Correction diagnosis** (roadmap step 2, D43): analyze saved Adam + correction and nearest + correction designs from validation-v1 before and after repair. Categorize failures and quality losses (walls, opening), with paired visual examples. Emphasize quality, since all fast methods reach at most 46% quality against the reference's 100%. Predeclare the analysis. No retraining and no final-test use.
+Roadmap step 3: design and predeclare a **quality-seeking correction** (hypotheses H1–H4 in the diagnosis report):
+- pursue walls, then opening;
+- run on starts that already fit;
+- do not close folds;
+- multi-coordinate moves or a wall-snapping step;
+- multiple starts with an answer-key-free selector.
+
+Compare on saved validation starts against current correction, measuring quality against time. Report model-alone results alongside (D45). No retraining or final-test use.
 
 ## Runtime
 

@@ -46,9 +46,19 @@ Two questions are tracked separately (D45):
 1. **Speed vs quality policy.** Aim for 100% quality (D46); the fallback and time policy will be decided after measuring quality against time.
 2. **When to move to a richer fold family** (free mountain/valley folds first), where learning should beat lookup.
 
+## Latest finding: why fast answers lose quality
+
+[Correction diagnosis](../experiments/correction-diagnosis-v1/REPORT.md) ([visual page](https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp)), from saved validation records:
+- **The correction step only makes designs fit.** It never tries to put creases on walls or open folds wide, and it skips designs that already fit.
+- **To make designs fit, it often closes folds,** the same shortcut training run 2 found.
+- **The model's starts are often too closed** to begin with.
+- **Failed corrections get stuck near the box edge;** they are not out of time.
+- **Two-fold boxes are the weak spot:** 13–24% quality.
+- **Model and nearest-answer starts succeed on different boxes.**
+
 ## Next step
 
-Diagnose the correction step on saved designs, before and after repair, with visual examples. Focus on why fast methods lose quality (walls, opening), not only validity. No retraining is needed and the final test set stays untouched.
+Design a quality-seeking correction, tested on saved starts with frozen settings, measuring quality against time. It would pursue the answer key's ranking (walls, then opening) instead of stopping at fit, avoid closing folds, and try both model and nearest-answer starts. No retraining yet; the final test stays untouched. Hypotheses H1–H4 are in the diagnosis report.
 
 ## Limits that always apply
 
