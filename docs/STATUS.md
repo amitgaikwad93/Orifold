@@ -34,13 +34,17 @@ Validation numbers (768 answers). Quality = valid, every crease on a wall, and o
 
 ## Current direction
 
+Two questions are tracked separately (D45):
+- **Can the model alone produce valid folds?** Your original question (D20). Still open; today's answer is not yet (39%).
+- **Can learning make a fast, verified design pipeline better?** The learning-assisted goal below.
+
+
 **Learning-assisted optimization** ([details](LEARNING_ASSISTED_OPTIMIZATION.md)): the model proposes a starting design, a search repairs and improves it, and a checker verifies the result. If no verified answer is found, the system says so.
 
 ## Open decisions for you
 
-1. **Is "the model alone" (D20) still the success question?** Or is it replaced by the learning-assisted goal, or kept as a separate, still-open question?
-2. **What quality is good enough** for a fast answer, and how much search time may it use before falling back to the slower solver?
-3. **When to move to a richer fold family** (free mountain/valley folds first), where learning should beat lookup.
+1. **What quality is good enough** for a fast answer, and how much search time may it use before falling back to the slower solver?
+2. **When to move to a richer fold family** (free mountain/valley folds first), where learning should beat lookup.
 
 ## Next step
 

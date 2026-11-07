@@ -19,7 +19,7 @@ Documentation only, no experiments:
 - added a decision index to DECISIONS.md;
 - extended GLOSSARY.md;
 - updated README.md and AGENTS.md;
-- recorded the open D20 question.
+- D45: the user kept D20 as a separate, still-open question.
 
 Checks: link check and tests (see commit).
 
@@ -27,8 +27,7 @@ Earlier work since the merge is summarized in DECISIONS.md D35–D44 and each ex
 
 ## In discussion / open
 
-See DECISIONS.md "Open questions". Most important:
-- **D20 status:** is "model alone" still the success question?
+See DECISIONS.md "Open questions". Most important (D20 is kept as a separate open question per D45; report model-alone results alongside model + search):
 - the quality and speed policy and fallback before the final test;
 - when to move to a richer fold family.
 

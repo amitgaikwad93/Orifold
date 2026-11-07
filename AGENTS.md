@@ -11,7 +11,7 @@ The user is the project owner and knows what they want to build (useful mechanic
 - Purpose: learn model training from scratch through a useful mechanical origami experiment, and be candid about whether learning adds value over conventional methods.
 - **Zero-thickness, rigid flat-panel designs only.** Do not implement thickness adaptation, axis offsets, panel trimming, hinge hardware, or material mechanics until the user explicitly reopens that scope. This is not an automatic future milestone.
 - Current task: pack a fixed sheet into a target envelope with a limited panel/crease budget. Target length, width and height are separate upper bounds, not a scalar volume objective. Flat-folded height zero is allowed.
-- The current stage is about **designing the experimental setup** (task, what "valid" means, how data is generated, what success looks like), independent of model or dataset scale. See DECISIONS.md D11.
+- Current stage: the accordion setup (rules, answer key, dataset) is complete. Work is on **learning-assisted optimization** (D43), with the original model-alone question (D20) tracked separately (D45). Always report model-alone results beside model + search results. See docs/STATUS.md.
 - The evaluator checks sampled configurations; never describe that as proof of continuous collision-free motion, layer ordering, manufacturability, or one-actuator deployment. Full list: [docs/LIMITATIONS.md](docs/LIMITATIONS.md).
 - Keep solver failures distinct from proven infeasibility, and numerical-solver results distinct from neural-model results.
 

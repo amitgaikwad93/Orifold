@@ -27,7 +27,7 @@ Status: **active** = in force; **amended** = in force with a later change noted;
 | D17 | General geometry model; requests not application-specific | active |
 | D18 | 2% fit margin | active |
 | D19 | Complexity only after the pipeline is proven | active |
-| D20 | Success = the model alone outputs valid fold patterns | **open question** (see below) |
+| D20 | Success = the model alone outputs valid fold patterns | active as a separate, still-open question (D45) |
 | D21 | 0–11 folds (1–12 panels) | active |
 | D22 | Proposed sub-definitions accepted | active |
 | D23 | Swept-area ties | active |
@@ -53,6 +53,7 @@ Status: **active** = in force; **amended** = in force with a later change noted;
 | D42 | Adam + correction leads; L-BFGS retired | active |
 | D43 | Learning-assisted optimization direction | active (direction; roadmap not yet executed) |
 | D44 | Baseline merged to main; research branch workflow | active |
+| D45 | Keep D20 (model alone) as a separate open question beside the learning-assisted goal | active |
 
 ## D01 — purpose and problem (agreed)
 
@@ -360,12 +361,10 @@ Completed: PR #2 merged at `6bcd36a`, annotated tag `accordion-baseline-v1` push
 
 Main holds reviewed reproducible project state, including informative failed experiments; topic branches hold ongoing work. This milestone does not declare the model complete, expand scope, or authorize final-test use. The next recommended scientific task remains the correction diagnosis in D43.
 
+## D45 — keep D20 as a separate, still-open question (user decision, 2026-11-07)
+
+The original success question, D20 ("can the model alone output valid fold patterns?"), is neither replaced nor closed. It is tracked separately from the learning-assisted optimization goal (D43). Reports should state the model-alone result alongside any model + search result, so the two answers are never merged. Current model-alone evidence: 39% valid on validation (validation-v1), so the answer is not yet.
+
 ## Open questions (unresolved; do not treat as decided)
 
 Step 5: choose and freeze a quality/speed policy and any proposal-selection/fallback method before final testing. Adam plus correction is the leading neural candidate; L-BFGS is retired from current recipe development. Retrieval/conventional baselines remain necessary. Do not choose the best validation seed or use the reference opening score as a deployment oracle. Any new architecture or policy needs separate versioned validation; final test remains untouched.
-
-D20 status (raised 2026-11-07 in a documentation review). D20 made "the model alone outputs valid fold patterns" the success criterion. Current evidence: model alone 39% valid on validation. D43 moved the working direction to learning-assisted optimization, but D20 was not formally changed. The user should choose:
-- keep D20 as a separate open question;
-- replace it with a learning-assisted acceptance goal;
-- or define both and report both.
-
