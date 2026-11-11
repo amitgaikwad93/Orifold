@@ -46,19 +46,34 @@ Two questions are tracked separately (D45):
 1. **Speed vs quality policy.** Aim for 100% quality (D46); the fallback and time policy will be decided after measuring quality against time.
 2. **When to move to a richer fold family** (free mountain/valley folds first), where learning should beat lookup.
 
-## Latest finding: why fast answers lose quality
+## Latest result: a correction that aims for quality
 
-[Correction diagnosis](../experiments/correction-diagnosis-v1/REPORT.md) ([visual page](https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp)), from saved validation records:
-- **The correction step only makes designs fit.** It never tries to put creases on walls or open folds wide, and it skips designs that already fit.
-- **To make designs fit, it often closes folds,** the same shortcut training run 2 found.
-- **The model's starts are often too closed** to begin with.
-- **Failed corrections get stuck near the box edge;** they are not out of time.
-- **Two-fold boxes are the weak spot:** 13–24% quality.
-- **Model and nearest-answer starts succeed on different boxes.**
+[Quality correction v1](../experiments/quality-correction-v1/REPORT.md) ([chart](https://claude.ai/artifact/L5NfP5iaYGtvLmSptkGUi8)), on the 768 validation answers. The new correction keeps working after a design fits: it opens folds wide, then brings every crease onto a wall.
+
+| Pipeline | Valid | Quality | Time per answer |
+| --- | ---: | ---: | ---: |
+| Model start + nearest-answer start, new correction | 100% | **92%** | about 210 ms |
+| Nearest-answer start, new correction | 98% | 88% | about 160 ms |
+| Model start, new correction | 100% | 84% | about 145 ms |
+| Simple start (no model, no data), new correction | 98% | 39% | about 300 ms |
+| Old correction (model / nearest) | 91% / 88% | 37% / 46% | about 9 ms |
+| Answer key solver | 100% | 100% | about 870 ms |
+
+- **Quality roughly doubled** and validity is essentially solved for the pipeline.
+- **A good start matters:** a simple start stays at 39%.
+- **The model's start is not better than copying the nearest training answer.** The two together are best.
+- **Model alone (your original question, D20) is unchanged:** 39% valid.
+- **Weak spot:** four-fold answers (37% quality in the combined method).
+- **Earlier diagnosis** of why the old correction lost quality: [correction-diagnosis-v1](../experiments/correction-diagnosis-v1/REPORT.md).
 
 ## Next step
 
-Design a quality-seeking correction, tested on saved starts with frozen settings, measuring quality against time. It would pursue the answer key's ranking (walls, then opening) instead of stopping at fit, avoid closing folds, and try both model and nearest-answer starts. No retraining yet; the final test stays untouched. Hypotheses H1–H4 are in the diagnosis report.
+Choose between (see HANDOFF.md):
+- push the pipeline toward 100% (more search for four-fold answers, allow the fold count to change);
+- train the model to give starts the correction finishes faster, judged against the nearest-answer start;
+- move to a richer fold family.
+
+The final test stays untouched until a pipeline is frozen.
 
 ## Limits that always apply
 

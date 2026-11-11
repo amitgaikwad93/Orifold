@@ -1,0 +1,62 @@
+<title>Quality Against Time</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one finding, one chart, two small tables. */
+:root{--paper:#f6f7f4;--sheet:#fff;--ink:#15181a;--ink-2:#545a5f;--rule:#d8dbd5;--grid:#e8eae6;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;
+--display:"Archivo","Helvetica Neue",Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#131517;--sheet:#1b1e21;--ink:#eceeeb;--ink-2:#a9aeaa;--rule:#33383b;--grid:#262a2d;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#131517;--sheet:#1b1e21;--ink:#eceeeb;--ink-2:#a9aeaa;--rule:#33383b;--grid:#262a2d;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;color-scheme:dark}
+*{box-sizing:border-box}body{background:var(--paper);color:var(--ink);font-family:var(--display);font-size:15px;line-height:1.55}
+.wrap{max-width:980px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:26px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+h1{font-stretch:80%;font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.05;margin:0}h2{font-stretch:85%;font-weight:650;font-size:20px;margin:0}
+p{margin:0;max-width:72ch}.lede,.cap{color:var(--ink-2)}.cap{font-size:12.5px}section{display:grid;gap:12px}
+.card{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:16px;display:grid;gap:10px;min-width:0}
+.chart{position:relative;overflow-x:auto}.chart svg{width:100%;min-width:560px;height:auto;display:block}.chart text{font-family:var(--mono)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:var(--ink-2)}.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:3px;margin-right:6px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--sheet);font-size:12px;padding:5px 8px;border-radius:4px;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}th,td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{color:var(--ink-2);font-weight:600;font-size:12.5px}
+ul{margin:0;padding-left:18px;display:grid;gap:6px;max-width:76ch}
+</style>
+<div class="wrap">
+<header style="display:grid;gap:10px"><div class="eyebrow">Orifold · quality correction v1 · 768 validation answers</div><h1>Quality Against Time</h1>
+<p class="lede">A new correction step that keeps working after a design fits: it opens the folds wide, then brings every crease onto a box wall. Quality means valid, every crease on a wall, and opening at least 90% of the answer key's. The test boxes were not used.</p></header>
+<section><h2>What it shows</h2><ul>
+<li><b>Quality roughly doubles.</b> Correcting both the model's start and the nearest training answer reaches 92% quality at about 210 ms per answer. The old correction reached 37–46%.</li>
+<li><b>Validity is essentially solved for this pipeline:</b> 100% from 400 search steps on.</li>
+<li><b>The starting design matters a great deal.</b> A simple start with no model or data stops at 39% quality even with the longest search.</li>
+<li><b>The model start does not beat copying the nearest answer.</b> Nearest is ahead at almost every effort level. The two together are better than either.</li>
+<li><b>Model alone is unchanged:</b> 39% valid, 22% quality.</li>
+</ul></section>
+<section class="card"><h2>Quality reached for the time spent</h2>
+<div class="chart" id="chart"></div><div class="legend" id="legend"></div>
+<p class="cap">Each dot is one search limit (25 to 3,200 steps); time is the mean per answer on this machine with four runs in parallel. Hollow marks are earlier methods from the validation benchmark, measured in a separate session, so compare times loosely. The time axis is logarithmic.</p></section>
+<section><h2>The numbers</h2><div class="tablewrap"><table id="t1"></table></div></section>
+<section><h2>Quality by number of folds, longest search</h2><div class="tablewrap"><table id="t2"></table></div>
+<p class="cap">Four-fold answers remain the weak spot. Combined uses half the search steps per start.</p></section>
+</div>
+<script>
+const D={"series": [{"name": "Model start + nearest start", "key": "combined", "pts": [[16.95, 55.51, 90.63, "50"], [21.03, 59.59, 97.14, "100"], [28.93, 63.58, 98.96, "200"], [47.52, 73.83, 99.83, "400"], [75.81, 75.04, 99.96, "800"], [131.01, 84.5, 100, "1600"], [207.04, 91.71, 100, "3200"]]}, {"name": "Nearest training answer start", "key": "nearest", "pts": [[8.48, 48.57, 79.69, "25"], [10.65, 53.78, 89.58, "50"], [14.91, 54.82, 94.4, "100"], [25.07, 66.93, 96.35, "200"], [40.51, 66.54, 97.01, "400"], [69.62, 77.08, 97.66, "800"], [110, 85.55, 97.66, "1600"], [161.66, 88.28, 97.66, "3200"]]}, {"name": "Model start (mean of 3 seeds)", "key": "model", "pts": [[8.47, 34.51, 75.04, "25"], [10.38, 38.67, 85.33, "50"], [14.03, 46.44, 92.62, "100"], [22.45, 58.46, 96.53, "200"], [35.3, 61.15, 98.53, "400"], [61.39, 71.7, 99.44, "800"], [97.04, 78.47, 99.91, "1600"], [145.05, 83.55, 99.96, "3200"]]}, {"name": "Simple start (no model, no data)", "key": "simple", "pts": [[9.59, 5.73, 62.63, "25"], [12.22, 10.68, 73.18, "50"], [17.55, 17.58, 76.3, "100"], [28.33, 22.92, 81.9, "200"], [50.66, 28.26, 89.84, "400"], [89.85, 28.39, 92.84, "800"], [182.13, 37.11, 96.74, "1600"], [302.61, 38.8, 98.44, "3200"]]}], "marks": [{"name": "Model alone", "ms": 4.8, "q": 21.7, "v": 39.1}, {"name": "Old correction, model start", "ms": 8.6, "q": 37.2, "v": 91.5}, {"name": "Old correction, nearest start", "ms": 8.5, "q": 46.4, "v": 87.8}, {"name": "Multistart, no model", "ms": 36.6, "q": 14.8, "v": 100}, {"name": "Answer key solver", "ms": 870, "q": 100, "v": 100}], "byFolds": {"combined": {"0": [96, 100], "1": [204, 97.06], "2": [303, 94.06], "3": [112, 92.86], "4": [52, 36.54], "5": [1, 0]}, "model": {"0": [96, 100], "1": [204, 97.06], "2": [303, 68.98], "3": [112, 83.04], "4": [52, 69.23], "5": [1, 0]}, "nearest": {"0": [96, 100], "1": [204, 92.16], "2": [303, 86.8], "3": [112, 89.29], "4": [52, 59.62], "5": [1, 0]}, "simple": {"0": [96, 67.71], "1": [204, 71.57], "2": [303, 27.06], "3": [112, 0.89], "4": [52, 7.69], "5": [1, 0]}}},$=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg',el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+const C=['var(--s1)','var(--s2)','var(--s3)','var(--s4)'],W=760,H=400,m={l:48,r:150,t:14,b:44};
+const host=$('chart'),svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Quality against time per answer'},host);
+const lx=v=>m.l+(Math.log10(v)-Math.log10(4))/(Math.log10(1000)-Math.log10(4))*(W-m.l-m.r),ly=v=>H-m.b-v/100*(H-m.t-m.b);
+[0,25,50,75,100].forEach(v=>{el('line',{x1:m.l,x2:W-m.r,y1:ly(v),y2:ly(v),stroke:'var(--grid)'},svg);el('text',{x:m.l-6,y:ly(v)+4,'text-anchor':'end','font-size':11,fill:'var(--ink-2)'},svg).textContent=v+'%'});
+[5,10,20,50,100,200,500,1000].forEach(v=>{el('text',{x:lx(v),y:H-m.b+16,'text-anchor':'middle','font-size':11,fill:'var(--ink-2)'},svg).textContent=v});
+el('text',{x:(m.l+W-m.r)/2,y:H-6,'text-anchor':'middle','font-size':11.5,fill:'var(--ink-2)'},svg).textContent='time per answer (ms, log scale)';
+el('text',{x:14,y:m.t+(H-m.t-m.b)/2,'text-anchor':'middle','font-size':11.5,fill:'var(--ink-2)',transform:'rotate(-90 14 '+(m.t+(H-m.t-m.b)/2)+')'},svg).textContent='quality';
+const tip=document.createElement('div');tip.className='tip';tip.hidden=true;host.appendChild(tip);
+const show=(t,x,y)=>{if(!t){tip.hidden=true;return}tip.textContent=t;tip.hidden=false;const k=svg.getBoundingClientRect().width/W;tip.style.left=Math.max(0,Math.min(x*k+10,host.scrollWidth-tip.offsetWidth-4))+'px';tip.style.top=Math.max(0,y*k-32)+'px'};
+D.series.forEach((s,i)=>{el('polyline',{points:s.pts.map(p=>lx(p[0])+','+ly(p[1])).join(' '),fill:'none',stroke:C[i],'stroke-width':2,'stroke-linejoin':'round'},svg);
+ s.pts.forEach(p=>{el('circle',{cx:lx(p[0]),cy:ly(p[1]),r:4,fill:C[i],stroke:'var(--sheet)','stroke-width':2},svg);const h=el('circle',{cx:lx(p[0]),cy:ly(p[1]),r:11,fill:'transparent'},svg);
+  h.addEventListener('mouseenter',()=>show(s.name+' · '+p[3]+' steps · '+p[0].toFixed(0)+' ms · quality '+p[1].toFixed(0)+'% · valid '+p[2].toFixed(0)+'%',lx(p[0]),ly(p[1])));h.addEventListener('mouseleave',()=>show())});
+ const last=s.pts[s.pts.length-1];el('text',{x:lx(last[0])+8,y:ly(last[1])+4+(i===1?10:i===2?14:0),'font-size':11,fill:'var(--ink)'},svg).textContent=last[1].toFixed(0)+'%'});
+D.marks.forEach(k=>{const x=lx(k.ms),y=ly(k.q);el('rect',{x:x-4.5,y:y-4.5,width:9,height:9,fill:'var(--sheet)',stroke:'var(--ink)','stroke-width':1.5,transform:'rotate(45 '+x+' '+y+')'},svg);
+ el('text',{x:x+9,y:y+4,'font-size':10.5,fill:'var(--ink-2)'},svg).textContent=k.name;
+ const h=el('circle',{cx:x,cy:y,r:11,fill:'transparent'},svg);h.addEventListener('mouseenter',()=>show(k.name+' · '+k.ms+' ms · quality '+k.q+'% · valid '+k.v+'%',x,y));h.addEventListener('mouseleave',()=>show())});
+$('legend').innerHTML=D.series.map((s,i)=>'<span><i style="background:'+C[i]+'"></i>'+s.name+'</span>').join('')+'<span>◇ earlier methods</span>';
+const caps=['100','400','1600','3200'],pt=(s,c)=>s.pts.find(p=>p[3]===c);
+$('t1').innerHTML='<thead><tr><th>Start</th>'+caps.map(c=>'<th>'+c+' steps<br>valid / quality · time</th>').join('')+'</tr></thead><tbody>'+D.series.map(s=>'<tr><td>'+s.name+'</td>'+caps.map(c=>{const p=pt(s,c);return '<td>'+(p?p[2].toFixed(0)+'% / '+p[1].toFixed(0)+'% · '+p[0].toFixed(0)+' ms':'—')+'</td>'}).join('')+'</tr>').join('')+D.marks.map(k=>'<tr><td>'+k.name+' (earlier)</td><td colspan="4" style="text-align:left">'+k.v+'% / '+k.q+'% · '+k.ms+' ms</td></tr>').join('')+'</tbody>';
+const fk=Object.keys(D.byFolds.model);$('t2').innerHTML='<thead><tr><th>Folds in answer key</th><th>Answers</th><th>Model + nearest (seed 17)</th><th>Nearest</th><th>Model (seed 17)</th><th>Simple</th></tr></thead><tbody>'+fk.map(f=>'<tr><td>'+f+'</td><td>'+D.byFolds.model[f][0]+'</td>'+['combined','nearest','model','simple'].map(k=>'<td>'+D.byFolds[k][f][1].toFixed(0)+'%</td>').join('')+'</tr>').join('')+'</tbody>';
+</script>

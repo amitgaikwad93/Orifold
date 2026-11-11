@@ -1,0 +1,2353 @@
+{
+ "answers": 768,
+ "caps": [
+  25,
+  50,
+  100,
+  200,
+  400,
+  800,
+  1600,
+  3200
+ ],
+ "starts": {
+  "seed-17-adam": {
+   "25": {
+    "valid": 73.57,
+    "quality": 34.9,
+    "strictQuality": 18.75,
+    "validNoFloating": 50,
+    "medianOpeningRatio": 0.976,
+    "meanMs": 8.51,
+    "medianMs": 7.58,
+    "meanScoreCalls": 21.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      60.78
+     ],
+     "2": [
+      303,
+      10.56
+     ],
+     "3": [
+      112,
+      14.29
+     ],
+     "4": [
+      52,
+      0
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "50": {
+    "valid": 84.77,
+    "quality": 37.11,
+    "strictQuality": 21.74,
+    "validNoFloating": 54.17,
+    "medianOpeningRatio": 0.983,
+    "meanMs": 10.44,
+    "medianMs": 9.53,
+    "meanScoreCalls": 43.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      63.73
+     ],
+     "2": [
+      303,
+      13.53
+     ],
+     "3": [
+      112,
+      16.07
+     ],
+     "4": [
+      52,
+      0
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 91.93,
+    "quality": 43.62,
+    "strictQuality": 26.82,
+    "validNoFloating": 59.24,
+    "medianOpeningRatio": 0.99,
+    "meanMs": 14.17,
+    "medianMs": 12.86,
+    "meanScoreCalls": 87.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      63.73
+     ],
+     "2": [
+      303,
+      27.72
+     ],
+     "3": [
+      112,
+      21.43
+     ],
+     "4": [
+      52,
+      1.92
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 95.96,
+    "quality": 56.64,
+    "strictQuality": 40.1,
+    "validNoFloating": 69.14,
+    "medianOpeningRatio": 0.994,
+    "meanMs": 22.47,
+    "medianMs": 22.02,
+    "meanScoreCalls": 175,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      93.14
+     ],
+     "2": [
+      303,
+      38.61
+     ],
+     "3": [
+      112,
+      26.79
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 98.31,
+    "quality": 58.85,
+    "strictQuality": 46.48,
+    "validNoFloating": 70.96,
+    "medianOpeningRatio": 0.998,
+    "meanMs": 35.62,
+    "medianMs": 34.51,
+    "meanScoreCalls": 315.6,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      95.1
+     ],
+     "2": [
+      303,
+      42.57
+     ],
+     "3": [
+      112,
+      27.68
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 99.74,
+    "quality": 69.79,
+    "strictQuality": 54.95,
+    "validNoFloating": 84.24,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 61.8,
+    "medianMs": 58.11,
+    "meanScoreCalls": 557.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      66.67
+     ],
+     "3": [
+      112,
+      31.25
+     ],
+     "4": [
+      52,
+      9.62
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 99.87,
+    "quality": 76.82,
+    "strictQuality": 60.81,
+    "validNoFloating": 91.93,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 98.09,
+    "medianMs": 82,
+    "meanScoreCalls": 854.4,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      68.98
+     ],
+     "3": [
+      112,
+      69.64
+     ],
+     "4": [
+      52,
+      17.31
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 99.87,
+    "quality": 82.29,
+    "strictQuality": 65.89,
+    "validNoFloating": 97.79,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 145.72,
+    "medianMs": 82.2,
+    "meanScoreCalls": 1105.4,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      68.98
+     ],
+     "3": [
+      112,
+      83.04
+     ],
+     "4": [
+      52,
+      69.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  },
+  "seed-29-adam": {
+   "25": {
+    "valid": 74.74,
+    "quality": 35.29,
+    "strictQuality": 19.53,
+    "validNoFloating": 52.08,
+    "medianOpeningRatio": 0.977,
+    "meanMs": 8.5,
+    "medianMs": 7.77,
+    "meanScoreCalls": 21.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      61.27
+     ],
+     "2": [
+      303,
+      11.55
+     ],
+     "3": [
+      112,
+      9.82
+     ],
+     "4": [
+      52,
+      7.69
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "50": {
+    "valid": 85.16,
+    "quality": 39.32,
+    "strictQuality": 23.44,
+    "validNoFloating": 58.33,
+    "medianOpeningRatio": 0.984,
+    "meanMs": 10.37,
+    "medianMs": 9.57,
+    "meanScoreCalls": 43.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      66.18
+     ],
+     "2": [
+      303,
+      16.17
+     ],
+     "3": [
+      112,
+      16.07
+     ],
+     "4": [
+      52,
+      7.69
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 92.97,
+    "quality": 48.18,
+    "strictQuality": 28.52,
+    "validNoFloating": 61.59,
+    "medianOpeningRatio": 0.988,
+    "meanMs": 14,
+    "medianMs": 13.09,
+    "meanScoreCalls": 87.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      68.14
+     ],
+     "2": [
+      303,
+      34.65
+     ],
+     "3": [
+      112,
+      23.21
+     ],
+     "4": [
+      52,
+      7.69
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 97.4,
+    "quality": 58.72,
+    "strictQuality": 39.45,
+    "validNoFloating": 70.31,
+    "medianOpeningRatio": 0.993,
+    "meanMs": 22.4,
+    "medianMs": 22.16,
+    "meanScoreCalls": 175,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      89.71
+     ],
+     "2": [
+      303,
+      45.21
+     ],
+     "3": [
+      112,
+      25
+     ],
+     "4": [
+      52,
+      13.46
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 98.57,
+    "quality": 61.98,
+    "strictQuality": 46.74,
+    "validNoFloating": 71.74,
+    "medianOpeningRatio": 0.998,
+    "meanMs": 35.25,
+    "medianMs": 34.66,
+    "meanScoreCalls": 315.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      92.16
+     ],
+     "2": [
+      303,
+      48.51
+     ],
+     "3": [
+      112,
+      29.46
+     ],
+     "4": [
+      52,
+      23.08
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 99.22,
+    "quality": 73.05,
+    "strictQuality": 54.56,
+    "validNoFloating": 83.33,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 61.48,
+    "medianMs": 59.89,
+    "meanScoreCalls": 560.1,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      93.14
+     ],
+     "2": [
+      303,
+      73.93
+     ],
+     "3": [
+      112,
+      30.36
+     ],
+     "4": [
+      52,
+      32.69
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 100,
+    "quality": 80.47,
+    "strictQuality": 62.76,
+    "validNoFloating": 91.54,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 97.41,
+    "medianMs": 82.59,
+    "meanScoreCalls": 857,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      94.12
+     ],
+     "2": [
+      303,
+      77.56
+     ],
+     "3": [
+      112,
+      71.43
+     ],
+     "4": [
+      52,
+      28.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 100,
+    "quality": 85.29,
+    "strictQuality": 67.32,
+    "validNoFloating": 98.05,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 145.77,
+    "medianMs": 83.71,
+    "meanScoreCalls": 1118.4,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      94.12
+     ],
+     "2": [
+      303,
+      77.56
+     ],
+     "3": [
+      112,
+      85.71
+     ],
+     "4": [
+      52,
+      69.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  },
+  "seed-43-adam": {
+   "25": {
+    "valid": 76.82,
+    "quality": 33.33,
+    "strictQuality": 19.14,
+    "validNoFloating": 54.17,
+    "medianOpeningRatio": 0.977,
+    "meanMs": 8.39,
+    "medianMs": 7.82,
+    "meanScoreCalls": 21.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      51.47
+     ],
+     "2": [
+      303,
+      10.56
+     ],
+     "3": [
+      112,
+      20.54
+     ],
+     "4": [
+      52,
+      0
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "50": {
+    "valid": 86.07,
+    "quality": 39.58,
+    "strictQuality": 22.27,
+    "validNoFloating": 57.68,
+    "medianOpeningRatio": 0.98,
+    "meanMs": 10.33,
+    "medianMs": 9.73,
+    "meanScoreCalls": 43.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      63.24
+     ],
+     "2": [
+      303,
+      19.47
+     ],
+     "3": [
+      112,
+      17.86
+     ],
+     "4": [
+      52,
+      0
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 92.97,
+    "quality": 47.53,
+    "strictQuality": 27.86,
+    "validNoFloating": 62.89,
+    "medianOpeningRatio": 0.99,
+    "meanMs": 13.91,
+    "medianMs": 13.1,
+    "meanScoreCalls": 87.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      63.73
+     ],
+     "2": [
+      303,
+      37.62
+     ],
+     "3": [
+      112,
+      22.32
+     ],
+     "4": [
+      52,
+      0
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 96.22,
+    "quality": 60.03,
+    "strictQuality": 40.63,
+    "validNoFloating": 71.09,
+    "medianOpeningRatio": 0.996,
+    "meanMs": 22.48,
+    "medianMs": 22.38,
+    "meanScoreCalls": 175,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      90.2
+     ],
+     "2": [
+      303,
+      49.5
+     ],
+     "3": [
+      112,
+      26.79
+     ],
+     "4": [
+      52,
+      1.92
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 98.7,
+    "quality": 62.63,
+    "strictQuality": 47.27,
+    "validNoFloating": 72.92,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 35.04,
+    "medianMs": 34.34,
+    "meanScoreCalls": 315.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      91.67
+     ],
+     "2": [
+      303,
+      49.83
+     ],
+     "3": [
+      112,
+      30.36
+     ],
+     "4": [
+      52,
+      25
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 99.35,
+    "quality": 72.27,
+    "strictQuality": 56.9,
+    "validNoFloating": 83.2,
+    "medianOpeningRatio": 1,
+    "meanMs": 60.88,
+    "medianMs": 59.1,
+    "meanScoreCalls": 560.3,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      93.14
+     ],
+     "2": [
+      303,
+      72.94
+     ],
+     "3": [
+      112,
+      30.36
+     ],
+     "4": [
+      52,
+      26.92
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 99.87,
+    "quality": 78.13,
+    "strictQuality": 61.98,
+    "validNoFloating": 91.28,
+    "medianOpeningRatio": 1,
+    "meanMs": 95.61,
+    "medianMs": 82.83,
+    "meanScoreCalls": 852.7,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      93.63
+     ],
+     "2": [
+      303,
+      74.59
+     ],
+     "3": [
+      112,
+      65.18
+     ],
+     "4": [
+      52,
+      26.92
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 100,
+    "quality": 83.07,
+    "strictQuality": 67.19,
+    "validNoFloating": 97.79,
+    "medianOpeningRatio": 1,
+    "meanMs": 143.66,
+    "medianMs": 83.4,
+    "meanScoreCalls": 1110,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      93.63
+     ],
+     "2": [
+      303,
+      74.59
+     ],
+     "3": [
+      112,
+      83.93
+     ],
+     "4": [
+      52,
+      57.69
+     ],
+     "5": [
+      1,
+      100
+     ]
+    }
+   }
+  },
+  "nearest": {
+   "25": {
+    "valid": 79.69,
+    "quality": 48.57,
+    "strictQuality": 24.74,
+    "validNoFloating": 62.89,
+    "medianOpeningRatio": 0.983,
+    "meanMs": 8.48,
+    "medianMs": 7.6,
+    "meanScoreCalls": 21.6,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      62.25
+     ],
+     "2": [
+      303,
+      23.76
+     ],
+     "3": [
+      112,
+      62.5
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "50": {
+    "valid": 89.58,
+    "quality": 53.78,
+    "strictQuality": 31.25,
+    "validNoFloating": 68.88,
+    "medianOpeningRatio": 0.989,
+    "meanMs": 10.65,
+    "medianMs": 9.57,
+    "meanScoreCalls": 43.2,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      67.16
+     ],
+     "2": [
+      303,
+      33
+     ],
+     "3": [
+      112,
+      64.29
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 94.4,
+    "quality": 54.82,
+    "strictQuality": 34.64,
+    "validNoFloating": 68.88,
+    "medianOpeningRatio": 0.993,
+    "meanMs": 14.91,
+    "medianMs": 13.44,
+    "meanScoreCalls": 86.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      65.69
+     ],
+     "2": [
+      303,
+      40.92
+     ],
+     "3": [
+      112,
+      52.68
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 96.35,
+    "quality": 66.93,
+    "strictQuality": 46.09,
+    "validNoFloating": 75,
+    "medianOpeningRatio": 0.997,
+    "meanMs": 25.07,
+    "medianMs": 23.52,
+    "meanScoreCalls": 172.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      88.24
+     ],
+     "2": [
+      303,
+      55.12
+     ],
+     "3": [
+      112,
+      55.36
+     ],
+     "4": [
+      52,
+      17.31
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 97.01,
+    "quality": 66.54,
+    "strictQuality": 50.78,
+    "validNoFloating": 73.31,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 40.51,
+    "medianMs": 36.62,
+    "meanScoreCalls": 312.3,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      89.22
+     ],
+     "2": [
+      303,
+      56.11
+     ],
+     "3": [
+      112,
+      47.32
+     ],
+     "4": [
+      52,
+      19.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 97.66,
+    "quality": 77.08,
+    "strictQuality": 57.16,
+    "validNoFloating": 84.9,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 69.62,
+    "medianMs": 66.7,
+    "meanScoreCalls": 556.7,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      92.16
+     ],
+     "2": [
+      303,
+      83.5
+     ],
+     "3": [
+      112,
+      40.18
+     ],
+     "4": [
+      52,
+      19.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 97.66,
+    "quality": 85.55,
+    "strictQuality": 62.89,
+    "validNoFloating": 93.1,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 110,
+    "medianMs": 89,
+    "meanScoreCalls": 843.6,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      92.16
+     ],
+     "2": [
+      303,
+      86.14
+     ],
+     "3": [
+      112,
+      89.29
+     ],
+     "4": [
+      52,
+      23.08
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 97.66,
+    "quality": 88.28,
+    "strictQuality": 65.1,
+    "validNoFloating": 96.35,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 161.66,
+    "medianMs": 90.06,
+    "meanScoreCalls": 1068.7,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      92.16
+     ],
+     "2": [
+      303,
+      86.8
+     ],
+     "3": [
+      112,
+      89.29
+     ],
+     "4": [
+      52,
+      59.62
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  },
+  "simple": {
+   "25": {
+    "valid": 62.63,
+    "quality": 5.73,
+    "strictQuality": 4.3,
+    "validNoFloating": 36.46,
+    "medianOpeningRatio": 0.305,
+    "meanMs": 9.59,
+    "medianMs": 8.82,
+    "meanScoreCalls": 24,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      33.33
+     ],
+     "1": [
+      204,
+      5.39
+     ],
+     "2": [
+      303,
+      0.33
+     ],
+     "3": [
+      112,
+      0
+     ],
+     "4": [
+      52,
+      0
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "50": {
+    "valid": 73.18,
+    "quality": 10.68,
+    "strictQuality": 5.47,
+    "validNoFloating": 42.45,
+    "medianOpeningRatio": 0.345,
+    "meanMs": 12.22,
+    "medianMs": 11.34,
+    "meanScoreCalls": 47.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      33.33
+     ],
+     "1": [
+      204,
+      22.55
+     ],
+     "2": [
+      303,
+      0.99
+     ],
+     "3": [
+      112,
+      0
+     ],
+     "4": [
+      52,
+      1.92
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 76.3,
+    "quality": 17.58,
+    "strictQuality": 10.29,
+    "validNoFloating": 41.93,
+    "medianOpeningRatio": 0.501,
+    "meanMs": 17.55,
+    "medianMs": 15.79,
+    "meanScoreCalls": 95.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      34.38
+     ],
+     "1": [
+      204,
+      45.1
+     ],
+     "2": [
+      303,
+      2.64
+     ],
+     "3": [
+      112,
+      0
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 81.9,
+    "quality": 22.92,
+    "strictQuality": 15.1,
+    "validNoFloating": 42.06,
+    "medianOpeningRatio": 0.633,
+    "meanMs": 28.33,
+    "medianMs": 24.96,
+    "meanScoreCalls": 191.7,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      46.88
+     ],
+     "1": [
+      204,
+      53.43
+     ],
+     "2": [
+      303,
+      6.6
+     ],
+     "3": [
+      112,
+      0
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 89.84,
+    "quality": 28.26,
+    "strictQuality": 18.75,
+    "validNoFloating": 46.74,
+    "medianOpeningRatio": 0.658,
+    "meanMs": 50.66,
+    "medianMs": 43.11,
+    "meanScoreCalls": 361.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      53.13
+     ],
+     "1": [
+      204,
+      61.27
+     ],
+     "2": [
+      303,
+      12.87
+     ],
+     "3": [
+      112,
+      0
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 92.84,
+    "quality": 28.39,
+    "strictQuality": 19.14,
+    "validNoFloating": 46.09,
+    "medianOpeningRatio": 0.786,
+    "meanMs": 89.85,
+    "medianMs": 82.18,
+    "meanScoreCalls": 643.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      54.17
+     ],
+     "1": [
+      204,
+      61.76
+     ],
+     "2": [
+      303,
+      12.21
+     ],
+     "3": [
+      112,
+      0.89
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 96.74,
+    "quality": 37.11,
+    "strictQuality": 25.26,
+    "validNoFloating": 73.18,
+    "medianOpeningRatio": 0.842,
+    "meanMs": 182.13,
+    "medianMs": 129,
+    "meanScoreCalls": 1121.3,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      63.54
+     ],
+     "1": [
+      204,
+      69.12
+     ],
+     "2": [
+      303,
+      26.07
+     ],
+     "3": [
+      112,
+      0.89
+     ],
+     "4": [
+      52,
+      3.85
+     ],
+     "5": [
+      1,
+      100
+     ]
+    }
+   },
+   "3200": {
+    "valid": 98.44,
+    "quality": 38.8,
+    "strictQuality": 26.3,
+    "validNoFloating": 90.36,
+    "medianOpeningRatio": 0.825,
+    "meanMs": 302.61,
+    "medianMs": 230.78,
+    "meanScoreCalls": 1589,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      67.71
+     ],
+     "1": [
+      204,
+      71.57
+     ],
+     "2": [
+      303,
+      27.06
+     ],
+     "3": [
+      112,
+      0.89
+     ],
+     "4": [
+      52,
+      7.69
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  }
+ },
+ "combined": {
+  "seed-17-adam+nearest": {
+   "50": {
+    "valid": 89.19,
+    "quality": 55.73,
+    "strictQuality": 27.6,
+    "validNoFloating": 73.96,
+    "medianOpeningRatio": 0.977,
+    "meanMs": 16.99,
+    "medianMs": 15.62,
+    "meanScoreCalls": 43.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      75.49
+     ],
+     "2": [
+      303,
+      30.69
+     ],
+     "3": [
+      112,
+      68.75
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 97.27,
+    "quality": 58.33,
+    "strictQuality": 33.85,
+    "validNoFloating": 76.82,
+    "medianOpeningRatio": 0.987,
+    "meanMs": 21.09,
+    "medianMs": 19.62,
+    "meanScoreCalls": 87,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      73.04
+     ],
+     "2": [
+      303,
+      38.28
+     ],
+     "3": [
+      112,
+      70.54
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 99.09,
+    "quality": 62.37,
+    "strictQuality": 38.41,
+    "validNoFloating": 76.3,
+    "medianOpeningRatio": 0.994,
+    "meanMs": 29.07,
+    "medianMs": 26.8,
+    "meanScoreCalls": 174,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      74.02
+     ],
+     "2": [
+      303,
+      51.49
+     ],
+     "3": [
+      112,
+      59.82
+     ],
+     "4": [
+      52,
+      17.31
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 99.87,
+    "quality": 73.96,
+    "strictQuality": 53.39,
+    "validNoFloating": 82.29,
+    "medianOpeningRatio": 0.998,
+    "meanMs": 47.54,
+    "medianMs": 46.75,
+    "meanScoreCalls": 347.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      94.12
+     ],
+     "2": [
+      303,
+      66.67
+     ],
+     "3": [
+      112,
+      59.82
+     ],
+     "4": [
+      52,
+      21.15
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 99.87,
+    "quality": 75,
+    "strictQuality": 61.33,
+    "validNoFloating": 81.25,
+    "medianOpeningRatio": 1,
+    "meanMs": 76.12,
+    "medianMs": 72.65,
+    "meanScoreCalls": 627.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      95.59
+     ],
+     "2": [
+      303,
+      69.97
+     ],
+     "3": [
+      112,
+      55.36
+     ],
+     "4": [
+      52,
+      21.15
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 100,
+    "quality": 84.11,
+    "strictQuality": 67.97,
+    "validNoFloating": 89.84,
+    "medianOpeningRatio": 1,
+    "meanMs": 131.42,
+    "medianMs": 129.31,
+    "meanScoreCalls": 1114.2,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      92.41
+     ],
+     "3": [
+      112,
+      51.79
+     ],
+     "4": [
+      52,
+      26.92
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 100,
+    "quality": 91.41,
+    "strictQuality": 73.96,
+    "validNoFloating": 96.48,
+    "medianOpeningRatio": 1,
+    "meanMs": 208.1,
+    "medianMs": 180.49,
+    "meanScoreCalls": 1698.1,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      94.06
+     ],
+     "3": [
+      112,
+      92.86
+     ],
+     "4": [
+      52,
+      36.54
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  },
+  "seed-29-adam+nearest": {
+   "50": {
+    "valid": 90.89,
+    "quality": 55.47,
+    "strictQuality": 27.21,
+    "validNoFloating": 74.48,
+    "medianOpeningRatio": 0.977,
+    "meanMs": 16.98,
+    "medianMs": 15.83,
+    "meanScoreCalls": 43.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      76.47
+     ],
+     "2": [
+      303,
+      30.36
+     ],
+     "3": [
+      112,
+      64.29
+     ],
+     "4": [
+      52,
+      19.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 97.27,
+    "quality": 59.64,
+    "strictQuality": 34.77,
+    "validNoFloating": 78.78,
+    "medianOpeningRatio": 0.987,
+    "meanMs": 21.02,
+    "medianMs": 19.69,
+    "meanScoreCalls": 87,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      76.47
+     ],
+     "2": [
+      303,
+      39.93
+     ],
+     "3": [
+      112,
+      66.96
+     ],
+     "4": [
+      52,
+      19.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 99.09,
+    "quality": 63.93,
+    "strictQuality": 39.32,
+    "validNoFloating": 77.21,
+    "medianOpeningRatio": 0.993,
+    "meanMs": 28.91,
+    "medianMs": 27.22,
+    "meanScoreCalls": 174,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      77.45
+     ],
+     "2": [
+      303,
+      54.13
+     ],
+     "3": [
+      112,
+      56.25
+     ],
+     "4": [
+      52,
+      19.23
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 99.87,
+    "quality": 73.57,
+    "strictQuality": 52.73,
+    "validNoFloating": 82.03,
+    "medianOpeningRatio": 0.998,
+    "meanMs": 47.47,
+    "medianMs": 46.49,
+    "meanScoreCalls": 347.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      94.61
+     ],
+     "2": [
+      303,
+      65.02
+     ],
+     "3": [
+      112,
+      58.93
+     ],
+     "4": [
+      52,
+      25
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 100,
+    "quality": 75,
+    "strictQuality": 60.68,
+    "validNoFloating": 80.86,
+    "medianOpeningRatio": 1,
+    "meanMs": 75.75,
+    "medianMs": 71.63,
+    "meanScoreCalls": 628.1,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      96.57
+     ],
+     "2": [
+      303,
+      66.67
+     ],
+     "3": [
+      112,
+      56.25
+     ],
+     "4": [
+      52,
+      34.62
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 100,
+    "quality": 85.42,
+    "strictQuality": 67.45,
+    "validNoFloating": 89.84,
+    "medianOpeningRatio": 1,
+    "meanMs": 131.1,
+    "medianMs": 128.71,
+    "meanScoreCalls": 1116.8,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      98.04
+     ],
+     "2": [
+      303,
+      92.08
+     ],
+     "3": [
+      112,
+      50.89
+     ],
+     "4": [
+      52,
+      46.15
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 100,
+    "quality": 92.71,
+    "strictQuality": 74.74,
+    "validNoFloating": 96.61,
+    "medianOpeningRatio": 1,
+    "meanMs": 207.41,
+    "medianMs": 178.51,
+    "meanScoreCalls": 1700.6,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      98.04
+     ],
+     "2": [
+      303,
+      94.06
+     ],
+     "3": [
+      112,
+      95.54
+     ],
+     "4": [
+      52,
+      46.15
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  },
+  "seed-43-adam+nearest": {
+   "50": {
+    "valid": 91.8,
+    "quality": 55.34,
+    "strictQuality": 27.47,
+    "validNoFloating": 76.3,
+    "medianOpeningRatio": 0.978,
+    "meanMs": 16.87,
+    "medianMs": 15.57,
+    "meanScoreCalls": 43.5,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      72.06
+     ],
+     "2": [
+      303,
+      31.35
+     ],
+     "3": [
+      112,
+      70.54
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "100": {
+    "valid": 96.88,
+    "quality": 60.81,
+    "strictQuality": 34.77,
+    "validNoFloating": 78.26,
+    "medianOpeningRatio": 0.988,
+    "meanMs": 20.98,
+    "medianMs": 19.77,
+    "meanScoreCalls": 87,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      74.51
+     ],
+     "2": [
+      303,
+      43.23
+     ],
+     "3": [
+      112,
+      71.43
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "200": {
+    "valid": 98.7,
+    "quality": 64.45,
+    "strictQuality": 39.84,
+    "validNoFloating": 78.26,
+    "medianOpeningRatio": 0.994,
+    "meanMs": 28.82,
+    "medianMs": 27.31,
+    "meanScoreCalls": 174,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      75
+     ],
+     "2": [
+      303,
+      55.78
+     ],
+     "3": [
+      112,
+      61.61
+     ],
+     "4": [
+      52,
+      15.38
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "400": {
+    "valid": 99.74,
+    "quality": 73.96,
+    "strictQuality": 53.39,
+    "validNoFloating": 82.68,
+    "medianOpeningRatio": 0.999,
+    "meanMs": 47.55,
+    "medianMs": 46.82,
+    "meanScoreCalls": 347.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      94.12
+     ],
+     "2": [
+      303,
+      67
+     ],
+     "3": [
+      112,
+      60.71
+     ],
+     "4": [
+      52,
+      17.31
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "800": {
+    "valid": 100,
+    "quality": 75.13,
+    "strictQuality": 61.2,
+    "validNoFloating": 82.03,
+    "medianOpeningRatio": 1,
+    "meanMs": 75.55,
+    "medianMs": 71.76,
+    "meanScoreCalls": 628.1,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      95.59
+     ],
+     "2": [
+      303,
+      67.33
+     ],
+     "3": [
+      112,
+      56.25
+     ],
+     "4": [
+      52,
+      36.54
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "1600": {
+    "valid": 100,
+    "quality": 83.98,
+    "strictQuality": 68.88,
+    "validNoFloating": 90.1,
+    "medianOpeningRatio": 1,
+    "meanMs": 130.5,
+    "medianMs": 127.53,
+    "meanScoreCalls": 1116.9,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      89.77
+     ],
+     "3": [
+      112,
+      50.89
+     ],
+     "4": [
+      52,
+      42.31
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   },
+   "3200": {
+    "valid": 100,
+    "quality": 91.02,
+    "strictQuality": 74.74,
+    "validNoFloating": 97.14,
+    "medianOpeningRatio": 1,
+    "meanMs": 205.62,
+    "medianMs": 175.42,
+    "meanScoreCalls": 1696.3,
+    "qualityByReferenceFolds": {
+     "0": [
+      96,
+      100
+     ],
+     "1": [
+      204,
+      97.06
+     ],
+     "2": [
+      303,
+      91.75
+     ],
+     "3": [
+      112,
+      91.96
+     ],
+     "4": [
+      52,
+      46.15
+     ],
+     "5": [
+      1,
+      0
+     ]
+    }
+   }
+  }
+ },
+ "modelMeanOverSeeds": {
+  "25": {
+   "valid": 75.04,
+   "quality": 34.51,
+   "strictQuality": 19.14,
+   "validNoFloating": 52.08,
+   "meanMs": 8.47,
+   "meanScoreCalls": 21.9
+  },
+  "50": {
+   "valid": 85.33,
+   "quality": 38.67,
+   "strictQuality": 22.48,
+   "validNoFloating": 56.73,
+   "meanMs": 10.38,
+   "meanScoreCalls": 43.8
+  },
+  "100": {
+   "valid": 92.62,
+   "quality": 46.44,
+   "strictQuality": 27.73,
+   "validNoFloating": 61.24,
+   "meanMs": 14.03,
+   "meanScoreCalls": 87.5
+  },
+  "200": {
+   "valid": 96.53,
+   "quality": 58.46,
+   "strictQuality": 40.06,
+   "validNoFloating": 70.18,
+   "meanMs": 22.45,
+   "meanScoreCalls": 175
+  },
+  "400": {
+   "valid": 98.53,
+   "quality": 61.15,
+   "strictQuality": 46.83,
+   "validNoFloating": 71.87,
+   "meanMs": 35.3,
+   "meanScoreCalls": 315.77
+  },
+  "800": {
+   "valid": 99.44,
+   "quality": 71.7,
+   "strictQuality": 55.47,
+   "validNoFloating": 83.59,
+   "meanMs": 61.39,
+   "meanScoreCalls": 559.3
+  },
+  "1600": {
+   "valid": 99.91,
+   "quality": 78.47,
+   "strictQuality": 61.85,
+   "validNoFloating": 91.58,
+   "meanMs": 97.04,
+   "meanScoreCalls": 854.7
+  },
+  "3200": {
+   "valid": 99.96,
+   "quality": 83.55,
+   "strictQuality": 66.8,
+   "validNoFloating": 97.88,
+   "meanMs": 145.05,
+   "meanScoreCalls": 1111.27
+  }
+ },
+ "combinedMeanOverSeeds": {
+  "50": {
+   "valid": 90.63,
+   "quality": 55.51,
+   "strictQuality": 27.43,
+   "validNoFloating": 74.91,
+   "meanMs": 16.95,
+   "meanScoreCalls": 43.5
+  },
+  "100": {
+   "valid": 97.14,
+   "quality": 59.59,
+   "strictQuality": 34.46,
+   "validNoFloating": 77.95,
+   "meanMs": 21.03,
+   "meanScoreCalls": 87
+  },
+  "200": {
+   "valid": 98.96,
+   "quality": 63.58,
+   "strictQuality": 39.19,
+   "validNoFloating": 77.26,
+   "meanMs": 28.93,
+   "meanScoreCalls": 174
+  },
+  "400": {
+   "valid": 99.83,
+   "quality": 73.83,
+   "strictQuality": 53.17,
+   "validNoFloating": 82.33,
+   "meanMs": 47.52,
+   "meanScoreCalls": 347.9
+  },
+  "800": {
+   "valid": 99.96,
+   "quality": 75.04,
+   "strictQuality": 61.07,
+   "validNoFloating": 81.38,
+   "meanMs": 75.81,
+   "meanScoreCalls": 628.03
+  },
+  "1600": {
+   "valid": 100,
+   "quality": 84.5,
+   "strictQuality": 68.1,
+   "validNoFloating": 89.93,
+   "meanMs": 131.01,
+   "meanScoreCalls": 1115.97
+  },
+  "3200": {
+   "valid": 100,
+   "quality": 91.71,
+   "strictQuality": 74.48,
+   "validNoFloating": 96.74,
+   "meanMs": 207.04,
+   "meanScoreCalls": 1698.33
+  }
+ }
+}

@@ -1,6 +1,6 @@
 # Orifold handoff
 
-Snapshot: 2026-11-07. Accordion baseline merged to `main` (PR #2, tag `accordion-baseline-v1`); active branch `research/learning-assisted-optimization`. Validation benchmark done, no overall winner; final test untouched. Documentation pass completed; the next scientific task is the correction diagnosis. Plain-language summary: [STATUS.md](STATUS.md).
+Snapshot: 2026-11-11. Accordion baseline merged to `main` (PR #2, tag `accordion-baseline-v1`); active branch `research/learning-assisted-optimization`. Validation benchmark done, no overall winner; final test untouched. Documentation pass completed; the next scientific task is the correction diagnosis. Plain-language summary: [STATUS.md](STATUS.md).
 
 ## Current state
 
@@ -11,37 +11,35 @@ Snapshot: 2026-11-07. Accordion baseline merged to `main` (PR #2, tag `accordion
 - **Code paths:** `learning/v2.py` (model and losses), `learning/validation_benchmark.py`, `scripts/repair-designs.js` (correction, exact score cap), `scripts/independent-check.js` (Codex checker).
 - **Final test split:** never evaluated.
 
-## Last session (2026-11-07)
+## Last session (2026-11-11)
 
-- **Docs pass:** STATUS.md, decision index, glossary, README and AGENTS. Decisions D45 (keep D20 separate and open) and D46 (aim for 100% quality, measure quality vs time).
-- **Correction diagnosis v1:** plan predeclared in `f7fd9b7`; [report](../experiments/correction-diagnosis-v1/REPORT.md); `scripts/diagnose-correction.py`; saved validation-v1 records only. Measured:
-  - correction only targets fit and skips designs that already fit;
-  - it closes folds to fit (about 100 model answers; 118/145 retrieval low-opening answers);
-  - model starts are often too closed;
-  - floating creases are left after correction;
-  - invalid results are stalls (median 1.0–1.5% L overshoot), not cap exhaustion;
-  - two-fold answers reach 13–24% quality;
-  - model and retrieval starts are complementary (union about 57%).
-  - Visual page: https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp
+- **D47:** quality-seeking correction experiment. Plan frozen at `84da33d`; [report](../experiments/quality-correction-v1/REPORT.md).
+- **Code:** `scripts/quality-correction.js` (two-stage pattern search: fit and open wide, then walls; 0.4 long-step pass; pair moves), `scripts/run-quality-correction.js`, `scripts/report-quality-correction.js`, `tests/quality-correction.test.js`.
+- **Measured** on 768 validation answers at 3,200 score calls (valid / quality):
+  - model + nearest: 100 / 92% (about 207 ms);
+  - nearest: 98 / 88%;
+  - model: 100 / 84%;
+  - simple start: 98 / 39%;
+  - old correction: 91 / 37% (model), 88 / 46% (nearest);
+  - model alone unchanged: 39 / 22%.
+- **Start bias check:** model starts are about 3° too closed on average (about 230 too closed vs 55 too open of 768); nearest starts have no lean.
+- **Pages:** chart https://claude.ai/artifact/L5NfP5iaYGtvLmSptkGUi8; diagnosis https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp
+- **Checks:** `npm test` 62/62.
+
+Earlier on this branch: correction-diagnosis-v1 (2026-11-07), docs pass, D45, D46; experiments D35–D44 with reports in `experiments/*/REPORT.md`.
 
 ## In discussion / open
 
-See DECISIONS.md "Open questions". Most important (D20 is kept as a separate open question per D45; report model-alone results alongside model + search):
-- the quality and speed policy and fallback before the final test;
-- when to move to a richer fold family.
+The user should choose the next step (agent recommendation first):
+1. **Push the pipeline toward 100% quality:** allocate steps by fold count (four-fold answers are at 37% in the combined method), let correction change the fold count by ±1, extend caps to find the plateau.
+2. **Train for repairability** (roadmap step 4): judge the model start against the nearest start at equal time.
+3. **Move to a richer fold family.**
 
-Roadmap: [LEARNING_ASSISTED_OPTIMIZATION.md](LEARNING_ASSISTED_OPTIMIZATION.md).
+Also open: freezing a pipeline and using the final test (roadmap step 5).
 
 ## Next concrete task
 
-Roadmap step 3: design and predeclare a **quality-seeking correction** (hypotheses H1–H4 in the diagnosis report):
-- pursue walls, then opening;
-- run on starts that already fit;
-- do not close folds;
-- multi-coordinate moves or a wall-snapping step;
-- multiple starts with an answer-key-free selector.
-
-Compare on saved validation starts against current correction, measuring quality against time. Report model-alone results alongside (D45). No retraining or final-test use.
+Await the user's choice above. If option 1: predeclare quality-correction-v2 with step allocation by fold count and fold-count changes, on the same saved starts.
 
 ## Runtime
 
