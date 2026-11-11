@@ -55,6 +55,7 @@ Status: **active** = in force; **amended** = in force with a later change noted;
 | D44 | Baseline merged to main; research branch workflow | active |
 | D45 | Keep D20 (model alone) as a separate open question beside the learning-assisted goal | active |
 | D46 | Aim for 100% quality; measure quality against time instead of fixing a threshold now | active |
+| D47 | Quality-seeking correction experiment (roadmap step 3) authorized | active |
 
 ## D01 — purpose and problem (agreed)
 
@@ -369,6 +370,10 @@ The original success question, D20 ("can the model alone output valid fold patte
 ## D46 — aim for 100% quality; measure, do not fix a threshold yet (user direction, 2026-11-07)
 
 The goal for fast methods is the answer key's quality (100%: valid, every crease on a wall, full opening). Do not choose a "good enough" threshold now. Measure quality against time and search effort for each method, then decide with evidence. Agent refinement, accepted with the direction: 100% is the aim, not a pass bar, so the key measurement is how fast each method approaches it.
+
+## D47 — quality-seeking correction experiment (user authorization, 2026-11-11)
+
+The user asked for the roadmap step 3 plan to be written and carried out. Plan frozen before the run: [quality-correction-v1](../experiments/quality-correction-v1/PLAN.md). Saved validation starts only; no training, new inference or final-test use; geometry rules unchanged.
 
 ## Open questions (unresolved; do not treat as decided)
 
