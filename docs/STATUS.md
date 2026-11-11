@@ -48,7 +48,7 @@ Two questions are tracked separately (D45):
 
 ## Latest result: a correction that aims for quality
 
-[Quality correction v1](../experiments/quality-correction-v1/REPORT.md) ([chart](https://claude.ai/artifact/L5NfP5iaYGtvLmSptkGUi8)), on the 768 validation answers. The new correction keeps working after a design fits: it opens folds wide, then brings every crease onto a wall.
+[Quality correction v1](../experiments/quality-correction-v1/REPORT.md) ([chart](https://claude.ai/artifact/GgDYBis95voobDyo6CMDHq)), on the 768 validation answers. The new correction keeps working after a design fits: it opens folds wide, then brings every crease onto a wall.
 
 | Pipeline | Valid | Quality | Time per answer |
 | --- | ---: | ---: | ---: |

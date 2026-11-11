@@ -1,6 +1,6 @@
 # Quality correction v1: report
 
-Plan frozen in [PLAN.md](PLAN.md) at commit `84da33d` before the run. 768 validation answers per start; saved starts from validation-v1; no training, no new model inference, final test untouched. Runner `scripts/run-quality-correction.js`, summary `scripts/report-quality-correction.js`, evidence in `results/` (`summary.json`, one `*.jsonl.gz` per start). Chart: https://claude.ai/artifact/L5NfP5iaYGtvLmSptkGUi8 (copy in `results/`).
+Plan frozen in [PLAN.md](PLAN.md) at commit `84da33d` before the run. 768 validation answers per start; saved starts from validation-v1; no training, no new model inference, final test untouched. Runner `scripts/run-quality-correction.js`, summary `scripts/report-quality-correction.js`, evidence in `results/` (`summary.json`, one `*.jsonl.gz` per start). Chart: https://claude.ai/artifact/GgDYBis95voobDyo6CMDHq (copy in `results/`).
 
 Quality = valid + 0 floating creases + opening ≥ 90% of the reference opening. Strict quality uses ≥ 99%.
 

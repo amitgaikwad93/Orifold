@@ -23,7 +23,7 @@ Snapshot: 2026-11-11. Accordion baseline merged to `main` (PR #2, tag `accordion
   - old correction: 91 / 37% (model), 88 / 46% (nearest);
   - model alone unchanged: 39 / 22%.
 - **Start bias check:** model starts are about 3° too closed on average (about 230 too closed vs 55 too open of 768); nearest starts have no lean.
-- **Pages:** chart https://claude.ai/artifact/L5NfP5iaYGtvLmSptkGUi8; diagnosis https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp
+- **Pages:** chart https://claude.ai/artifact/GgDYBis95voobDyo6CMDHq; diagnosis https://claude.ai/artifact/1SJ2m8NZVwz9s9Skv2YfEp
 - **Checks:** `npm test` 62/62.
 
 Earlier on this branch: correction-diagnosis-v1 (2026-11-07), docs pass, D45, D46; experiments D35–D44 with reports in `experiments/*/REPORT.md`.
